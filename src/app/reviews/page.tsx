@@ -1,22 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Star } from "lucide-react";
-import ScrollReveal from "@/components/ui/ScrollReveal";
 import { cn } from "@/lib/utils";
-
-type Review = {
-  id: string;
-  name: string;
-  country: string | null;
-  rating: number;
-  title: string | null;
-  content: string;
-  createdAt: string;
-};
+import { siteConfig } from "@/data/packages";
 
 export default function ReviewsPage() {
-  const [reviews, setReviews] = useState<Review[]>([]);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -27,34 +16,26 @@ export default function ReviewsPage() {
   });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
-  useEffect(() => {
-    fetch("/api/reviews")
-      .then((r) => r.json())
-      .then((data) => {
-        if (Array.isArray(data)) setReviews(data);
-      })
-      .catch(() => {});
-  }, []);
-
   const update = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
-    try {
-      const res = await fetch("/api/reviews", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, rating: Number(form.rating) }),
-      });
-      if (!res.ok) throw new Error("Failed");
-      setStatus("success");
-      setForm({ name: "", email: "", country: "", rating: 5, title: "", content: "" });
-    } catch {
-      setStatus("error");
-    }
+    const body = [
+      `New traveler review`,
+      `Name: ${form.name}`,
+      `Email: ${form.email}`,
+      `Country: ${form.country || "—"}`,
+      `Rating: ${form.rating}/5`,
+      `Title: ${form.title || "—"}`,
+      ``,
+      form.content,
+    ].join("\n");
+    window.location.href = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(body)}`;
+    setStatus("success");
+    setForm({ name: "", email: "", country: "", rating: 5, title: "", content: "" });
   };
 
   return (
@@ -74,52 +55,20 @@ export default function ReviewsPage() {
         <div className="max-w-[1600px] mx-auto grid lg:grid-cols-5 gap-12">
           <div className="lg:col-span-3 space-y-6">
             <h2 className="heading-sub text-brand-forest mb-2">Approved Reviews</h2>
-            {reviews.length === 0 ? (
-              <div className="p-10 border border-brand-sand-dark bg-brand-sand text-center">
-                <p className="body-text">
-                  No approved reviews yet. Be the first to share your experience
-                  after traveling with Kitum Cave Safaris. Reviews appear here
-                  after moderation — we never invent testimonials.
-                </p>
-              </div>
-            ) : (
-              reviews.map((review, i) => (
-                <ScrollReveal key={review.id} delay={i * 80}>
-                  <article className="p-6 md:p-8 bg-white border border-brand-sand-dark">
-                    <div className="flex items-center gap-1 mb-3">
-                      {Array.from({ length: 5 }).map((_, s) => (
-                        <Star
-                          key={s}
-                          size={16}
-                          className={cn(
-                            s < review.rating
-                              ? "fill-brand-terracotta text-brand-terracotta"
-                              : "text-brand-sand-dark"
-                          )}
-                        />
-                      ))}
-                    </div>
-                    {review.title && (
-                      <h3 className="font-serif text-xl text-brand-forest mb-2">
-                        {review.title}
-                      </h3>
-                    )}
-                    <p className="body-text text-sm mb-4">{review.content}</p>
-                    <p className="text-sm text-brand-charcoal/50">
-                      — {review.name}
-                      {review.country ? `, ${review.country}` : ""}
-                    </p>
-                  </article>
-                </ScrollReveal>
-              ))
-            )}
+            <div className="p-10 border border-brand-sand-dark bg-brand-sand text-center">
+              <p className="body-text">
+                No approved reviews yet. Be the first to share your experience
+                after traveling with Kitum Cave Safaris. Submit a review and our
+                team will publish it after moderation — we never invent testimonials.
+              </p>
+            </div>
           </div>
 
           <div className="lg:col-span-2">
             <div className="sticky top-28 border border-brand-sand-dark bg-white p-6 md:p-8">
               <h2 className="heading-sub text-brand-forest mb-2">Leave a Review</h2>
               <p className="text-sm text-brand-charcoal/60 mb-6">
-                Your review will be published after approval.
+                Your review opens on WhatsApp for our team to verify, then we publish it here.
               </p>
 
               {status === "success" ? (

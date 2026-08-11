@@ -43,3 +43,6 @@ prisma/dev.db-journal
 images/
 compressed kitum images/
 *.mp4
+
+# Static export output (upload contents of out/ to public_html)
+# Keep out/ local unless your host deploys from Git `out` folder

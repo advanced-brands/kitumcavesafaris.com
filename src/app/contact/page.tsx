@@ -29,21 +29,20 @@ export default function ContactPage() {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      if (!res.ok) throw new Error("Failed");
-      setStatus("success");
-      setForm({ name: "", email: "", phone: "", subject: "", message: "" });
-    } catch {
-      setStatus("error");
-    }
+    const body = [
+      `Contact form message from ${form.name}`,
+      `Email: ${form.email}`,
+      `Phone: ${form.phone || "—"}`,
+      `Subject: ${form.subject || "General inquiry"}`,
+      ``,
+      form.message,
+    ].join("\n");
+    window.location.href = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(body)}`;
+    setStatus("success");
+    setForm({ name: "", email: "", phone: "", subject: "", message: "" });
   };
 
   return (

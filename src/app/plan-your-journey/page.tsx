@@ -31,20 +31,25 @@ export default function PlanYourJourneyPage() {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
-    try {
-      const res = await fetch("/api/inquiries", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      if (!res.ok) throw new Error("Failed");
-      setStatus("success");
-    } catch {
-      setStatus("error");
-    }
+    const body = [
+      `Journey inquiry from ${form.name}`,
+      `Email: ${form.email}`,
+      `Phone: ${form.phone}`,
+      `WhatsApp: ${form.whatsapp || form.phone}`,
+      `Country: ${form.country}`,
+      `Preferred destination: ${form.preferredDest || "—"}`,
+      `Travel dates: ${form.travelDates || "—"}`,
+      `Travelers: ${form.travelers}`,
+      `Budget: ${form.budgetRange || "—"}`,
+      `Experience: ${form.experienceType || "—"}`,
+      ``,
+      form.message,
+    ].join("\n");
+    window.location.href = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(body)}`;
+    setStatus("success");
   };
 
   return (
