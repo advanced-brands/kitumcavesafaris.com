@@ -28,7 +28,7 @@ export const teamMembers: TeamMember[] = [
     name: "[TEAM MEMBER NAME]",
     role: "[ROLE — e.g., Senior Safari Guide]",
     bio: "[BIO — Brief description of this team member's role, expertise, and contribution to the company.]",
-    image: "/images/4A9A8594.jpg",
+    image: "/images/4A9A8592.jpg",
   },
   {
     id: "team-3",

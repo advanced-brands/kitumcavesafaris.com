@@ -39,9 +39,7 @@ prisma/dev.db-journal
 *.db
 *.db-journal
 
-# Large media (local only — too big for GitHub ~3.6GB)
+# Large media sources (site serves from public/images)
 images/
-public/images/**
-!public/images/
-!public/images/Logo.png
+compressed kitum images/
 *.mp4

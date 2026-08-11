@@ -172,9 +172,9 @@ export const packages: Package[] = [
     heroImage: "/images/4A9A9703.jpg",
     galleryImages: [
       "/images/4A9A9703.jpg",
-      "/images/4A9A9704.jpg",
       "/images/4A9A9707.jpg",
       "/images/4A9A9709.jpg",
+      "/images/4A9A9717.jpg",
     ],
     mapCoordinates: { lat: -0.2, lng: 30.0 },
     mapZoom: 9,
