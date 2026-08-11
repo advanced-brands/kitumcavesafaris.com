@@ -4,12 +4,8 @@ node_modules/
 # testing
 /coverage
 
-# next.js
+# next.js build cache (keep static export publish at root)
 .next/
-/out/
-
-# production
-/build
 
 # misc
 .DS_Store
@@ -39,10 +35,6 @@ prisma/dev.db-journal
 *.db
 *.db-journal
 
-# Large media sources (site serves from public/images)
-images/
+# Source photo dumps (site uses root /images from the static export)
 compressed kitum images/
 *.mp4
-
-# Static export output (upload contents of out/ to public_html)
-# Keep out/ local unless your host deploys from Git `out` folder

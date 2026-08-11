@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "export": "next build",
+    "build": "next build && node scripts/publish-to-root.js",
+    "export": "next build && node scripts/publish-to-root.js",
+    "publish:root": "node scripts/publish-to-root.js",
     "start": "next start",
     "lint": "next lint",
     "db:push": "prisma db push",

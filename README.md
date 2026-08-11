@@ -12,31 +12,28 @@ Premium tour & travel website for Kitum Cave Safaris Limited — Uganda-based jo
 
 ## Deploy to cPanel / public_html (static hosting)
 
-This project builds a **static site** into the `out/` folder.
+After `npm run build`, the site is published to the **project root**, including:
+
+```
+index.html          ← homepage (required by public_html)
+.htaccess
+_next/
+images/
+about/
+packages/
+...
+```
+
+Upload those root files into `public_html` (or push via Git with deploy root = repository root).
 
 ```bash
 npm install
 npm run build
 ```
 
-Then upload **the contents of `out/`** (not the project root) into `public_html`:
+Do **not** nest the site as `public_html/my-project/index.html`.
 
-```
-public_html/
-├── index.html          ← required at the root
-├── .htaccess
-├── images/
-├── about/
-├── packages/
-├── _next/
-└── ...
-```
-
-**Git deployment:** set the deploy/root directory to `out` (after build), not the repo root.
-
-Do **not** upload as `public_html/kitumcavesafaris.com/index.html` — that causes the 403 / missing homepage issue.
-
-> Note: Online payment APIs need Node.js hosting later. On static hosting, booking/contact forms open WhatsApp. Server API code is preserved under `server/api` for a future Node deploy.
+> Booking/contact forms open WhatsApp on static hosting. API code for future Node hosting lives in `server/api`.
 
 ## Environment
 
