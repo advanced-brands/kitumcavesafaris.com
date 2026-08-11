@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply bg-brand-cream text-brand-charcoal antialiased;
+  }
+
+  ::selection {
+    @apply bg-brand-terracotta/30 text-brand-forest;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-24;
+  }
+
+  .section-spacing {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+
+  .heading-display {
+    @apply font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium leading-[1.1] tracking-tight;
+  }
+
+  .heading-section {
+    @apply font-serif text-3xl md:text-4xl lg:text-5xl font-medium leading-tight tracking-tight;
+  }
+
+  .heading-sub {
+    @apply font-serif text-xl md:text-2xl font-medium leading-snug;
+  }
+
+  .body-large {
+    @apply text-lg md:text-xl leading-relaxed text-brand-charcoal/80;
+  }
+
+  .body-text {
+    @apply text-base leading-relaxed text-brand-charcoal/75;
+  }
+
+  .label-text {
+    @apply text-xs uppercase tracking-[0.2em] font-sans font-medium text-brand-terracotta;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-brand-forest text-brand-cream font-sans text-sm uppercase tracking-wider font-medium transition-all duration-300 hover:bg-brand-forest-light focus:outline-none focus:ring-2 focus:ring-brand-forest focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-3.5 border border-brand-forest text-brand-forest font-sans text-sm uppercase tracking-wider font-medium transition-all duration-300 hover:bg-brand-forest hover:text-brand-cream focus:outline-none focus:ring-2 focus:ring-brand-forest focus:ring-offset-2;
+  }
+
+  .btn-terracotta {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-brand-terracotta text-white font-sans text-sm uppercase tracking-wider font-medium transition-all duration-300 hover:bg-brand-terracotta-dark focus:outline-none focus:ring-2 focus:ring-brand-terracotta focus:ring-offset-2;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 bg-white border border-brand-sand-dark text-brand-charcoal placeholder:text-brand-charcoal/40 focus:outline-none focus:ring-2 focus:ring-brand-forest/30 focus:border-brand-forest transition-colors;
+  }
+
+  .textarea-field {
+    @apply w-full px-4 py-3 bg-white border border-brand-sand-dark text-brand-charcoal placeholder:text-brand-charcoal/40 focus:outline-none focus:ring-2 focus:ring-brand-forest/30 focus:border-brand-forest transition-colors resize-y min-h-[120px];
+  }
+
+  .select-field {
+    @apply w-full px-4 py-3 bg-white border border-brand-sand-dark text-brand-charcoal focus:outline-none focus:ring-2 focus:ring-brand-forest/30 focus:border-brand-forest transition-colors appearance-none;
+  }
+}
+
+/* Leaflet overrides */
+.leaflet-container {
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  z-index: 0;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 0;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f0e8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1b3d2f;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2a5a45;
+}

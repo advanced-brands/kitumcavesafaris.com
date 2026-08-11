@@ -1,0 +1,75 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Booking {
+  id                String   @id @default(cuid())
+  reference         String   @unique
+  fullName          String
+  email             String
+  phone             String
+  whatsapp          String?
+  country           String
+  travelers         Int
+  preferredDate     String
+  packageId         String
+  packageName       String
+  destination       String
+  specialRequests   String?
+  paymentType       String
+  amountPaid        Float
+  totalAmount       Float
+  currency          String   @default("USD")
+  remainingBalance  Float?
+  paymentStatus     String
+  transactionRef    String?
+  flutterwaveRef    String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model Inquiry {
+  id                String   @id @default(cuid())
+  name              String
+  email             String
+  phone             String
+  whatsapp          String?
+  country           String
+  preferredDest     String?
+  travelDates       String?
+  travelers         Int?
+  budgetRange       String?
+  experienceType    String?
+  message           String
+  status            String   @default("new")
+  createdAt         DateTime @default(now())
+}
+
+model Review {
+  id          String   @id @default(cuid())
+  name        String
+  email       String
+  country     String?
+  rating      Int
+  title       String?
+  content     String
+  packageId   String?
+  approved    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  subject   String?
+  message   String
+  status    String   @default("new")
+  createdAt DateTime @default(now())
+}
