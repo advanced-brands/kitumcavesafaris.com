@@ -21,41 +21,45 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative h-screen min-h-[600px] max-h-[1000px] flex items-end">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/4A9A7901.jpg"
-            alt="Mountain gorilla in Bwindi Impenetrable Forest, Uganda"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-forest/80 via-brand-forest/30 to-brand-forest/10" />
-        </div>
-        <div className="relative section-padding pb-20 md:pb-28 lg:pb-32 w-full max-w-[1600px] mx-auto">
-          <div className="max-w-3xl">
-            <p className="label-text !text-brand-terracotta-light mb-4 animate-fade-in">
-              Uganda &middot; East Africa &middot; Beyond
-            </p>
-            <h1 className="heading-display text-white mb-6 animate-slide-up">
-              Discover Africa.
-              <br />
-              <span className="text-brand-terracotta-light">
-                Experience More Than the Journey.
-              </span>
-            </h1>
-            <p className="body-large !text-white/80 max-w-xl mb-8 animate-slide-up" style={{ animationDelay: "0.2s" }}>
-              Kitum Cave Safaris creates memorable journeys through Uganda, East
-              Africa, and destinations beyond — crafted with local knowledge and
-              the care of people who know these landscapes intimately.
-            </p>
-            <div className="flex flex-wrap gap-4 animate-slide-up" style={{ animationDelay: "0.4s" }}>
-              <Link href="/packages/east-africa" className="btn-terracotta">
-                Explore Packages
-              </Link>
-              <Link href="/plan-your-journey" className="btn-secondary !border-white/40 !text-white hover:!bg-white hover:!text-brand-forest">
-                Plan Your Journey
-              </Link>
+      <section className="relative flex flex-col min-h-screen">
+        {/* Clear space under fixed nav */}
+        <div className="h-24 md:h-28 lg:h-32 shrink-0 bg-brand-cream" aria-hidden="true" />
+        <div className="relative flex-1 min-h-[520px] flex items-end">
+          <div className="absolute inset-0 overflow-hidden">
+            <Image
+              src="/images/4A9A7901.jpg"
+              alt="Mountain gorilla in Bwindi Impenetrable Forest, Uganda"
+              fill
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-forest/80 via-brand-forest/30 to-brand-forest/10" />
+          </div>
+          <div className="relative section-padding pb-20 md:pb-28 lg:pb-32 w-full max-w-[1600px] mx-auto">
+            <div className="max-w-3xl">
+              <p className="label-text !text-brand-terracotta-light mb-4 animate-fade-in">
+                Uganda &middot; East Africa &middot; Beyond
+              </p>
+              <h1 className="heading-display text-white mb-6 animate-slide-up">
+                Discover Africa.
+                <br />
+                <span className="text-brand-terracotta-light">
+                  Experience More Than the Journey.
+                </span>
+              </h1>
+              <p className="body-large !text-white/80 max-w-xl mb-8 animate-slide-up" style={{ animationDelay: "0.2s" }}>
+                Kitum Cave Safaris creates memorable journeys through Uganda, East
+                Africa, and destinations beyond — crafted with local knowledge and
+                the care of people who know these landscapes intimately.
+              </p>
+              <div className="flex flex-wrap gap-4 animate-slide-up" style={{ animationDelay: "0.4s" }}>
+                <Link href="/packages/east-africa" className="btn-terracotta">
+                  Explore Packages
+                </Link>
+                <Link href="/plan-your-journey" className="btn-secondary !border-white/40 !text-white hover:!bg-white hover:!text-brand-forest">
+                  Plan Your Journey
+                </Link>
+              </div>
             </div>
           </div>
         </div>

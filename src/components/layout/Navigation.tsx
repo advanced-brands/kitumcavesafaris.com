@@ -20,11 +20,9 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-  const isHome = pathname === "/";
-  const useLightText = isHome && !scrolled && !isOpen;
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -45,10 +43,8 @@ export default function Navigation() {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-          scrolled || !isHome
-            ? "bg-brand-cream/95 backdrop-blur-md shadow-sm py-3"
-            : "bg-transparent py-5"
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-brand-cream/95 backdrop-blur-md py-3",
+          scrolled && "shadow-sm"
         )}
       >
         <nav className="section-padding flex items-center justify-between max-w-[1600px] mx-auto">
@@ -68,12 +64,7 @@ export default function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={cn(
-                  "text-sm uppercase tracking-wider font-medium transition-colors duration-300",
-                  useLightText
-                    ? "text-white/90 hover:text-white"
-                    : "text-brand-charcoal/80 hover:text-brand-forest"
-                )}
+                className="text-sm uppercase tracking-wider font-medium transition-colors duration-300 text-brand-charcoal/80 hover:text-brand-forest"
               >
                 {link.label}
               </Link>
@@ -85,10 +76,7 @@ export default function Navigation() {
 
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={cn(
-              "lg:hidden relative z-50 p-2 transition-colors",
-              useLightText ? "text-white" : "text-brand-forest"
-            )}
+            className="lg:hidden relative z-50 p-2 transition-colors text-brand-forest"
             aria-label={isOpen ? "Close menu" : "Open menu"}
           >
             {isOpen ? <X size={28} /> : <Menu size={28} />}
