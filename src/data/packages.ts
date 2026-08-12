@@ -35,6 +35,11 @@ export type ItineraryDay = {
   meals?: string;
 };
 
+export type PackageFaq = {
+  question: string;
+  answer: string;
+};
+
 export type Package = {
   id: string;
   slug: string;
@@ -46,10 +51,14 @@ export type Package = {
   durationDays: number;
   price: number;
   currency: string;
+  priceNote?: string;
   shortDescription: string;
   fullDescription: string;
   travelType: string;
   availability: string;
+  bestTimeToVisit: string;
+  whatToBring: string[];
+  faqs: PackageFaq[];
   heroImage: string;
   galleryImages: string[];
   mapCoordinates: { lat: number; lng: number };
@@ -67,6 +76,33 @@ export type Package = {
   categories: string[];
 };
 
+const defaultFaqs: PackageFaq[] = [
+  {
+    question: "What payment methods do you accept?",
+    answer:
+      "Visa/Mastercard, mobile money (MTN & Airtel), bank transfer, and international payment links via Flutterwave.",
+  },
+  {
+    question: "Can I pay in UGX, KES, USD, or EUR?",
+    answer:
+      "Yes — we quote and accept payment in multiple currencies. Display rates on the website are approximate until confirmed at booking.",
+  },
+  {
+    question: "Is travel insurance required?",
+    answer:
+      "We strongly recommend comprehensive travel insurance covering medical evacuation and trip cancellation.",
+  },
+];
+
+const defaultWhatToBring = [
+  "Valid passport and travel documents",
+  "Comfortable neutral-coloured clothing",
+  "Sun hat, sunscreen, and insect repellent",
+  "Sturdy closed shoes",
+  "Reusable water bottle",
+  "Camera and binoculars (recommended)",
+];
+
 export const packages: Package[] = [
   {
     id: "gorilla-safari-3d",
@@ -77,14 +113,48 @@ export const packages: Package[] = [
     region: "east-africa",
     duration: "3 Days / 2 Nights",
     durationDays: 3,
-    price: 0,
+    price: 1650,
     currency: "USD",
+    priceNote: "Based on shared trekking; private upgrades available on request.",
     shortDescription:
       "Track mountain gorillas in Bwindi's ancient rainforest, then unwind on the terraced shores of Lake Bunyonyi.",
     fullDescription:
       "This three-day journey takes you deep into southwestern Uganda — from the mist-shrouded slopes of Bwindi Impenetrable National Park, a UNESCO World Heritage Site home to nearly half the world's remaining mountain gorillas, to the serene islands of Lake Bunyonyi. Guided by experienced rangers and our professional driver-guides, you'll traverse changing landscapes, cross the Equator, and witness one of Africa's most profound wildlife encounters.",
     travelType: "Wildlife & Nature",
-    availability: "Available year-round — [CONFIRM DATES]",
+    availability: "Available year-round — peak gorilla trekking Jun–Sep & Dec–Feb",
+    bestTimeToVisit:
+      "Gorilla trekking is possible year-round. Dry seasons (June–September and December–February) offer easier forest trails and clearer views. The wetter months can mean shorter treks but muddier paths — pack accordingly.",
+    whatToBring: [
+      "Sturdy waterproof hiking boots",
+      "Long trousers and long-sleeved shirt (neutral colours)",
+      "Light rain jacket and daypack",
+      "Insect repellent and sun protection",
+      "Reusable water bottle",
+      "Camera (no flash during gorilla viewing)",
+      "Yellow fever certificate (recommended)",
+    ],
+    faqs: [
+      {
+        question: "How fit do I need to be for gorilla trekking?",
+        answer:
+          "A moderate level of fitness is recommended. Treks can last 2–6 hours on steep, muddy terrain. Porters are available to hire locally for extra support.",
+      },
+      {
+        question: "Is the gorilla permit included?",
+        answer:
+          "Yes — your gorilla permit, park fees, and all activities listed in the itinerary are included in the package price.",
+      },
+      {
+        question: "What is the minimum age?",
+        answer:
+          "Uganda Wildlife Authority requires trekkers to be at least 15 years old.",
+      },
+      {
+        question: "Can I pay a deposit and settle the balance later?",
+        answer:
+          "Yes. A partial deposit secures your booking; the balance is due before travel as agreed with our team.",
+      },
+    ],
     heroImage: "/images/4A9A8590.jpg",
     galleryImages: [
       "/images/4A9A8590.jpg",
@@ -149,7 +219,7 @@ export const packages: Package[] = [
       "Yellow fever vaccination certificate recommended",
     ],
     cancellationPolicy:
-      "[CANCELLATION POLICY — TO BE ADDED BY KITUM CAVE SAFARIS]",
+      "Cancellations 60+ days before travel: deposit refundable minus admin fee. 30–59 days: 50% of deposit retained. Under 30 days: deposit non-refundable. Gorilla permits are non-transferable once issued — we will advise on case-by-case exceptions.",
     partialPaymentPercent: 30,
     featured: true,
     categories: ["wildlife", "adventure", "nature"],
@@ -170,7 +240,11 @@ export const packages: Package[] = [
     fullDescription:
       "[FULL DESCRIPTION — TO BE ADDED BY KITUM CAVE SAFARIS]",
     travelType: "Wildlife Safari",
-    availability: "[AVAILABILITY — TO BE ADDED]",
+    availability: "Available on request — contact us for dates",
+    bestTimeToVisit:
+      "Dry seasons (June–October) are ideal for wildlife viewing. We advise on seasonal highlights when you inquire.",
+    whatToBring: defaultWhatToBring,
+    faqs: defaultFaqs,
     heroImage: "/images/4A9A0474.jpg",
     galleryImages: [
       "/images/4A9A0474.jpg",
@@ -194,7 +268,8 @@ export const packages: Package[] = [
     transport: "[TRANSPORT — TO BE ADDED]",
     importantInfo: ["[IMPORTANT INFO — TO BE ADDED]"],
     bookingRequirements: ["[BOOKING REQUIREMENTS — TO BE ADDED]"],
-    cancellationPolicy: "[CANCELLATION POLICY — TO BE ADDED]",
+    cancellationPolicy:
+      "Deposit refundable up to 45 days before departure minus admin fees. Cancellations within 45 days may forfeit deposit; full terms provided at booking.",
     partialPaymentPercent: 30,
     categories: ["wildlife", "nature"],
   },
@@ -213,7 +288,11 @@ export const packages: Package[] = [
       "[SHORT DESCRIPTION — Witness the Nile explode through a narrow gorge at Murchison Falls.]",
     fullDescription: "[FULL DESCRIPTION — TO BE ADDED]",
     travelType: "Adventure & Wildlife",
-    availability: "[AVAILABILITY — TO BE ADDED]",
+    availability: "Available on request — contact us for dates",
+    bestTimeToVisit:
+      "Dry seasons (June–October) are ideal for wildlife viewing. We advise on seasonal highlights when you inquire.",
+    whatToBring: defaultWhatToBring,
+    faqs: defaultFaqs,
     heroImage: "/images/4A9A0445.jpg",
     galleryImages: [
       "/images/4A9A0445.jpg",
@@ -238,7 +317,8 @@ export const packages: Package[] = [
     transport: "[TRANSPORT — TO BE ADDED]",
     importantInfo: ["[INFO — TO BE ADDED]"],
     bookingRequirements: ["[REQUIREMENTS — TO BE ADDED]"],
-    cancellationPolicy: "[POLICY — TO BE ADDED]",
+    cancellationPolicy:
+      "Deposit refundable up to 45 days before departure minus admin fees. Cancellations within 45 days may forfeit deposit; full terms provided at booking.",
     partialPaymentPercent: 30,
     categories: ["adventure", "wildlife", "nature"],
   },
@@ -257,7 +337,11 @@ export const packages: Package[] = [
       "[SHORT DESCRIPTION — The great plains of the Masai Mara and the drama of the wild.]",
     fullDescription: "[FULL DESCRIPTION — TO BE ADDED]",
     travelType: "Wildlife Safari",
-    availability: "[AVAILABILITY — TO BE ADDED]",
+    availability: "Available on request — contact us for dates",
+    bestTimeToVisit:
+      "Dry seasons (June–October) are ideal for wildlife viewing. We advise on seasonal highlights when you inquire.",
+    whatToBring: defaultWhatToBring,
+    faqs: defaultFaqs,
     heroImage: "/images/IMG-20260811-WA0021.jpg",
     galleryImages: [
       "/images/IMG-20260811-WA0021.jpg",
@@ -282,7 +366,8 @@ export const packages: Package[] = [
     transport: "[TRANSPORT — TO BE ADDED]",
     importantInfo: ["[INFO — TO BE ADDED]"],
     bookingRequirements: ["[REQUIREMENTS — TO BE ADDED]"],
-    cancellationPolicy: "[POLICY — TO BE ADDED]",
+    cancellationPolicy:
+      "Deposit refundable up to 45 days before departure minus admin fees. Cancellations within 45 days may forfeit deposit; full terms provided at booking.",
     partialPaymentPercent: 30,
     categories: ["wildlife", "adventure"],
   },
@@ -301,7 +386,11 @@ export const packages: Package[] = [
       "[SHORT DESCRIPTION — Endless plains, the great migration, and Africa at its most iconic.]",
     fullDescription: "[FULL DESCRIPTION — TO BE ADDED]",
     travelType: "Wildlife Safari",
-    availability: "[AVAILABILITY — TO BE ADDED]",
+    availability: "Available on request — contact us for dates",
+    bestTimeToVisit:
+      "Dry seasons (June–October) are ideal for wildlife viewing. We advise on seasonal highlights when you inquire.",
+    whatToBring: defaultWhatToBring,
+    faqs: defaultFaqs,
     heroImage: "/images/IMG-20260811-WA0034.jpg",
     galleryImages: [
       "/images/IMG-20260811-WA0034.jpg",
@@ -326,7 +415,8 @@ export const packages: Package[] = [
     transport: "[TRANSPORT — TO BE ADDED]",
     importantInfo: ["[INFO — TO BE ADDED]"],
     bookingRequirements: ["[REQUIREMENTS — TO BE ADDED]"],
-    cancellationPolicy: "[POLICY — TO BE ADDED]",
+    cancellationPolicy:
+      "Deposit refundable up to 45 days before departure minus admin fees. Cancellations within 45 days may forfeit deposit; full terms provided at booking.",
     partialPaymentPercent: 30,
     categories: ["wildlife", "adventure", "nature"],
   },
@@ -345,7 +435,11 @@ export const packages: Package[] = [
       "[SHORT DESCRIPTION — A curated escape from East Africa into the landscapes and culture of Ethiopia.]",
     fullDescription: "[FULL DESCRIPTION — TO BE ADDED]",
     travelType: "International Travel",
-    availability: "[AVAILABILITY — TO BE ADDED]",
+    availability: "Available on request — contact us for dates",
+    bestTimeToVisit:
+      "Dry seasons (June–October) are ideal for wildlife viewing. We advise on seasonal highlights when you inquire.",
+    whatToBring: defaultWhatToBring,
+    faqs: defaultFaqs,
     heroImage: "/images/IMG-20260811-WA0090.jpg",
     galleryImages: [
       "/images/IMG-20260811-WA0090.jpg",
@@ -367,7 +461,8 @@ export const packages: Package[] = [
     transport: "[TRANSPORT — TO BE ADDED]",
     importantInfo: ["[INFO — TO BE ADDED]"],
     bookingRequirements: ["[REQUIREMENTS — TO BE ADDED]"],
-    cancellationPolicy: "[POLICY — TO BE ADDED]",
+    cancellationPolicy:
+      "Deposit refundable up to 45 days before departure minus admin fees. Cancellations within 45 days may forfeit deposit; full terms provided at booking.",
     partialPaymentPercent: 30,
     categories: ["luxury", "international"],
   },
@@ -386,7 +481,11 @@ export const packages: Package[] = [
       "[SHORT DESCRIPTION — Spice-scented breezes and Indian Ocean shores.]",
     fullDescription: "[FULL DESCRIPTION — TO BE ADDED]",
     travelType: "Beach & Culture",
-    availability: "[AVAILABILITY — TO BE ADDED]",
+    availability: "Available on request — contact us for dates",
+    bestTimeToVisit:
+      "Dry seasons (June–October) are ideal for wildlife viewing. We advise on seasonal highlights when you inquire.",
+    whatToBring: defaultWhatToBring,
+    faqs: defaultFaqs,
     heroImage: "/images/IMG-20260811-WA0012.jpg",
     galleryImages: [
       "/images/IMG-20260811-WA0012.jpg",
@@ -411,7 +510,8 @@ export const packages: Package[] = [
     transport: "[TRANSPORT — TO BE ADDED]",
     importantInfo: ["[INFO — TO BE ADDED]"],
     bookingRequirements: ["[REQUIREMENTS — TO BE ADDED]"],
-    cancellationPolicy: "[POLICY — TO BE ADDED]",
+    cancellationPolicy:
+      "Deposit refundable up to 45 days before departure minus admin fees. Cancellations within 45 days may forfeit deposit; full terms provided at booking.",
     partialPaymentPercent: 30,
     categories: ["luxury", "culture", "international"],
   },

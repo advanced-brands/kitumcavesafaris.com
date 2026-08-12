@@ -81,8 +81,7 @@ function EastAfricaContent() {
             <h2 className="heading-sub text-brand-forest">Destination Map</h2>
           </ScrollReveal>
           <OverviewMap
-            height="450px"
-            className="border border-brand-sand-dark"
+            className="border border-brand-sand-dark rounded-sm"
             filterCountry={
               countryFilter
                 ? destinationSummary.find((d) => d.slug === countryFilter)?.country

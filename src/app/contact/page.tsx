@@ -204,8 +204,7 @@ export default function ContactPage() {
             lng={siteConfig.location.lng}
             zoom={14}
             label={siteConfig.location.name}
-            height="450px"
-            className="border border-brand-sand-dark"
+            className="border border-brand-sand-dark rounded-sm"
           />
         </div>
       </section>

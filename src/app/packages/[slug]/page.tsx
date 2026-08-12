@@ -1,12 +1,17 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { Clock, MapPin, Check, X, Calendar } from "lucide-react";
+import { Clock, MapPin, Check, X, Calendar, Luggage, Sun } from "lucide-react";
 import { getPackageBySlug, packages } from "@/data/packages";
+import { getReviewsForPackage } from "@/data/reviews";
 import { formatCurrency } from "@/lib/utils";
 import DestinationMap from "@/components/maps/DestinationMap";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import ItineraryAccordion from "@/components/packages/ItineraryAccordion";
+import PackageFaqs from "@/components/packages/PackageFaqs";
+import CurrencyDisplay from "@/components/pricing/CurrencyDisplay";
+import PaymentOptions from "@/components/payments/PaymentOptions";
+import ReviewCard from "@/components/reviews/ReviewCard";
 
 export async function generateStaticParams() {
   return packages.map((pkg) => ({ slug: pkg.slug }));
@@ -44,6 +49,7 @@ export default async function PackageDetailPage({
     pkg.price > 0
       ? Math.round(pkg.price * (pkg.partialPaymentPercent / 100))
       : 0;
+  const packageReviews = getReviewsForPackage(slug);
 
   return (
     <>
@@ -154,7 +160,7 @@ export default async function PackageDetailPage({
                       {formatCurrency(pkg.price, pkg.currency)}
                     </dd>
                     <p className="text-xs text-brand-charcoal/50 mt-1">
-                      Partial payment from{" "}
+                      per person · deposit{" "}
                       {formatCurrency(partialAmount, pkg.currency)} (
                       {pkg.partialPaymentPercent}%)
                     </p>
@@ -253,12 +259,12 @@ export default async function PackageDetailPage({
         </div>
       </section>
 
-      {/* Map */}
-      <section className="section-padding section-spacing">
+      {/* Map — compact on mobile */}
+      <section className="section-padding section-spacing bg-brand-sand/50">
         <div className="max-w-[1600px] mx-auto">
-          <ScrollReveal className="mb-8">
-            <p className="label-text mb-4">Location</p>
-            <h2 className="heading-section text-brand-forest">
+          <ScrollReveal className="mb-6">
+            <p className="label-text mb-2">Location</p>
+            <h2 className="heading-section text-brand-forest text-2xl md:text-3xl">
               Destination Map
             </h2>
           </ScrollReveal>
@@ -267,11 +273,98 @@ export default async function PackageDetailPage({
             lng={pkg.mapCoordinates.lng}
             zoom={pkg.mapZoom}
             label={pkg.destination}
-            height="450px"
-            className="border border-brand-sand-dark"
+            className="border border-brand-sand-dark rounded-sm"
           />
         </div>
       </section>
+
+      {/* Best time & packing */}
+      <section className="section-padding section-spacing">
+        <div className="max-w-[1600px] mx-auto grid md:grid-cols-2 gap-10 md:gap-12">
+          <ScrollReveal>
+            <div className="flex items-center gap-2 mb-4">
+              <Sun size={22} className="text-brand-terracotta" />
+              <h3 className="heading-sub text-brand-forest">Best Time to Visit</h3>
+            </div>
+            <p className="text-sm md:text-base text-brand-charcoal/80 leading-relaxed">
+              {pkg.bestTimeToVisit}
+            </p>
+          </ScrollReveal>
+          <ScrollReveal delay={150}>
+            <div className="flex items-center gap-2 mb-4">
+              <Luggage size={22} className="text-brand-terracotta" />
+              <h3 className="heading-sub text-brand-forest">What to Bring</h3>
+            </div>
+            <ul className="space-y-2">
+              {pkg.whatToBring.map((item) => (
+                <li
+                  key={item}
+                  className="flex items-start gap-2 text-sm text-brand-charcoal/80"
+                >
+                  <Check size={14} className="text-brand-forest shrink-0 mt-0.5" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Pricing & payments */}
+      <section className="section-padding section-spacing bg-brand-sand">
+        <div className="max-w-[1600px] mx-auto grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
+          <ScrollReveal>
+            <p className="label-text mb-2">Pricing</p>
+            <h2 className="heading-section text-brand-forest mb-4">Clear Pricing</h2>
+            <CurrencyDisplay amountUsd={pkg.price} />
+            {pkg.priceNote && (
+              <p className="text-sm text-brand-charcoal/60 mt-4">{pkg.priceNote}</p>
+            )}
+            {pkg.price > 0 && (
+              <p className="text-sm text-brand-charcoal/60 mt-3">
+                Secure with a {pkg.partialPaymentPercent}% deposit (
+                {formatCurrency(partialAmount, pkg.currency)}) — balance due before
+                travel.
+              </p>
+            )}
+          </ScrollReveal>
+          <ScrollReveal delay={150}>
+            <PaymentOptions compact />
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* FAQs */}
+      <section className="section-padding section-spacing">
+        <div className="max-w-[900px] mx-auto">
+          <ScrollReveal className="mb-8">
+            <p className="label-text mb-2">FAQs</p>
+            <h2 className="heading-section text-brand-forest">
+              Frequently Asked Questions
+            </h2>
+          </ScrollReveal>
+          <PackageFaqs faqs={pkg.faqs} />
+        </div>
+      </section>
+
+      {/* Traveler reviews for this package */}
+      {packageReviews.length > 0 && (
+        <section className="section-padding section-spacing bg-brand-forest">
+          <div className="max-w-[1600px] mx-auto">
+            <ScrollReveal className="mb-8">
+              <p className="label-text !text-brand-terracotta mb-2">Reviews</p>
+              <h2 className="heading-section text-white">What Travelers Say</h2>
+            </ScrollReveal>
+            <div className="grid md:grid-cols-2 gap-4 md:gap-6">
+              {packageReviews.map((review, i) => (
+                <ScrollReveal key={review.id} delay={i * 100}>
+                  <ReviewCard review={review} />
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Important Info */}
       <section className="section-padding section-spacing bg-brand-sand">

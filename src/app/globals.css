@@ -135,3 +135,12 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #2a5a45;
 }
+
+/* Gallery flipbook — clean spread, no spine blur/shadow */
+.gallery-flipbook .stf__shadow,
+.gallery-flipbook .stf__hardShadow,
+.gallery-flipbook .stf__pageShadow,
+.gallery-flipbook .stf__outerShadow {
+  display: none !important;
+  opacity: 0 !important;
+}

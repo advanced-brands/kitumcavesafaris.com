@@ -15,8 +15,8 @@ export default function GalleryPage() {
 
   return (
     <>
-      <section className="relative bg-brand-forest pt-28 md:pt-32 pb-8 md:pb-10">
-        <div className="section-padding max-w-[1600px] mx-auto">
+      <section className="relative bg-brand-forest pt-24 sm:pt-28 md:pt-32 pb-6 md:pb-8">
+        <div className="section-padding max-w-[1720px] mx-auto">
           <p className="label-text !text-brand-terracotta mb-3">Gallery</p>
           <h1 className="heading-display text-white mb-3">
             Moments From the Journey
@@ -26,7 +26,7 @@ export default function GalleryPage() {
             quiet details that stay with you.
           </p>
 
-          <div className="mt-6 md:mt-8 flex flex-wrap gap-2">
+          <div className="mt-5 md:mt-7 flex flex-wrap gap-2">
             {galleryCategories.map((cat) => (
               <button
                 key={cat.id}
@@ -46,8 +46,8 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      <section className="relative bg-[#f3eee6] py-6 sm:py-8 md:py-10">
-        <div className="mx-auto w-full max-w-[1680px] px-2 sm:px-4 md:px-6">
+      <section className="relative bg-brand-cream py-4 sm:py-6 md:py-8 min-h-[70vh]">
+        <div className="mx-auto w-full max-w-[1720px] px-1 sm:px-3 md:px-5">
           <GalleryCoverflow key={filter} items={filtered} />
         </div>
       </section>

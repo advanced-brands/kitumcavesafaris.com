@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import type { Icon } from "leaflet";
 import { packages } from "@/data/packages";
+import { cn } from "@/lib/utils";
 
 const MapContainer = dynamic(
   () => import("react-leaflet").then((mod) => mod.MapContainer),
@@ -25,12 +26,18 @@ const Popup = dynamic(
 type OverviewMapProps = {
   className?: string;
   height?: string;
+  /** Mobile-first responsive heights via Tailwind classes */
+  responsive?: boolean;
   filterCountry?: string;
 };
 
+export const mapHeightClasses =
+  "h-[220px] sm:h-[260px] md:h-[300px] lg:h-[340px]";
+
 export default function OverviewMap({
   className = "",
-  height = "500px",
+  height = "340px",
+  responsive = true,
   filterCountry,
 }: OverviewMapProps) {
   const [mounted, setMounted] = useState(false);
@@ -71,14 +78,25 @@ export default function OverviewMap({
   if (!mounted || !icon) {
     return (
       <div
-        className={`bg-brand-sand animate-pulse ${className}`}
-        style={{ height }}
+        className={cn(
+          "bg-brand-sand animate-pulse",
+          responsive ? mapHeightClasses : "",
+          className
+        )}
+        style={responsive ? undefined : { height }}
       />
     );
   }
 
   return (
-    <div className={`relative overflow-hidden ${className}`} style={{ height }}>
+    <div
+      className={cn(
+        "relative overflow-hidden",
+        responsive ? mapHeightClasses : "",
+        className
+      )}
+      style={responsive ? undefined : { height }}
+    >
       <MapContainer
         center={[0.5, 33.0]}
         zoom={5}

@@ -4,7 +4,10 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Package, siteConfig } from "@/data/packages";
+import { paymentMethods } from "@/data/payments";
 import { formatCurrency } from "@/lib/utils";
+import CurrencyDisplay from "@/components/pricing/CurrencyDisplay";
+import PaymentOptions from "@/components/payments/PaymentOptions";
 
 type Props = {
   pkg: Package;
@@ -21,6 +24,7 @@ export default function BookClient({ pkg }: Props) {
     preferredDate: "",
     specialRequests: "",
     paymentType: "partial" as "partial" | "full",
+    paymentMethod: "card" as string,
   });
 
   const totalAmount = pkg.price > 0 ? pkg.price * form.travelers : 0;
@@ -64,6 +68,7 @@ export default function BookClient({ pkg }: Props) {
       `Travelers: ${form.travelers}`,
       `Preferred date: ${form.preferredDate}`,
       `Payment preference: ${paymentLabel}`,
+      `Payment method: ${paymentMethods.find((m) => m.id === form.paymentMethod)?.name ?? form.paymentMethod}`,
       amountLine,
       form.specialRequests ? `Special requests: ${form.specialRequests}` : "",
     ]
@@ -147,6 +152,32 @@ export default function BookClient({ pkg }: Props) {
               </div>
 
               <fieldset>
+                <legend className="text-sm font-medium text-brand-forest mb-4">Preferred Payment Method *</legend>
+                <div className="grid sm:grid-cols-2 gap-3">
+                  {paymentMethods.map((method) => (
+                    <label
+                      key={method.id}
+                      className={`cursor-pointer border p-4 transition-colors text-sm ${
+                        form.paymentMethod === method.id
+                          ? "border-brand-forest bg-brand-sand"
+                          : "border-brand-sand-dark bg-white"
+                      }`}
+                    >
+                      <input
+                        type="radio"
+                        name="paymentMethod"
+                        value={method.id}
+                        checked={form.paymentMethod === method.id}
+                        onChange={update}
+                        className="sr-only"
+                      />
+                      <span className="block font-medium text-brand-forest">{method.name}</span>
+                    </label>
+                  ))}
+                </div>
+              </fieldset>
+
+              <fieldset>
                 <legend className="text-sm font-medium text-brand-forest mb-4">Payment Preference *</legend>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <label className={`cursor-pointer border p-5 transition-colors ${form.paymentType === "partial" ? "border-brand-forest bg-brand-sand" : "border-brand-sand-dark bg-white"}`}>
@@ -178,8 +209,9 @@ export default function BookClient({ pkg }: Props) {
             </form>
           </div>
 
-          <aside className="lg:col-span-2">
-            <div className="sticky top-28 border border-brand-sand-dark bg-white overflow-hidden">
+          <aside className="lg:col-span-2 space-y-6">
+            <div className="sticky top-24 space-y-6">
+            <div className="border border-brand-sand-dark bg-white overflow-hidden">
               <div className="relative aspect-[16/10]">
                 <Image src={pkg.heroImage} alt={pkg.name} fill className="object-cover" />
               </div>
@@ -191,7 +223,20 @@ export default function BookClient({ pkg }: Props) {
                 <Link href={`/packages/${pkg.slug}/`} className="text-sm text-brand-terracotta hover:underline">
                   ← Back to package details
                 </Link>
+                {pkg.price > 0 && (
+                  <div className="mt-5 pt-5 border-t border-brand-sand-dark">
+                    <CurrencyDisplay amountUsd={pkg.price} />
+                    <p className="text-xs text-brand-charcoal/50 mt-3">
+                      Total for {form.travelers} traveler{form.travelers > 1 ? "s" : ""}:{" "}
+                      {formatCurrency(totalAmount, pkg.currency)}
+                    </p>
+                  </div>
+                )}
               </div>
+            </div>
+            <div className="border border-brand-sand-dark bg-brand-sand p-5">
+              <PaymentOptions compact />
+            </div>
             </div>
           </aside>
         </div>

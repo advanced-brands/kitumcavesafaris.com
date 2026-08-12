@@ -12,6 +12,8 @@ import PackageCard from "@/components/packages/PackageCard";
 import BlogCard from "@/components/blog/BlogCard";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import OverviewMap from "@/components/maps/OverviewMap";
+import { reviews, getAverageRating } from "@/data/reviews";
+import ReviewCard from "@/components/reviews/ReviewCard";
 
 export default function HomePage() {
   const featuredPackages = packages.filter((p) => p.featured);
@@ -213,7 +215,7 @@ export default function HomePage() {
             </p>
           </ScrollReveal>
           <ScrollReveal delay={200}>
-            <OverviewMap height="500px" className="border border-brand-sand-dark" />
+            <OverviewMap className="border border-brand-sand-dark rounded-sm" />
           </ScrollReveal>
         </div>
       </section>
@@ -254,6 +256,34 @@ export default function HomePage() {
           </div>
         </section>
       )}
+
+      {/* Traveler reviews */}
+      <section className="section-padding section-spacing bg-brand-sand">
+        <div className="max-w-[1600px] mx-auto">
+          <ScrollReveal className="text-center mb-10 md:mb-12">
+            <p className="label-text mb-3">Reviews</p>
+            <h2 className="heading-section text-brand-forest mb-3">
+              Trusted by Travelers
+            </h2>
+            <p className="body-text max-w-xl mx-auto">
+              {getAverageRating()}★ average from verified Google, TripAdvisor, and
+              booking reviews.
+            </p>
+          </ScrollReveal>
+          <div className="grid md:grid-cols-3 gap-4 md:gap-6">
+            {reviews.slice(0, 3).map((review, i) => (
+              <ScrollReveal key={review.id} delay={i * 80}>
+                <ReviewCard review={review} />
+              </ScrollReveal>
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <Link href="/reviews" className="btn-secondary">
+              Read All Reviews
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* Blog Preview */}
       <section className="section-padding section-spacing">

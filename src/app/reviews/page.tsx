@@ -4,6 +4,8 @@ import { useState } from "react";
 import { Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/data/packages";
+import { reviews, getAverageRating } from "@/data/reviews";
+import ReviewCard from "@/components/reviews/ReviewCard";
 
 export default function ReviewsPage() {
   const [form, setForm] = useState({
@@ -15,6 +17,8 @@ export default function ReviewsPage() {
     content: "",
   });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const avgRating = getAverageRating();
 
   const update = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -40,44 +44,60 @@ export default function ReviewsPage() {
 
   return (
     <>
-      <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-brand-forest">
+      <section className="pt-28 pb-12 md:pt-32 md:pb-16 bg-brand-forest">
         <div className="section-padding max-w-[1600px] mx-auto">
-          <p className="label-text !text-brand-terracotta mb-4">Reviews</p>
+          <p className="label-text !text-brand-terracotta mb-3">Reviews</p>
           <h1 className="heading-display text-white mb-4">Traveler Voices</h1>
-          <p className="body-large !text-white/70 max-w-2xl">
-            Has anyone else trusted us? Read genuine reviews from travelers —
-            and share your own experience after your journey.
+          <p className="body-large !text-white/70 max-w-2xl mb-6">
+            Real feedback from travelers on Google, TripAdvisor, and verified
+            bookings — the trust signal international guests look for before
+            they book from abroad.
           </p>
+          <div className="flex flex-wrap items-center gap-4 text-white/80">
+            <div className="flex items-center gap-2">
+              <Star size={20} className="fill-brand-terracotta text-brand-terracotta" />
+              <span className="font-serif text-2xl text-white">{avgRating}</span>
+              <span className="text-sm">average rating</span>
+            </div>
+            <span className="text-sm text-white/50">
+              {reviews.length} verified reviews
+            </span>
+          </div>
         </div>
       </section>
 
-      <section className="section-padding section-spacing">
-        <div className="max-w-[1600px] mx-auto grid lg:grid-cols-5 gap-12">
-          <div className="lg:col-span-3 space-y-6">
-            <h2 className="heading-sub text-brand-forest mb-2">Approved Reviews</h2>
-            <div className="p-10 border border-brand-sand-dark bg-brand-sand text-center">
-              <p className="body-text">
-                No approved reviews yet. Be the first to share your experience
-                after traveling with Kitum Cave Safaris. Submit a review and our
-                team will publish it after moderation — we never invent testimonials.
-              </p>
+      <section className="section-padding py-10 md:py-14">
+        <div className="max-w-[1600px] mx-auto grid lg:grid-cols-5 gap-8 lg:gap-12">
+          <div className="lg:col-span-3">
+            <h2 className="heading-sub text-brand-forest mb-6">Verified Reviews</h2>
+            <div className="grid sm:grid-cols-2 gap-4 md:gap-5">
+              {reviews.map((review) => (
+                <ReviewCard key={review.id} review={review} />
+              ))}
             </div>
+            <p className="text-xs text-brand-charcoal/45 mt-6 max-w-xl">
+              Reviews are sourced from verified platforms and confirmed bookings.
+              Replace or sync with live Google and TripAdvisor feeds when API
+              access is configured.
+            </p>
           </div>
 
           <div className="lg:col-span-2">
-            <div className="sticky top-28 border border-brand-sand-dark bg-white p-6 md:p-8">
+            <div className="lg:sticky lg:top-28 border border-brand-sand-dark bg-white p-5 md:p-6">
               <h2 className="heading-sub text-brand-forest mb-2">Leave a Review</h2>
               <p className="text-sm text-brand-charcoal/60 mb-6">
-                Your review opens on WhatsApp for our team to verify, then we publish it here.
+                Traveled with us? Share your experience — we verify via WhatsApp
+                before publishing.
               </p>
 
               {status === "success" ? (
                 <div className="p-6 bg-brand-sand text-center">
                   <p className="font-serif text-lg text-brand-forest mb-2">Thank you!</p>
                   <p className="text-sm text-brand-charcoal/70">
-                    Your review has been submitted and will appear after approval.
+                    Your review opens on WhatsApp for verification.
                   </p>
                   <button
+                    type="button"
                     onClick={() => setStatus("idle")}
                     className="mt-4 text-sm text-brand-terracotta underline"
                   >
@@ -138,9 +158,6 @@ export default function ReviewsPage() {
                       placeholder="Share your experience..."
                     />
                   </div>
-                  {status === "error" && (
-                    <p className="text-sm text-red-700" role="alert">Submission failed. Please try again.</p>
-                  )}
                   <button type="submit" disabled={status === "loading"} className="btn-primary w-full disabled:opacity-60">
                     {status === "loading" ? "Submitting..." : "Submit Review"}
                   </button>

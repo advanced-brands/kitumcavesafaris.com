@@ -46,7 +46,7 @@ function InternationalContent() {
 
       <section className="section-padding pb-24">
         <div className="max-w-[1600px] mx-auto">
-          <OverviewMap height="450px" className="border border-brand-sand-dark" />
+          <OverviewMap className="border border-brand-sand-dark rounded-sm" />
         </div>
       </section>
     </>

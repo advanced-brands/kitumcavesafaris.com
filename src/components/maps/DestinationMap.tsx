@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import type { Icon } from "leaflet";
+import { cn } from "@/lib/utils";
 
 const MapContainer = dynamic(
   () => import("react-leaflet").then((mod) => mod.MapContainer),
@@ -28,7 +29,11 @@ type DestinationMapProps = {
   label?: string;
   className?: string;
   height?: string;
+  responsive?: boolean;
 };
+
+export const destinationMapHeightClasses =
+  "h-[200px] sm:h-[240px] md:h-[280px] lg:h-[320px]";
 
 export default function DestinationMap({
   lat,
@@ -36,7 +41,8 @@ export default function DestinationMap({
   zoom = 8,
   label,
   className = "",
-  height = "400px",
+  height = "320px",
+  responsive = true,
 }: DestinationMapProps) {
   const [mounted, setMounted] = useState(false);
   const [icon, setIcon] = useState<Icon | null>(null);
@@ -70,14 +76,25 @@ export default function DestinationMap({
   if (!mounted || !icon) {
     return (
       <div
-        className={`bg-brand-sand animate-pulse ${className}`}
-        style={{ height }}
+        className={cn(
+          "bg-brand-sand animate-pulse",
+          responsive ? destinationMapHeightClasses : "",
+          className
+        )}
+        style={responsive ? undefined : { height }}
       />
     );
   }
 
   return (
-    <div className={`relative overflow-hidden ${className}`} style={{ height }}>
+    <div
+      className={cn(
+        "relative overflow-hidden",
+        responsive ? destinationMapHeightClasses : "",
+        className
+      )}
+      style={responsive ? undefined : { height }}
+    >
       <MapContainer
         center={[lat, lng]}
         zoom={zoom}
