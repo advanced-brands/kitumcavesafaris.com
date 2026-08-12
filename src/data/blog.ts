@@ -50,7 +50,7 @@ Gorilla trekking directly supports conservation. A portion of every permit fee f
     date: "2026-03-01",
     category: "Wildlife",
     readingTime: 5,
-    featuredImage: "/images/4A9A7901.jpg",
+    featuredImage: "/images/4A9A8590.jpg",
     relatedSlugs: ["queen-elizabeth-wildlife", "responsible-tourism-east-africa"],
   },
   {
@@ -84,7 +84,7 @@ Queen Elizabeth combines well with gorilla trekking in Bwindi (approximately 3-4
     date: "2026-02-15",
     category: "Destination Guides",
     readingTime: 4,
-    featuredImage: "/images/4A9A9703.jpg",
+    featuredImage: "/images/4A9A0474.jpg",
     relatedSlugs: ["mountain-gorillas-uganda", "best-time-visit-uganda"],
   },
   {
@@ -130,7 +130,7 @@ Most international visitors arrive through Entebbe International Airport, approx
     date: "2026-02-01",
     category: "Travel Tips",
     readingTime: 4,
-    featuredImage: "/images/4A9A8221.jpg",
+    featuredImage: "/images/4A9A8457.jpg",
     relatedSlugs: ["mountain-gorillas-uganda", "responsible-tourism-east-africa"],
   },
   {

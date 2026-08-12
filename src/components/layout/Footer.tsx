@@ -22,41 +22,19 @@ function WhatsAppIcon({ className }: { className?: string }) {
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
-  const companyLinks = [
-    { href: "/about", label: "About" },
-    { href: "/packages/east-africa", label: "Packages" },
-    { href: "/gallery", label: "Gallery" },
-    { href: "/blog", label: "Blog" },
-    { href: "/contact", label: "Contact" },
-  ];
-
-  const travelLinks = [
-    { href: "/packages/east-africa", label: "East Africa" },
-    { href: "/packages/international", label: "International" },
-    { href: "/plan-your-journey", label: "Plan Your Journey" },
-    { href: "/packages/east-africa", label: "Booking" },
-  ];
-
-  const supportLinks = [
-    { href: "/plan-your-journey", label: "Inquiry" },
-    { href: "/contact", label: "Contact" },
-    { href: "/faq", label: "FAQs" },
-    { href: "/reviews", label: "Reviews" },
-  ];
-
   return (
     <footer className="bg-brand-forest text-brand-cream">
       <div className="section-padding section-spacing max-w-[1600px] mx-auto">
-        <div className="grid grid-cols-3 lg:grid-cols-5 gap-x-4 gap-y-10 sm:gap-x-6 sm:gap-y-12 lg:gap-8">
-          <div className="col-span-3 lg:col-span-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
+          <div className="lg:col-span-2">
             <Image
               src="/images/Logo.png"
               alt="Kitum Cave Safaris"
               width={180}
               height={90}
-              className="h-14 sm:h-16 w-auto mb-5 sm:mb-6 brightness-0 invert"
+              className="h-16 w-auto mb-6 brightness-0 invert"
             />
-            <p className="text-brand-cream/70 body-text text-sm sm:text-base max-w-sm mb-5 sm:mb-6">
+            <p className="text-brand-cream/70 body-text max-w-sm mb-6">
               Curated travel experiences across Uganda, East Africa, and beyond.
               Authentic journeys crafted with local knowledge and premium care.
             </p>
@@ -100,16 +78,20 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="min-w-0">
-            <h4 className="label-text !text-brand-terracotta mb-4 sm:mb-6 text-[10px] sm:text-xs">
-              Company
-            </h4>
-            <ul className="space-y-2.5 sm:space-y-3">
-              {companyLinks.map((link) => (
+          <div>
+            <h4 className="label-text !text-brand-terracotta mb-6">Company</h4>
+            <ul className="space-y-3">
+              {[
+                { href: "/about", label: "About" },
+                { href: "/packages/east-africa", label: "Packages" },
+                { href: "/gallery", label: "Gallery" },
+                { href: "/blog", label: "Blog" },
+                { href: "/contact", label: "Contact" },
+              ].map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-xs sm:text-sm text-brand-cream/70 hover:text-brand-cream transition-colors"
+                    className="text-sm text-brand-cream/70 hover:text-brand-cream transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -118,16 +100,19 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="min-w-0">
-            <h4 className="label-text !text-brand-terracotta mb-4 sm:mb-6 text-[10px] sm:text-xs">
-              Travel
-            </h4>
-            <ul className="space-y-2.5 sm:space-y-3">
-              {travelLinks.map((link) => (
+          <div>
+            <h4 className="label-text !text-brand-terracotta mb-6">Travel</h4>
+            <ul className="space-y-3">
+              {[
+                { href: "/packages/east-africa", label: "East Africa" },
+                { href: "/packages/international", label: "International" },
+                { href: "/plan-your-journey", label: "Plan Your Journey" },
+                { href: "/packages/east-africa", label: "Booking" },
+              ].map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-xs sm:text-sm text-brand-cream/70 hover:text-brand-cream transition-colors"
+                    className="text-sm text-brand-cream/70 hover:text-brand-cream transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -136,16 +121,19 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="min-w-0">
-            <h4 className="label-text !text-brand-terracotta mb-4 sm:mb-6 text-[10px] sm:text-xs">
-              Support
-            </h4>
-            <ul className="space-y-2.5 sm:space-y-3">
-              {supportLinks.map((link) => (
+          <div>
+            <h4 className="label-text !text-brand-terracotta mb-6">Support</h4>
+            <ul className="space-y-3">
+              {[
+                { href: "/plan-your-journey", label: "Inquiry" },
+                { href: "/contact", label: "Contact" },
+                { href: "/faq", label: "FAQs" },
+                { href: "/reviews", label: "Reviews" },
+              ].map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-xs sm:text-sm text-brand-cream/70 hover:text-brand-cream transition-colors"
+                    className="text-sm text-brand-cream/70 hover:text-brand-cream transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -155,11 +143,11 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-brand-cream/10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-          <p className="text-xs sm:text-sm text-brand-cream/50">
+        <div className="mt-16 pt-8 border-t border-brand-cream/10 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-sm text-brand-cream/50">
             &copy; {currentYear} Kitum Cave Safaris Limited. All rights reserved.
           </p>
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-6 text-xs sm:text-sm text-brand-cream/50">
+          <div className="flex items-center gap-6 text-sm text-brand-cream/50">
             <span>{siteConfig.email}</span>
             <span>{siteConfig.phone}</span>
           </div>

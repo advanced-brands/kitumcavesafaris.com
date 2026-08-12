@@ -13,7 +13,7 @@ export const teamMembers: TeamMember[] = [
     name: "[FOUNDER NAME]",
     role: "Founder & Managing Director",
     bio: "[FOUNDER BIO — Share the story behind Kitum Cave Safaris. What inspired the company? What experience and passion drives the journeys you create? This is where visitors learn who they are trusting with their travel dreams.]",
-    image: "/images/4A9A8591.jpg",
+    image: "/images/4A9A8457.jpg",
     isFounder: true,
   },
   {
@@ -21,21 +21,21 @@ export const teamMembers: TeamMember[] = [
     name: "[TEAM MEMBER NAME]",
     role: "[ROLE — e.g., Head of Operations]",
     bio: "[BIO — Brief description of this team member's role, expertise, and contribution to the company.]",
-    image: "/images/4A9A8592.jpg",
+    image: "/images/IMG-20260811-WA0047.jpg",
   },
   {
     id: "team-2",
     name: "[TEAM MEMBER NAME]",
     role: "[ROLE — e.g., Senior Safari Guide]",
     bio: "[BIO — Brief description of this team member's role, expertise, and contribution to the company.]",
-    image: "/images/4A9A8592.jpg",
+    image: "/images/IMG-20260811-WA0078.jpg",
   },
   {
     id: "team-3",
     name: "[TEAM MEMBER NAME]",
     role: "[ROLE — e.g., Travel Consultant]",
     bio: "[BIO — Brief description of this team member's role, expertise, and contribution to the company.]",
-    image: "/images/4A9A8605.jpg",
+    image: "/images/IMG-20260811-WA0088.jpg",
   },
 ];
 

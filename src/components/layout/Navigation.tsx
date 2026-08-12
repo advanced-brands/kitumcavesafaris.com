@@ -4,13 +4,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, X, MapPin } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/packages/east-africa", label: "East African Packages" },
-  { href: "/packages/international", label: "Outside East Africa" },
+  { href: "/packages/east-africa", label: "East Africa" },
+  { href: "/packages/international", label: "International" },
   { href: "/gallery", label: "Gallery" },
   { href: "/contact", label: "Contact" },
   { href: "/blog", label: "Blog" },
@@ -22,7 +22,7 @@ export default function Navigation() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => setScrolled(window.scrollY > 16);
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -39,75 +39,102 @@ export default function Navigation() {
     };
   }, [isOpen]);
 
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
+
   return (
     <>
-      <header
-        className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-brand-cream/95 backdrop-blur-md py-3",
-          scrolled && "shadow-sm"
-        )}
-      >
-        <nav className="section-padding flex items-center justify-between max-w-[1600px] mx-auto">
-          <Link href="/" className="relative z-50 shrink-0">
+      <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-4 sm:px-6 sm:pt-5 md:px-8 pointer-events-none">
+        <nav
+          className={cn("nav-floating", scrolled && "nav-floating-scrolled")}
+          aria-label="Main navigation"
+        >
+          <Link href="/" className="relative z-50 shrink-0 pl-1">
             <Image
               src="/images/Logo.png"
               alt="Kitum Cave Safaris"
-              width={160}
-              height={80}
-              className="h-12 md:h-14 w-auto"
+              width={140}
+              height={70}
+              className="h-9 w-auto sm:h-10 md:h-11"
               priority
             />
           </Link>
 
-          <div className="hidden lg:flex items-center gap-8 xl:gap-10">
+          <div className="hidden min-w-0 flex-1 items-center justify-center gap-5 xl:gap-7 lg:flex">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm uppercase tracking-wider font-medium transition-colors duration-300 text-brand-charcoal/80 hover:text-brand-forest"
+                className={cn(
+                  "nav-floating-link",
+                  isActive(link.href) && "nav-floating-link-active"
+                )}
               >
                 {link.label}
               </Link>
             ))}
-            <Link href="/plan-your-journey" className="btn-terracotta !py-2.5 !px-6 !text-xs">
-              Plan Your Journey
+          </div>
+
+          <div className="hidden shrink-0 items-center gap-3 lg:flex">
+            <span className="h-5 w-px bg-brand-forest/15" aria-hidden="true" />
+            <Link href="/plan-your-journey" className="nav-floating-cta">
+              <MapPin size={15} strokeWidth={2.25} />
+              Plan Journey
             </Link>
           </div>
 
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden relative z-50 p-2 transition-colors text-brand-forest"
+            className="lg:hidden relative z-50 ml-auto rounded-full p-2 text-brand-forest transition-colors hover:bg-brand-forest/5"
             aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isOpen}
           >
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
+            {isOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </nav>
       </header>
 
       <div
         className={cn(
-          "fixed inset-0 z-40 bg-brand-cream transition-all duration-500 lg:hidden",
+          "fixed inset-0 z-40 flex items-center justify-center bg-brand-forest/20 backdrop-blur-sm transition-all duration-500 lg:hidden",
           isOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
         )}
+        onClick={() => setIsOpen(false)}
+        aria-hidden={!isOpen}
       >
-        <div className="flex flex-col items-center justify-center h-full gap-8 px-8">
-          {navLinks.map((link) => (
+        <div
+          className={cn(
+            "mx-4 w-full max-w-sm rounded-[2rem] border border-white/60 bg-brand-cream/95 p-8 shadow-[0_24px_64px_rgba(27,61,47,0.18)] backdrop-blur-xl transition-all duration-500",
+            isOpen ? "scale-100 opacity-100" : "scale-95 opacity-0"
+          )}
+          onClick={(e) => e.stopPropagation()}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mobile navigation"
+        >
+          <div className="flex flex-col items-center gap-5">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                className={cn(
+                  "font-serif text-2xl text-brand-forest transition-colors hover:text-brand-terracotta",
+                  isActive(link.href) && "text-brand-terracotta"
+                )}
+              >
+                {link.label}
+              </Link>
+            ))}
             <Link
-              key={link.href}
-              href={link.href}
+              href="/plan-your-journey"
               onClick={() => setIsOpen(false)}
-              className="font-serif text-2xl md:text-3xl text-brand-forest hover:text-brand-terracotta transition-colors"
+              className="nav-floating-cta mt-2 px-6 py-3"
             >
-              {link.label}
+              <MapPin size={16} strokeWidth={2.25} />
+              Plan Your Journey
             </Link>
-          ))}
-          <Link
-            href="/plan-your-journey"
-            onClick={() => setIsOpen(false)}
-            className="btn-terracotta mt-4"
-          >
-            Plan Your Journey
-          </Link>
+          </div>
         </div>
       </div>
     </>

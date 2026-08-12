@@ -21,13 +21,10 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative flex flex-col min-h-screen">
-        {/* Clear space under fixed nav */}
-        <div className="h-24 md:h-28 lg:h-32 shrink-0 bg-brand-cream" aria-hidden="true" />
-        <div className="relative flex-1 min-h-[520px] flex items-end">
+      <section className="relative min-h-screen flex items-end">
           <div className="absolute inset-0 overflow-hidden">
             <Image
-              src="/images/4A9A7901.jpg"
+              src="/images/4A9A8590.jpg"
               alt="Mountain gorilla in Bwindi Impenetrable Forest, Uganda"
               fill
               className="object-cover"
@@ -35,7 +32,7 @@ export default function HomePage() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-brand-forest/80 via-brand-forest/30 to-brand-forest/10" />
           </div>
-          <div className="relative section-padding pb-20 md:pb-28 lg:pb-32 w-full max-w-[1600px] mx-auto">
+          <div className="relative section-padding pb-20 md:pb-28 lg:pb-32 pt-28 md:pt-32 w-full max-w-[1600px] mx-auto">
             <div className="max-w-3xl">
               <p className="label-text !text-brand-terracotta-light mb-4 animate-fade-in">
                 Uganda &middot; East Africa &middot; Beyond
@@ -62,7 +59,6 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-        </div>
       </section>
 
       {/* Trust / Introduction */}
@@ -293,8 +289,8 @@ export default function HomePage() {
       <section className="relative py-24 md:py-32">
         <div className="absolute inset-0">
           <Image
-            src="/images/4A9A8221.jpg"
-            alt="East African savanna landscape at golden hour"
+            src="/images/IMG-20260811-WA0034.jpg"
+            alt="African elephants with Mount Kilimanjaro in the background, Amboseli"
             fill
             className="object-cover"
           />

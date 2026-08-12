@@ -79,6 +79,26 @@
     @apply w-full px-4 py-3 bg-white border border-brand-sand-dark text-brand-charcoal placeholder:text-brand-charcoal/40 focus:outline-none focus:ring-2 focus:ring-brand-forest/30 focus:border-brand-forest transition-colors;
   }
 
+  .nav-floating {
+    @apply pointer-events-auto mx-auto flex w-full max-w-6xl items-center justify-between gap-3 rounded-full border border-white/60 bg-brand-cream/70 px-3 py-2 shadow-[0_8px_32px_rgba(27,61,47,0.1)] backdrop-blur-xl backdrop-saturate-150 transition-all duration-500 sm:px-5 sm:py-2.5 md:gap-4 md:px-6 md:py-3;
+  }
+
+  .nav-floating-scrolled {
+    @apply border-white/70 bg-brand-cream/90 shadow-[0_12px_40px_rgba(27,61,47,0.14)];
+  }
+
+  .nav-floating-link {
+    @apply whitespace-nowrap text-[13px] font-medium text-brand-forest/75 transition-colors duration-300 hover:text-brand-forest;
+  }
+
+  .nav-floating-link-active {
+    @apply text-brand-forest;
+  }
+
+  .nav-floating-cta {
+    @apply inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-brand-forest px-4 py-2 text-xs font-medium text-brand-cream transition-all duration-300 hover:bg-brand-forest-light sm:px-5 sm:py-2.5 sm:text-sm;
+  }
+
   .textarea-field {
     @apply w-full px-4 py-3 bg-white border border-brand-sand-dark text-brand-charcoal placeholder:text-brand-charcoal/40 focus:outline-none focus:ring-2 focus:ring-brand-forest/30 focus:border-brand-forest transition-colors resize-y min-h-[120px];
   }
