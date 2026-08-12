@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { siteConfig } from "@/data/packages";
 import { Menu, X, MapPin } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -50,29 +49,15 @@ export default function Navigation() {
           className={cn("nav-floating", scrolled && "nav-floating-scrolled")}
           aria-label="Main navigation"
         >
-          <Link
-            href="/"
-            aria-label={`${siteConfig.name} home`}
-            className="relative z-50 flex min-w-0 shrink-0 items-center gap-2 sm:gap-2.5 group"
-          >
-            <span className="relative flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-full bg-brand-cream shadow-[0_0_0_1px_rgba(27,61,47,0.14)] sm:h-9 sm:w-9">
-              <Image
-                src="/images/Logo.png"
-                alt=""
-                width={72}
-                height={72}
-                className="h-[118%] w-[118%] object-cover object-center"
-                priority
-              />
-            </span>
-            <span className="min-w-0 leading-none">
-              <span className="block truncate font-serif text-[13px] text-brand-forest transition-colors group-hover:text-brand-terracotta sm:text-[15px] md:text-base">
-                {siteConfig.name}
-              </span>
-              <span className="mt-0.5 hidden text-[9px] uppercase tracking-[0.16em] text-brand-forest/45 sm:block">
-                Limited
-              </span>
-            </span>
+          <Link href="/" className="relative z-50 shrink-0 pl-1">
+            <Image
+              src="/images/Logo.png"
+              alt="Kitum Cave Safaris"
+              width={140}
+              height={70}
+              className="h-9 w-auto sm:h-10 md:h-11"
+              priority
+            />
           </Link>
 
           <div className="hidden min-w-0 flex-1 items-center justify-center gap-5 xl:gap-7 lg:flex">
@@ -128,29 +113,6 @@ export default function Navigation() {
           aria-label="Mobile navigation"
         >
           <div className="flex flex-col items-center gap-5">
-            <Link
-              href="/"
-              onClick={() => setIsOpen(false)}
-              className="mb-2 flex items-center gap-3"
-            >
-              <span className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-full bg-brand-cream shadow-[0_0_0_2px_rgba(27,61,47,0.1)]">
-                <Image
-                  src="/images/Logo.png"
-                  alt=""
-                  width={96}
-                  height={96}
-                  className="h-[118%] w-[118%] object-cover object-center"
-                />
-              </span>
-              <span className="text-left">
-                <span className="block font-serif text-xl text-brand-forest">
-                  {siteConfig.name}
-                </span>
-                <span className="text-[10px] uppercase tracking-[0.18em] text-brand-forest/50">
-                  Limited
-                </span>
-              </span>
-            </Link>
             {navLinks.map((link) => (
               <Link
                 key={link.href}
