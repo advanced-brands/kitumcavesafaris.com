@@ -122,7 +122,7 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-brand-forest-dark"
+      className="relative isolate flex min-h-[94svh] flex-col overflow-hidden bg-brand-forest-dark"
       aria-label="Featured destinations"
     >
       {destinations.map((destination, index) => (
@@ -152,7 +152,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/25" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30" />
 
-      <div className="relative z-10 flex min-h-[100svh] flex-col justify-end px-4 pb-6 pt-24 sm:px-6 sm:pb-8 md:px-10 md:pb-10 lg:px-14">
+      <div className="relative z-10 flex min-h-[94svh] flex-col justify-end px-4 pb-6 pt-20 sm:px-6 sm:pb-8 md:px-10 md:pb-10 lg:px-14">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between lg:gap-10">
           <div
             key={current.id}
