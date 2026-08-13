@@ -79,7 +79,7 @@ export default function WhoWeAreSection() {
           </div>
 
           <div
-            className="who-we-are-cards-grid mt-8 lg:mt-10"
+            className="mt-8 grid grid-cols-2 gap-2 sm:gap-3 lg:mt-10 lg:grid-cols-4 lg:gap-4"
             onMouseLeave={() => setActive(0)}
           >
             {cards.map((card, index) => {

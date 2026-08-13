@@ -373,20 +373,6 @@
     @apply rounded-[1.75rem] bg-[#D8E8D4] px-3 py-6 sm:rounded-[2rem] sm:px-8 sm:py-10 lg:px-10 lg:py-12;
   }
 
-  .who-we-are-cards-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: clamp(0.5rem, 2.5vw, 1rem);
-    align-items: stretch;
-  }
-
-  @media (min-width: 768px) {
-    .who-we-are-cards-grid {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: clamp(0.35rem, 1.1vw, 1rem);
-    }
-  }
-
   .who-we-are-card {
     display: flex;
     min-height: clamp(11.5rem, 42vw, 18.5rem);
@@ -397,7 +383,7 @@
     transition: background-color 300ms ease, color 300ms ease;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     .who-we-are-card {
       min-height: clamp(13.5rem, 38vw, 18.5rem);
       padding: clamp(0.6rem, 1.6vw, 1.5rem);
@@ -409,7 +395,7 @@
     height: clamp(1rem, 3vw, 1.25rem);
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     .who-we-are-card-icon {
       width: clamp(0.9rem, 2.2vw, 1.25rem);
       height: clamp(0.9rem, 2.2vw, 1.25rem);
@@ -441,7 +427,7 @@
     color: #1b3d2f;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     .who-we-are-card-title {
       margin-top: clamp(0.45rem, 1.1vw, 1rem);
       font-size: clamp(0.68rem, 1.55vw, 1.0625rem);
@@ -461,7 +447,7 @@
     color: rgb(27 61 47 / 0.75);
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     .who-we-are-card-body {
       font-size: clamp(0.58rem, 1.25vw, 0.875rem);
       line-height: 1.45;
@@ -487,7 +473,7 @@
     transition: background-color 300ms ease, color 300ms ease;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     .who-we-are-card-cta {
       padding: clamp(0.35rem, 0.9vw, 0.625rem) clamp(0.55rem, 1.4vw, 1.25rem);
       font-size: clamp(0.52rem, 1.05vw, 0.875rem);
