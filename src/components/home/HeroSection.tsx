@@ -56,8 +56,8 @@ const destinations: HeroDestination[] = [
     location: "Kenya, East Africa",
     description:
       "Witness the Great Migration, golden savannah sunsets, and big cats on the legendary plains that define the African safari dream.",
-    image: "/images/IMG-20260811-WA0034.jpg",
-    alt: "Elephants with Mount Kilimanjaro in the background",
+    image: "/images/IMG-20260811-WA0069.jpg",
+    alt: "African elephant in the Masai Mara",
     href: "/packages/kenya-masai-mara-safari",
     objectPosition: "center center",
   },
@@ -67,8 +67,8 @@ const destinations: HeroDestination[] = [
     location: "Tanzania, East Africa",
     description:
       "Endless horizons, predator action, and the rhythm of the wild — the Serengeti is the heartbeat of East Africa's greatest safari country.",
-    image: "/images/IMG-20260811-WA0090.jpg",
-    alt: "Serengeti plains at golden hour",
+    image: "/images/IMG-20260811-WA0025.jpg",
+    alt: "Safari vehicle and giraffe on the Serengeti plains",
     href: "/packages/tanzania-serengeti-experience",
     objectPosition: "center center",
   },

@@ -79,7 +79,7 @@ export default function WhoWeAreSection() {
           </div>
 
           <div
-            className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:mt-10 lg:grid-cols-4"
+            className="who-we-are-cards-grid mt-8 lg:mt-10"
             onMouseLeave={() => setActive(0)}
           >
             {cards.map((card, index) => {
@@ -94,10 +94,12 @@ export default function WhoWeAreSection() {
                     isActive && "who-we-are-card--active"
                   )}
                   onMouseEnter={() => setActive(index)}
+                  onFocus={() => setActive(index)}
+                  onClick={() => setActive(index)}
                 >
                   <Icon
                     className={cn(
-                      "h-5 w-5 shrink-0",
+                      "who-we-are-card-icon shrink-0",
                       isActive ? "text-white/90" : "text-brand-forest"
                     )}
                     strokeWidth={1.75}

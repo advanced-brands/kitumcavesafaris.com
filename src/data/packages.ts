@@ -271,6 +271,7 @@ export const packages: Package[] = [
     cancellationPolicy:
       "Deposit refundable up to 45 days before departure minus admin fees. Cancellations within 45 days may forfeit deposit; full terms provided at booking.",
     partialPaymentPercent: 30,
+    featured: true,
     categories: ["wildlife", "nature"],
   },
   {
@@ -320,6 +321,7 @@ export const packages: Package[] = [
     cancellationPolicy:
       "Deposit refundable up to 45 days before departure minus admin fees. Cancellations within 45 days may forfeit deposit; full terms provided at booking.",
     partialPaymentPercent: 30,
+    featured: true,
     categories: ["adventure", "wildlife", "nature"],
   },
   {
@@ -553,8 +555,9 @@ export const experienceCategories = [
   {
     id: "adventure",
     title: "Adventure",
-    description: "White-water rafting, mountain trekking, cave exploration — for those who seek the extraordinary.",
-    image: "/images/4A9A7964.jpg",
+    description:
+      "Swim with dolphins, snorkel crystal reefs, raft the Nile, and trek volcanic peaks — bold experiences for travelers who want more than the view from the vehicle.",
+    image: "/images/IMG-20260811-WA0066.jpg",
   },
   {
     id: "culture",
@@ -571,8 +574,8 @@ export const experienceCategories = [
   {
     id: "luxury",
     title: "Luxury Escapes",
-    description: "Premium lodges, private guides, and journeys designed for comfort without compromising authenticity.",
-    image: "/images/IMG-20260811-WA0090.jpg",
+    description: "Premium lodges, private guides, and iconic settings — comfort woven into every horizon without losing authenticity.",
+    image: "/images/IMG-20260811-WA0016.jpg",
   },
   {
     id: "international",

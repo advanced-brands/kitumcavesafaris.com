@@ -2,13 +2,12 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   packages,
-  experienceCategories,
   getDestinationSummary,
   siteConfig,
 } from "@/data/packages";
 import { blogPosts } from "@/data/blog";
 import { teamMembers } from "@/data/team";
-import PackageCard from "@/components/packages/PackageCard";
+import FeaturedPackagesSection from "@/components/home/FeaturedPackagesSection";
 import BlogCard from "@/components/blog/BlogCard";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import OverviewMap from "@/components/maps/OverviewMap";
@@ -16,6 +15,7 @@ import { reviews } from "@/data/reviews";
 import ReviewsCarousel from "@/components/reviews/ReviewsCarousel";
 import HeroSection from "@/components/home/HeroSection";
 import WhoWeAreSection from "@/components/home/WhoWeAreSection";
+import ExperiencesSection from "@/components/home/ExperiencesSection";
 
 export default function HomePage() {
   const featuredPackages = packages.filter((p) => p.featured);
@@ -53,73 +53,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Experience Categories */}
-      <section className="section-padding section-spacing">
-        <div className="max-w-[1600px] mx-auto">
-          <ScrollReveal className="text-center mb-16">
-            <p className="label-text mb-4">Experiences</p>
-            <h2 className="heading-section text-brand-forest">
-              What Awaits You
-            </h2>
-          </ScrollReveal>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {experienceCategories.map((cat, i) => (
-              <ScrollReveal key={cat.id} delay={i * 100}>
-                <div className="group relative aspect-[4/5] overflow-hidden cursor-pointer">
-                  <Image
-                    src={cat.image}
-                    alt={cat.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-forest/90 via-brand-forest/30 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-                    <h3 className="font-serif text-2xl text-white mb-2">
-                      {cat.title}
-                    </h3>
-                    <p className="text-sm text-white/70 leading-relaxed line-clamp-3">
-                      {cat.description}
-                    </p>
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ExperiencesSection />
 
-      {/* Featured Packages */}
-      <section id="packages" className="section-padding section-spacing bg-brand-sand">
-        <div className="max-w-[1600px] mx-auto">
-          <ScrollReveal className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-            <div>
-              <p className="label-text mb-4">Featured Journeys</p>
-              <h2 className="heading-section text-brand-forest">
-                Curated Packages
-              </h2>
-            </div>
-            <Link
-              href="/packages/east-africa"
-              className="text-sm uppercase tracking-wider text-brand-terracotta hover:text-brand-terracotta-dark font-medium transition-colors"
-            >
-              View All Packages &rarr;
-            </Link>
-          </ScrollReveal>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredPackages.length > 0
-              ? featuredPackages.map((pkg, i) => (
-                  <ScrollReveal key={pkg.id} delay={i * 100}>
-                    <PackageCard pkg={pkg} />
-                  </ScrollReveal>
-                ))
-              : packages.slice(0, 3).map((pkg, i) => (
-                  <ScrollReveal key={pkg.id} delay={i * 100}>
-                    <PackageCard pkg={pkg} />
-                  </ScrollReveal>
-                ))}
-          </div>
-        </div>
-      </section>
+      <FeaturedPackagesSection
+        packages={
+          featuredPackages.length > 0
+            ? featuredPackages
+            : packages.slice(0, 6)
+        }
+      />
 
       {/* Map Section */}
       <section className="section-padding section-spacing">
