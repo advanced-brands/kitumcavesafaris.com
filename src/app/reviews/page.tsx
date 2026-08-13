@@ -3,8 +3,9 @@
 import { useState } from "react";
 import { Star } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { siteConfig } from "@/data/packages";
+import { openMailto } from "@/lib/mailto";
 import { reviews, getAverageRating } from "@/data/reviews";
+import ReviewsCarousel from "@/components/reviews/ReviewsCarousel";
 import ReviewCard from "@/components/reviews/ReviewCard";
 
 export default function ReviewsPage() {
@@ -37,7 +38,10 @@ export default function ReviewsPage() {
       ``,
       form.content,
     ].join("\n");
-    window.location.href = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(body)}`;
+    openMailto({
+      subject: "Traveler review — Kitum Cave Safaris",
+      body,
+    });
     setStatus("success");
     setForm({ name: "", email: "", country: "", rating: 5, title: "", content: "" });
   };
@@ -66,7 +70,14 @@ export default function ReviewsPage() {
         </div>
       </section>
 
-      <section className="section-padding py-10 md:py-14">
+      <ReviewsCarousel
+        reviews={reviews}
+        title="Traveler Experiences"
+        subtitle={`${avgRating}★ average from ${reviews.length} verified Google, TripAdvisor, and booking reviews.`}
+        showCta={false}
+      />
+
+      <section className="section-padding py-10 md:py-14 bg-brand-cream">
         <div className="max-w-[1600px] mx-auto grid lg:grid-cols-5 gap-8 lg:gap-12">
           <div className="lg:col-span-3">
             <h2 className="heading-sub text-brand-forest mb-6">Verified Reviews</h2>
@@ -86,7 +97,7 @@ export default function ReviewsPage() {
             <div className="lg:sticky lg:top-28 border border-brand-sand-dark bg-white p-5 md:p-6">
               <h2 className="heading-sub text-brand-forest mb-2">Leave a Review</h2>
               <p className="text-sm text-brand-charcoal/60 mb-6">
-                Traveled with us? Share your experience — we verify via WhatsApp
+                Traveled with us? Share your experience — we verify via email
                 before publishing.
               </p>
 
@@ -94,7 +105,7 @@ export default function ReviewsPage() {
                 <div className="p-6 bg-brand-sand text-center">
                   <p className="font-serif text-lg text-brand-forest mb-2">Thank you!</p>
                   <p className="text-sm text-brand-charcoal/70">
-                    Your review opens on WhatsApp for verification.
+                    Your review opens in your email app for verification.
                   </p>
                   <button
                     type="button"

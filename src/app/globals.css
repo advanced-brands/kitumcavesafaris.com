@@ -99,6 +99,137 @@
     @apply inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-brand-forest px-4 py-2 text-xs font-medium text-brand-cream transition-all duration-300 hover:bg-brand-forest-light sm:px-5 sm:py-2.5 sm:text-sm;
   }
 
+  .who-we-are-panel {
+    @apply rounded-[1.75rem] bg-[#D8E8D4] px-5 py-8 sm:rounded-[2rem] sm:px-8 sm:py-10 lg:px-10 lg:py-12;
+  }
+
+  .who-we-are-heading {
+    @apply font-sans text-[clamp(1.75rem,4vw,2.75rem)] font-bold leading-tight text-brand-forest;
+  }
+
+  .who-we-are-lead {
+    @apply font-sans text-sm leading-relaxed text-brand-forest/80 sm:text-[15px];
+  }
+
+  .who-we-are-header-cta {
+    @apply inline-flex items-center justify-center rounded-full bg-brand-forest px-6 py-3 font-sans text-sm font-medium text-white transition-colors duration-300 hover:bg-brand-forest-light;
+  }
+
+  .who-we-are-card {
+    @apply flex min-h-[17rem] flex-col rounded-[1.25rem] bg-[#C8DCC4] p-5 transition-colors duration-300 sm:min-h-[18.5rem] sm:p-6;
+  }
+
+  .who-we-are-card--active {
+    @apply bg-brand-forest;
+  }
+
+  .who-we-are-card-title {
+    @apply mt-4 font-sans text-base font-bold leading-snug text-brand-forest sm:text-[17px];
+  }
+
+  .who-we-are-card--active .who-we-are-card-title {
+    @apply text-white;
+  }
+
+  .who-we-are-card-body {
+    @apply mt-3 flex-1 font-sans text-sm leading-relaxed text-brand-forest/75;
+  }
+
+  .who-we-are-card--active .who-we-are-card-body {
+    @apply text-white/85;
+  }
+
+  .who-we-are-card-cta {
+    @apply inline-flex w-fit items-center justify-center rounded-full px-5 py-2.5 font-sans text-xs font-medium transition-colors duration-300 sm:text-sm;
+  }
+
+  .who-we-are-card-cta--default {
+    @apply bg-brand-forest text-white hover:bg-brand-forest-light;
+  }
+
+  .who-we-are-card-cta--active {
+    @apply bg-[#9AAD98] text-white hover:bg-[#8A9D88];
+  }
+
+  .hero-editorial-content {
+    animation: heroContentIn 700ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  .hero-editorial-title {
+    @apply font-display text-[clamp(2.75rem,10vw,5.5rem)] uppercase leading-[0.92] tracking-[0.02em] text-white;
+  }
+
+  .hero-editorial-body {
+    @apply font-sans text-sm leading-relaxed text-white/85 sm:text-[15px];
+  }
+
+  .hero-editorial-cta {
+    @apply items-center gap-3 rounded-full border border-white/50 bg-white/5 px-5 py-2.5 font-sans text-[11px] font-medium uppercase tracking-[0.18em] text-white backdrop-blur-sm transition-all duration-300 hover:border-white/80 hover:bg-white/10 sm:px-6 sm:py-3 sm:text-xs;
+  }
+
+  .hero-editorial-cta-dot {
+    @apply h-2 w-2 shrink-0 rounded-full bg-brand-terracotta;
+  }
+
+  .hero-editorial-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.65rem;
+    width: clamp(4.5rem, 20vw, 7.25rem);
+    height: clamp(7.5rem, 22svh, 13.5rem);
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: transform 300ms ease, box-shadow 300ms ease;
+  }
+
+  .hero-editorial-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  }
+
+  @media (min-width: 640px) {
+    .hero-editorial-card {
+      width: clamp(5rem, 14vw, 7.5rem);
+      height: clamp(8.5rem, 26svh, 14.5rem);
+      border-radius: 0.75rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero-editorial-card {
+      width: 7.5rem;
+      height: 15rem;
+    }
+  }
+
+  .hero-editorial-card-label {
+    @apply absolute inset-x-0 bottom-0 px-2 pb-2.5 pt-8 text-left font-sans text-[9px] font-semibold uppercase leading-tight tracking-[0.06em] text-white sm:px-2.5 sm:text-[10px];
+  }
+
+  .hero-ken-burns {
+    animation: heroKenBurns 10s ease-out forwards;
+  }
+
+  @keyframes heroContentIn {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes heroKenBurns {
+    from {
+      transform: scale(1.05);
+    }
+    to {
+      transform: scale(1.1);
+    }
+  }
+
   .textarea-field {
     @apply w-full px-4 py-3 bg-white border border-brand-sand-dark text-brand-charcoal placeholder:text-brand-charcoal/40 focus:outline-none focus:ring-2 focus:ring-brand-forest/30 focus:border-brand-forest transition-colors resize-y min-h-[120px];
   }

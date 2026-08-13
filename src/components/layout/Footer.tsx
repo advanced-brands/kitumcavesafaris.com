@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/data/packages";
-import { Instagram, Linkedin } from "lucide-react";
+import { Instagram, Linkedin, Mail } from "lucide-react";
 
 function XIcon({ className }: { className?: string }) {
   return (
@@ -110,6 +110,13 @@ export default function Footer() {
                 aria-label="WhatsApp"
               >
                 <WhatsAppIcon className="w-5 h-5" />
+              </a>
+              <a
+                href={`mailto:${siteConfig.email}`}
+                className="text-brand-cream/60 hover:text-brand-terracotta transition-colors"
+                aria-label="Email"
+              >
+                <Mail size={20} />
               </a>
             </div>
           </div>

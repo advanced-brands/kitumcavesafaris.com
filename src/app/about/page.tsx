@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { teamMembers, trustPoints } from "@/data/team";
-import ScrollReveal from "@/components/ui/ScrollReveal";
 import { siteConfig } from "@/data/packages";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "About Us",

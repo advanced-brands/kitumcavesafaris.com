@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { openMailto } from "@/lib/mailto";
 import { siteConfig } from "@/data/packages";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
@@ -38,7 +39,7 @@ export default function PlanYourJourneyPage() {
       `Journey inquiry from ${form.name}`,
       `Email: ${form.email}`,
       `Phone: ${form.phone}`,
-      `WhatsApp: ${form.whatsapp || form.phone}`,
+      `Alternate phone: ${form.whatsapp || form.phone}`,
       `Country: ${form.country}`,
       `Preferred destination: ${form.preferredDest || "—"}`,
       `Travel dates: ${form.travelDates || "—"}`,
@@ -48,7 +49,10 @@ export default function PlanYourJourneyPage() {
       ``,
       form.message,
     ].join("\n");
-    window.location.href = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(body)}`;
+    openMailto({
+      subject: "Journey inquiry — Kitum Cave Safaris",
+      body,
+    });
     setStatus("success");
   };
 
@@ -110,7 +114,7 @@ export default function PlanYourJourneyPage() {
                     <input id="phone" name="phone" required value={form.phone} onChange={update} className="input-field" />
                   </div>
                   <div>
-                    <label htmlFor="whatsapp" className="block text-sm font-medium text-brand-forest mb-2">WhatsApp</label>
+                    <label htmlFor="whatsapp" className="block text-sm font-medium text-brand-forest mb-2">Alternate Phone</label>
                     <input id="whatsapp" name="whatsapp" value={form.whatsapp} onChange={update} className="input-field" />
                   </div>
                 </div>

@@ -6,6 +6,7 @@ import { Mail, Phone, MapPin, Clock } from "lucide-react";
 import { siteConfig } from "@/data/packages";
 import DestinationMap from "@/components/maps/DestinationMap";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import { openMailto } from "@/lib/mailto";
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -40,7 +41,10 @@ export default function ContactPage() {
       ``,
       form.message,
     ].join("\n");
-    window.location.href = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(body)}`;
+    openMailto({
+      subject: form.subject || "Contact inquiry — Kitum Cave Safaris",
+      body,
+    });
     setStatus("success");
     setForm({ name: "", email: "", phone: "", subject: "", message: "" });
   };
@@ -182,7 +186,7 @@ export default function ContactPage() {
                   <textarea id="message" name="message" required minLength={10} value={form.message} onChange={update} className="textarea-field" />
                 </div>
                 {status === "error" && (
-                  <p className="text-sm text-red-700" role="alert">Something went wrong. Please try again or use WhatsApp.</p>
+                  <p className="text-sm text-red-700" role="alert">Something went wrong. Please try again or chat with us on WhatsApp.</p>
                 )}
                 <button type="submit" disabled={status === "loading"} className="btn-primary disabled:opacity-60">
                   {status === "loading" ? "Sending..." : "Send Message"}

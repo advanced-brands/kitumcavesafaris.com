@@ -140,7 +140,7 @@ export default function BookingForm({ pkg }: BookingFormProps) {
             </div>
             <div>
               <label className="block text-sm font-medium text-brand-charcoal mb-1">
-                WhatsApp
+                Alternate Phone
               </label>
               <input
                 type="tel"

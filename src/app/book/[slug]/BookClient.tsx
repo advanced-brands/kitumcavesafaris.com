@@ -3,10 +3,11 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Package, siteConfig } from "@/data/packages";
+import { Package } from "@/data/packages";
 import { paymentMethods } from "@/data/payments";
 import { formatCurrency } from "@/lib/utils";
 import CurrencyDisplay from "@/components/pricing/CurrencyDisplay";
+import { openMailto } from "@/lib/mailto";
 import PaymentOptions from "@/components/payments/PaymentOptions";
 
 type Props = {
@@ -63,7 +64,7 @@ export default function BookClient({ pkg }: Props) {
       `Name: ${form.fullName}`,
       `Email: ${form.email}`,
       `Phone: ${form.phone}`,
-      `WhatsApp: ${form.whatsapp || form.phone}`,
+      `Alternate phone: ${form.whatsapp || form.phone}`,
       `Country: ${form.country}`,
       `Travelers: ${form.travelers}`,
       `Preferred date: ${form.preferredDate}`,
@@ -75,7 +76,10 @@ export default function BookClient({ pkg }: Props) {
       .filter(Boolean)
       .join("\n");
 
-    window.location.href = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(message)}`;
+    openMailto({
+      subject: `Booking request — ${pkg.name}`,
+      body: message,
+    });
   };
 
   return (
@@ -116,7 +120,7 @@ export default function BookClient({ pkg }: Props) {
                 </div>
                 <div>
                   <label htmlFor="whatsapp" className="block text-sm font-medium text-brand-forest mb-2">
-                    WhatsApp Number
+                    Alternate Phone
                   </label>
                   <input id="whatsapp" name="whatsapp" value={form.whatsapp} onChange={update} className="input-field" />
                 </div>
@@ -200,11 +204,11 @@ export default function BookClient({ pkg }: Props) {
               </fieldset>
 
               <p className="text-sm text-brand-charcoal/60 bg-brand-sand border border-brand-sand-dark px-4 py-3">
-                On this hosting setup, booking requests open on WhatsApp so our team can confirm availability and send a secure payment link. Full online checkout activates when the site runs on Node.js hosting.
+                On this hosting setup, booking requests open in your email app so our team can confirm availability and send a secure payment link. Full online checkout activates when the site runs on Node.js hosting.
               </p>
 
               <button type="submit" className="btn-terracotta w-full">
-                Continue on WhatsApp
+                Continue by Email
               </button>
             </form>
           </div>

@@ -7,13 +7,15 @@ import {
   siteConfig,
 } from "@/data/packages";
 import { blogPosts } from "@/data/blog";
-import { teamMembers, trustPoints } from "@/data/team";
+import { teamMembers } from "@/data/team";
 import PackageCard from "@/components/packages/PackageCard";
 import BlogCard from "@/components/blog/BlogCard";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import OverviewMap from "@/components/maps/OverviewMap";
-import { reviews, getAverageRating } from "@/data/reviews";
-import ReviewCard from "@/components/reviews/ReviewCard";
+import { reviews } from "@/data/reviews";
+import ReviewsCarousel from "@/components/reviews/ReviewsCarousel";
+import HeroSection from "@/components/home/HeroSection";
+import WhoWeAreSection from "@/components/home/WhoWeAreSection";
 
 export default function HomePage() {
   const featuredPackages = packages.filter((p) => p.featured);
@@ -22,91 +24,9 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative min-h-screen flex items-end">
-          <div className="absolute inset-0 overflow-hidden">
-            <Image
-              src="/images/4A9A8590.jpg"
-              alt="Mountain gorilla in Bwindi Impenetrable Forest, Uganda"
-              fill
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-forest/80 via-brand-forest/30 to-brand-forest/10" />
-          </div>
-          <div className="relative section-padding pb-20 md:pb-28 lg:pb-32 pt-28 md:pt-32 w-full max-w-[1600px] mx-auto">
-            <div className="max-w-3xl">
-              <p className="label-text !text-brand-terracotta-light mb-4 animate-fade-in">
-                Uganda &middot; East Africa &middot; Beyond
-              </p>
-              <h1 className="heading-display text-white mb-6 animate-slide-up">
-                Discover Africa.
-                <br />
-                <span className="text-brand-terracotta-light">
-                  Experience More Than the Journey.
-                </span>
-              </h1>
-              <p className="body-large !text-white/80 max-w-xl mb-8 animate-slide-up" style={{ animationDelay: "0.2s" }}>
-                Kitum Cave Safaris creates memorable journeys through Uganda, East
-                Africa, and destinations beyond — crafted with local knowledge and
-                the care of people who know these landscapes intimately.
-              </p>
-              <div className="flex flex-wrap gap-4 animate-slide-up" style={{ animationDelay: "0.4s" }}>
-                <Link href="/packages/east-africa" className="btn-terracotta">
-                  Explore Packages
-                </Link>
-                <Link href="/plan-your-journey" className="btn-secondary !border-white/40 !text-white hover:!bg-white hover:!text-brand-forest">
-                  Plan Your Journey
-                </Link>
-              </div>
-            </div>
-          </div>
-      </section>
+      <HeroSection />
 
-      {/* Trust / Introduction */}
-      <section className="section-padding section-spacing bg-brand-cream">
-        <div className="max-w-[1600px] mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <ScrollReveal>
-              <p className="label-text mb-4">Who We Are</p>
-              <h2 className="heading-section text-brand-forest mb-6">
-                A travel company rooted in Uganda, connected to East Africa
-              </h2>
-              <p className="body-large mb-6">
-                Based in Kampala, Kitum Cave Safaris helps travelers discover
-                Uganda&apos;s rainforests and savannas, explore the wider East
-                African region, and venture to destinations across the world.
-              </p>
-              <p className="body-text mb-8">
-                We don&apos;t sell generic tours. Every journey is shaped around
-                what you want to experience — whether that&apos;s tracking
-                mountain gorillas at dawn, watching the sun set over the Masai
-                Mara, or discovering a city you&apos;ve never seen before.
-              </p>
-              <Link href="/about" className="btn-primary">
-                Meet Our Team
-              </Link>
-            </ScrollReveal>
-            <ScrollReveal direction="right" delay={200}>
-              <div className="grid grid-cols-2 gap-4">
-                {trustPoints.map((point, i) => (
-                  <div
-                    key={point.title}
-                    className={`p-6 bg-white border border-brand-sand-dark ${i === 0 ? "col-span-2" : ""}`}
-                  >
-                    <h3 className="font-serif text-lg text-brand-forest mb-2">
-                      {point.title}
-                    </h3>
-                    <p className="text-sm text-brand-charcoal/70 leading-relaxed">
-                      {point.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
+      <WhoWeAreSection />
 
       {/* Destination Summary */}
       <section className="section-padding py-12 bg-brand-forest">
@@ -169,7 +89,7 @@ export default function HomePage() {
       </section>
 
       {/* Featured Packages */}
-      <section className="section-padding section-spacing bg-brand-sand">
+      <section id="packages" className="section-padding section-spacing bg-brand-sand">
         <div className="max-w-[1600px] mx-auto">
           <ScrollReveal className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
             <div>
@@ -257,33 +177,9 @@ export default function HomePage() {
         </section>
       )}
 
-      {/* Traveler reviews */}
-      <section className="section-padding section-spacing bg-brand-sand">
-        <div className="max-w-[1600px] mx-auto">
-          <ScrollReveal className="text-center mb-10 md:mb-12">
-            <p className="label-text mb-3">Reviews</p>
-            <h2 className="heading-section text-brand-forest mb-3">
-              Trusted by Travelers
-            </h2>
-            <p className="body-text max-w-xl mx-auto">
-              {getAverageRating()}★ average from verified Google, TripAdvisor, and
-              booking reviews.
-            </p>
-          </ScrollReveal>
-          <div className="grid md:grid-cols-3 gap-4 md:gap-6">
-            {reviews.slice(0, 3).map((review, i) => (
-              <ScrollReveal key={review.id} delay={i * 80}>
-                <ReviewCard review={review} />
-              </ScrollReveal>
-            ))}
-          </div>
-          <div className="text-center mt-8">
-            <Link href="/reviews" className="btn-secondary">
-              Read All Reviews
-            </Link>
-          </div>
-        </div>
-      </section>
+      <div id="reviews">
+        <ReviewsCarousel reviews={reviews} />
+      </div>
 
       {/* Blog Preview */}
       <section className="section-padding section-spacing">
@@ -316,7 +212,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA */}
-      <section className="relative py-24 md:py-32">
+      <section id="contact-cta" className="relative py-24 md:py-32">
         <div className="absolute inset-0">
           <Image
             src="/images/IMG-20260811-WA0034.jpg"
