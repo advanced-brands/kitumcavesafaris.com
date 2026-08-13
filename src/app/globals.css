@@ -227,6 +227,148 @@
     background: white;
   }
 
+  .stories-guides-header {
+    max-width: 44rem;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .stories-guides-title {
+    font-family: var(--font-sans), system-ui, sans-serif;
+    font-size: clamp(1.85rem, 4vw, 2.35rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: rgb(27 61 47);
+  }
+
+  .stories-guides-lead {
+    margin-top: 0.85rem;
+    font-family: var(--font-sans), system-ui, sans-serif;
+    font-size: clamp(0.9rem, 1.5vw, 0.98rem);
+    line-height: 1.75;
+    color: rgb(27 61 47 / 0.58);
+  }
+
+  .stories-guides-cards {
+    display: grid;
+    gap: clamp(1rem, 2vw, 1.35rem);
+    margin-top: clamp(2rem, 4vw, 2.75rem);
+  }
+
+  @media (min-width: 768px) {
+    .stories-guides-cards {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  .stories-guides-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 0.35rem;
+    background: white;
+    box-shadow: 0 10px 30px rgb(27 61 47 / 0.05);
+  }
+
+  .stories-guides-card-image {
+    position: relative;
+    display: block;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+  }
+
+  .stories-guides-card-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: clamp(1rem, 2vw, 1.25rem);
+  }
+
+  .stories-guides-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-sans), system-ui, sans-serif;
+    font-size: 0.78rem;
+    color: rgb(27 61 47 / 0.45);
+  }
+
+  .stories-guides-card-headline {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.85rem;
+    align-items: start;
+    margin-top: 0.95rem;
+  }
+
+  .stories-guides-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 3.25rem;
+    padding: 0.45rem 0.55rem;
+    background: rgb(27 61 47);
+    color: white;
+    text-align: center;
+    line-height: 1.1;
+  }
+
+  .stories-guides-date-day {
+    font-family: var(--font-sans), system-ui, sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+
+  .stories-guides-date-month {
+    margin-top: 0.1rem;
+    font-family: var(--font-sans), system-ui, sans-serif;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .stories-guides-card-title {
+    font-family: var(--font-sans), system-ui, sans-serif;
+    font-size: clamp(0.98rem, 1.5vw, 1.05rem);
+    font-weight: 700;
+    line-height: 1.45;
+    color: rgb(27 61 47);
+  }
+
+  .stories-guides-card-title a {
+    transition: color 200ms ease;
+  }
+
+  .stories-guides-card-title a:hover {
+    color: rgb(196 99 59);
+  }
+
+  .stories-guides-card-excerpt {
+    margin-top: 0.85rem;
+    flex: 1;
+    font-family: var(--font-sans), system-ui, sans-serif;
+    font-size: 0.86rem;
+    line-height: 1.7;
+    color: rgb(27 61 47 / 0.58);
+  }
+
+  .stories-guides-read-more {
+    display: inline-flex;
+    margin-top: 1rem;
+    font-family: var(--font-sans), system-ui, sans-serif;
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: rgb(27 61 47);
+    transition: color 200ms ease;
+  }
+
+  .stories-guides-read-more:hover {
+    color: rgb(196 99 59);
+  }
+
   .who-we-are-panel {
     @apply rounded-[1.75rem] bg-[#D8E8D4] px-3 py-6 sm:rounded-[2rem] sm:px-8 sm:py-10 lg:px-10 lg:py-12;
   }

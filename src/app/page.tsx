@@ -8,7 +8,7 @@ import {
 import { blogPosts } from "@/data/blog";
 import { teamMembers } from "@/data/team";
 import FeaturedPackagesSection from "@/components/home/FeaturedPackagesSection";
-import BlogCard from "@/components/blog/BlogCard";
+import StoriesAndGuidesSection from "@/components/home/StoriesAndGuidesSection";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import OverviewMap from "@/components/maps/OverviewMap";
 import { reviews } from "@/data/reviews";
@@ -124,34 +124,7 @@ export default function HomePage() {
       </div>
 
       {/* Blog Preview */}
-      <section className="section-padding section-spacing">
-        <div className="max-w-[1600px] mx-auto">
-          <ScrollReveal className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-            <div>
-              <p className="label-text mb-4">From the Journal</p>
-              <h2 className="heading-section text-brand-forest">
-                Stories &amp; Guides
-              </h2>
-            </div>
-            <Link
-              href="/blog"
-              className="text-sm uppercase tracking-wider text-brand-terracotta hover:text-brand-terracotta-dark font-medium transition-colors"
-            >
-              Read All Articles &rarr;
-            </Link>
-          </ScrollReveal>
-          <ScrollReveal delay={100}>
-            <BlogCard post={blogPosts[0]} variant="featured" />
-          </ScrollReveal>
-          <div className="grid md:grid-cols-3 gap-6 mt-6">
-            {blogPosts.slice(1, 4).map((post, i) => (
-              <ScrollReveal key={post.id} delay={i * 100}>
-                <BlogCard post={post} />
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      <StoriesAndGuidesSection posts={blogPosts.slice(0, 3)} />
 
       {/* CTA */}
       <section id="contact-cta" className="relative py-24 md:py-32">
