@@ -375,24 +375,45 @@
 
   .who-we-are-cards-grid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: clamp(0.35rem, 1.1vw, 1rem);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(0.5rem, 2.5vw, 1rem);
     align-items: stretch;
+  }
+
+  @media (min-width: 768px) {
+    .who-we-are-cards-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: clamp(0.35rem, 1.1vw, 1rem);
+    }
   }
 
   .who-we-are-card {
     display: flex;
-    min-height: clamp(13.5rem, 38vw, 18.5rem);
+    min-height: clamp(11.5rem, 42vw, 18.5rem);
     flex-direction: column;
-    border-radius: clamp(0.65rem, 1.6vw, 1.25rem);
+    border-radius: clamp(0.75rem, 1.6vw, 1.25rem);
     background-color: #c8dcc4;
-    padding: clamp(0.6rem, 1.6vw, 1.5rem);
+    padding: clamp(0.85rem, 3vw, 1.5rem);
     transition: background-color 300ms ease, color 300ms ease;
   }
 
+  @media (min-width: 768px) {
+    .who-we-are-card {
+      min-height: clamp(13.5rem, 38vw, 18.5rem);
+      padding: clamp(0.6rem, 1.6vw, 1.5rem);
+    }
+  }
+
   .who-we-are-card-icon {
-    width: clamp(0.9rem, 2.2vw, 1.25rem);
-    height: clamp(0.9rem, 2.2vw, 1.25rem);
+    width: clamp(1rem, 3vw, 1.25rem);
+    height: clamp(1rem, 3vw, 1.25rem);
+  }
+
+  @media (min-width: 768px) {
+    .who-we-are-card-icon {
+      width: clamp(0.9rem, 2.2vw, 1.25rem);
+      height: clamp(0.9rem, 2.2vw, 1.25rem);
+    }
   }
 
   .who-we-are-heading {
@@ -412,12 +433,19 @@
   }
 
   .who-we-are-card-title {
-    margin-top: clamp(0.45rem, 1.1vw, 1rem);
+    margin-top: clamp(0.55rem, 1.1vw, 1rem);
     font-family: var(--font-dm-sans), system-ui, sans-serif;
-    font-size: clamp(0.68rem, 1.55vw, 1.0625rem);
+    font-size: clamp(0.82rem, 3.2vw, 1.0625rem);
     font-weight: 700;
     line-height: 1.25;
     color: #1b3d2f;
+  }
+
+  @media (min-width: 768px) {
+    .who-we-are-card-title {
+      margin-top: clamp(0.45rem, 1.1vw, 1rem);
+      font-size: clamp(0.68rem, 1.55vw, 1.0625rem);
+    }
   }
 
   .who-we-are-card--active .who-we-are-card-title {
@@ -425,12 +453,19 @@
   }
 
   .who-we-are-card-body {
-    margin-top: clamp(0.35rem, 0.9vw, 0.75rem);
+    margin-top: clamp(0.4rem, 0.9vw, 0.75rem);
     flex: 1;
     font-family: var(--font-dm-sans), system-ui, sans-serif;
-    font-size: clamp(0.58rem, 1.25vw, 0.875rem);
-    line-height: 1.45;
+    font-size: clamp(0.74rem, 2.8vw, 0.875rem);
+    line-height: 1.5;
     color: rgb(27 61 47 / 0.75);
+  }
+
+  @media (min-width: 768px) {
+    .who-we-are-card-body {
+      font-size: clamp(0.58rem, 1.25vw, 0.875rem);
+      line-height: 1.45;
+    }
   }
 
   .who-we-are-card--active .who-we-are-card-body {
@@ -444,12 +479,19 @@
     justify-content: center;
     margin-top: auto;
     border-radius: 9999px;
-    padding: clamp(0.35rem, 0.9vw, 0.625rem) clamp(0.55rem, 1.4vw, 1.25rem);
+    padding: clamp(0.45rem, 1.2vw, 0.625rem) clamp(0.7rem, 2vw, 1.25rem);
     font-family: var(--font-dm-sans), system-ui, sans-serif;
-    font-size: clamp(0.52rem, 1.05vw, 0.875rem);
+    font-size: clamp(0.68rem, 2.6vw, 0.875rem);
     font-weight: 500;
     line-height: 1.2;
     transition: background-color 300ms ease, color 300ms ease;
+  }
+
+  @media (min-width: 768px) {
+    .who-we-are-card-cta {
+      padding: clamp(0.35rem, 0.9vw, 0.625rem) clamp(0.55rem, 1.4vw, 1.25rem);
+      font-size: clamp(0.52rem, 1.05vw, 0.875rem);
+    }
   }
 
   .who-we-are-card-cta--default {
