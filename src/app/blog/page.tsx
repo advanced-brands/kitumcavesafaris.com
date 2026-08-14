@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { blogPosts, blogCategories } from "@/data/blog";
 import BlogCard from "@/components/blog/BlogCard";
+import BlogHeroSection from "@/components/blog/BlogHeroSection";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export const metadata: Metadata = {
@@ -12,15 +13,7 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   return (
     <>
-      <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-brand-forest">
-        <div className="section-padding max-w-[1600px] mx-auto">
-          <p className="label-text !text-brand-terracotta mb-4">Journal</p>
-          <h1 className="heading-display text-white mb-4">Stories &amp; Guides</h1>
-          <p className="body-large !text-white/70 max-w-2xl">
-            Interesting facts about animals, places, and traveling thoughtfully through East Africa.
-          </p>
-        </div>
-      </section>
+      <BlogHeroSection />
 
       <section className="section-padding py-8 bg-brand-sand border-b border-brand-sand-dark">
         <div className="max-w-[1600px] mx-auto flex flex-wrap gap-3">

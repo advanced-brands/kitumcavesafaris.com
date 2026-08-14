@@ -1,0 +1,105 @@
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import { ShieldCheck, Star } from "lucide-react";
+import { getPackagesByRegion } from "@/data/packages";
+import { getAverageRating, reviews } from "@/data/reviews";
+import { formatCurrency } from "@/lib/utils";
+
+/** Luxury album — The Rock Restaurant, Zanzibar */
+const HERO_IMAGE = "/images/IMG-20260811-WA0089.jpg";
+
+const internationalPackages = getPackagesByRegion("international");
+const pricedPackages = internationalPackages.filter((pkg) => pkg.price > 0);
+const lowestPrice = pricedPackages.length
+  ? Math.min(...pricedPackages.map((pkg) => pkg.price))
+  : null;
+const destinationCount = new Set(
+  internationalPackages.map((pkg) => pkg.country)
+).size;
+const averageRating = getAverageRating();
+const verifiedReviewCount = reviews.filter((review) => review.verified).length;
+
+export default function InternationalHeroSection() {
+  return (
+    <section className="ea-overlay-hero" aria-label="International packages">
+      <Image
+        src={HERO_IMAGE}
+        alt="The Rock Restaurant on a coral outcrop at sunset, Zanzibar"
+        fill
+        priority
+        className="ea-overlay-hero-image object-cover"
+        style={{ objectPosition: "42% center" }}
+        sizes="100vw"
+      />
+      <div className="ea-overlay-hero-scrim" aria-hidden />
+
+      <div className="ea-overlay-hero-layout section-padding">
+        <div className="ea-overlay-hero-card">
+          <p className="ea-overlay-hero-label label-text !text-brand-terracotta">
+            International &amp; Luxury
+          </p>
+          <h1 className="ea-overlay-hero-title heading-display text-white">
+            Curated escapes beyond East Africa
+          </h1>
+          <p className="ea-overlay-hero-lead">
+            Handpicked journeys for East African travelers — from Indian Ocean
+            retreats to cultural discoveries abroad.
+          </p>
+
+          <ul className="ea-overlay-hero-trust">
+            <li>
+              <Star size={14} aria-hidden className="shrink-0 text-brand-terracotta" />
+              <span>
+                <strong>{averageRating}/5</strong> · {verifiedReviewCount}{" "}
+                verified reviews
+              </span>
+            </li>
+            <li>
+              <ShieldCheck size={14} aria-hidden className="shrink-0 text-white/80" />
+              <span>
+                <strong>30% deposit</strong> to secure your trip
+              </span>
+            </li>
+            {lowestPrice !== null && (
+              <li>
+                <span>
+                  From <strong>{formatCurrency(lowestPrice, "USD")}</strong> per
+                  person
+                </span>
+              </li>
+            )}
+          </ul>
+
+          <dl className="ea-overlay-hero-stats">
+            <div>
+              <dt>Destinations</dt>
+              <dd>{destinationCount}</dd>
+            </div>
+            <div>
+              <dt>Packages</dt>
+              <dd>{internationalPackages.length}</dd>
+            </div>
+            <div>
+              <dt>Style</dt>
+              <dd>Luxury</dd>
+            </div>
+          </dl>
+
+          <div className="ea-overlay-hero-actions">
+            <Link href="#packages" className="btn-primary ea-overlay-hero-btn">
+              Browse packages
+            </Link>
+            <Link
+              href="/plan-your-journey"
+              className="btn-secondary ea-overlay-hero-btn !border-white/45 !text-white hover:!bg-white hover:!text-brand-forest"
+            >
+              Plan journey
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

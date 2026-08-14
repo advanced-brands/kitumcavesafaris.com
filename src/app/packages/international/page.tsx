@@ -2,14 +2,19 @@
 
 import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
-import { getPackagesByRegion } from "@/data/packages";
+import {
+  getPackagesByRegion,
+  getDestinationSummary,
+} from "@/data/packages";
 import PackageCard from "@/components/packages/PackageCard";
+import InternationalHeroSection from "@/components/packages/InternationalHeroSection";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import OverviewMap from "@/components/maps/OverviewMap";
 
 function InternationalContent() {
   const searchParams = useSearchParams();
   const countryFilter = searchParams.get("country");
+  const destinationSummary = getDestinationSummary("international");
 
   let filteredPackages = getPackagesByRegion("international");
   if (countryFilter) {
@@ -18,17 +23,43 @@ function InternationalContent() {
     );
   }
 
-  const intlCountries = [...new Set(filteredPackages.map((p) => p.country))];
-
   return (
     <>
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-brand-forest">
-        <div className="section-padding max-w-[1600px] mx-auto">
-          <p className="label-text !text-brand-terracotta mb-4">Packages</p>
-          <h1 className="heading-display text-white mb-4">Outside East Africa</h1>
-          <p className="body-large !text-white/70 max-w-2xl">
-            Discover destinations beyond Africa — curated for East African travelers seeking international experiences.
-          </p>
+      <InternationalHeroSection />
+
+      <section
+        id="packages"
+        className="section-padding py-8 bg-brand-sand border-b border-brand-sand-dark"
+      >
+        <div className="max-w-[1600px] mx-auto">
+          <div className="flex flex-wrap items-center gap-4">
+            <span className="text-sm font-medium text-brand-charcoal/60 uppercase tracking-wider">
+              Filter by destination:
+            </span>
+            <a
+              href="/packages/international"
+              className={`px-4 py-2 text-sm transition-colors ${
+                !countryFilter
+                  ? "bg-brand-forest text-white"
+                  : "bg-white text-brand-charcoal hover:bg-brand-forest/10"
+              }`}
+            >
+              All
+            </a>
+            {destinationSummary.map((dest) => (
+              <a
+                key={dest.country}
+                href={`/packages/international?country=${dest.slug}`}
+                className={`px-4 py-2 text-sm transition-colors ${
+                  countryFilter === dest.slug
+                    ? "bg-brand-forest text-white"
+                    : "bg-white text-brand-charcoal hover:bg-brand-forest/10"
+                }`}
+              >
+                {dest.country} ({dest.count})
+              </a>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -46,7 +77,17 @@ function InternationalContent() {
 
       <section className="section-padding pb-24">
         <div className="max-w-[1600px] mx-auto">
-          <OverviewMap className="border border-brand-sand-dark rounded-sm" />
+          <ScrollReveal className="text-center mb-8">
+            <h2 className="heading-sub text-brand-forest">Destination Map</h2>
+          </ScrollReveal>
+          <OverviewMap
+            className="border border-brand-sand-dark rounded-sm"
+            filterCountry={
+              countryFilter
+                ? destinationSummary.find((d) => d.slug === countryFilter)?.country
+                : undefined
+            }
+          />
         </div>
       </section>
     </>

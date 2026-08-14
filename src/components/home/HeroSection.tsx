@@ -75,7 +75,7 @@ const destinations: HeroDestination[] = [
 ];
 
 const AUTO_MS = 5200;
-const TRANSITION_MS = 900;
+const FADE_MS = 450;
 
 function wrap(index: number, total: number) {
   return (index + total) % total;
@@ -101,8 +101,8 @@ export default function HeroSection() {
       setTransitioning(true);
       window.setTimeout(() => {
         setActive(next);
-        setTransitioning(false);
-      }, TRANSITION_MS / 2);
+        window.requestAnimationFrame(() => setTransitioning(false));
+      }, FADE_MS);
     },
     [active, transitioning]
   );
@@ -129,7 +129,7 @@ export default function HeroSection() {
         <div
           key={destination.id}
           className={cn(
-            "absolute inset-0 transition-opacity duration-[900ms]",
+            "absolute inset-0 transition-opacity duration-[650ms] [transition-timing-function:cubic-bezier(0.33,1,0.68,1)]",
             index === active ? "opacity-100" : "opacity-0"
           )}
           aria-hidden={index !== active}
@@ -140,7 +140,7 @@ export default function HeroSection() {
             fill
             priority={index === 0}
             className={cn(
-              "object-cover transition-transform duration-[1200ms] ease-out",
+              "object-cover",
               index === active && !transitioning && "hero-ken-burns"
             )}
             style={{ objectPosition: destination.objectPosition }}
@@ -155,10 +155,9 @@ export default function HeroSection() {
       <div className="relative z-10 flex min-h-[94svh] flex-col justify-end px-4 pb-6 pt-20 sm:px-6 sm:pb-8 md:px-10 md:pb-10 lg:px-14">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between lg:gap-10">
           <div
-            key={current.id}
             className={cn(
-              "max-w-xl lg:max-w-2xl",
-              transitioning ? "opacity-0" : "hero-editorial-content"
+              "max-w-xl lg:max-w-2xl transition-opacity duration-[450ms] [transition-timing-function:cubic-bezier(0.33,1,0.68,1)]",
+              transitioning ? "opacity-0" : "opacity-100"
             )}
           >
             <p className="font-sans text-[11px] font-medium uppercase tracking-[0.22em] text-white/70 sm:text-xs">
@@ -199,7 +198,7 @@ export default function HeroSection() {
                       src={destination.image}
                       alt=""
                       fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="object-cover transition-transform duration-500 [transition-timing-function:cubic-bezier(0.33,1,0.68,1)] group-hover:scale-[1.03]"
                       style={{ objectPosition: destination.objectPosition }}
                       sizes="(max-width: 640px) 22vw, 120px"
                     />
@@ -213,7 +212,7 @@ export default function HeroSection() {
             <div className="flex w-full max-w-[280px] items-center gap-3 sm:max-w-xs">
               <div className="relative h-px flex-1 bg-white/25">
                 <div
-                  className="absolute inset-y-0 left-0 bg-white transition-all duration-700 ease-out"
+                  className="absolute inset-y-0 left-0 bg-white transition-[width] duration-700 [transition-timing-function:cubic-bezier(0.33,1,0.68,1)]"
                   style={{ width: `${progress}%` }}
                 />
               </div>

@@ -38,9 +38,9 @@ export default function ScrollReveal({
   }, [delay]);
 
   const directionClasses = {
-    up: "translate-y-8",
-    left: "-translate-x-8",
-    right: "translate-x-8",
+    up: "translate-y-3",
+    left: "-translate-x-3",
+    right: "translate-x-3",
     none: "",
   };
 
@@ -48,7 +48,7 @@ export default function ScrollReveal({
     <div
       ref={ref}
       className={cn(
-        "opacity-0 transition-all duration-700 ease-out",
+        "motion-reveal opacity-0",
         directionClasses[direction],
         "[&.revealed]:opacity-100 [&.revealed]:translate-x-0 [&.revealed]:translate-y-0",
         className

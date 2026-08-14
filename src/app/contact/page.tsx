@@ -51,17 +51,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-brand-forest">
-        <div className="section-padding max-w-[1600px] mx-auto">
-          <p className="label-text !text-brand-terracotta mb-4">Contact</p>
-          <h1 className="heading-display text-white mb-4">Get in Touch</h1>
-          <p className="body-large !text-white/70 max-w-2xl">
-            Reach Kitum Cave Safaris directly — we respond personally and help you plan with clarity.
-          </p>
-        </div>
-      </section>
-
-      <section className="section-padding section-spacing">
+      <section className="section-padding section-spacing pt-32 md:pt-40">
         <div className="max-w-[1600px] mx-auto grid lg:grid-cols-2 gap-12 lg:gap-20">
           <ScrollReveal>
             <h2 className="heading-sub text-brand-forest mb-8">Contact Details</h2>

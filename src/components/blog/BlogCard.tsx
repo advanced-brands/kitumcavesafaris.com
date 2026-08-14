@@ -20,7 +20,7 @@ export default function BlogCard({ post, variant = "default" }: BlogCardProps) {
             src={post.featuredImage}
             alt={post.title}
             fill
-            className="object-cover group-hover:scale-105 transition-transform duration-700"
+            className="object-cover transition-transform duration-500 [transition-timing-function:cubic-bezier(0.33,1,0.68,1)] group-hover:scale-[1.02]"
           />
         </div>
         <div className="p-8 md:p-10 flex flex-col justify-center">
@@ -58,7 +58,7 @@ export default function BlogCard({ post, variant = "default" }: BlogCardProps) {
           src={post.featuredImage}
           alt={post.title}
           fill
-          className="object-cover group-hover:scale-105 transition-transform duration-700"
+          className="object-cover transition-transform duration-500 [transition-timing-function:cubic-bezier(0.33,1,0.68,1)] group-hover:scale-[1.02]"
         />
       </div>
       <div className="p-6">

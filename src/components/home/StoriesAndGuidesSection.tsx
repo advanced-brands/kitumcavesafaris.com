@@ -39,7 +39,7 @@ export default function StoriesAndGuidesSection({ posts }: Props) {
                     src={post.featuredImage}
                     alt={post.title}
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="object-cover transition-transform duration-500 [transition-timing-function:cubic-bezier(0.33,1,0.68,1)] group-hover:scale-[1.02]"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
                 </Link>

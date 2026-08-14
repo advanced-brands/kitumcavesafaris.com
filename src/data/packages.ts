@@ -227,22 +227,23 @@ export const packages: Package[] = [
   {
     id: "queen-elizabeth-safari",
     slug: "queen-elizabeth-wildlife-safari",
-    name: "[PACKAGE NAME] — Queen Elizabeth Safari",
+    name: "Queen Elizabeth Wildlife Safari",
     destination: "Queen Elizabeth National Park",
     country: "Uganda",
     region: "east-africa",
-    duration: "[DURATION]",
-    durationDays: 0,
-    price: 0,
+    duration: "4 Days / 3 Nights",
+    durationDays: 4,
+    price: 980,
     currency: "USD",
+    priceNote: "Based on shared safari vehicle; private upgrades available on request.",
     shortDescription:
-      "[SHORT DESCRIPTION — Game drives, boat safaris, and tree-climbing lions in Uganda's most diverse national park.]",
+      "Game drives, Kazinga Channel boat safaris, and tree-climbing lions in Uganda's most diverse national park.",
     fullDescription:
-      "[FULL DESCRIPTION — TO BE ADDED BY KITUM CAVE SAFARIS]",
+      "Explore the Rift Valley landscapes of Queen Elizabeth National Park — from savannah game drives and the famous tree-climbing lions of Ishasha to a sunset cruise on the Kazinga Channel, where elephants, hippos, and birdlife gather at the water's edge. Our driver-guides handle permits, park fees, and lodge logistics so you can focus on the wildlife.",
     travelType: "Wildlife Safari",
-    availability: "Available on request — contact us for dates",
+    availability: "Available year-round — peak wildlife viewing Jun–Sep & Dec–Feb",
     bestTimeToVisit:
-      "Dry seasons (June–October) are ideal for wildlife viewing. We advise on seasonal highlights when you inquire.",
+      "Wildlife viewing is rewarding year-round. Dry seasons (June–September and December–February) offer easier road access and clearer skies.",
     whatToBring: defaultWhatToBring,
     faqs: defaultFaqs,
     heroImage: "/images/4A9A0474.jpg",
@@ -255,19 +256,59 @@ export const packages: Package[] = [
     ],
     mapCoordinates: { lat: -0.2, lng: 30.0 },
     mapZoom: 9,
-    included: ["[INCLUDED ACTIVITIES — TO BE ADDED]"],
-    excluded: ["[EXCLUDED ACTIVITIES — TO BE ADDED]"],
+    included: [
+      "Park entrance fees",
+      "Game drives and Kazinga Channel boat safari",
+      "4x4 safari vehicle, fuel, and driver-guide",
+      "Accommodation as per itinerary",
+      "Bottled water in the vehicle",
+    ],
+    excluded: [
+      "International flights",
+      "Personal expenses and tips",
+      "Alcoholic drinks",
+      "Optional activities not listed",
+    ],
     itinerary: [
       {
         day: 1,
-        title: "[DAY 1 TITLE — TO BE ADDED]",
-        description: "[DAY 1 DESCRIPTION — TO BE ADDED]",
+        title: "Transfer to Queen Elizabeth National Park",
+        description:
+          "Depart Kampala or Entebbe for the western Rift Valley. Stop at the Equator for photos and lunch en route, then continue to Queen Elizabeth National Park for an evening at leisure.",
+        accommodation: "Enganzi Game Lodge",
+      },
+      {
+        day: 2,
+        title: "Morning game drive & Kazinga Channel cruise",
+        description:
+          "Early morning game drive on the Kasenyi plains, then an afternoon boat safari on the Kazinga Channel — one of Africa's richest hippo and bird habitats.",
+        accommodation: "Enganzi Game Lodge",
+      },
+      {
+        day: 3,
+        title: "Ishasha tree-climbing lions",
+        description:
+          "Drive south to the Ishasha sector in search of tree-climbing lions, with picnic lunch and varied savannah scenery along the way.",
+        accommodation: "Enganzi Game Lodge",
+      },
+      {
+        day: 4,
+        title: "Return to Entebbe",
+        description:
+          "Relaxed morning departure with refreshment stops en route. Arrive Entebbe or Kampala in the afternoon.",
       },
     ],
-    accommodation: "[ACCOMMODATION — TO BE ADDED]",
-    transport: "[TRANSPORT — TO BE ADDED]",
-    importantInfo: ["[IMPORTANT INFO — TO BE ADDED]"],
-    bookingRequirements: ["[BOOKING REQUIREMENTS — TO BE ADDED]"],
+    accommodation: "Enganzi Game Lodge (3 nights)",
+    transport: "4x4 safari vehicle with professional driver-guide",
+    importantInfo: [
+      "Moderate fitness sufficient for game drives and short walks",
+      "Yellow fever certificate recommended for Uganda travel",
+      "Pack neutral-coloured clothing and binoculars",
+    ],
+    bookingRequirements: [
+      "Valid passport",
+      "Travel insurance recommended",
+    ],
     cancellationPolicy:
       "Deposit refundable up to 45 days before departure minus admin fees. Cancellations within 45 days may forfeit deposit; full terms provided at booking.",
     partialPaymentPercent: 30,
@@ -277,21 +318,23 @@ export const packages: Package[] = [
   {
     id: "murchison-falls-safari",
     slug: "murchison-falls-adventure",
-    name: "[PACKAGE NAME] — Murchison Falls Adventure",
+    name: "Murchison Falls Adventure",
     destination: "Murchison Falls National Park",
     country: "Uganda",
     region: "east-africa",
-    duration: "[DURATION]",
-    durationDays: 0,
-    price: 0,
+    duration: "3 Days / 2 Nights",
+    durationDays: 3,
+    price: 850,
     currency: "USD",
+    priceNote: "Based on shared safari vehicle; private upgrades available on request.",
     shortDescription:
-      "[SHORT DESCRIPTION — Witness the Nile explode through a narrow gorge at Murchison Falls.]",
-    fullDescription: "[FULL DESCRIPTION — TO BE ADDED]",
+      "Witness the Nile explode through a narrow gorge, then cruise past elephants, hippos, and crocodiles on Uganda's largest national park.",
+    fullDescription:
+      "Murchison Falls National Park delivers classic African safari drama — the Nile forcing through a seven-metre gorge, vast savannah game drives, and river cruises teeming with hippos and crocodiles. Our team arranges park fees, boat tickets, and comfortable lodge stays so your time in the park is spent watching wildlife, not worrying about logistics.",
     travelType: "Adventure & Wildlife",
-    availability: "Available on request — contact us for dates",
+    availability: "Available year-round — peak season Dec–Feb & Jun–Sep",
     bestTimeToVisit:
-      "Dry seasons (June–October) are ideal for wildlife viewing. We advise on seasonal highlights when you inquire.",
+      "Game viewing is strong year-round. Dry seasons offer easier access to remote tracks and clearer views of the falls.",
     whatToBring: defaultWhatToBring,
     faqs: defaultFaqs,
     heroImage: "/images/4A9A0445.jpg",
@@ -305,19 +348,51 @@ export const packages: Package[] = [
     ],
     mapCoordinates: { lat: 2.27, lng: 31.68 },
     mapZoom: 9,
-    included: ["[INCLUDED — TO BE ADDED]"],
-    excluded: ["[EXCLUDED — TO BE ADDED]"],
+    included: [
+      "Park and boat cruise fees",
+      "Game drives on the northern bank",
+      "4x4 vehicle, fuel, and driver-guide",
+      "Full-board accommodation",
+      "Bottled water in the vehicle",
+    ],
+    excluded: [
+      "International flights",
+      "Tips and personal items",
+      "Alcoholic beverages",
+      "Optional top-of-falls hike permit if added",
+    ],
     itinerary: [
       {
         day: 1,
-        title: "[DAY 1 — TO BE ADDED]",
-        description: "[DESCRIPTION — TO BE ADDED]",
+        title: "Transfer to Murchison Falls",
+        description:
+          "Drive north through changing countryside with a lunch stop en route. Evening arrival at the lodge overlooking the Nile.",
+        accommodation: "Pakuba Safari Lodge",
+      },
+      {
+        day: 2,
+        title: "Game drive & Nile boat cruise",
+        description:
+          "Morning game drive on the Buligi plains, then an afternoon boat cruise to the base of Murchison Falls — hippos, crocodiles, and waterbirds at close range.",
+        accommodation: "Pakuba Safari Lodge",
+      },
+      {
+        day: 3,
+        title: "Top of the falls & return",
+        description:
+          "Visit the top of Murchison Falls for dramatic views before driving back to Entebbe or Kampala.",
       },
     ],
-    accommodation: "[ACCOMMODATION — TO BE ADDED]",
-    transport: "[TRANSPORT — TO BE ADDED]",
-    importantInfo: ["[INFO — TO BE ADDED]"],
-    bookingRequirements: ["[REQUIREMENTS — TO BE ADDED]"],
+    accommodation: "Pakuba Safari Lodge (2 nights)",
+    transport: "4x4 safari vehicle with professional driver-guide",
+    importantInfo: [
+      "Boat cruise schedules may shift with water levels — we confirm on arrival",
+      "Pack sun protection for open-top game drives",
+    ],
+    bookingRequirements: [
+      "Valid passport",
+      "Travel insurance recommended",
+    ],
     cancellationPolicy:
       "Deposit refundable up to 45 days before departure minus admin fees. Cancellations within 45 days may forfeit deposit; full terms provided at booking.",
     partialPaymentPercent: 30,
@@ -327,21 +402,23 @@ export const packages: Package[] = [
   {
     id: "kenya-masai-mara",
     slug: "kenya-masai-mara-safari",
-    name: "[PACKAGE NAME] — Masai Mara Safari",
+    name: "Masai Mara Safari",
     destination: "Masai Mara National Reserve",
     country: "Kenya",
     region: "east-africa",
-    duration: "[DURATION]",
-    durationDays: 0,
-    price: 0,
+    duration: "4 Days / 3 Nights",
+    durationDays: 4,
+    price: 1890,
     currency: "USD",
+    priceNote: "Based on shared safari vehicle; migration-season surcharges may apply.",
     shortDescription:
-      "[SHORT DESCRIPTION — The great plains of the Masai Mara and the drama of the wild.]",
-    fullDescription: "[FULL DESCRIPTION — TO BE ADDED]",
+      "Golden savannah, big cats, and the Great Migration on the legendary plains of the Masai Mara.",
+    fullDescription:
+      "The Masai Mara is the Africa of imagination — wide grasslands, predator action, and seasonal river crossings during the Great Migration. We coordinate cross-border logistics from Uganda, reserve entry, and lodge bookings with experienced Mara guides who know where the wildlife is moving.",
     travelType: "Wildlife Safari",
-    availability: "Available on request — contact us for dates",
+    availability: "Available year-round — migration peaks Jul–Oct",
     bestTimeToVisit:
-      "Dry seasons (June–October) are ideal for wildlife viewing. We advise on seasonal highlights when you inquire.",
+      "July to October for river crossings; January to March for calving season on the plains. Green season offers fewer crowds and excellent photography light.",
     whatToBring: defaultWhatToBring,
     faqs: defaultFaqs,
     heroImage: "/images/IMG-20260811-WA0021.jpg",
@@ -355,19 +432,58 @@ export const packages: Package[] = [
     ],
     mapCoordinates: { lat: -1.5, lng: 35.0 },
     mapZoom: 8,
-    included: ["[INCLUDED — TO BE ADDED]"],
-    excluded: ["[EXCLUDED — TO BE ADDED]"],
+    included: [
+      "Masai Mara reserve fees",
+      "Daily game drives",
+      "Safari vehicle, fuel, and guide",
+      "Lodge accommodation on full board",
+      "Park and conservancy fees as listed",
+    ],
+    excluded: [
+      "International and regional flights",
+      "Visa fees for Kenya",
+      "Personal expenses and tips",
+      "Balloon safari (optional add-on)",
+    ],
     itinerary: [
       {
         day: 1,
-        title: "[DAY 1 — TO BE ADDED]",
-        description: "[DESCRIPTION — TO BE ADDED]",
+        title: "Arrive Masai Mara",
+        description:
+          "Transfer from Nairobi or cross from Uganda by road or flight connection (as arranged). Afternoon game drive on the plains.",
+        accommodation: "Mara Serena Safari Lodge",
+      },
+      {
+        day: 2,
+        title: "Full-day game drives",
+        description:
+          "Full day on the Mara with picnic lunch, tracking predators and herds across the reserve.",
+        accommodation: "Mara Serena Safari Lodge",
+      },
+      {
+        day: 3,
+        title: "Mara River sector",
+        description:
+          "Focus on the Mara River area — prime territory for cats and, in season, migration crossings.",
+        accommodation: "Mara Serena Safari Lodge",
+      },
+      {
+        day: 4,
+        title: "Morning drive & departure",
+        description:
+          "Final sunrise game drive before transfer to your onward connection.",
       },
     ],
-    accommodation: "[ACCOMMODATION — TO BE ADDED]",
-    transport: "[TRANSPORT — TO BE ADDED]",
-    importantInfo: ["[INFO — TO BE ADDED]"],
-    bookingRequirements: ["[REQUIREMENTS — TO BE ADDED]"],
+    accommodation: "Mara Serena Safari Lodge (3 nights)",
+    transport: "4x4 safari vehicle with professional guide",
+    importantInfo: [
+      "Kenya eTA required for most nationalities — apply before travel",
+      "Migration timing is nature-dependent; we advise on best windows when you book",
+    ],
+    bookingRequirements: [
+      "Valid passport (6+ months validity)",
+      "Kenya eTA or visa as applicable",
+    ],
     cancellationPolicy:
       "Deposit refundable up to 45 days before departure minus admin fees. Cancellations within 45 days may forfeit deposit; full terms provided at booking.",
     partialPaymentPercent: 30,
@@ -376,21 +492,23 @@ export const packages: Package[] = [
   {
     id: "tanzania-serengeti",
     slug: "tanzania-serengeti-experience",
-    name: "[PACKAGE NAME] — Serengeti Experience",
+    name: "Serengeti Experience",
     destination: "Serengeti National Park",
     country: "Tanzania",
     region: "east-africa",
-    duration: "[DURATION]",
-    durationDays: 0,
-    price: 0,
+    duration: "5 Days / 4 Nights",
+    durationDays: 5,
+    price: 2450,
     currency: "USD",
+    priceNote: "Based on shared safari vehicle; peak migration dates priced on request.",
     shortDescription:
-      "[SHORT DESCRIPTION — Endless plains, the great migration, and Africa at its most iconic.]",
-    fullDescription: "[FULL DESCRIPTION — TO BE ADDED]",
+      "Endless plains, predator action, and the rhythm of the Great Migration in Tanzania's iconic Serengeti.",
+    fullDescription:
+      "The Serengeti ecosystem defines the safari dream — vast horizons, year-round wildlife, and the circular journey of the Great Migration. We handle Tanzania park fees, lodge reservations, and guiding so you experience the central and northern Serengeti at the right season for your interests.",
     travelType: "Wildlife Safari",
-    availability: "Available on request — contact us for dates",
+    availability: "Available year-round — migration varies by month and sector",
     bestTimeToVisit:
-      "Dry seasons (June–October) are ideal for wildlife viewing. We advise on seasonal highlights when you inquire.",
+      "June–October for northern Serengeti crossings; December–March for southern plains and calving. Shoulder seasons offer excellent value.",
     whatToBring: defaultWhatToBring,
     faqs: defaultFaqs,
     heroImage: "/images/IMG-20260811-WA0034.jpg",
@@ -404,19 +522,65 @@ export const packages: Package[] = [
     ],
     mapCoordinates: { lat: -2.33, lng: 34.83 },
     mapZoom: 8,
-    included: ["[INCLUDED — TO BE ADDED]"],
-    excluded: ["[EXCLUDED — TO BE ADDED]"],
+    included: [
+      "Serengeti park fees and concession fees",
+      "Daily game drives",
+      "Safari vehicle, fuel, and guide",
+      "Lodge or tented camp accommodation",
+      "Bottled water in the vehicle",
+    ],
+    excluded: [
+      "International flights",
+      "Tanzania visa on arrival or eVisa",
+      "Tips and personal expenses",
+      "Optional balloon safari",
+    ],
     itinerary: [
       {
         day: 1,
-        title: "[DAY 1 — TO BE ADDED]",
-        description: "[DESCRIPTION — TO BE ADDED]",
+        title: "Arrive Serengeti",
+        description:
+          "Transfer from Arusha or regional connection into the Serengeti. Afternoon game drive as you settle into the plains.",
+        accommodation: "Serengeti Serena Safari Lodge",
+      },
+      {
+        day: 2,
+        title: "Central Serengeti game drives",
+        description:
+          "Full-day exploration of the central Seronera region — strong predator territory year-round.",
+        accommodation: "Serengeti Serena Safari Lodge",
+      },
+      {
+        day: 3,
+        title: "Northern or southern sector",
+        description:
+          "Drive to the sector best suited to the season — river crossings in the north or calving plains in the south.",
+        accommodation: "Serengeti Serena Safari Lodge",
+      },
+      {
+        day: 4,
+        title: "Full-day safari",
+        description:
+          "Extended game drive with picnic lunch, following recent wildlife movements with your guide.",
+        accommodation: "Serengeti Serena Safari Lodge",
+      },
+      {
+        day: 5,
+        title: "Sunrise drive & departure",
+        description:
+          "Final morning on the plains before transfer to Arusha or your onward flight.",
       },
     ],
-    accommodation: "[ACCOMMODATION — TO BE ADDED]",
-    transport: "[TRANSPORT — TO BE ADDED]",
-    importantInfo: ["[INFO — TO BE ADDED]"],
-    bookingRequirements: ["[REQUIREMENTS — TO BE ADDED]"],
+    accommodation: "Serengeti Serena Safari Lodge (4 nights)",
+    transport: "4x4 safari vehicle with professional guide",
+    importantInfo: [
+      "Migration routes shift monthly — we recommend dates based on your priorities",
+      "Yellow fever certificate may be required depending on travel route",
+    ],
+    bookingRequirements: [
+      "Valid passport (6+ months validity)",
+      "Tanzania visa or eVisa as applicable",
+    ],
     cancellationPolicy:
       "Deposit refundable up to 45 days before departure minus admin fees. Cancellations within 45 days may forfeit deposit; full terms provided at booking.",
     partialPaymentPercent: 30,
@@ -533,9 +697,12 @@ export function getPackagesByCountry(country: string) {
   );
 }
 
-export function getDestinationSummary() {
+export function getDestinationSummary(region?: Package["region"]) {
+  const scoped = region
+    ? packages.filter((p) => p.region === region)
+    : packages;
   const summary: Record<string, number> = {};
-  packages.forEach((p) => {
+  scoped.forEach((p) => {
     summary[p.country] = (summary[p.country] || 0) + 1;
   });
   return Object.entries(summary).map(([country, count]) => ({

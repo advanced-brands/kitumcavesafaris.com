@@ -21,7 +21,7 @@ export default function PackageCard({ pkg, variant = "default" }: PackageCardPro
             src={pkg.heroImage}
             alt={pkg.name}
             fill
-            className="object-cover group-hover:scale-105 transition-transform duration-500"
+            className="object-cover transition-transform duration-500 [transition-timing-function:cubic-bezier(0.33,1,0.68,1)] group-hover:scale-[1.02]"
           />
         </div>
         <div className="flex flex-col justify-center min-w-0">
@@ -48,7 +48,7 @@ export default function PackageCard({ pkg, variant = "default" }: PackageCardPro
           src={pkg.heroImage}
           alt={pkg.name}
           fill
-          className="object-cover group-hover:scale-105 transition-transform duration-700"
+          className="object-cover transition-transform duration-500 [transition-timing-function:cubic-bezier(0.33,1,0.68,1)] group-hover:scale-[1.02]"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-brand-forest/60 via-transparent to-transparent" />
         <div className="absolute bottom-4 left-4 right-4">

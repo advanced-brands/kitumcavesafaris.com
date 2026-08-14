@@ -6,12 +6,13 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import type { Package } from "@/data/packages";
 import { cn } from "@/lib/utils";
+import { DURATION_CROSSFADE, DURATION_MICRO, EASE_SMOOTH, EASE_SOFT } from "@/lib/motion";
 
 type Props = {
   packages: Package[];
 };
 
-const AUTO_MS = 3600;
+const AUTO_MS = 3800;
 
 function displayTitle(pkg: Package) {
   const primary = pkg.destination.split(",")[0]?.trim() || pkg.name;
@@ -37,9 +38,9 @@ function ConcentricRings() {
             width: `${ring.size}%`,
             borderColor: ring.border,
           }}
-          initial={{ scale: 0.94, opacity: 0 }}
+          initial={{ scale: 0.98, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.9, delay: index * 0.06, ease: [0.32, 0.72, 0, 1] }}
+          transition={{ duration: 0.75, delay: index * 0.04, ease: EASE_SMOOTH }}
         />
       ))}
     </div>
@@ -88,24 +89,12 @@ export default function FeaturedPackagesSection({ packages }: Props) {
                 <motion.div
                   key={current.id}
                   className="packages-carousel-slide-wrap"
-                  initial={{
-                    clipPath: "circle(0% at 50% 46%)",
-                    scale: 1.04,
-                  }}
-                  animate={{
-                    clipPath: "circle(150% at 50% 46%)",
-                    scale: 1,
-                    filter: "blur(0px)",
-                    opacity: 1,
-                  }}
-                  exit={{
-                    scale: 0.88,
-                    filter: "blur(10px)",
-                    opacity: 0,
-                  }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
                   transition={{
-                    duration: 0.95,
-                    ease: [0.32, 0.72, 0, 1],
+                    duration: DURATION_CROSSFADE,
+                    ease: EASE_SMOOTH,
                   }}
                 >
                   <Link
@@ -118,7 +107,7 @@ export default function FeaturedPackagesSection({ packages }: Props) {
                       alt=""
                       fill
                       priority
-                      className="object-cover transition-transform duration-[1.2s] group-hover:scale-[1.03]"
+                      className="object-cover transition-transform duration-700 [transition-timing-function:cubic-bezier(0.33,1,0.68,1)] group-hover:scale-[1.02]"
                       sizes="(max-width: 1024px) 100vw, 1200px"
                     />
                     <div className="absolute inset-0 bg-black/24" />
@@ -128,10 +117,10 @@ export default function FeaturedPackagesSection({ packages }: Props) {
                       <AnimatePresence mode="wait">
                         <motion.div
                           key={current.id}
-                          initial={{ opacity: 0, y: 12, filter: "blur(6px)" }}
-                          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                          exit={{ opacity: 0, y: -8, filter: "blur(4px)" }}
-                          transition={{ duration: 0.55, ease: "easeOut", delay: 0.18 }}
+                          initial={{ opacity: 0, y: 6 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -4 }}
+                          transition={{ duration: DURATION_MICRO, ease: EASE_SOFT, delay: 0.12 }}
                         >
                           <h3 className="packages-carousel-destination">{displayTitle(current)}</h3>
                           <p className="packages-carousel-region">{current.country}</p>
@@ -147,7 +136,7 @@ export default function FeaturedPackagesSection({ packages }: Props) {
               <motion.div
                 className="packages-carousel-progress-fill"
                 animate={{ width: `${((active + 1) / packages.length) * 100}%` }}
-                transition={{ duration: 0.45, ease: "easeOut" }}
+                transition={{ duration: DURATION_MICRO, ease: EASE_SMOOTH }}
               />
             </div>
 

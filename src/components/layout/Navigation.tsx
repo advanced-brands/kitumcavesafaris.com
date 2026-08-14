@@ -96,7 +96,7 @@ export default function Navigation() {
 
       <div
         className={cn(
-          "fixed inset-0 z-40 flex items-center justify-center bg-brand-forest/20 backdrop-blur-sm transition-all duration-500 lg:hidden",
+          "fixed inset-0 z-40 flex items-center justify-center bg-brand-forest/20 backdrop-blur-sm transition-opacity duration-500 [transition-timing-function:cubic-bezier(0.33,1,0.68,1)] lg:hidden",
           isOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
         )}
         onClick={() => setIsOpen(false)}
@@ -104,8 +104,8 @@ export default function Navigation() {
       >
         <div
           className={cn(
-            "mx-4 w-full max-w-sm rounded-[2rem] border border-white/60 bg-brand-cream/95 p-8 shadow-[0_24px_64px_rgba(27,61,47,0.18)] backdrop-blur-xl transition-all duration-500",
-            isOpen ? "scale-100 opacity-100" : "scale-95 opacity-0"
+            "mx-4 w-full max-w-sm rounded-[2rem] border border-white/60 bg-brand-cream/95 p-8 shadow-[0_24px_64px_rgba(27,61,47,0.18)] backdrop-blur-xl transition-[opacity,transform] duration-500 [transition-timing-function:cubic-bezier(0.33,1,0.68,1)]",
+            isOpen ? "scale-100 opacity-100" : "scale-[0.98] opacity-0"
           )}
           onClick={(e) => e.stopPropagation()}
           role="dialog"

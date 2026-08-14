@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { experienceCategories } from "@/data/packages";
 import { cn } from "@/lib/utils";
+import { DURATION_MICRO, EASE_SOFT, EASE_SMOOTH } from "@/lib/motion";
 
 type ExperienceItem = {
   id: string;
@@ -108,7 +109,7 @@ export default function ExperiencesSection() {
         <div
           key={item.id}
           className={cn(
-            "absolute inset-0 transition-opacity duration-[900ms] ease-out",
+            "absolute inset-0 transition-opacity duration-[650ms] [transition-timing-function:cubic-bezier(0.33,1,0.68,1)]",
             index === active ? "opacity-100" : "opacity-0"
           )}
           aria-hidden={index !== active}
@@ -119,7 +120,7 @@ export default function ExperiencesSection() {
             fill
             priority={index === 0}
             className={cn(
-              "object-cover transition-transform duration-[10s] ease-out",
+              "object-cover",
               index === active && "experiences-stage-kenburns"
             )}
             sizes="100vw"
@@ -137,10 +138,10 @@ export default function ExperiencesSection() {
           <AnimatePresence mode="wait">
             <motion.div
               key={current.id}
-              initial={{ opacity: 0, y: 18 }}
+              initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: DURATION_MICRO, ease: EASE_SOFT }}
               className="max-w-4xl px-2"
             >
               <h2 className="experiences-stage-title">{current.title}</h2>
@@ -202,10 +203,10 @@ export default function ExperiencesSection() {
                     >
                       <span
                         className={cn(
-                          "relative flex items-center justify-center rounded-full transition-all duration-500 ease-out",
+                          "relative flex items-center justify-center rounded-full transition-[width,height,box-shadow] duration-700 [transition-timing-function:cubic-bezier(0.33,1,0.68,1)]",
                           isActive
                             ? "h-14 w-14 bg-[#7C5CBF] shadow-[0_0_0_10px_rgba(124,92,191,0.18)] sm:h-16 sm:w-16"
-                            : "h-3 w-3 bg-[#7C5CBF] group-hover:h-4 group-hover:w-4"
+                            : "h-3 w-3 bg-[#7C5CBF] group-hover:h-3.5 group-hover:w-3.5"
                         )}
                       >
                         {isActive && (
@@ -215,7 +216,7 @@ export default function ExperiencesSection() {
 
                       <span
                         className={cn(
-                          "mt-3 flex flex-col items-center text-center transition-opacity duration-300",
+                          "mt-3 flex flex-col items-center text-center transition-opacity duration-500 [transition-timing-function:cubic-bezier(0.33,1,0.68,1)]",
                           isActive
                             ? "opacity-100"
                             : "hidden opacity-70 sm:flex group-hover:opacity-100"
