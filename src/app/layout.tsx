@@ -70,7 +70,7 @@ export default function RootLayout({
     <html lang="en" className={`${bebasNeue.variable} ${cormorant.variable} ${dmSans.variable}`}>
       <body className="font-sans">
         <Navigation />
-        <main>{children}</main>
+        <main className="overflow-x-clip max-w-full">{children}</main>
         <Footer />
         <WhatsAppButton />
         <AIAssistant />

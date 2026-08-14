@@ -16,7 +16,7 @@ export default function WhatsAppButton() {
       href={`https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent("Hello Kitum Cave Safaris, I'd like to inquire about a trip.")}`}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-40 flex items-center gap-3 bg-[#25D366] text-white pl-4 pr-5 py-3 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 group"
+      className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 flex items-center gap-3 bg-[#25D366] text-white pl-4 pr-5 py-3 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 group max-w-[calc(100%-2rem)]"
       aria-label="Chat with us on WhatsApp"
     >
       <WhatsAppIcon className="w-6 h-6" />

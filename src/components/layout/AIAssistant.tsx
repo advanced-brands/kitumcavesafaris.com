@@ -136,7 +136,7 @@ export default function AIAssistant() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
-          "fixed bottom-6 left-6 z-40 flex items-center justify-center w-14 h-14 bg-brand-forest text-brand-cream shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300",
+          "fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-40 flex items-center justify-center w-14 h-14 bg-brand-forest text-brand-cream shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300",
           isOpen && "scale-0 opacity-0"
         )}
         aria-label="Open travel assistant"
@@ -146,7 +146,7 @@ export default function AIAssistant() {
 
       <div
         className={cn(
-          "fixed bottom-6 left-6 z-50 w-[calc(100vw-3rem)] sm:w-[400px] bg-white shadow-2xl border border-brand-sand-dark transition-all duration-300 origin-bottom-left",
+          "fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-50 w-[min(400px,calc(100%-2rem))] bg-white shadow-2xl border border-brand-sand-dark transition-all duration-300 origin-bottom-left",
           isOpen ? "scale-100 opacity-100" : "scale-0 opacity-0 pointer-events-none"
         )}
       >
