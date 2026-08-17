@@ -57,13 +57,13 @@ export default function WhoWeAreSection() {
   const [active, setActive] = useState(0);
 
   return (
-    <section id="intro" className="section-padding section-spacing bg-brand-cream">
+    <section id="intro" className="section-padding section-spacing-compact bg-brand-cream">
       <div className="mx-auto max-w-[1600px]">
         <div className="who-we-are-panel">
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between lg:gap-10">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between lg:gap-8">
             <div className="max-w-2xl">
               <h2 className="who-we-are-heading">Who We Are</h2>
-              <p className="who-we-are-lead mt-4">
+              <p className="who-we-are-lead mt-2">
                 A travel company rooted in Uganda, connected to East Africa and
                 the wider world.
               </p>
@@ -79,7 +79,7 @@ export default function WhoWeAreSection() {
           </div>
 
           <div
-            className="mt-8 grid grid-cols-2 gap-2 sm:gap-3 lg:mt-10 lg:grid-cols-4 lg:gap-4"
+            className="mt-5 grid grid-cols-2 gap-2 sm:gap-2.5 lg:mt-6 lg:grid-cols-4 lg:gap-3"
             onMouseLeave={() => setActive(0)}
           >
             {cards.map((card, index) => {

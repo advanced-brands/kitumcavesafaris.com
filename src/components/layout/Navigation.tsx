@@ -46,7 +46,7 @@ export default function Navigation() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-4 sm:px-6 sm:pt-5 md:px-8 pointer-events-none">
+      <header className="fixed top-0 left-0 right-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4 md:px-6 pointer-events-none">
         <nav
           className={cn(
             "nav-floating",

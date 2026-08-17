@@ -29,7 +29,7 @@ export default function HomePage() {
       <WhoWeAreSection />
 
       {/* Destination Summary */}
-      <section className="section-padding py-12 bg-brand-forest">
+      <section className="section-padding py-6 md:py-8 bg-brand-forest">
         <div className="max-w-[1600px] mx-auto">
           <ScrollReveal>
             <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
@@ -40,7 +40,7 @@ export default function HomePage() {
                   href={`/packages/east-africa?country=${dest.slug}`}
                   className="group flex items-baseline gap-2 text-brand-cream hover:text-brand-terracotta transition-colors"
                 >
-                  <span className="font-serif text-2xl md:text-3xl group-hover:scale-110 transition-transform inline-block">
+                  <span className="font-serif text-xl md:text-2xl group-hover:scale-110 transition-transform inline-block">
                     {dest.country}
                   </span>
                   <span className="text-brand-terracotta font-serif text-lg">
@@ -66,8 +66,8 @@ export default function HomePage() {
       {/* Map Section */}
       <section className="section-padding section-spacing">
         <div className="max-w-[1600px] mx-auto">
-          <ScrollReveal className="text-center mb-12">
-            <p className="label-text mb-4">Explore the Map</p>
+          <ScrollReveal className="text-center mb-8">
+            <p className="label-text mb-3">Explore the Map</p>
             <h2 className="heading-section text-brand-forest mb-4">
               Our Destinations
             </h2>
@@ -127,7 +127,7 @@ export default function HomePage() {
       <StoriesAndGuidesSection posts={blogPosts.slice(0, 3)} />
 
       {/* CTA */}
-      <section id="contact-cta" className="relative py-24 md:py-32">
+      <section id="contact-cta" className="relative py-14 md:py-20">
         <div className="absolute inset-0">
           <Image
             src="/images/IMG-20260811-WA0034.jpg"

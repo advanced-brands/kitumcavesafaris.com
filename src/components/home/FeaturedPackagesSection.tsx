@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -80,11 +80,11 @@ export default function FeaturedPackagesSection({ packages }: Props) {
   const current = packages[active];
 
   return (
-    <section id="packages" className="section-padding section-spacing bg-brand-sand">
+    <section id="packages" className="section-padding section-spacing-compact bg-brand-sand">
       <div className="mx-auto max-w-[1600px]">
-        <div className="mb-8 flex flex-col gap-4 md:mb-10 md:flex-row md:items-end md:justify-between">
+        <div className="mb-5 flex flex-col gap-3 md:mb-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="label-text mb-4">Featured Journeys</p>
+            <p className="label-text mb-2">Featured Journeys</p>
             <h2 className="heading-section text-brand-forest">Curated Packages</h2>
           </div>
           <Link

@@ -100,7 +100,7 @@ export default function ExperiencesSection() {
 
   return (
     <section
-      className="experiences-stage relative isolate min-h-[88svh] overflow-hidden bg-[#1a1a22]"
+      className="experiences-stage relative isolate min-h-[min(72svh,38rem)] overflow-hidden bg-[#1a1a22]"
       aria-label="Experiences"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
@@ -131,9 +131,9 @@ export default function ExperiencesSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/20 to-black/75" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.35)_100%)]" />
 
-      <div className="relative z-10 flex min-h-[88svh] flex-col">
-        <div className="section-padding flex flex-1 flex-col items-center justify-center pt-24 text-center sm:pt-28">
-          <p className="label-text !text-white/60 mb-3">Experiences</p>
+      <div className="relative z-10 flex min-h-[min(72svh,38rem)] flex-col">
+        <div className="section-padding flex flex-1 flex-col items-center justify-center pt-20 text-center sm:pt-20">
+          <p className="label-text !text-white/60 mb-2">Experiences</p>
 
           <AnimatePresence mode="wait">
             <motion.div
@@ -145,16 +145,16 @@ export default function ExperiencesSection() {
               className="max-w-4xl px-2"
             >
               <h2 className="experiences-stage-title">{current.title}</h2>
-              <p className="experiences-stage-body mx-auto mt-4 max-w-2xl">
+              <p className="experiences-stage-body mx-auto mt-3 max-w-2xl">
                 {current.description}
               </p>
             </motion.div>
           </AnimatePresence>
         </div>
 
-        <div className="section-padding relative pb-8 pt-2 sm:pb-10 md:pb-12">
+        <div className="section-padding relative pb-5 pt-1 sm:pb-6 md:pb-8">
           <div className="mx-auto max-w-[1600px]">
-            <div className="mb-4 flex items-end justify-between gap-4">
+            <div className="mb-3 flex items-end justify-between gap-4">
               <Link href="/packages/east-africa" className="experiences-stage-link">
                 Explore Packages +
               </Link>
@@ -163,7 +163,7 @@ export default function ExperiencesSection() {
               </span>
             </div>
 
-            <div className="relative h-[9.5rem] w-full sm:h-[10.5rem] md:h-[11.5rem]">
+            <div className="relative h-[7.5rem] w-full sm:h-[8.5rem] md:h-[9.5rem]">
               <svg
                 viewBox="0 0 1000 180"
                 preserveAspectRatio="none"
