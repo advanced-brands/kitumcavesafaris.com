@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Calendar, Clock, User } from "lucide-react";
 import { BlogPost } from "@/data/blog";
+import { formatBlogDate } from "@/lib/format-date";
 
 type BlogCardProps = {
   post: BlogPost;
@@ -13,7 +14,7 @@ export default function BlogCard({ post, variant = "default" }: BlogCardProps) {
     return (
       <Link
         href={`/blog/${post.slug}`}
-        className="group grid md:grid-cols-2 gap-0 bg-white border border-brand-sand-dark overflow-hidden hover:shadow-lg transition-all duration-500"
+        className="group grid md:grid-cols-2 gap-0 bg-white border border-brand-sand-dark overflow-hidden hover:shadow-lg transition-all duration-500 relative z-10"
       >
         <div className="relative aspect-[16/10] md:aspect-auto md:min-h-[320px] overflow-hidden">
           <Image
@@ -32,11 +33,7 @@ export default function BlogCard({ post, variant = "default" }: BlogCardProps) {
           <div className="flex items-center gap-4 text-xs text-brand-charcoal/50">
             <span className="flex items-center gap-1">
               <Calendar size={12} />
-              {new Date(post.date).toLocaleDateString("en-US", {
-                month: "long",
-                day: "numeric",
-                year: "numeric",
-              })}
+              {formatBlogDate(post.date)}
             </span>
             <span className="flex items-center gap-1">
               <Clock size={12} />
@@ -51,7 +48,7 @@ export default function BlogCard({ post, variant = "default" }: BlogCardProps) {
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="group block bg-white border border-brand-sand-dark overflow-hidden hover:shadow-lg transition-all duration-500"
+      className="group block bg-white border border-brand-sand-dark overflow-hidden hover:shadow-lg transition-all duration-500 relative z-10"
     >
       <div className="relative aspect-[16/10] overflow-hidden">
         <Image

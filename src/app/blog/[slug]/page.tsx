@@ -10,6 +10,7 @@ import {
 import BlogCard from "@/components/blog/BlogCard";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { siteConfig } from "@/data/packages";
+import { formatBlogDate } from "@/lib/format-date";
 
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
@@ -120,7 +121,7 @@ export default async function BlogArticlePage({
 
   return (
     <>
-      <section className="relative pt-32 pb-0">
+      <section className="relative z-0 pt-32 pb-0 pointer-events-none">
         <div className="relative h-[45vh] min-h-[320px] max-h-[520px]">
           <Image
             src={post.featuredImage}
@@ -133,7 +134,7 @@ export default async function BlogArticlePage({
         </div>
       </section>
 
-      <article className="section-padding -mt-24 relative z-10">
+      <article className="section-padding -mt-24 relative z-20 pointer-events-auto">
         <div className="max-w-3xl mx-auto bg-brand-cream border border-brand-sand-dark p-8 md:p-12 shadow-sm">
           <span className="label-text mb-4 block">{post.category}</span>
           <h1 className="heading-section text-brand-forest mb-6">{post.title}</h1>
@@ -144,11 +145,7 @@ export default async function BlogArticlePage({
             </span>
             <span className="flex items-center gap-1.5">
               <Calendar size={14} />
-              {new Date(post.date).toLocaleDateString("en-US", {
-                month: "long",
-                day: "numeric",
-                year: "numeric",
-              })}
+              {formatBlogDate(post.date)}
             </span>
             <span className="flex items-center gap-1.5">
               <Clock size={14} />
@@ -174,13 +171,13 @@ export default async function BlogArticlePage({
             <p className="text-white/70 text-sm mb-6">
               Let Kitum Cave Safaris craft a journey around the places that inspire you.
             </p>
-            <div className="flex flex-wrap justify-center gap-3">
-              <Link href="/plan-your-journey" className="btn-terracotta">
+            <div className="flex flex-wrap justify-center gap-3 relative z-10">
+              <Link href="/plan-your-journey" className="btn-terracotta relative z-10">
                 Plan Your Journey
               </Link>
               <Link
                 href="/packages/east-africa"
-                className="btn-secondary !border-white/40 !text-white hover:!bg-white hover:!text-brand-forest"
+                className="btn-secondary relative z-10 !border-white/40 !text-white hover:!bg-white hover:!text-brand-forest"
               >
                 Explore Packages
               </Link>
@@ -189,8 +186,8 @@ export default async function BlogArticlePage({
         </div>
       </article>
 
-      {related.length > 0 && (
-        <section className="section-padding section-spacing">
+        {related.length > 0 && (
+        <section className="relative z-20 section-padding section-spacing pointer-events-auto">
           <div className="max-w-[1600px] mx-auto">
             <ScrollReveal>
               <h2 className="heading-sub text-brand-forest mb-8">Related Articles</h2>

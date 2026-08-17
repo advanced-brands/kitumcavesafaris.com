@@ -42,11 +42,17 @@ export default function Navigation() {
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
+  const isHome = pathname === "/";
+
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-4 sm:px-6 sm:pt-5 md:px-8 pointer-events-none">
         <nav
-          className={cn("nav-floating", scrolled && "nav-floating-scrolled")}
+          className={cn(
+            "nav-floating",
+            isHome && !scrolled && "nav-floating-hero",
+            scrolled && "nav-floating-scrolled"
+          )}
           aria-label="Main navigation"
         >
           <Link href="/" className="relative z-50 shrink-0 pl-1">
