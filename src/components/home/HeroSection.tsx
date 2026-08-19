@@ -3,8 +3,9 @@
 import { useCallback, useEffect, useState, type CSSProperties } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { EASE_SMOOTH, EASE_SOFT } from "@/lib/motion";
+import { useSafeReducedMotion } from "@/lib/use-safe-reduced-motion";
 import { cn } from "@/lib/utils";
 
 type HeroChapter = {
@@ -75,7 +76,7 @@ const AUTO_MS = 8000;
 
 export default function HeroSection() {
   const [active, setActive] = useState(0);
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = useSafeReducedMotion();
   const current = chapters[active];
 
   const goTo = useCallback((index: number) => {

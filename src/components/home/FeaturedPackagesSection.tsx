@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import type { Package } from "@/data/packages";
 import {
   getPackageExpectations,
@@ -11,6 +11,7 @@ import {
   PACKAGES_SCENE_OBJECT_POSITION,
 } from "@/lib/package-highlights";
 import { EASE_SOFT } from "@/lib/motion";
+import { useSafeReducedMotion } from "@/lib/use-safe-reduced-motion";
 import { cn } from "@/lib/utils";
 
 type Props = {
@@ -27,7 +28,7 @@ function displayDestination(pkg: Package) {
 export default function FeaturedPackagesSection({ packages }: Props) {
   const [active, setActive] = useState(0);
   const pausedRef = useRef(false);
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = useSafeReducedMotion();
 
   const goTo = useCallback(
     (index: number) => {

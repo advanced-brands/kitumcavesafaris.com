@@ -2,11 +2,12 @@
 
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { GalleryItem } from "@/data/gallery";
 import { getGallerySlideSummary } from "@/lib/gallery-slide-copy";
 import { EASE_SMOOTH } from "@/lib/motion";
+import { useSafeReducedMotion } from "@/lib/use-safe-reduced-motion";
 import { cn } from "@/lib/utils";
 
 const AUTO_MS = 5200;
@@ -95,7 +96,7 @@ export default function GalleryCoverflow({ items, className }: Props) {
   const stageRef = useRef<HTMLDivElement>(null);
   const pausedRef = useRef(false);
   const activeRef = useRef(0);
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = useSafeReducedMotion();
 
   activeRef.current = active;
 
