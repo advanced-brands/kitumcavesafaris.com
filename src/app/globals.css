@@ -188,6 +188,19 @@
     }
   }
 
+  .experiences-stage {
+    --exp-frame: clamp(0.75rem, 1.6vw, 1.75rem);
+    padding: var(--exp-frame);
+  }
+
+  .experiences-stage-media {
+    position: absolute;
+    inset: var(--exp-frame);
+    overflow: hidden;
+    border-radius: clamp(0.85rem, 1.4vw, 1.5rem);
+    background: #1a1a22;
+  }
+
   .experiences-stage-title {
     @apply font-display text-[clamp(2.25rem,9vw,5.5rem)] uppercase leading-[0.9] tracking-[0.03em] text-white/90;
   }
@@ -335,6 +348,7 @@
 
   .packages-glass-rail-dot {
     position: absolute;
+    top: var(--dot-pos);
     left: 50%;
     z-index: 1;
     height: 0.45rem;
@@ -523,6 +537,96 @@
   }
 
   @media (max-width: 767px) {
+    /* Every pixel of width is worth more than the outer framing on a phone, so
+       the scene padding shrinks and the stage inset is dropped entirely. */
+    .packages-glass-scene {
+      padding: 0.75rem;
+    }
+
+    .packages-glass-stage {
+      padding-inline: 0;
+    }
+
+    /* A vertical rail costs ~32px of an already narrow card and forces the card
+       to stay tall enough to spread the dots. Laying it flat under the content
+       returns that width and decouples the dots from the card height. */
+    .packages-glass-card {
+      flex-direction: column;
+    }
+
+    .packages-glass-rail {
+      order: 2;
+      flex: 0 0 0.9rem;
+      margin: 0 1.35rem 0.9rem;
+    }
+
+    .packages-glass-rail-line {
+      top: 50%;
+      right: 0;
+      bottom: auto;
+      left: 0;
+      height: 1px;
+      width: auto;
+      transform: translateY(-50%);
+      background: linear-gradient(
+        90deg,
+        rgb(255 255 255 / 0),
+        rgb(255 255 255 / 0.55) 18%,
+        rgb(255 255 255 / 0.55) 82%,
+        rgb(255 255 255 / 0)
+      );
+    }
+
+    .packages-glass-rail-dot {
+      top: 50%;
+      left: var(--dot-pos);
+    }
+
+    .packages-glass-body {
+      padding: 1rem 1rem 0.75rem;
+    }
+
+    .packages-glass-hero {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.9rem;
+    }
+
+    .packages-glass-cta {
+      align-self: flex-start;
+      min-width: 0;
+      padding: 0.55rem 1.2rem;
+    }
+
+    .packages-glass-eyebrow {
+      letter-spacing: 0.12em;
+    }
+
+    /* At the default size the longest destination name wraps to four lines on a
+       360px screen, and since the reservation below has to cover the worst case
+       that cost every other slide ~33px of dead space. */
+    .packages-glass-title {
+      font-size: 1.42rem;
+    }
+
+    /* The card must keep one height as the carousel auto-advances, or the page
+       reflows every few seconds. Destination names run from one to three lines,
+       so the copy block reserves the three-line worst case. Holding it here
+       rather than on the title itself keeps the slack below the description
+       instead of opening a gap under short names like KIGALI. */
+    .packages-glass-copy {
+      min-height: 7.45rem;
+    }
+
+    .packages-glass-description {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      overflow: hidden;
+      min-height: 3.2em;
+    }
+
     .packages-glass-expectations-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 0.6rem;
@@ -532,13 +636,31 @@
       display: none;
     }
 
+    .packages-glass-expect-media {
+      aspect-ratio: 16 / 10;
+    }
+
+    /* Itinerary titles are long enough that two lines cut them mid-phrase, so
+       they keep three lines and the slide description gives one up instead. */
     .packages-glass-expect-title {
-      font-size: 0.62rem;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      line-clamp: 3;
+      overflow: hidden;
+      font-size: 0.68rem;
+      min-height: 4.05em;
     }
 
     .packages-glass-expect-caption {
-      font-size: 0.62rem;
-      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      overflow: hidden;
+      font-size: 0.68rem;
+      line-height: 1.45;
+      min-height: 2.9em;
     }
   }
 
@@ -846,18 +968,25 @@
 
   /* ── Longing hero (home) ── */
   .hero-longing {
+    --hero-frame: clamp(0.75rem, 1.6vw, 1.75rem);
     position: relative;
     isolation: isolate;
-    min-height: 100svh;
-    min-height: 100dvh;
-    max-height: 100dvh;
+    padding: var(--hero-frame) var(--hero-frame) 0;
+    min-height: calc(100svh - var(--hero-frame));
+    min-height: calc(100dvh - var(--hero-frame));
+    max-height: calc(100dvh - var(--hero-frame));
     overflow: hidden;
     background: #0f1814;
   }
 
   .hero-longing-media {
     position: absolute;
-    inset: 0;
+    top: var(--hero-frame);
+    right: var(--hero-frame);
+    left: var(--hero-frame);
+    bottom: 0;
+    border-radius: clamp(0.85rem, 1.4vw, 1.5rem);
+    overflow: hidden;
   }
 
   .hero-longing-bg {
@@ -901,9 +1030,9 @@
     position: relative;
     z-index: 4;
     display: flex;
-    min-height: 100svh;
-    min-height: 100dvh;
-    max-height: 100dvh;
+    min-height: calc(100svh - var(--hero-frame));
+    min-height: calc(100dvh - var(--hero-frame));
+    max-height: calc(100dvh - var(--hero-frame));
     flex-direction: column;
     padding-top: clamp(4.5rem, 8vw, 5.75rem);
     pointer-events: none;
@@ -1079,35 +1208,9 @@
   }
 
   @media (max-width: 767px) {
-    .hero-longing {
-      padding: 0.75rem 0.75rem 0;
-      min-height: calc(100svh - 0.75rem);
-      min-height: calc(100dvh - 0.75rem);
-      max-height: calc(100dvh - 0.75rem);
-    }
-
-    .hero-longing-media {
-      top: 0.75rem;
-      right: 0.75rem;
-      left: 0.75rem;
-      bottom: 0;
-      border-radius: 0.85rem;
-      overflow: hidden;
-    }
-
-    .hero-longing-ui {
-      min-height: calc(100svh - 0.75rem);
-      min-height: calc(100dvh - 0.75rem);
-      max-height: calc(100dvh - 0.75rem);
-    }
-
     .hero-longing-copy.section-padding,
     .hero-longing-dock-wrap.section-padding {
       padding-inline: clamp(0.85rem, 4vw, 1.25rem);
-    }
-
-    .hero-longing-dock-wrap {
-      padding-bottom: 1rem;
     }
   }
 

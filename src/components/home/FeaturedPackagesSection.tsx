@@ -134,7 +134,7 @@ export default function FeaturedPackagesSection({ packages }: Props) {
                         "packages-glass-rail-dot",
                         isActive && "packages-glass-rail-dot--active"
                       )}
-                      style={{ top: `${position}%` }}
+                      style={{ "--dot-pos": `${position}%` } as CSSProperties}
                       aria-label={`Show ${pkg.name}`}
                       aria-current={isActive ? "true" : undefined}
                     />

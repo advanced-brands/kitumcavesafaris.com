@@ -100,36 +100,38 @@ export default function ExperiencesSection() {
 
   return (
     <section
-      className="experiences-stage relative isolate min-h-[min(72svh,38rem)] overflow-hidden bg-[#1a1a22]"
+      className="experiences-stage relative isolate overflow-hidden"
       aria-label="Experiences"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      {experiences.map((item, index) => (
-        <div
-          key={item.id}
-          className={cn(
-            "absolute inset-0 transition-opacity duration-[650ms] [transition-timing-function:cubic-bezier(0.33,1,0.68,1)]",
-            index === active ? "opacity-100" : "opacity-0"
-          )}
-          aria-hidden={index !== active}
-        >
-          <Image
-            src={item.image}
-            alt=""
-            fill
-            priority={index === 0}
+      <div className="experiences-stage-media">
+        {experiences.map((item, index) => (
+          <div
+            key={item.id}
             className={cn(
-              "object-cover",
-              index === active && "experiences-stage-kenburns"
+              "absolute inset-0 transition-opacity duration-[650ms] [transition-timing-function:cubic-bezier(0.33,1,0.68,1)]",
+              index === active ? "opacity-100" : "opacity-0"
             )}
-            sizes="100vw"
-          />
-        </div>
-      ))}
+            aria-hidden={index !== active}
+          >
+            <Image
+              src={item.image}
+              alt=""
+              fill
+              priority={index === 0}
+              className={cn(
+                "object-cover",
+                index === active && "experiences-stage-kenburns"
+              )}
+              sizes="100vw"
+            />
+          </div>
+        ))}
 
-      <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/20 to-black/75" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.35)_100%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/20 to-black/75" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.35)_100%)]" />
+      </div>
 
       <div className="relative z-10 flex min-h-[min(72svh,38rem)] flex-col">
         <div className="section-padding flex flex-1 flex-col items-center justify-center pt-20 text-center sm:pt-20">
@@ -216,7 +218,7 @@ export default function ExperiencesSection() {
 
                       <span
                         className={cn(
-                          "mt-3 flex flex-col items-center text-center transition-opacity duration-500 [transition-timing-function:cubic-bezier(0.33,1,0.68,1)]",
+                          "mt-3 flex flex-col items-center whitespace-nowrap text-center transition-opacity duration-500 [transition-timing-function:cubic-bezier(0.33,1,0.68,1)]",
                           isActive
                             ? "opacity-100"
                             : "hidden opacity-70 sm:flex group-hover:opacity-100"

@@ -66,7 +66,7 @@ function TeamMemberCard({ member }: { member: TeamMember }) {
   const socialLinks = getMemberSocialLinks(member);
 
   return (
-    <div className="flex gap-5 sm:gap-6 rounded-2xl border border-white/10 bg-white/[0.03] p-5 sm:p-6 transition-colors duration-300 hover:border-brand-terracotta/30 hover:bg-white/[0.05]">
+    <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:items-start sm:gap-6 sm:text-left rounded-2xl border border-white/10 bg-white/[0.03] p-5 sm:p-6 transition-colors duration-300 hover:border-brand-terracotta/30 hover:bg-white/[0.05]">
       <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full border-2 border-white/10 bg-white sm:h-28 sm:w-28">
         <Image
           src={member.image}
@@ -77,7 +77,7 @@ function TeamMemberCard({ member }: { member: TeamMember }) {
         />
       </div>
 
-      <div className="min-w-0 flex-1">
+      <div className="w-full min-w-0 flex-1">
         <h3 className="font-serif text-xl text-white sm:text-2xl">{member.name}</h3>
         <p className="mt-1 text-sm text-white/50">{member.role}</p>
         <div className="my-4 h-px bg-white/10" />
@@ -86,7 +86,7 @@ function TeamMemberCard({ member }: { member: TeamMember }) {
         </p>
 
         {socialLinks.length > 0 && (
-          <div className="mt-5 flex flex-wrap gap-2">
+          <div className="mt-5 flex flex-wrap justify-center gap-2 sm:justify-start">
             {socialLinks.map(({ href, label, icon: Icon }) => (
               <Link
                 key={label}
