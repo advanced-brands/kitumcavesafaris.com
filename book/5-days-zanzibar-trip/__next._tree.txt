@@ -1,5 +1,5 @@
-:HL["/_next/static/chunks/0wv732itcyi82.css","style"]
+:HL["/_next/static/chunks/1wa_tnupvugsk.css","style"]
 :HL["/_next/static/media/01e4147cff8141ee-s.p.3huc2loe0ie8a.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/5c285b27cdda1fe8-s.p.2_mbdogr7ni8i.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/fabcf92ba1ccea36-s.p.1w_qz2ahumqmz.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"book","param":null,"prefetchHints":4160,"slots":{"children":{"name":"slug","param":{"type":"d","key":"5-days-zanzibar-trip","siblings":[]},"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"_GaklCTF2RkCU1CYGWgWr"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"book","param":null,"prefetchHints":4160,"slots":{"children":{"name":"slug","param":{"type":"d","key":"5-days-zanzibar-trip","siblings":[]},"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"cfI_d9h00mmCmVzj5fQB2"}
