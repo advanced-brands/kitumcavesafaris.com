@@ -1,34 +1,59 @@
+export type TeamMemberSocial = {
+  x?: string;
+  instagram?: string;
+  tiktok?: string;
+  linkedin?: string;
+  email?: string;
+  substack?: string;
+};
+
 export type TeamMember = {
   id: string;
   name: string;
   role: string;
-  bio: string;
+  bio: string | string[];
   image: string;
   isFounder?: boolean;
+  social?: TeamMemberSocial;
 };
 
 export const teamMembers: TeamMember[] = [
   {
     id: "founder",
-    name: "[FOUNDER NAME]",
+    name: "Joel Byakika",
     role: "Founder & Managing Director",
-    bio: "[FOUNDER BIO — Share the story behind Kitum Cave Safaris. What inspired the company? What experience and passion drives the journeys you create? This is where visitors learn who they are trusting with their travel dreams.]",
-    image: "/images/4A9A8457.jpg",
+    bio: [
+      "Kitum Cave Safari is a journey born from the love of Uganda and East Africa, adventure, and the belief that some of the world's greatest experiences are still waiting to be discovered.",
+      "We started Kitum Cave Safari because we believe Uganda and East Africa have extraordinary stories, landscapes, wildlife, culture, and adventure that deserve to be experienced and shared with the world.",
+      "At Kitum Cave Safari, a safari is not just about taking someone from one attraction to another. It's about the stories shared along the journey, the local people you meet, the breathtaking moments you never planned for, and the memories you carry home long after your flight has departed.",
+      "Our promise is very simple: to treat every guest with honesty, respect, professionalism, and genuine care. We want you to feel comfortable from the time you make your first inquiry until the moment you say goodbye to East Africa.",
+    ],
+    image: "/images/founder.png",
     isFounder: true,
   },
   {
     id: "team-1",
-    name: "[TEAM MEMBER NAME]",
-    role: "[ROLE — e.g., Head of Operations]",
-    bio: "[BIO — Brief description of this team member's role, expertise, and contribution to the company.]",
-    image: "/images/IMG-20260811-WA0047.jpg",
+    name: "Ankunda Elizabeth Nkwanzi",
+    role: "Operations Manager",
+    bio: "Elizabeth keeps every journey running smoothly — coordinating logistics, bookings, and guest communications so your safari experience is seamless from start to finish.",
+    image: "/images/ankunda-elizabeth-nkwanzi.png",
+    social: {
+      linkedin: "https://www.linkedin.com/in/ankunda-elizabeth-b99399336/",
+      email: "ankundabeth07@gmail.com",
+      substack: "https://substack.com/@iznawkn",
+    },
   },
   {
     id: "team-2",
-    name: "[TEAM MEMBER NAME]",
-    role: "[ROLE — e.g., Senior Safari Guide]",
-    bio: "[BIO — Brief description of this team member's role, expertise, and contribution to the company.]",
-    image: "/images/IMG-20260811-WA0078.jpg",
+    name: "Kiwanika Edward",
+    role: "Brand Ambassador",
+    bio: "Edward represents Kitum Cave Safaris with pride — sharing our story, connecting with travelers, and helping guests feel the warmth and spirit of East African hospitality.",
+    image: "/images/kiwanika-edward.png",
+    social: {
+      tiktok: "https://www.tiktok.com/@kiwanukaedward669",
+      x: "https://x.com/EdwardKiwanuka6",
+      instagram: "https://www.instagram.com/kiwanukaedward",
+    },
   },
   {
     id: "team-3",

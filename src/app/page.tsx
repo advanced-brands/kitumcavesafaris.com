@@ -88,12 +88,12 @@ export default function HomePage() {
           <div className="max-w-[1600px] mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
               <ScrollReveal>
-                <div className="relative aspect-[4/5] max-w-md mx-auto lg:mx-0 overflow-hidden">
+                <div className="relative aspect-[3/4] w-full max-w-[240px] mx-auto lg:mx-0 overflow-hidden bg-white/5">
                   <Image
                     src={founder.image}
                     alt={founder.name}
                     fill
-                    className="object-cover"
+                    className="object-contain object-top"
                   />
                 </div>
               </ScrollReveal>
@@ -104,9 +104,18 @@ export default function HomePage() {
                 <h2 className="heading-section text-brand-cream mb-6">
                   {founder.name}
                 </h2>
-                <p className="body-large !text-brand-cream/80 mb-8">
-                  {founder.bio}
-                </p>
+                <div className="space-y-6 mb-8">
+                  {(Array.isArray(founder.bio) ? founder.bio : [founder.bio]).map(
+                    (paragraph) => (
+                      <p
+                        key={paragraph}
+                        className="body-large !text-brand-cream/80"
+                      >
+                        {paragraph}
+                      </p>
+                    )
+                  )}
+                </div>
                 <Link
                   href="/about"
                   className="btn-terracotta"
