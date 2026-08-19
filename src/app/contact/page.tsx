@@ -51,7 +51,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <section className="section-padding section-spacing pt-32 md:pt-40">
+      <section className="section-padding section-spacing pt-24 md:pt-32">
         <div className="max-w-[1600px] mx-auto grid lg:grid-cols-2 gap-12 lg:gap-20">
           <ScrollReveal>
             <h2 className="heading-sub text-brand-forest mb-8">Contact Details</h2>

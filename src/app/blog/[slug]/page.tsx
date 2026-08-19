@@ -121,7 +121,7 @@ export default async function BlogArticlePage({
 
   return (
     <>
-      <section className="relative z-0 pt-32 pb-0 pointer-events-none">
+      <section className="relative z-0 pt-24 pb-0 pointer-events-none">
         <div className="relative h-[45vh] min-h-[320px] max-h-[520px]">
           <Image
             src={post.featuredImage}

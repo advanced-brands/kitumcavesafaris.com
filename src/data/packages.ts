@@ -487,6 +487,7 @@ export const packages: Package[] = [
     cancellationPolicy:
       "Deposit refundable up to 45 days before departure minus admin fees. Cancellations within 45 days may forfeit deposit; full terms provided at booking.",
     partialPaymentPercent: 30,
+    featured: true,
     categories: ["wildlife", "adventure"],
   },
   {
@@ -584,6 +585,7 @@ export const packages: Package[] = [
     cancellationPolicy:
       "Deposit refundable up to 45 days before departure minus admin fees. Cancellations within 45 days may forfeit deposit; full terms provided at booking.",
     partialPaymentPercent: 30,
+    featured: true,
     categories: ["wildlife", "adventure", "nature"],
   },
   {
@@ -633,25 +635,58 @@ export const packages: Package[] = [
     categories: ["luxury", "international"],
   },
   {
-    id: "international-zanzibar",
-    slug: "international-zanzibar-retreat",
-    name: "[PACKAGE NAME] — Zanzibar Retreat",
-    destination: "Zanzibar",
+    id: "zanzibar-5-day-trip",
+    slug: "5-days-zanzibar-trip",
+    name: "5 Days Zanzibar Trip",
+    destination: "Stone Town & Nungwi Beach, Zanzibar",
     country: "Tanzania",
-    region: "international",
-    duration: "[DURATION]",
-    durationDays: 0,
-    price: 0,
+    region: "east-africa",
+    duration: "5 Days / 4 Nights",
+    durationDays: 5,
+    price: 1157,
     currency: "USD",
+    priceNote:
+      "Per person sharing, high season. Includes round-trip flights Entebbe–Zanzibar. Optional activities priced separately.",
     shortDescription:
-      "[SHORT DESCRIPTION — Spice-scented breezes and Indian Ocean shores.]",
-    fullDescription: "[FULL DESCRIPTION — TO BE ADDED]",
+      "Stone Town heritage, Prison Island tortoises, Nakupenda sandbank, Safari Blue snorkeling, and Nungwi beach — with flights from Entebbe included.",
+    fullDescription:
+      "This five-day Zanzibar escape pairs UNESCO-listed Stone Town with the white sands of Nungwi in the north. Fly from Entebbe to Abeid Amani Karume International Airport, then explore winding alleys, spice-scented markets, and Indian Ocean excursions — from giant tortoises on Prison Island and a BBQ lunch on Nakupenda sandbank to swimming with sea turtles and a full-day Safari Blue boat trip. Kitum Cave Safaris handles flights, transfers, guided tours, and hand-picked accommodation at Maru Maru Hotel and Amaan Beach Bungalows so you can focus on the island.",
     travelType: "Beach & Culture",
-    availability: "Available on request — contact us for dates",
+    availability: "Available year-round — contact us for flight dates and high-season availability",
     bestTimeToVisit:
-      "Dry seasons (June–October) are ideal for wildlife viewing. We advise on seasonal highlights when you inquire.",
-    whatToBring: defaultWhatToBring,
-    faqs: defaultFaqs,
+      "June to October and December to February offer the driest beach weather. March–May is greener with fewer crowds; we advise on seasonal rates when you book.",
+    whatToBring: [
+      "Valid passport and Tanzania visa or eVisa",
+      "Light beachwear and modest clothing for Stone Town",
+      "Reef-safe sunscreen, sun hat, and sunglasses",
+      "Swimwear and snorkel gear (optional — provided on Safari Blue)",
+      "Insect repellent and reusable water bottle",
+      "Waterproof bag for boat excursions",
+      "Travel insurance documents",
+    ],
+    faqs: [
+      {
+        question: "Are flights from Entebbe included?",
+        answer:
+          "Yes — round-trip flights between Entebbe and Zanzibar are included in the package price quoted per person sharing.",
+      },
+      {
+        question: "What optional activities are available in Nungwi?",
+        answer:
+          "Popular add-ons include a sunset dhow cruise (from $25–30 pp), horse riding ($40 pp), and spa treatments at your resort. These are not included unless requested at booking.",
+      },
+      {
+        question: "Is accommodation on a sharing basis?",
+        answer:
+          "Yes — the quoted rate is per person on a sharing basis. Single-room supplements can be arranged on request.",
+      },
+      {
+        question: "Do I need a visa for Tanzania?",
+        answer:
+          "Most travellers require a Tanzania visa or eVisa. Visa fees are not included in the package — we advise on the latest requirements when you book.",
+      },
+      ...defaultFaqs.slice(0, 1),
+    ],
     heroImage: "/images/IMG-20260811-WA0012.jpg",
     galleryImages: [
       "/images/IMG-20260811-WA0012.jpg",
@@ -663,23 +698,658 @@ export const packages: Package[] = [
     ],
     mapCoordinates: { lat: -6.16, lng: 39.2 },
     mapZoom: 10,
-    included: ["[INCLUDED — TO BE ADDED]"],
-    excluded: ["[EXCLUDED — TO BE ADDED]"],
+    included: [
+      "4 nights accommodation (sharing) — Maru Maru Hotel & Amaan Beach Bungalows",
+      "Meals as per itinerary",
+      "Round-trip flights Entebbe–Zanzibar",
+      "Airport and inter-hotel transfers",
+      "Stone Town guided walking tour",
+      "Prison Island, Nakupenda sandbank & BBQ lunch",
+      "Swimming with sea turtles (Mbarakumu caves, Kiwengwa)",
+      "Full-day Safari Blue boat trip (snorkeling, seafood lunch, drinks)",
+      "Kwale Island and mangrove lagoon visit",
+      "Park and conservation fees",
+      "All activities listed in the itinerary",
+    ],
+    excluded: [
+      "Tanzania visa fees",
+      "Travel insurance",
+      "Personal expenses (laundry, alcohol, tips)",
+      "Optional activities (sunset dhow cruise, horse riding, spa)",
+      "Activities not mentioned in the itinerary",
+    ],
     itinerary: [
       {
         day: 1,
-        title: "[DAY 1 — TO BE ADDED]",
-        description: "[DESCRIPTION — TO BE ADDED]",
+        title: "Arrival in Zanzibar & Stone Town Tour",
+        description:
+          "Morning or afternoon arrival at Abeid Amani Karume International Airport (ZNZ). Private transfer to Stone Town and check-in at the hotel. In the afternoon, enjoy a guided walking tour through Stone Town — Old Fort, Sultan's Palace, and Freddie Mercury House. Dinner at the hotel and overnight in Stone Town.",
+        accommodation: "Maru Maru Hotel",
+        meals: "Dinner",
+      },
+      {
+        day: 2,
+        title: "Prison Island, Nakupenda Sandbank & Sea Turtles",
+        description:
+          "After breakfast at the hotel, take a boat excursion to Prison Island to see giant tortoises and snorkel the surrounding reef. Continue by boat to Nakupenda sandbank for a BBQ lunch. In the afternoon, visit Mbarakumu caves at Kiwengwa to swim with wild sea turtles in natural limestone pools. Return to Stone Town for dinner and overnight.",
+        accommodation: "Maru Maru Hotel",
+        meals: "Breakfast, lunch, dinner",
+      },
+      {
+        day: 3,
+        title: "Transfer to Nungwi Beach",
+        description:
+          "Breakfast and check-out, then a scenic transfer to Nungwi Beach (approximately 1.5 hours). Check in to your beach resort and enjoy free time for swimming and relaxation. Optional activities available: dhow sunset cruise ($30 pp), horse riding ($40 pp), or spa treatments. Dinner and overnight at Nungwi.",
+        accommodation: "Amaan Beach Bungalows",
+        meals: "Breakfast, dinner",
+      },
+      {
+        day: 4,
+        title: "Safari Blue Full-Day Boat Trip",
+        description:
+          "Early morning breakfast, then transfer to Fumba/Menai Bay (approximately 45 minutes). Embark on the full-day Safari Blue experience — snorkeling at coral reefs, sandbank BBQ seafood lunch with tropical fruits and drinks, and a visit to Kwale Island and the mangrove lagoon. Return to the hotel for a free evening and dinner at the resort.",
+        accommodation: "Amaan Beach Bungalows",
+        meals: "Breakfast, lunch, dinner",
+      },
+      {
+        day: 5,
+        title: "Departure",
+        description:
+          "Breakfast and check-out. Time to relax before your private transfer to Zanzibar Airport for your flight back to Entebbe — end of trip.",
+        meals: "Breakfast",
       },
     ],
-    accommodation: "[ACCOMMODATION — TO BE ADDED]",
-    transport: "[TRANSPORT — TO BE ADDED]",
-    importantInfo: ["[INFO — TO BE ADDED]"],
-    bookingRequirements: ["[REQUIREMENTS — TO BE ADDED]"],
+    accommodation:
+      "Maru Maru Hotel, Stone Town (2 nights) · Amaan Beach Bungalows, Nungwi (2 nights)",
+    transport:
+      "Round-trip flights Entebbe–Zanzibar; private airport and resort transfers; boat excursions as per itinerary",
+    importantInfo: [
+      "Quoted rate is per person on a sharing basis (high season)",
+      "Optional add-ons: sunset dhow cruise from $25–30 pp, horse riding $40 pp",
+      "Safari Blue and boat trips are weather-dependent — we reschedule when needed",
+      "Pack modest clothing for Stone Town and reef-safe sunscreen for snorkeling",
+    ],
+    bookingRequirements: [
+      "Valid passport (6+ months validity)",
+      "Tanzania visa or eVisa",
+      "Travel insurance strongly recommended",
+    ],
     cancellationPolicy:
-      "Deposit refundable up to 45 days before departure minus admin fees. Cancellations within 45 days may forfeit deposit; full terms provided at booking.",
+      "Deposit refundable up to 45 days before departure minus admin fees. Cancellations within 45 days may forfeit deposit. Flight tickets are subject to airline cancellation policies once issued.",
     partialPaymentPercent: 30,
-    categories: ["luxury", "culture", "international"],
+    categories: ["luxury", "culture", "adventure"],
+  },
+  {
+    id: "rwanda-uganda-8-day-safari",
+    slug: "rwanda-uganda-8-day-safari",
+    name: "8 Days Rwanda–Uganda Safari",
+    destination: "Kigali, Volcanoes, Lake Kivu, Bwindi, Queen Elizabeth & Kibale",
+    country: "Rwanda and Uganda",
+    region: "east-africa",
+    duration: "8 Days / 7 Nights",
+    durationDays: 8,
+    price: 5470,
+    currency: "USD",
+    priceNote:
+      "Per person mid-range, foreign non-resident rates. Includes two gorilla treks, golden monkey tracking, and chimpanzee trekking.",
+    shortDescription:
+      "Double gorilla encounters in Rwanda and Uganda, golden monkeys at Mgahinga, Lake Kivu, Queen Elizabeth wildlife, and chimpanzee trekking in Kibale — Kigali to Entebbe.",
+    fullDescription:
+      "This eight-day cross-border journey is the ultimate primate and wildlife circuit — start in Kigali with a moving city tour, trek mountain gorillas in Rwanda's Volcanoes National Park, cruise Lake Kivu, track golden monkeys where silver meets gold at Mgahinga, then cross into Uganda for a second gorilla trek in Bwindi, savannah game drives and a Kazinga Channel cruise in Queen Elizabeth, and afternoon chimpanzee trekking in Kibale. Kitum Cave Safaris handles permits, cross-border logistics, mid-range lodges, and a dedicated 4x4 driver-guide throughout.",
+    travelType: "Wildlife & Primate Safari",
+    availability: "Available year-round — gorilla and chimp permits must be booked well in advance",
+    bestTimeToVisit:
+      "Primate trekking runs year-round. Dry seasons (June–September and December–February) offer easier forest trails and clearer savannah viewing.",
+    whatToBring: [
+      "Valid passport and East Africa Tourist Visa (Rwanda–Uganda)",
+      "Sturdy waterproof hiking boots",
+      "Long trousers and long-sleeved shirts in neutral colours",
+      "Light rain jacket, daypack, and gaiters for forest treks",
+      "Insect repellent, sun protection, and reusable water bottle",
+      "Binoculars and camera (no flash during primate viewing)",
+      "Yellow fever certificate (recommended)",
+      "Travel insurance documents",
+    ],
+    faqs: [
+      {
+        question: "How many gorilla treks are included?",
+        answer:
+          "Two — one in Rwanda's Volcanoes National Park and one in Uganda's Bwindi Impenetrable National Park. Both gorilla permits are included in the package price quoted for foreign non-residents.",
+      },
+      {
+        question: "Do I need a separate visa for Rwanda and Uganda?",
+        answer:
+          "The East Africa Tourist Visa ($100) covers both Rwanda and Uganda for eligible nationalities. We advise on the latest requirements when you book.",
+      },
+      {
+        question: "How fit do I need to be?",
+        answer:
+          "Moderate fitness is recommended. Gorilla and chimp treks can last 2–6 hours on steep, muddy terrain. Golden monkey tracking is generally shorter but still involves forest walking.",
+      },
+      {
+        question: "Is the golden monkey trek included?",
+        answer:
+          "Yes — golden monkey tracking at Mgahinga Gorilla National Park is included, along with the chimpanzee trek in Kibale and all park fees listed in the itinerary.",
+      },
+      ...defaultFaqs.slice(0, 1),
+    ],
+    heroImage: "/images/4A9A8590.jpg",
+    galleryImages: [
+      "/images/4A9A8590.jpg",
+      "/images/4A9A8591.jpg",
+      "/images/4A9A8592.jpg",
+      "/images/4A9A7964.jpg",
+      "/images/4A9A0474.jpg",
+      "/images/4A9A8545.jpg",
+      "/images/IMG-20260811-WA0090.jpg",
+    ],
+    mapCoordinates: { lat: -0.95, lng: 30.05 },
+    mapZoom: 7,
+    included: [
+      "Rwanda gorilla permit (Volcanoes National Park)",
+      "Uganda gorilla permit (Bwindi Impenetrable National Park)",
+      "Chimpanzee permit (Kibale National Park)",
+      "Golden monkey permit (Mgahinga Gorilla National Park)",
+      "Park entrance fees (Mgahinga, Queen Elizabeth, Kibale, Bwindi)",
+      "7 nights mid-range full-board accommodation",
+      "4x4 Land Cruiser, fuel, and professional driver-guide",
+      "Cross-border COMESA insurance",
+      "Lake Kivu and Kazinga Channel boat safaris",
+      "Kigali city tour",
+      "East Africa Tourist Visa (Rwanda–Uganda)",
+      "Mineral water whilst on safari",
+      "All activities listed in the itinerary",
+    ],
+    excluded: [
+      "International flights to/from home",
+      "Personal items and laundry",
+      "Tips for guides and lodge staff",
+      "Travel insurance",
+      "Soft drinks and alcoholic drinks",
+      "Optional activities not mentioned",
+      "Activities not listed in the itinerary",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Kigali City Tour & Transfer to Volcanoes",
+        description:
+          "After breakfast, embark on a Kigali city tour — visit the Kigali Genocide Memorial, a solemn tribute to the victims of the 1994 genocide, and the Belgian peacekeepers memorial honouring soldiers who lost their lives during the crisis. Enjoy a packed lunch while driving to Volcanoes National Park in northern Rwanda (approximately 2–3 hours). Check in at the lodge for overnight.",
+        accommodation: "Da Vinci Gorilla Lodge",
+        meals: "Breakfast, lunch, dinner",
+      },
+      {
+        day: 2,
+        title: "Gorilla Trekking & Transfer to Lake Kivu",
+        description:
+          "After an early breakfast, transfer to park headquarters for a comprehensive briefing and allocation of your gorilla family. Hike through the forest with rangers to find a habituated group — the trek takes 2–6 hours depending on gorilla movements. Spend one hour observing them, then drive approximately 3 hours to Lake Kivu. Check in, refresh, and relax at the lodge.",
+        accommodation: "Cormoran Lodge",
+        meals: "Breakfast, lunch, dinner",
+      },
+      {
+        day: 3,
+        title: "Lake Kivu Boat Safari & Transfer to Mgahinga",
+        description:
+          "After breakfast, enjoy a scenic boat tour on Lake Kivu — visit Napoleon Island, named for its distinctive shape and home to fruit bats, and a traditional fishing village to observe local methods. Check out after the boat safari and have lunch, then transfer to Mgahinga Gorilla National Park — where silver meets gold — for overnight at the lodge ahead of golden monkey tracking.",
+        accommodation: "Travelers Rest Hotel",
+        meals: "Breakfast, lunch, dinner",
+      },
+      {
+        day: 4,
+        title: "Golden Monkey Tracking & Transfer to Bwindi",
+        description:
+          "After morning breakfast, trek into the forest in search of golden monkeys — trackers follow fresh bamboo shoots left from the previous day. Once found, spend one hour watching them leap through the trees. After lunch, transfer to Bwindi Impenetrable National Park. Check in at the lodge, refresh, and prepare for your second gorilla trek tomorrow.",
+        accommodation: "Bakiga Lodge",
+        meals: "Breakfast, lunch, dinner",
+      },
+      {
+        day: 5,
+        title: "Bwindi Gorilla Trekking & Transfer to Queen Elizabeth",
+        description:
+          "Early breakfast, then head to Bwindi park headquarters for briefing before setting off with experienced guides in search of mountain gorillas. Spend an hour with these giants in their natural habitat. After the trek, enjoy packed lunch while driving to Queen Elizabeth National Park — Uganda's most popular and biodiverse safari destination (approximately 4–6 hours). Check in at the lodge on arrival.",
+        accommodation: "Irungu Forest Safari Lodge",
+        meals: "Breakfast, lunch, dinner",
+      },
+      {
+        day: 6,
+        title: "Queen Elizabeth Game Drive & Kazinga Channel",
+        description:
+          "Very early breakfast, then a morning game drive on the savannah — lions, elephants, buffalo, leopards, and antelope are commonly sighted. In the afternoon, take a boat safari along the Kazinga Channel, consistently rich with hippos, crocodiles, elephants, buffalo, and birdlife along the shores. Return to the lodge for relaxation.",
+        accommodation: "Irungu Forest Safari Lodge",
+        meals: "Breakfast, lunch, dinner",
+      },
+      {
+        day: 7,
+        title: "Transfer to Kibale & Chimpanzee Trekking",
+        description:
+          "After breakfast, transfer to Kibale National Park — the primate capital of the world with over 1,500 chimpanzees (approximately 1.5 hours). Check in at the lodge, relax, and prepare for afternoon chimpanzee trekking. Briefing at park headquarters, then trek from Kanyanchu Visitor Centre (from 3:30 pm) for 2–5 hours with expert guides to a habituated chimp group.",
+        accommodation: "Isunga Lodge",
+        meals: "Breakfast, lunch, dinner",
+      },
+      {
+        day: 8,
+        title: "Transfer to Entebbe & Departure",
+        description:
+          "After breakfast, transfer to Kampala/Entebbe for drop-off in time for your evening flight — end of trip.",
+        meals: "Breakfast",
+      },
+    ],
+    accommodation:
+      "Da Vinci Gorilla Lodge · Cormoran Lodge · Travelers Rest · Bakiga Lodge · Irungu Forest Safari Lodge · Isunga Lodge (7 nights mid-range)",
+    transport:
+      "4x4 Land Cruiser with professional driver-guide; cross-border COMESA insurance; route Kigali–Musanze–Kivu–Kisoro–Bwindi–Queen Elizabeth–Kibale–Entebbe",
+    importantInfo: [
+      "Minimum age for gorilla trekking is 15 years",
+      "Two gorilla permits included — book months in advance",
+      "Mid-range accommodation as quoted; upgrades available on request",
+      "Moderate fitness required for multiple forest treks across eight days",
+    ],
+    bookingRequirements: [
+      "Valid passport (6+ months validity)",
+      "East Africa Tourist Visa or individual Rwanda/Uganda visas",
+      "Yellow fever vaccination certificate recommended",
+      "Travel insurance strongly recommended",
+    ],
+    cancellationPolicy:
+      "Deposit refundable up to 45 days before departure minus admin fees. Gorilla and chimp permits are subject to national park authority policies once issued — non-transferable in most cases.",
+    partialPaymentPercent: 30,
+    featured: true,
+    categories: ["wildlife", "adventure", "culture", "nature"],
+  },
+  {
+    id: "uganda-12-day-safari",
+    slug: "12-days-uganda-safari",
+    name: "12 Days Uganda Safari",
+    destination: "Kidepo, Murchison Falls, Kibale, Queen Elizabeth, Bwindi & Lake Bunyonyi",
+    country: "Uganda",
+    region: "east-africa",
+    duration: "12 Days / 11 Nights",
+    durationDays: 12,
+    price: 5195,
+    currency: "USD",
+    priceNote:
+      "Per person mid-range, foreign non-resident rates. Includes gorilla and chimpanzee permits.",
+    shortDescription:
+      "Uganda's grand circuit — Source of the Nile, Sipi Falls, remote Kidepo, Murchison Falls, chimps in Kibale, Queen Elizabeth savannah, gorillas in Bwindi, and Lake Bunyonyi.",
+    fullDescription:
+      "This twelve-day journey covers Uganda's greatest hits in a single epic loop — from the Source of the Nile at Jinja and the waterfalls of Mount Elgon to the remote wilderness of Kidepo Valley, the thunder of Murchison Falls, chimpanzee tracking in Kibale, savannah game drives and Kazinga Channel cruises in Queen Elizabeth, mountain gorillas in Bwindi, and a serene finale on Lake Bunyonyi. Kitum Cave Safaris handles all permits, mid-range lodges, boat safaris, cultural experiences with the IK and Batwa communities, and a dedicated 4x4 driver-guide for the full 2,800 km circuit.",
+    travelType: "Wildlife & Adventure Safari",
+    availability: "Available year-round — gorilla and chimp permits must be booked well in advance",
+    bestTimeToVisit:
+      "June to September and December to February offer the driest roads and easiest trekking. Kidepo is rewarding year-round; we advise on seasonal conditions when you book.",
+    whatToBring: [
+      "Valid passport and Uganda visa or East Africa Tourist Visa",
+      "Sturdy waterproof hiking boots for gorilla and chimp treks",
+      "Long trousers and neutral-coloured clothing",
+      "Light rain jacket, daypack, and sun protection",
+      "Insect repellent and reusable water bottle",
+      "Binoculars and camera (no flash during primate viewing)",
+      "Yellow fever certificate (recommended)",
+      "Travel insurance documents",
+    ],
+    faqs: [
+      {
+        question: "Is this suitable for first-time safari travellers?",
+        answer:
+          "Yes — this is our most comprehensive Uganda itinerary, covering the country's iconic parks in a logical route with experienced driver-guides handling all logistics, permits, and lodge check-ins.",
+      },
+      {
+        question: "Are gorilla and chimp permits included?",
+        answer:
+          "Yes — your Bwindi gorilla permit and Kibale chimpanzee permit are included in the quoted price for foreign non-residents.",
+      },
+      {
+        question: "How much driving is involved?",
+        answer:
+          "This is a road safari covering approximately 2,800 km over twelve days, including long transfers to Kidepo and between parks. The route is scenic with regular breaks; flying segments can be quoted on request.",
+      },
+      {
+        question: "What cultural experiences are included?",
+        answer:
+          "A cultural walk with the IK people in Kidepo and a Batwa community experience near Bwindi are included in the package price.",
+      },
+      ...defaultFaqs.slice(0, 1),
+    ],
+    heroImage: "/images/4A9A0445.jpg",
+    galleryImages: [
+      "/images/4A9A0445.jpg",
+      "/images/4A9A0474.jpg",
+      "/images/4A9A8590.jpg",
+      "/images/4A9A7964.jpg",
+      "/images/4A9A8545.jpg",
+      "/images/IMG-20260811-WA0099.jpg",
+      "/images/4A9A8600.jpg",
+    ],
+    mapCoordinates: { lat: 1.5, lng: 32.5 },
+    mapZoom: 6,
+    included: [
+      "Gorilla permit (Bwindi Impenetrable National Park)",
+      "Chimpanzee permit (Kibale National Park)",
+      "Park entrance fees (Kidepo, Murchison, Queen Elizabeth, Mount Elgon, Bwindi, Kibale)",
+      "11 nights mid-range full-board accommodation",
+      "4x4 Land Cruiser, fuel, and professional driver-guide",
+      "Boat safaris (Nile, Kazinga Channel, Lake Bunyonyi)",
+      "Sipi Falls hike and Mount Elgon experience",
+      "IK cultural walk (Kidepo) and Batwa community experience (Bwindi)",
+      "Mineral water whilst on safari",
+      "All activities listed in the itinerary",
+    ],
+    excluded: [
+      "International flights",
+      "Uganda visa fees",
+      "Personal items and laundry",
+      "Tips for guides and lodge staff",
+      "Soft drinks and alcoholic drinks",
+      "Travel insurance",
+      "Optional activities not mentioned",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Entebbe to Jinja & Mount Elgon",
+        description:
+          "Pick-up from Entebbe or your hotel. Transfer to Jinja (approximately 2 hours) for a boat ride to the Source of the Nile, visit a local craft shop, and lunch. Continue to Mount Elgon National Park near Mbale and check in for overnight.",
+        accommodation: "Sipi River Lodge",
+        meals: "Lunch, dinner",
+      },
+      {
+        day: 2,
+        title: "Mount Elgon & Sipi Falls",
+        description:
+          "After breakfast, briefing at park headquarters, then explore caves, hot springs, scenic viewpoints, and local walks. Drive to Sipi Falls (approximately 1–1.5 hours) for a series of three waterfalls set in lush greenery. Return to the lodge for overnight.",
+        accommodation: "Sipi River Lodge",
+        meals: "Breakfast, lunch, dinner",
+      },
+      {
+        day: 3,
+        title: "Transfer to Kidepo Valley & Evening Game Drive",
+        description:
+          "Early breakfast, then transfer to Kidepo Valley National Park — Uganda's remote wilderness of arid savannah, rugged mountains, and exceptional wildlife including cheetahs, lions, leopards, bat-eared foxes, buffalo, giraffes, and zebras (approximately 7–8 hours via Mbale–Moroto). Lunch en route. Check in and prepare for an evening game drive along the Narus River valley.",
+        accommodation: "Kidepo Savannah Lodge",
+        meals: "Breakfast, lunch, dinner",
+      },
+      {
+        day: 4,
+        title: "Kidepo Game Drive & IK Cultural Walk",
+        description:
+          "Morning game drive — buffalo herds, elephants, giraffes, lions, cheetahs, and more. Return to the lodge for lunch and relaxation. Afternoon cultural walk to visit the IK people in their homesteads — interact, learn about their pastoralist culture, food, and traditional dance. Overnight at the lodge.",
+        accommodation: "Kidepo Savannah Lodge",
+        meals: "Breakfast, lunch, dinner",
+      },
+      {
+        day: 5,
+        title: "Transfer to Murchison Falls",
+        description:
+          "After breakfast, transfer to Murchison Falls National Park, home to the world's most powerful waterfall (approximately 7–9 hours on a scenic route). Lunch en route. Check in at the lodge, refresh, and relax.",
+        accommodation: "Pakuba Safari Lodge",
+        meals: "Breakfast, lunch, dinner",
+      },
+      {
+        day: 6,
+        title: "Murchison Falls Game Drive & Boat Safari",
+        description:
+          "Early morning game drive — chance of big cats hunting, plus elephants, giraffes, buffalo, and 76 mammal species on the checklist. Lunch and relaxation at the lodge. Afternoon 3-hour boat safari on the Nile — schools of hippos, Nile crocodiles, elephants, buffalo, and abundant birdlife along the banks.",
+        accommodation: "Pakuba Safari Lodge",
+        meals: "Breakfast, lunch, dinner",
+      },
+      {
+        day: 7,
+        title: "Transfer to Kibale National Park",
+        description:
+          "After breakfast, transfer to Kibale Forest National Park — home to over 1,500 chimpanzees and thirteen primate species including red colobus, Uganda mangabey, olive baboons, and black-and-white colobus (approximately 8 hours). Lunch break in Fort Portal. Check in at the lodge and prepare for tomorrow's chimp trek.",
+        accommodation: "Isunga Lodge",
+        meals: "Breakfast, lunch, dinner",
+      },
+      {
+        day: 8,
+        title: "Chimpanzee Tracking & Queen Elizabeth",
+        description:
+          "Breakfast, then briefing at park headquarters before trekking into the forest with rangers to find a habituated chimp group (up to 3 hours). Receive your certificate, lunch, then transfer to Queen Elizabeth National Park (approximately 2–3 hours) with a stop at the Kikorongo equator. Late evening game drive on the Kasenyi plains or Mweya peninsula — elephants, kobs, and buffalo.",
+        accommodation: "Bush Lodge",
+        meals: "Breakfast, lunch, dinner",
+      },
+      {
+        day: 9,
+        title: "Queen Elizabeth Game Drive & Kazinga Channel",
+        description:
+          "Morning game drive — lions, leopards, elephants, buffalo, and antelope. Return to the lodge before an afternoon 3-hour boat cruise on the Kazinga Channel — hippos, crocodiles, elephants, waterbucks, Uganda kobs, warthogs, and birdlife including fish eagles and kingfishers.",
+        accommodation: "Bush Lodge",
+        meals: "Breakfast, lunch, dinner",
+      },
+      {
+        day: 10,
+        title: "Transfer to Bwindi & Batwa Experience",
+        description:
+          "After breakfast, transfer to Bwindi Impenetrable National Park via the Ishasha sector (approximately 3–4 hours) with packed lunch and a stop in Kabale. Check in at the lodge, then a cultural experience with the Batwa pygmies — indigenous forest people whose heritage is woven into Bwindi's story.",
+        accommodation: "Bakiga Lodge",
+        meals: "Breakfast, lunch, dinner",
+      },
+      {
+        day: 11,
+        title: "Gorilla Trekking & Lake Bunyonyi",
+        description:
+          "Early breakfast, briefing at Bwindi park headquarters, then trek through dense forest with guides to find a habituated gorilla family. Spend one hour with the gentle giants. After the trek, transfer to Lake Bunyonyi — Uganda's deepest lake, formed 10,000 years ago and renowned for its islands and birdlife. Check in and relax.",
+        accommodation: "Birdnest Resort",
+        meals: "Breakfast, lunch, dinner",
+      },
+      {
+        day: 12,
+        title: "Lake Bunyonyi & Return to Entebbe",
+        description:
+          "Morning canoe or boat safari exploring the islands — Punishment Island, Bwama Island, Njuyeera Island (home of missionary Dr Leonard Sharp), Bushara Island, and Kahugye Island with zebra and antelope. Drive back to Entebbe with a lunch stop at the equator, arriving in time for your evening flight — end of trip.",
+        meals: "Breakfast, lunch",
+      },
+    ],
+    accommodation:
+      "Sipi River Lodge · Kidepo Savannah Lodge · Pakuba Safari Lodge · Isunga Lodge · Bush Lodge · Bakiga Lodge · Birdnest Resort (11 nights mid-range)",
+    transport:
+      "4x4 Land Cruiser with professional driver-guide; route Entebbe–Sipi–Kidepo–Murchison–Kibale–Queen Elizabeth–Bwindi–Bunyonyi–Entebbe (~2,800 km)",
+    importantInfo: [
+      "Long driving days — especially transfers to Kidepo and between northern and western parks",
+      "Gorilla and chimp permits included — book months in advance",
+      "Minimum age for gorilla trekking is 15 years",
+      "Mid-range accommodation as quoted; lodge upgrades available on request",
+    ],
+    bookingRequirements: [
+      "Valid passport (6+ months validity)",
+      "Uganda visa or East Africa Tourist Visa",
+      "Yellow fever vaccination certificate recommended",
+      "Travel insurance strongly recommended",
+    ],
+    cancellationPolicy:
+      "Deposit refundable up to 45 days before departure minus admin fees. Gorilla and chimp permits are subject to Uganda Wildlife Authority policies once issued.",
+    partialPaymentPercent: 30,
+    categories: ["wildlife", "adventure", "culture", "nature"],
+  },
+  {
+    id: "uganda-rwanda-10-day-safari",
+    slug: "10-days-uganda-rwanda-safari",
+    name: "10 Days Uganda–Rwanda Safari",
+    destination: "Murchison Falls, Kibale, Queen Elizabeth, Bwindi, Lake Kivu & Kigali",
+    country: "Uganda and Rwanda",
+    region: "east-africa",
+    duration: "10 Days / 9 Nights",
+    durationDays: 10,
+    price: 4325,
+    currency: "USD",
+    priceNote:
+      "Per person mid-range, foreign non-resident rates. Big Five safari plus gorilla and chimpanzee trekking.",
+    shortDescription:
+      "Uganda's Big Five at Murchison Falls, chimps in Kibale, savannah in Queen Elizabeth, gorillas in Bwindi, then Lake Kivu and Kigali — the classic Uganda–Rwanda circuit.",
+    fullDescription:
+      "This ten-day Uganda–Rwanda journey combines savannah Big Five game viewing with world-class primate encounters. Start at Murchison Falls with Ziwa Rhino Sanctuary and the Nile, track chimpanzees in Kibale and visit the Bigodi community, explore Queen Elizabeth's plains and Kazinga Channel, trek mountain gorillas in Bwindi, then cross into Rwanda for Lake Kivu and a Kigali city tour. Kitum Cave Safaris handles all permits, cross-border logistics, mid-range lodges, and a dedicated 4x4 driver-guide throughout.",
+    travelType: "Wildlife & Primate Safari",
+    availability: "Available year-round — gorilla and chimp permits must be booked well in advance",
+    bestTimeToVisit:
+      "June to September and December to February offer the best game viewing and forest trekking conditions. Year-round departures available.",
+    whatToBring: [
+      "Valid passport and East Africa Tourist Visa (Uganda–Rwanda)",
+      "Sturdy waterproof hiking boots for gorilla and chimp treks",
+      "Long trousers and neutral-coloured clothing",
+      "Light rain jacket, daypack, and sun protection",
+      "Insect repellent and reusable water bottle",
+      "Binoculars and camera (no flash during primate viewing)",
+      "Yellow fever certificate (recommended)",
+      "Travel insurance documents",
+    ],
+    faqs: [
+      {
+        question: "Does this trip include the Big Five?",
+        answer:
+          "Murchison Falls and Queen Elizabeth National Park offer strong chances of lions, leopards, elephants, and buffalo. Rhinos are visited at Ziwa Rhino Sanctuary en route to Murchison — rhino tracking on foot is an optional add-on.",
+      },
+      {
+        question: "Are gorilla and chimp permits included?",
+        answer:
+          "Yes — your Bwindi gorilla permit and Kibale chimpanzee permit are included in the quoted price for foreign non-residents.",
+      },
+      {
+        question: "How does the cross-border crossing work?",
+        answer:
+          "After gorilla trekking in Bwindi, you cross from Uganda into Rwanda at the Kyanika border near Kisoro and continue to Lake Kivu and Kigali. We handle COMESA insurance and border formalities.",
+      },
+      {
+        question: "Where does the trip start and end?",
+        answer:
+          "Pick-up is from Entebbe or your Kampala hotel on Day 1. The trip ends at Kigali International Airport on Day 10 after the city tour.",
+      },
+      ...defaultFaqs.slice(0, 1),
+    ],
+    heroImage: "/images/4A9A0474.jpg",
+    galleryImages: [
+      "/images/4A9A0474.jpg",
+      "/images/4A9A0445.jpg",
+      "/images/4A9A8590.jpg",
+      "/images/4A9A9703.jpg",
+      "/images/IMG-20260811-WA0090.jpg",
+      "/images/4A9A8545.jpg",
+    ],
+    mapCoordinates: { lat: 0.2, lng: 31.0 },
+    mapZoom: 7,
+    included: [
+      "Gorilla permit (Bwindi Impenetrable National Park)",
+      "Chimpanzee permit (Kibale National Park)",
+      "Park entrance fees (Murchison, Kibale, Queen Elizabeth, Bwindi)",
+      "9 nights mid-range full-board accommodation",
+      "4x4 Land Cruiser, fuel, and professional driver-guide",
+      "Cross-border COMESA insurance",
+      "Boat safaris (Nile, Kazinga Channel, Lake Kivu)",
+      "Kigali city tour",
+      "Bigodi community cultural visit",
+      "East Africa Tourist Visa (Uganda–Rwanda)",
+      "Mineral water whilst on safari",
+      "All activities listed in the itinerary",
+    ],
+    excluded: [
+      "International flights",
+      "Personal items and laundry",
+      "Tips for guides and lodge staff",
+      "Soft drinks and alcoholic drinks",
+      "Travel insurance",
+      "Optional rhino tracking at Ziwa (on request)",
+      "Optional activities not mentioned",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Transfer to Murchison Falls via Ziwa Rhinos",
+        description:
+          "After breakfast, pick-up from Entebbe or your hotel and transfer to Murchison Falls National Park via Kampala–Masindi (approximately 4 hours). Stop at Ziwa Rhino Sanctuary — a conservation area for endangered black rhinos (rhino tracking optional). Continue to the park and visit the top of the falls, where the Nile narrows through a rift valley chasm. Check in at the lodge for overnight.",
+        accommodation: "Pakuba Safari Lodge",
+        meals: "Lunch, dinner",
+      },
+      {
+        day: 2,
+        title: "Murchison Falls Game Drive & Nile Boat Safari",
+        description:
+          "Early breakfast, then a morning game drive across the park's expansive plains — lions, leopards, elephants, buffalo, giraffes, zebras, and antelope. After lunch, a boat safari along the Victoria Nile to the base of the falls, passing schools of hippos, crocodiles, and waterbirds (approximately 3 hours). Optional evening game drive. Overnight at the lodge.",
+        accommodation: "Pakuba Safari Lodge",
+        meals: "Breakfast, lunch, dinner",
+      },
+      {
+        day: 3,
+        title: "Transfer to Kibale National Park",
+        description:
+          "After breakfast, transfer to Kibale National Park — one of Africa's best primate destinations (approximately 5–6 hours through scenic countryside and tea plantations). Lunch break in Fort Portal, then continue to the park. Check in, relax, and prepare for chimpanzee tracking tomorrow.",
+        accommodation: "Isunga Lodge",
+        meals: "Breakfast, lunch, dinner",
+      },
+      {
+        day: 4,
+        title: "Chimpanzee Tracking & Bigodi Community Visit",
+        description:
+          "After breakfast, briefing at the park office, then trek into the forest with experienced guides to find a habituated chimpanzee troop. Spend quality time observing their social interactions. After lunch, a community walk to nearby Bigodi village — interact with local people, learn traditional customs, and enjoy dance and music performances showcasing the region's cultural heritage.",
+        accommodation: "Isunga Lodge",
+        meals: "Breakfast, lunch, dinner",
+      },
+      {
+        day: 5,
+        title: "Transfer to Queen Elizabeth & Evening Game Drive",
+        description:
+          "After breakfast, transfer to Queen Elizabeth National Park with a photo stop at the Kikorongo equator monument. Check in at the lodge and relax. Evening game drive on the Kasenyi plains — search for lions, elephants, buffalo, and other wildlife until sunset.",
+        accommodation: "Bush Lodge",
+        meals: "Breakfast, lunch, dinner",
+      },
+      {
+        day: 6,
+        title: "Queen Elizabeth Game Drive & Kazinga Channel",
+        description:
+          "Morning game drive — lions, leopards, elephants, buffalo, and antelope on the savannah. After lunch, a 3-hour boat safari on the Kazinga Channel — hippos, crocodiles, elephants and buffalo along the shores, plus waterbucks, Uganda kobs, warthogs, fish eagles, kingfishers, and abundant birdlife.",
+        accommodation: "Bush Lodge",
+        meals: "Breakfast, lunch, dinner",
+      },
+      {
+        day: 7,
+        title: "Ishasha Tree-Climbing Lions & Transfer to Bwindi",
+        description:
+          "Morning game drive in the Ishasha sector, renowned for rare tree-climbing lions. Continue the scenic drive to Bwindi Impenetrable National Park (approximately 4–5 hours) with lunch en route. Check in at the lodge and prepare for gorilla trekking tomorrow.",
+        accommodation: "Bakiga Lodge",
+        meals: "Breakfast, lunch, dinner",
+      },
+      {
+        day: 8,
+        title: "Gorilla Trekking & Transfer to Lake Kivu",
+        description:
+          "Early breakfast, then gorilla trekking in Bwindi with experienced rangers through dense forest until you find a habituated family — spend one hour with the gentle giants. Receive your certificate, then cross into Rwanda via the Kyanika border to Gisenyi on Lake Kivu. Check in at the lakeside resort and unwind.",
+        accommodation: "Paradise Malahide",
+        meals: "Breakfast, lunch, dinner",
+      },
+      {
+        day: 9,
+        title: "Lake Kivu Boat Safari & Transfer to Kigali",
+        description:
+          "After breakfast, a scenic boat safari on Lake Kivu — visit Napoleon Island, home to fruit bats, and a traditional fishing village to observe local methods. Transfer to Kigali (approximately 3–4 hours). Check in at the lodge and relax.",
+        accommodation: "Cormoran Lodge",
+        meals: "Breakfast, lunch, dinner",
+      },
+      {
+        day: 10,
+        title: "Kigali City Tour & Departure",
+        description:
+          "After early breakfast, visit the Kigali Genocide Memorial, the Belgian peacekeepers memorial, and vibrant cultural markets for insight into Rwanda's history and resilience. Transfer to Kigali International Airport for your departure — end of trip.",
+        meals: "Breakfast",
+      },
+    ],
+    accommodation:
+      "Pakuba Safari Lodge · Isunga Lodge · Bush Lodge · Bakiga Lodge · Paradise Malahide · Cormoran Lodge (9 nights mid-range)",
+    transport:
+      "4x4 Land Cruiser with professional driver-guide; route Entebbe–Murchison–Kibale–Queen Elizabeth–Bwindi–Kisoro–Lake Kivu–Kigali (~1,600 km)",
+    importantInfo: [
+      "Trip starts in Entebbe/Kampala and ends in Kigali — book flights accordingly",
+      "Gorilla and chimp permits included — reserve months in advance",
+      "Rhino tracking at Ziwa is optional and priced separately on request",
+      "Minimum age for gorilla trekking is 15 years",
+    ],
+    bookingRequirements: [
+      "Valid passport (6+ months validity)",
+      "East Africa Tourist Visa or individual Uganda/Rwanda visas",
+      "Yellow fever vaccination certificate recommended",
+      "Travel insurance strongly recommended",
+    ],
+    cancellationPolicy:
+      "Deposit refundable up to 45 days before departure minus admin fees. Gorilla and chimp permits are subject to national park authority policies once issued.",
+    partialPaymentPercent: 30,
+    categories: ["wildlife", "adventure", "culture", "nature"],
   },
 ];
 

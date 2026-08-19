@@ -5,6 +5,7 @@ import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { GalleryItem } from "@/data/gallery";
+import { getGallerySlideSummary } from "@/lib/gallery-slide-copy";
 import { EASE_SMOOTH } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
@@ -188,6 +189,7 @@ export default function GalleryCoverflow({ items, className }: Props) {
   }
 
   const current = items[active];
+  const slideSummary = current ? getGallerySlideSummary(current) : "";
   const stageStyle = {
     ["--card-w" as string]: `${layout.cardWidth}px`,
     ["--card-h" as string]: `${layout.cardHeight}px`,
@@ -223,7 +225,7 @@ export default function GalleryCoverflow({ items, className }: Props) {
     >
       <p className="sr-only" aria-live="polite">
         {current
-          ? `Image ${active + 1} of ${items.length}: ${current.title}, ${current.location}. Gallery advances automatically.`
+          ? `Image ${active + 1} of ${items.length}: ${current.title}, ${current.location}. ${slideSummary} Gallery advances automatically.`
           : ""}
       </p>
 
@@ -287,7 +289,10 @@ export default function GalleryCoverflow({ items, className }: Props) {
           >
             <p className="label-text !text-brand-terracotta mb-1">{current.category}</p>
             <p className="font-serif text-lg sm:text-xl text-brand-forest">{current.title}</p>
-            <p className="mt-1 text-xs uppercase tracking-[0.16em] text-brand-forest/45">
+            <p className="mt-2 max-w-md mx-auto text-sm sm:text-[0.9375rem] leading-relaxed text-brand-forest/65">
+              {slideSummary}
+            </p>
+            <p className="mt-1.5 text-xs uppercase tracking-[0.16em] text-brand-forest/45">
               {current.location}
             </p>
           </motion.div>

@@ -1,76 +1,58 @@
 ﻿"use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import type { Package } from "@/data/packages";
-import { EASE_SMOOTH, EASE_SOFT } from "@/lib/motion";
+import {
+  getPackageExpectations,
+  PACKAGES_SCENE_IMAGE,
+  PACKAGES_SCENE_OBJECT_POSITION,
+} from "@/lib/package-highlights";
+import { EASE_SOFT } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 type Props = {
   packages: Package[];
 };
 
-const DISPLAY_MS = 5400;
-const IRIS_DURATION = 1.45;
-const DISSOLVE_DURATION = 1.2;
+const AUTO_MS = 7200;
 
-function displayTitle(pkg: Package) {
+function displayDestination(pkg: Package) {
   const primary = pkg.destination.split(",")[0]?.trim() || pkg.name;
   return primary.toUpperCase();
 }
 
-function ConcentricRings({ activeKey, reduceMotion }: { activeKey: string; reduceMotion: boolean | null }) {
-  const rings = [
-    { size: 38, border: "rgba(255,255,255,0.22)" },
-    { size: 52, border: "rgba(255,255,255,0.16)" },
-    { size: 66, border: "rgba(255,255,255,0.11)" },
-    { size: 80, border: "rgba(255,255,255,0.07)" },
-    { size: 94, border: "rgba(255,255,255,0.04)" },
-  ];
-
-  return (
-    <div className="packages-carousel-rings" aria-hidden>
-      {rings.map((ring, index) => (
-        <motion.div
-          key={`${activeKey}-${ring.size}`}
-          className="packages-carousel-ring"
-          style={{
-            width: `${ring.size}%`,
-            borderColor: ring.border,
-          }}
-          initial={{ scale: 0.94, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{
-            duration: reduceMotion ? 0.25 : 0.95,
-            delay: reduceMotion ? 0 : 0.38 + index * 0.06,
-            ease: EASE_SOFT,
-          }}
-        />
-      ))}
-    </div>
-  );
-}
-
 export default function FeaturedPackagesSection({ packages }: Props) {
   const [active, setActive] = useState(0);
+  const pausedRef = useRef(false);
   const reduceMotion = useReducedMotion();
+
+  const goTo = useCallback(
+    (index: number) => {
+      if (!packages.length) return;
+      setActive((index + packages.length) % packages.length);
+    },
+    [packages.length]
+  );
 
   useEffect(() => {
     packages.forEach((pkg) => {
-      const img = new window.Image();
-      img.src = pkg.heroImage;
+      pkg.galleryImages.forEach((src) => {
+        const img = new window.Image();
+        img.src = src;
+      });
     });
   }, [packages]);
 
   useEffect(() => {
-    if (packages.length < 2) return;
-    if (reduceMotion) return;
+    if (packages.length < 2 || reduceMotion) return;
 
     const timer = window.setInterval(() => {
+      if (pausedRef.current) return;
       setActive((current) => (current + 1) % packages.length);
-    }, DISPLAY_MS);
+    }, AUTO_MS);
 
     return () => window.clearInterval(timer);
   }, [packages.length, reduceMotion]);
@@ -78,11 +60,13 @@ export default function FeaturedPackagesSection({ packages }: Props) {
   if (packages.length === 0) return null;
 
   const current = packages[active];
+  const expectations = getPackageExpectations(current);
+  const railCount = packages.length;
 
   return (
-    <section id="packages" className="section-padding section-spacing-compact bg-brand-sand">
-      <div className="mx-auto max-w-[1600px]">
-        <div className="mb-5 flex flex-col gap-3 md:mb-6 md:flex-row md:items-end md:justify-between">
+    <section id="packages" className="bg-brand-sand pb-8 md:pb-10">
+      <div className="section-padding mx-auto max-w-[1200px] pb-3 md:pb-4">
+        <div className="mb-3 flex flex-col gap-2 md:mb-4 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="label-text mb-2">Featured Journeys</p>
             <h2 className="heading-section text-brand-forest">Curated Packages</h2>
@@ -94,125 +78,119 @@ export default function FeaturedPackagesSection({ packages }: Props) {
             View All Packages &rarr;
           </Link>
         </div>
+      </div>
 
-        <div className="packages-carousel">
-          <div className="packages-carousel-frame">
-            <div className="packages-carousel-stage">
-              <AnimatePresence initial={false}>
-                <motion.div
-                  key={current.id}
-                  className="packages-carousel-slide-wrap"
-                  initial={
-                    reduceMotion
-                      ? { opacity: 0, zIndex: 2 }
-                      : {
-                          clipPath: "circle(0% at 50% 46%)",
-                          opacity: 1,
-                          zIndex: 2,
-                        }
-                  }
-                  animate={
-                    reduceMotion
-                      ? { opacity: 1, zIndex: 2 }
-                      : {
-                          clipPath: "circle(150% at 50% 46%)",
-                          opacity: 1,
-                          zIndex: 2,
-                        }
-                  }
-                  exit={
-                    reduceMotion
-                      ? { opacity: 0, zIndex: 1 }
-                      : { opacity: 0, zIndex: 1 }
-                  }
-                  transition={
-                    reduceMotion
-                      ? { duration: 0.35, ease: EASE_SMOOTH }
-                      : {
-                          clipPath: { duration: IRIS_DURATION, ease: EASE_SOFT },
-                          opacity: { duration: DISSOLVE_DURATION, ease: EASE_SMOOTH },
-                        }
-                  }
-                >
-                  <Link
-                    href={`/packages/${current.slug}`}
-                    className="packages-carousel-slide group"
-                    aria-label={`View ${current.name}`}
-                  >
-                    <motion.div
-                      className="packages-carousel-media"
-                      initial={reduceMotion ? false : { scale: 1.07 }}
-                      animate={reduceMotion ? undefined : { scale: 1 }}
-                      transition={{
-                        duration: IRIS_DURATION + 0.15,
-                        ease: EASE_SOFT,
-                      }}
-                    >
-                      <Image
-                        src={current.heroImage}
-                        alt=""
-                        fill
-                        priority={active === 0}
-                        className="packages-carousel-image object-cover"
-                        sizes="(max-width: 1024px) 100vw, 1200px"
-                      />
-                    </motion.div>
-                    <div className="absolute inset-0 bg-black/24" />
-                    <ConcentricRings activeKey={current.id} reduceMotion={reduceMotion} />
+      <div className="section-padding mx-auto max-w-[1200px]">
+        <div
+          className="packages-glass-scene"
+          aria-label="Featured safari packages"
+          onMouseEnter={() => {
+            pausedRef.current = true;
+          }}
+          onMouseLeave={() => {
+            pausedRef.current = false;
+          }}
+          onFocusCapture={() => {
+            pausedRef.current = true;
+          }}
+          onBlurCapture={(e) => {
+            if (!e.currentTarget.contains(e.relatedTarget as Node | null)) {
+              pausedRef.current = false;
+            }
+          }}
+        >
+          <div className="packages-glass-media" aria-hidden>
+            <Image
+              src={PACKAGES_SCENE_IMAGE}
+              alt=""
+              fill
+              priority
+              quality={92}
+              className="packages-glass-image object-cover packages-glass-image--mountain"
+              style={{ objectPosition: PACKAGES_SCENE_OBJECT_POSITION }}
+              sizes="(max-width: 1200px) 100vw, 1200px"
+            />
+            <div className="packages-glass-scrim" />
+          </div>
 
-                    <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
-                      <motion.div
-                        key={`copy-${current.id}`}
-                        initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{
-                          duration: reduceMotion ? 0.3 : 0.7,
-                          delay: reduceMotion ? 0 : 0.48,
-                          ease: EASE_SMOOTH,
-                        }}
-                      >
-                        <h3 className="packages-carousel-destination">{displayTitle(current)}</h3>
-                        <p className="packages-carousel-region">{current.country}</p>
-                      </motion.div>
-                    </div>
-                  </Link>
+          <div className="packages-glass-stage">
+            <div className="packages-glass-card">
+              <nav
+                className="packages-glass-rail"
+                aria-label="Package slides"
+                style={{ "--rail-count": railCount } as CSSProperties}
+              >
+                <span className="packages-glass-rail-line" aria-hidden />
+                {packages.map((pkg, index) => {
+                  const isActive = index === active;
+                  const position =
+                    railCount <= 1 ? 50 : (index / (railCount - 1)) * 100;
 
-                  {!reduceMotion && (
-                    <motion.div
-                      className="packages-carousel-dissolve"
-                      aria-hidden
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 0 }}
-                      exit={{ opacity: 1 }}
-                      transition={{ duration: DISSOLVE_DURATION, ease: EASE_SMOOTH }}
+                  return (
+                    <button
+                      key={pkg.id}
+                      type="button"
+                      onClick={() => goTo(index)}
+                      className={cn(
+                        "packages-glass-rail-dot",
+                        isActive && "packages-glass-rail-dot--active"
+                      )}
+                      style={{ top: `${position}%` }}
+                      aria-label={`Show ${pkg.name}`}
+                      aria-current={isActive ? "true" : undefined}
                     />
-                  )}
-                </motion.div>
-              </AnimatePresence>
-            </div>
+                  );
+                })}
+              </nav>
 
-            <div className="packages-carousel-progress" aria-hidden>
-              <motion.div
-                className="packages-carousel-progress-fill"
-                animate={{ width: `${((active + 1) / packages.length) * 100}%` }}
-                transition={{ duration: 0.65, ease: EASE_SMOOTH }}
-              />
-            </div>
+              <div className="packages-glass-body">
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.div
+                    key={current.id}
+                    className="packages-glass-main"
+                    initial={reduceMotion ? { opacity: 0 } : { opacity: 0, x: 12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={reduceMotion ? { opacity: 0 } : { opacity: 0, x: -10 }}
+                    transition={{ duration: reduceMotion ? 0.2 : 0.65, ease: EASE_SOFT }}
+                  >
+                    <div className="packages-glass-hero">
+                      <div className="packages-glass-copy">
+                        <p className="packages-glass-eyebrow">
+                          {current.country} · {current.duration}
+                        </p>
+                        <h3 className="packages-glass-title">{displayDestination(current)}</h3>
+                        <p className="packages-glass-description">{current.shortDescription}</p>
+                      </div>
+                      <Link href={`/packages/${current.slug}`} className="packages-glass-cta">
+                        Explore
+                      </Link>
+                    </div>
 
-            <div className="packages-carousel-dots">
-              {packages.map((pkg, index) => (
-                <button
-                  key={pkg.id}
-                  type="button"
-                  onClick={() => setActive(index)}
-                  className={cn(
-                    "packages-carousel-dot",
-                    index === active && "packages-carousel-dot--active"
-                  )}
-                  aria-label={`Show ${pkg.name}`}
-                  aria-current={index === active ? "true" : undefined}
-                />
-              ))}
+                    <div className="packages-glass-expectations">
+                      <p className="packages-glass-expectations-label">What to expect</p>
+                      <div className="packages-glass-expectations-grid">
+                        {expectations.map((item, index) => (
+                          <article key={`${current.id}-${index}`} className="packages-glass-expect-card">
+                            <div className="packages-glass-expect-media">
+                              <Image
+                                src={item.image}
+                                alt=""
+                                fill
+                                className="object-cover"
+                                sizes="200px"
+                              />
+                            </div>
+                            <div className="packages-glass-expect-copy">
+                              <h4 className="packages-glass-expect-title">{item.title}</h4>
+                              <p className="packages-glass-expect-caption">{item.caption}</p>
+                            </div>
+                          </article>
+                        ))}
+                      </div>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
             </div>
           </div>
         </div>

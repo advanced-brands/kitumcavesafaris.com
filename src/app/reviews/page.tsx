@@ -48,7 +48,7 @@ export default function ReviewsPage() {
 
   return (
     <>
-      <section className="pt-28 pb-12 md:pt-32 md:pb-16 bg-brand-forest">
+      <section className="pt-24 pb-12 md:pt-28 md:pb-14 bg-brand-forest">
         <div className="section-padding max-w-[1600px] mx-auto">
           <p className="label-text !text-brand-terracotta mb-3">Reviews</p>
           <h1 className="heading-display text-white mb-4">Traveler Voices</h1>

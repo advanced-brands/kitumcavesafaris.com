@@ -72,8 +72,8 @@ export default function HomePage() {
               Our Destinations
             </h2>
             <p className="body-text max-w-2xl mx-auto">
-              From the rainforests of southwestern Uganda to the plains of Kenya
-              and Tanzania — and destinations beyond Africa.
+              From the rainforests of Uganda and Rwanda to the plains of Kenya
+              and Tanzania, the shores of Zanzibar, and destinations beyond Africa.
             </p>
           </ScrollReveal>
           <ScrollReveal delay={200}>
@@ -88,7 +88,7 @@ export default function HomePage() {
           <div className="max-w-[1600px] mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
               <ScrollReveal>
-                <div className="relative aspect-[3/4] w-full max-w-[240px] mx-auto lg:mx-0 overflow-hidden bg-white/5">
+                <div className="relative aspect-[3/4] w-full max-w-[200px] sm:max-w-[240px] md:max-w-[300px] lg:max-w-[380px] xl:max-w-[440px] mx-auto lg:mx-0 overflow-hidden bg-white/5">
                   <Image
                     src={founder.image}
                     alt={founder.name}

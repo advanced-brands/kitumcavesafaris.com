@@ -5,7 +5,7 @@ import { siteConfig } from "@/data/packages";
 export default function ConfirmationPage() {
   return (
     <>
-      <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-brand-forest text-center">
+      <section className="pt-24 pb-14 md:pt-32 md:pb-16 bg-brand-forest text-center">
         <div className="section-padding max-w-2xl mx-auto">
           <CheckCircle className="w-16 h-16 text-brand-terracotta mx-auto mb-6" />
           <h1 className="heading-display text-white mb-4">Thank You</h1>

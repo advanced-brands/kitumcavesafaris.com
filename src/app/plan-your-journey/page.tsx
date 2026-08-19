@@ -58,7 +58,7 @@ export default function PlanYourJourneyPage() {
 
   return (
     <>
-      <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-brand-forest">
+      <section className="pt-24 pb-14 md:pt-32 md:pb-16 bg-brand-forest">
         <div className="section-padding max-w-[1600px] mx-auto">
           <p className="label-text !text-brand-terracotta mb-4">Inquiry</p>
           <h1 className="heading-display text-white mb-4">Plan Your Journey</h1>

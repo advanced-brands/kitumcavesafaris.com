@@ -82,7 +82,7 @@ export const reviews: Review[] = [
     source: "google",
     sourceLabel: "Google Review",
     date: "2025-08-22",
-    packageSlug: "international-zanzibar-retreat",
+    packageSlug: "5-days-zanzibar-trip",
     photo: "/images/IMG-20260811-WA0012.jpg",
     verified: true,
   },

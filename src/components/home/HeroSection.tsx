@@ -1,238 +1,184 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, type CSSProperties } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { EASE_SMOOTH, EASE_SOFT } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
-type HeroDestination = {
+type HeroChapter = {
   id: string;
-  name: string;
-  shortName: string;
+  number: string;
+  title: string;
   location: string;
-  description: string;
+  headline: string;
+  ctaLabel: string;
   image: string;
-  alt: string;
   href: string;
   objectPosition: string;
+  thumbPosition: string;
 };
 
-const destinations: HeroDestination[] = [
+const chapters: HeroChapter[] = [
   {
     id: "bwindi",
-    name: "Bwindi Forest",
-    shortName: "Bwindi",
-    location: "Southwestern Uganda",
-    description:
-      "Trek through ancient rainforest to meet mountain gorillas in their natural habitat — one of Africa's most intimate wildlife encounters.",
+    number: "01",
+    title: "Mountain Gorillas",
+    location: "Bwindi Impenetrable Forest",
+    headline: "An hour among giants changes everything.",
+    ctaLabel: "Meet the Gorillas",
     image: "/images/4A9A8590.jpg",
-    alt: "Mountain gorilla in Bwindi Impenetrable Forest",
     href: "/packages/3-days-gorilla-safari",
     objectPosition: "68% 42%",
+    thumbPosition: "65% 42%",
   },
   {
     id: "murchison",
-    name: "Murchison Falls",
-    shortName: "Murchison",
+    number: "02",
+    title: "Murchison Falls",
     location: "Northwestern Uganda",
-    description:
-      "Watch the Nile explode through a narrow gorge, then cruise past elephants, hippos, and crocodiles in Uganda's largest national park.",
-    image: "/images/4A9A0445.jpg",
-    alt: "Elephant herd at the Nile in Murchison Falls National Park",
+    headline: "Where the Nile meets the wild.",
+    ctaLabel: "Explore the Falls",
+    image: "/images/4A9A0451.jpg",
     href: "/packages/murchison-falls-adventure",
-    objectPosition: "62% 38%",
+    objectPosition: "58% 50%",
+    thumbPosition: "55% 48%",
   },
   {
-    id: "queen-elizabeth",
-    name: "Queen Elizabeth",
-    shortName: "Queen Elizabeth",
-    location: "Western Uganda",
-    description:
-      "From tree-climbing lions to Kazinga Channel boat safaris — classic East African wildlife in a stunning Rift Valley setting.",
-    image: "/images/4A9A0474.jpg",
-    alt: "Wildlife in Queen Elizabeth National Park",
-    href: "/packages/queen-elizabeth-wildlife-safari",
-    objectPosition: "58% 45%",
+    id: "mara",
+    number: "03",
+    title: "Masai Mara",
+    location: "Kenya",
+    headline: "The golden hour belongs to the pride.",
+    ctaLabel: "Safari the Mara",
+    image: "/images/IMG-20260811-WA0029.jpg",
+    href: "/packages/kenya-masai-mara-safari",
+    objectPosition: "72% 42%",
+    thumbPosition: "70% 42%",
+  },
+  {
+    id: "serengeti",
+    number: "04",
+    title: "Serengeti",
+    location: "Tanzania",
+    headline: "Endless plains. Unforgettable encounters.",
+    ctaLabel: "Discover Serengeti",
+    image: "/images/IMG-20260811-WA0062.jpg",
+    href: "/packages/tanzania-serengeti-experience",
+    objectPosition: "58% 38%",
+    thumbPosition: "52% 38%",
   },
 ];
 
-const AUTO_MS = 6400;
-const CROSSFADE = 1.15;
-
-function titleLines(name: string) {
-  return name.split(" ").map((word) => word.toUpperCase());
-}
+const AUTO_MS = 8000;
 
 export default function HeroSection() {
   const [active, setActive] = useState(0);
   const reduceMotion = useReducedMotion();
+  const current = chapters[active];
 
   const goTo = useCallback((index: number) => {
-    setActive((index + destinations.length) % destinations.length);
+    setActive((index + chapters.length) % chapters.length);
   }, []);
 
-  const next = useCallback(() => goTo(active + 1), [active, goTo]);
-
   useEffect(() => {
-    destinations.forEach((destination) => {
+    chapters.forEach((chapter) => {
       const img = new window.Image();
-      img.src = destination.image;
+      img.src = chapter.image;
     });
   }, []);
 
   useEffect(() => {
     if (reduceMotion) return;
-    const timer = window.setInterval(next, AUTO_MS);
+    const timer = window.setInterval(() => goTo(active + 1), AUTO_MS);
     return () => window.clearInterval(timer);
-  }, [next, reduceMotion]);
-
-  const current = destinations[active];
-  const indexLabel = String(active + 1).padStart(2, "0");
-  const totalLabel = String(destinations.length).padStart(2, "0");
+  }, [active, goTo, reduceMotion]);
 
   return (
-    <section
-      className="hero-cinematic"
-      aria-label="Featured destinations"
-    >
-      <div className="hero-cinematic-media" aria-hidden>
-        {destinations.map((destination, index) => (
-          <motion.div
-            key={destination.id}
-            className="hero-cinematic-slide"
-            initial={false}
-            animate={{ opacity: index === active ? 1 : 0 }}
-            transition={{
-              duration: reduceMotion ? 0.2 : CROSSFADE,
-              ease: EASE_SMOOTH,
-            }}
-          >
-            <div
-              key={index === active ? `kenburns-${destination.id}-${active}` : destination.id}
-              className={cn(
-                "hero-cinematic-image-wrap",
-                index === active && "hero-cinematic-kenburns"
-              )}
-            >
-              <Image
-                src={destination.image}
-                alt=""
-                fill
-                priority={index === 0}
-                className="object-cover"
-                style={{ objectPosition: destination.objectPosition }}
-                sizes="100vw"
-              />
-            </div>
-          </motion.div>
-        ))}
-      </div>
+    <section className="hero-longing" aria-label="Featured destinations">
+      <AnimatePresence mode="sync" initial={false}>
+        <motion.div
+          key={current.id}
+          className="hero-longing-media"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: reduceMotion ? 0.25 : 1.1, ease: EASE_SMOOTH }}
+        >
+          <div className="hero-longing-bg" aria-hidden>
+            <Image
+              src={current.image}
+              alt=""
+              fill
+              priority
+              className={cn("hero-longing-image object-cover", !reduceMotion && "hero-longing-kenburns")}
+              style={
+                {
+                  "--hero-object-position": current.objectPosition,
+                } as CSSProperties
+              }
+              sizes="100vw"
+            />
+            <div className="hero-longing-scrim" />
+          </div>
+        </motion.div>
+      </AnimatePresence>
 
-      <div className="hero-cinematic-scrim" aria-hidden />
-
-      <div className="hero-cinematic-layout">
-        <div className="hero-cinematic-copy">
+      <div className="hero-longing-ui">
+        <div className="hero-longing-copy section-padding">
           <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={current.id}
-              className="hero-cinematic-copy-inner"
-              initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 18 }}
+              className="hero-longing-copy-block"
+              initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -12 }}
-              transition={{
-                duration: reduceMotion ? 0.25 : 0.75,
-                ease: EASE_SOFT,
-              }}
+              exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -10 }}
+              transition={{ duration: reduceMotion ? 0.2 : 0.75, ease: EASE_SOFT }}
             >
-              <p className="hero-cinematic-location">
-                <span className="hero-cinematic-location-line" aria-hidden />
-                {current.location.toUpperCase()}
-              </p>
-
-              <h1 className="hero-cinematic-title" aria-label={current.name}>
-                {titleLines(current.name).map((line, lineIndex) => (
-                  <motion.span
-                    key={`${current.id}-${line}`}
-                    className="hero-cinematic-title-line block"
-                    initial={reduceMotion ? false : { opacity: 0, y: 22 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{
-                      duration: 0.8,
-                      delay: reduceMotion ? 0 : 0.08 + lineIndex * 0.07,
-                      ease: EASE_SOFT,
-                    }}
-                  >
-                    {line}
-                  </motion.span>
-                ))}
-              </h1>
-
-              <p className="hero-cinematic-body">{current.description}</p>
-
-              <Link href={current.href} className="hero-cinematic-cta">
-                <span className="hero-cinematic-cta-dot" aria-hidden />
-                Discover Location
+              <p className="hero-longing-eyebrow">{current.location}</p>
+              <h1 className="hero-longing-headline">{current.headline}</h1>
+              <Link href={current.href} className="hero-longing-cta">
+                {current.ctaLabel}
               </Link>
             </motion.div>
           </AnimatePresence>
         </div>
 
-        <div className="hero-cinematic-journey">
-          <div className="hero-cinematic-cards" role="tablist" aria-label="Choose a destination">
-            {destinations.map((destination, index) => {
+        <div className="hero-longing-dock-wrap section-padding">
+          <div className="hero-longing-dock" role="tablist" aria-label="Choose a destination">
+            {chapters.map((chapter, index) => {
               const isActive = index === active;
+
               return (
                 <button
-                  key={destination.id}
+                  key={chapter.id}
                   type="button"
                   role="tab"
                   aria-selected={isActive}
                   onClick={() => goTo(index)}
                   className={cn(
-                    "hero-portal-card group",
-                    isActive && "hero-portal-card--active"
+                    "hero-longing-dock-item group",
+                    isActive && "hero-longing-dock-item--active"
                   )}
                 >
-                  <span className="hero-portal-card-indicator" aria-hidden />
-                  <Image
-                    src={destination.image}
-                    alt=""
-                    fill
-                    className="object-cover transition-transform duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
-                    style={{ objectPosition: destination.objectPosition }}
-                    sizes="(max-width: 640px) 24vw, 140px"
-                  />
-                  <span className="hero-portal-card-scrim" aria-hidden />
-                  <span className="hero-portal-card-label">{destination.shortName}</span>
+                  <div className="hero-longing-dock-thumb">
+                    <Image
+                      src={chapter.image}
+                      alt=""
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      style={{ objectPosition: chapter.thumbPosition }}
+                      sizes="120px"
+                    />
+                  </div>
+                  <div className="hero-longing-dock-copy">
+                    <span className="hero-longing-dock-number">{chapter.number}</span>
+                    <span className="hero-longing-dock-title">{chapter.title}</span>
+                  </div>
                 </button>
               );
             })}
-          </div>
-
-          <div className="hero-journey-indicator" aria-live="polite">
-            <div className="hero-journey-indicator-top">
-              <span className="hero-journey-index">
-                {indexLabel}
-                <span className="hero-journey-divider">/</span>
-                {totalLabel}
-              </span>
-              <span className="hero-journey-destinations" aria-hidden>
-                {destinations.map((d, i) => (
-                  <span
-                    key={d.id}
-                    className={cn(
-                      "hero-journey-dest-dot",
-                      i === active && "hero-journey-dest-dot--active"
-                    )}
-                  />
-                ))}
-              </span>
-            </div>
-            <p className="hero-journey-chapter">
-              Chapter {indexLabel} — {current.shortName}
-            </p>
           </div>
         </div>
       </div>

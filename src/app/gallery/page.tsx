@@ -14,7 +14,7 @@ export default function GalleryPage() {
       : galleryItems.filter((item) => item.category === filter);
 
   return (
-    <section className="relative overflow-x-hidden bg-[#ececec] pt-28 sm:pt-32 md:pt-36 pb-12 md:pb-16 min-h-[85vh]">
+    <section className="relative overflow-x-hidden bg-[#ececec] pt-24 sm:pt-28 md:pt-32 pb-12 md:pb-16 min-h-[85vh]">
       <div className="mx-auto w-full max-w-[1200px] section-padding">
         <header className="mb-8 md:mb-10 text-center">
           <p className="label-text mb-3">Gallery</p>

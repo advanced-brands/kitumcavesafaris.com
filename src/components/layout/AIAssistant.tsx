@@ -22,7 +22,7 @@ const quickReplies = [
 const knowledgeBase: Record<string, { answer: string; links?: { label: string; href: string }[] }> = {
   packages: {
     answer:
-      "We offer curated travel packages across East Africa — Uganda, Kenya, Tanzania — and international destinations. Our East African packages include gorilla safaris, wildlife experiences, and cultural journeys. We also help East African travelers explore destinations abroad.",
+      "We offer curated travel packages across East Africa — Uganda, Kenya, Tanzania, Rwanda, and Zanzibar — plus international destinations beyond the continent. East African packages include gorilla safaris, wildlife experiences, beach escapes, and cultural journeys.",
     links: [
       { label: "East African Packages", href: "/packages/east-africa" },
       { label: "International Packages", href: "/packages/international" },

@@ -40,11 +40,11 @@ export default function EastAfricaHeroSection() {
             East Africa
           </p>
           <h1 className="ea-overlay-hero-title heading-display text-white">
-            Handcrafted safaris across Uganda, Kenya &amp; Tanzania
+            Handcrafted safaris across Uganda, Kenya, Tanzania, Rwanda &amp; Zanzibar
           </h1>
           <p className="ea-overlay-hero-lead">
             Local experts, clear pricing, and fully managed logistics — from
-            gorilla forests to Migration plains.
+            gorilla forests and Migration plains to Indian Ocean shores.
           </p>
 
           <ul className="ea-overlay-hero-trust">
@@ -82,7 +82,7 @@ export default function EastAfricaHeroSection() {
             </div>
             <div>
               <dt>Region</dt>
-              <dd>UG · KE · TZ</dd>
+              <dd>UG · KE · TZ · RW</dd>
             </div>
           </dl>
 

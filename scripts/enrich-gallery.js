@@ -62,8 +62,10 @@ function excitingSummary(title, location, category, index) {
   if (t.includes("trek") || t.includes("trail") || t.includes("hiker"))
     return "Every step deeper into the green unknown.";
   if (t.includes("turtle")) return "Swim beside sea turtles in crystal shallows.";
-  if (t.includes("vulture") || t.includes("falcon") || t.includes("lapwing"))
-    return "Wings over the savanna — look up.";
+  // Species-specific bird copy lives in scripts/refresh-gallery-summaries.mjs — run after enrich.
+  if (t.includes("vulture")) return "Scavengers keeping watch from the acacia crown.";
+  if (t.includes("falcon") || t.includes("peregrine")) return "The fastest hunter cutting a line through open sky.";
+  if (t.includes("lapwing")) return "Yellow wattles bright against the dry grass.";
   if (t.includes("hippo")) return "River royalty with a surprising grin.";
   if (t.includes("rhino")) return "A living relic of the African plains.";
   if (t.includes("giraffe")) return "Grace on stilts across the open plains.";

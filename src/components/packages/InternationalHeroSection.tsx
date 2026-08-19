@@ -44,8 +44,8 @@ export default function InternationalHeroSection() {
             Curated escapes beyond East Africa
           </h1>
           <p className="ea-overlay-hero-lead">
-            Handpicked journeys for East African travelers — from Indian Ocean
-            retreats to cultural discoveries abroad.
+            Handpicked journeys for East African travelers — cultural discoveries
+            and luxury escapes beyond the continent.
           </p>
 
           <ul className="ea-overlay-hero-trust">
