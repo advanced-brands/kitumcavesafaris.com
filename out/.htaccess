@@ -4,6 +4,15 @@ DirectoryIndex index.html
 Options -MultiViews
 RewriteEngine On
 
+# The repository is checked out into the web root, so everything that is not
+# part of the static export sits alongside it and would otherwise be served.
+# These rules must stay above the "real file" rule below, which ends matching.
+RewriteRule ^(src|server|prisma|scripts|node_modules|out|\.next|\.github)(/|$) - [F,L]
+RewriteRule ^(package(-lock)?\.json|tsconfig\.json|next\.config\.[a-z]+|postcss\.config\.[a-z]+|eslint\.config\.[a-z]+|components\.json|README\.md|AGENTS\.md|CLAUDE\.md)$ - [F,L]
+
+# Dotfiles, except the ACME challenge directory AutoSSL needs
+RewriteRule (^|/)\.(?!well-known) - [F,L]
+
 # If the request is a real file or directory, serve it
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
