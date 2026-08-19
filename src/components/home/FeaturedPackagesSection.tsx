@@ -68,7 +68,6 @@ export default function FeaturedPackagesSection({ packages }: Props) {
       <div className="section-padding mx-auto max-w-[1200px] pb-3 md:pb-4">
         <div className="mb-3 flex flex-col gap-2 md:mb-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="label-text mb-2">Featured Journeys</p>
             <h2 className="heading-section text-brand-forest">Curated Packages</h2>
           </div>
           <Link

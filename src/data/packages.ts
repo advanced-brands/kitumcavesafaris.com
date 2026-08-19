@@ -8,11 +8,11 @@ export const siteConfig = {
   phone: "0705940988",
   whatsapp: "256705940988",
   whatsappDisplay: "0705940988",
-  address: "MI Mall Kiwatule, Kampala, Uganda",
+  address: "Kiwatule, Kampala, IM Mall, C14, P.O. Box 214138, Kampala, Uganda",
   location: {
     lat: 0.3476,
     lng: 32.5825,
-    name: "MI Mall Kiwatule, Kampala",
+    name: "IM Mall, C14, Kiwatule, Kampala",
   },
   social: {
     instagram: "https://www.instagram.com/kitumcavesafaris/",
