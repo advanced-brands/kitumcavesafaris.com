@@ -21,6 +21,12 @@ export default function AboutPage() {
             curated journeys within Uganda and East Africa, and help East African
             travelers discover destinations abroad.
           </p>
+          <p className="mt-4 text-sm text-white/55">
+            {siteConfig.legalName}
+            {siteConfig.ursbNumber
+              ? ` · URSB ${siteConfig.ursbNumber}`
+              : ""}
+          </p>
         </div>
       </section>
 

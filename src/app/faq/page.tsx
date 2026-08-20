@@ -32,7 +32,7 @@ const faqs = [
   },
   {
     q: "Where are you based?",
-    a: `${siteConfig.address}. You can reach us at ${siteConfig.email} or WhatsApp ${siteConfig.whatsappDisplay}.`,
+    a: `${siteConfig.legalName} is registered in Uganda${siteConfig.ursbNumber ? ` (URSB ${siteConfig.ursbNumber})` : ""}. The office is at ${siteConfig.address}. You can reach us at ${siteConfig.email} or WhatsApp ${siteConfig.whatsappDisplay}.`,
   },
   {
     q: "How far in advance should I book gorilla trekking?",

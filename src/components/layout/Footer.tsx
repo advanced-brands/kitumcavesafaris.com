@@ -182,6 +182,11 @@ export default function Footer() {
         <div className="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-brand-cream/10 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 items-center">
           <p className="text-xs sm:text-sm text-brand-cream/50 text-center sm:text-left">
             &copy; {currentYear} {siteConfig.legalName}. All rights reserved.
+            {siteConfig.ursbNumber ? (
+              <span className="block sm:inline sm:before:content-['·'] sm:before:mx-2">
+                URSB {siteConfig.ursbNumber}
+              </span>
+            ) : null}
             <span className="block sm:inline sm:before:content-['·'] sm:before:mx-2">
               Office {siteConfig.officeHours.replace("Monday–Saturday, ", "Mon–Sat ")}
             </span>

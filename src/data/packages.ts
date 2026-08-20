@@ -15,6 +15,8 @@ export const siteConfig = {
     name: "IM Mall, C14, Kiwatule, Kampala",
   },
   legalName: "Kitum Cave Safaris Limited",
+  ursbNumber: "80040097847752",
+  utbLicense: "",
   officeHours: "Monday–Saturday, 8:00am–5:00pm (East Africa Time)",
   alwaysOn:
     "WhatsApp, email, socials, and online bookings are available 24/7.",

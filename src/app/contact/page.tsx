@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Building2 } from "lucide-react";
 import { siteConfig } from "@/data/packages";
 import DestinationMap from "@/components/maps/DestinationMap";
 import ScrollReveal from "@/components/ui/ScrollReveal";
@@ -95,6 +95,22 @@ export default function ContactPage() {
                   <p className="text-brand-forest">{siteConfig.address}</p>
                 </div>
               </li>
+              {siteConfig.ursbNumber && (
+                <li className="flex gap-4">
+                  <Building2 className="text-brand-terracotta shrink-0 mt-1" size={20} />
+                  <div>
+                    <p className="text-xs uppercase tracking-wider text-brand-charcoal/50 mb-1">
+                      Company registration
+                    </p>
+                    <p className="text-brand-forest">
+                      {siteConfig.legalName}
+                      <span className="block text-sm text-brand-charcoal/70 mt-0.5">
+                        URSB {siteConfig.ursbNumber}
+                      </span>
+                    </p>
+                  </div>
+                </li>
+              )}
               <li className="flex gap-4">
                 <Clock className="text-brand-terracotta shrink-0 mt-1" size={20} />
                 <div>
