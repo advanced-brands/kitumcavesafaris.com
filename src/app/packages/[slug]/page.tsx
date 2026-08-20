@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { Clock, MapPin, Check, X, Calendar, Luggage, Sun } from "lucide-react";
-import { getPackageBySlug, packages } from "@/data/packages";
+import { getPackageBySlug, packages, whatsappTripUrl } from "@/data/packages";
 import { getReviewsForPackage } from "@/data/reviews";
 import { formatCurrency } from "@/lib/utils";
 import DestinationMap from "@/components/maps/DestinationMap";
@@ -26,10 +26,10 @@ export async function generateMetadata({
   const pkg = getPackageBySlug(slug);
   if (!pkg) return { title: "Package Not Found" };
   return {
-    title: pkg.name,
+    title: `${pkg.name} | ${pkg.country} · ${pkg.duration}`,
     description: pkg.shortDescription,
     openGraph: {
-      title: pkg.name,
+      title: `${pkg.name} | ${pkg.country}`,
       description: pkg.shortDescription,
       images: [{ url: pkg.heroImage }],
     },
@@ -105,12 +105,22 @@ export default async function PackageDetailPage({
               {pkg.availability}
             </span>
           </div>
-          <Link
-            href={`/book/${pkg.slug}`}
-            className="btn-terracotta shrink-0"
-          >
-            Book This Journey
-          </Link>
+          <div className="flex flex-wrap items-center gap-3 shrink-0">
+            <Link
+              href={`/book/${pkg.slug}`}
+              className="btn-terracotta"
+            >
+              Book This Journey
+            </Link>
+            <a
+              href={whatsappTripUrl(pkg)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary"
+            >
+              WhatsApp
+            </a>
+          </div>
         </div>
       </section>
 
@@ -173,6 +183,14 @@ export default async function PackageDetailPage({
               >
                 Book This Journey
               </Link>
+              <a
+                href={whatsappTripUrl(pkg)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 block text-center text-sm text-brand-forest hover:text-brand-terracotta"
+              >
+                Prefer WhatsApp? Message us about this trip
+              </a>
             </div>
           </ScrollReveal>
         </div>
@@ -420,12 +438,14 @@ export default async function PackageDetailPage({
             <Link href={`/book/${pkg.slug}`} className="btn-terracotta">
               Book This Journey
             </Link>
-            <Link
-              href="/plan-your-journey"
+            <a
+              href={whatsappTripUrl(pkg)}
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-secondary !border-white/40 !text-white hover:!bg-white hover:!text-brand-forest"
             >
-              Ask a Question
-            </Link>
+              WhatsApp the team
+            </a>
           </div>
         </div>
       </section>

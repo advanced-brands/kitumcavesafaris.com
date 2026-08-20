@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Star } from "lucide-react";
 import type { Review } from "@/data/reviews";
 import { cn } from "@/lib/utils";
@@ -27,21 +26,9 @@ export default function ReviewSlideCard({ review, className }: Props) {
       )}
     >
       <div className="mb-5 flex items-center gap-3">
-        {review.photo ? (
-          <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full ring-2 ring-white/15">
-            <Image
-              src={review.photo}
-              alt=""
-              fill
-              className="object-cover"
-              sizes="44px"
-            />
-          </div>
-        ) : (
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-terracotta/20 text-sm font-semibold text-brand-terracotta ring-2 ring-white/10">
-            {initials(review.author)}
-          </div>
-        )}
+        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-terracotta/20 text-sm font-semibold text-brand-terracotta ring-2 ring-white/10">
+          {initials(review.author)}
+        </div>
         <div className="min-w-0">
           <p className="truncate font-medium text-white">{review.author}</p>
           <p className="truncate text-xs text-white/50">

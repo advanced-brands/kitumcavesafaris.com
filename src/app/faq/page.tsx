@@ -24,7 +24,11 @@ const faqs = [
   },
   {
     q: "Do you invent reviews or awards?",
-    a: "No. We only show approved traveler reviews submitted through this website. We do not invent awards, statistics, or testimonials.",
+    a: "No. The guest stories on this site were shared with our team. We do not invent awards, star ratings from Google or TripAdvisor, or testimonials we did not receive. After your journey you can leave yours on the reviews page.",
+  },
+  {
+    q: "When are you open?",
+    a: `The office at ${siteConfig.address} is open Monday to Saturday, 8:00am to 5:00pm East Africa Time. WhatsApp, email, socials, and online bookings stay available 24/7.`,
   },
   {
     q: "Where are you based?",

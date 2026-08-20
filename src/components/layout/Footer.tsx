@@ -181,7 +181,10 @@ export default function Footer() {
 
         <div className="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-brand-cream/10 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 items-center">
           <p className="text-xs sm:text-sm text-brand-cream/50 text-center sm:text-left">
-            &copy; {currentYear} Kitum Cave Safaris Limited. All rights reserved.
+            &copy; {currentYear} {siteConfig.legalName}. All rights reserved.
+            <span className="block sm:inline sm:before:content-['·'] sm:before:mx-2">
+              Office {siteConfig.officeHours.replace("Monday–Saturday, ", "Mon–Sat ")}
+            </span>
           </p>
           <div className="grid grid-cols-2 sm:flex sm:flex-wrap sm:justify-end gap-x-4 gap-y-2 text-xs sm:text-sm text-brand-cream/50 text-center sm:text-right">
             <Link href="/terms" className="hover:text-brand-cream transition-colors">

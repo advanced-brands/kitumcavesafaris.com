@@ -53,18 +53,18 @@ export default function ReviewsPage() {
           <p className="label-text !text-brand-terracotta mb-3">Reviews</p>
           <h1 className="heading-display text-white mb-4">Traveler Voices</h1>
           <p className="body-large !text-white/70 max-w-2xl mb-6">
-            Real feedback from travelers on Google, TripAdvisor, and verified
-            bookings — the trust signal international guests look for before
-            they book from abroad.
+            Guests who have traveled with our team. We collect these ourselves —
+            we do not pretend they are Google or TripAdvisor listings. After
+            your trip, leave yours here so the next traveler can hear from you.
           </p>
           <div className="flex flex-wrap items-center gap-4 text-white/80">
             <div className="flex items-center gap-2">
               <Star size={20} className="fill-brand-terracotta text-brand-terracotta" />
               <span className="font-serif text-2xl text-white">{avgRating}</span>
-              <span className="text-sm">average rating</span>
+              <span className="text-sm">average from guest stories</span>
             </div>
             <span className="text-sm text-white/50">
-              {reviews.length} verified reviews
+              {reviews.length} guest stories
             </span>
           </div>
         </div>
@@ -73,23 +73,23 @@ export default function ReviewsPage() {
       <ReviewsCarousel
         reviews={reviews}
         title="Traveler Experiences"
-        subtitle={`${avgRating}★ average from ${reviews.length} verified Google, TripAdvisor, and booking reviews.`}
+        subtitle="Words from guests who traveled with our team — collected by us, not pulled from a review site."
         showCta={false}
       />
 
       <section className="section-padding py-10 md:py-14 bg-brand-cream">
         <div className="max-w-[1600px] mx-auto grid lg:grid-cols-5 gap-8 lg:gap-12">
           <div className="lg:col-span-3">
-            <h2 className="heading-sub text-brand-forest mb-6">Verified Reviews</h2>
+            <h2 className="heading-sub text-brand-forest mb-6">Guest stories</h2>
             <div className="grid sm:grid-cols-2 gap-4 md:gap-5">
               {reviews.map((review) => (
                 <ReviewCard key={review.id} review={review} />
               ))}
             </div>
             <p className="text-xs text-brand-charcoal/45 mt-6 max-w-xl">
-              Reviews are sourced from verified platforms and confirmed bookings.
-              Replace or sync with live Google and TripAdvisor feeds when API
-              access is configured.
+              These are guest stories shared with our team. When we have a
+              public Google listing, we will link it here. Until then we would
+              rather show honest words than borrowed logos.
             </p>
           </div>
 

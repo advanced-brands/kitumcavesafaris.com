@@ -51,12 +51,13 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     title: siteConfig.name,
     description: siteConfig.description,
-    images: [{ url: "/images/Logo.png", width: 1200, height: 630 }],
+    images: [{ url: "/images/4A9A8590.jpg", width: 1600, height: 1067 }],
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.name,
     description: siteConfig.description,
+    images: ["/images/4A9A8590.jpg"],
   },
   robots: { index: true, follow: true },
 };

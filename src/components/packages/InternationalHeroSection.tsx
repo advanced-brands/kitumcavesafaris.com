@@ -2,24 +2,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ShieldCheck, Star } from "lucide-react";
-import { getPackagesByRegion } from "@/data/packages";
-import { getAverageRating, reviews } from "@/data/reviews";
-import { formatCurrency } from "@/lib/utils";
+import { ShieldCheck } from "lucide-react";
+import { siteConfig } from "@/data/packages";
 
 /** Luxury album — The Rock Restaurant, Zanzibar */
 const HERO_IMAGE = "/images/IMG-20260811-WA0089.jpg";
-
-const internationalPackages = getPackagesByRegion("international");
-const pricedPackages = internationalPackages.filter((pkg) => pkg.price > 0);
-const lowestPrice = pricedPackages.length
-  ? Math.min(...pricedPackages.map((pkg) => pkg.price))
-  : null;
-const destinationCount = new Set(
-  internationalPackages.map((pkg) => pkg.country)
-).size;
-const averageRating = getAverageRating();
-const verifiedReviewCount = reviews.filter((review) => review.verified).length;
 
 export default function InternationalHeroSection() {
   return (
@@ -38,59 +25,38 @@ export default function InternationalHeroSection() {
       <div className="ea-overlay-hero-layout section-padding">
         <div className="ea-overlay-hero-card">
           <p className="ea-overlay-hero-label label-text !text-brand-terracotta">
-            International &amp; Luxury
+            International
           </p>
           <h1 className="ea-overlay-hero-title heading-display text-white">
-            Curated escapes beyond East Africa
+            Journeys beyond East Africa, built around you
           </h1>
           <p className="ea-overlay-hero-lead">
-            Handpicked journeys for East African travelers — cultural discoveries
-            and luxury escapes beyond the continent.
+            Tell us where you want to go — Ethiopia, the Indian Ocean, or
+            further. We design the itinerary, permits, and logistics from
+            Kampala. Published packages will appear here as they are ready.
           </p>
 
           <ul className="ea-overlay-hero-trust">
             <li>
-              <Star size={14} aria-hidden className="shrink-0 text-brand-terracotta" />
+              <ShieldCheck size={14} aria-hidden className="shrink-0 text-white/80" />
               <span>
-                <strong>{averageRating}/5</strong> · {verifiedReviewCount}{" "}
-                verified reviews
+                <strong>30% deposit</strong> once dates are confirmed
               </span>
             </li>
             <li>
-              <ShieldCheck size={14} aria-hidden className="shrink-0 text-white/80" />
-              <span>
-                <strong>30% deposit</strong> to secure your trip
-              </span>
+              <span>WhatsApp replies around the clock</span>
             </li>
-            {lowestPrice !== null && (
-              <li>
-                <span>
-                  From <strong>{formatCurrency(lowestPrice, "USD")}</strong> per
-                  person
-                </span>
-              </li>
-            )}
           </ul>
 
-          <dl className="ea-overlay-hero-stats">
-            <div>
-              <dt>Destinations</dt>
-              <dd>{destinationCount}</dd>
-            </div>
-            <div>
-              <dt>Packages</dt>
-              <dd>{internationalPackages.length}</dd>
-            </div>
-            <div>
-              <dt>Style</dt>
-              <dd>Luxury</dd>
-            </div>
-          </dl>
-
           <div className="ea-overlay-hero-actions">
-            <Link href="#packages" className="btn-primary ea-overlay-hero-btn">
-              Browse packages
-            </Link>
+            <a
+              href={`https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent("Hello Kitum Cave Safaris — I'd like to plan an international journey. Here is where I want to go:")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary ea-overlay-hero-btn"
+            >
+              Chat on WhatsApp
+            </a>
             <Link
               href="/plan-your-journey"
               className="btn-secondary ea-overlay-hero-btn !border-white/45 !text-white hover:!bg-white hover:!text-brand-forest"

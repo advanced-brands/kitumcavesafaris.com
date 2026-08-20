@@ -18,7 +18,7 @@ const destinationCount = new Set(
   eastAfricaPackages.map((pkg) => pkg.country)
 ).size;
 const averageRating = getAverageRating();
-const verifiedReviewCount = reviews.filter((review) => review.verified).length;
+const guestStoryCount = reviews.length;
 
 export default function EastAfricaHeroSection() {
   return (
@@ -51,8 +51,8 @@ export default function EastAfricaHeroSection() {
             <li>
               <Star size={14} aria-hidden className="shrink-0 text-brand-terracotta" />
               <span>
-                <strong>{averageRating}/5</strong> · {verifiedReviewCount}{" "}
-                verified reviews
+                <strong>{averageRating}/5</strong> from {guestStoryCount}{" "}
+                guest stories
               </span>
             </li>
             <li>

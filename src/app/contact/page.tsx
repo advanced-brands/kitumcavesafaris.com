@@ -99,7 +99,10 @@ export default function ContactPage() {
                 <Clock className="text-brand-terracotta shrink-0 mt-1" size={20} />
                 <div>
                   <p className="text-xs uppercase tracking-wider text-brand-charcoal/50 mb-1">Business Hours</p>
-                  <p className="text-brand-forest">{siteConfig.businessHours}</p>
+                  <p className="text-brand-forest">{siteConfig.officeHours}</p>
+                  <p className="text-sm text-brand-charcoal/70 mt-1">
+                    {siteConfig.alwaysOn}
+                  </p>
                 </div>
               </li>
             </ul>
@@ -196,7 +199,7 @@ export default function ContactPage() {
           <DestinationMap
             lat={siteConfig.location.lat}
             lng={siteConfig.location.lng}
-            zoom={14}
+            zoom={16}
             label={siteConfig.location.name}
             className="border border-brand-sand-dark rounded-sm"
           />

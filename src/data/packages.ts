@@ -10,10 +10,14 @@ export const siteConfig = {
   whatsappDisplay: "0705940988",
   address: "Kiwatule, Kampala, IM Mall, C14, P.O. Box 214138, Kampala, Uganda",
   location: {
-    lat: 0.3476,
-    lng: 32.5825,
+    lat: 0.365556,
+    lng: 32.625275,
     name: "IM Mall, C14, Kiwatule, Kampala",
   },
+  legalName: "Kitum Cave Safaris Limited",
+  officeHours: "Monday–Saturday, 8:00am–5:00pm (East Africa Time)",
+  alwaysOn:
+    "WhatsApp, email, socials, and online bookings are available 24/7.",
   social: {
     instagram: "https://www.instagram.com/kitumcavesafaris/",
     x: "https://x.com/kitumcavesafari",
@@ -22,7 +26,8 @@ export const siteConfig = {
     facebook: "",
     tiktok: "",
   },
-  businessHours: "[BUSINESS HOURS — TO BE ADDED]",
+  businessHours:
+    "Office: Monday–Saturday, 8:00am–5:00pm (East Africa Time). WhatsApp, email, socials, and bookings: 24/7.",
   partialPaymentPercent: 30,
   currency: "USD",
 };
@@ -88,6 +93,11 @@ const defaultFaqs: PackageFaq[] = [
       "Yes — we quote and accept payment in multiple currencies. Display rates on the website are approximate until confirmed at booking.",
   },
   {
+    question: "When can I reach you?",
+    answer:
+      "The Kampala office is open Monday to Saturday, 8:00am to 5:00pm East Africa Time. WhatsApp, email, socials, and online bookings stay available around the clock.",
+  },
+  {
     question: "Is travel insurance required?",
     answer:
       "We strongly recommend comprehensive travel insurance covering medical evacuation and trip cancellation.",
@@ -95,7 +105,7 @@ const defaultFaqs: PackageFaq[] = [
   {
     question: "Are lunch and dinner included?",
     answer:
-      "No. We include breakfast only. Lunch and dinner are at your own cost.",
+      "Breakfast is included. Lunch and dinner are available throughout the journey at extra cost — lodges and restaurants along the route serve them, and we can help you arrange them.",
   },
 ];
 
@@ -215,7 +225,7 @@ const packagesSource: Package[] = [
     importantInfo: [
       "Gorilla trekking requires a reasonable level of fitness",
       "Minimum age for gorilla trekking is 15 years",
-      "Permits must be booked well in advance — [CONFIRM AVAILABILITY]",
+      "Gorilla permits are limited — book as early as you can so we can secure your dates with Uganda Wildlife Authority.",
       "Pack sturdy hiking boots, long trousers, and rain gear",
     ],
     bookingRequirements: [
@@ -592,52 +602,6 @@ const packagesSource: Package[] = [
     partialPaymentPercent: 30,
     featured: true,
     categories: ["wildlife", "adventure", "nature"],
-  },
-  {
-    id: "international-ethiopia",
-    slug: "international-ethiopia-escape",
-    name: "[PACKAGE NAME] — Ethiopia Escape",
-    destination: "Ethiopia",
-    country: "Ethiopia",
-    region: "international",
-    duration: "[DURATION]",
-    durationDays: 0,
-    price: 0,
-    currency: "USD",
-    shortDescription:
-      "[SHORT DESCRIPTION — A curated escape from East Africa into the landscapes and culture of Ethiopia.]",
-    fullDescription: "[FULL DESCRIPTION — TO BE ADDED]",
-    travelType: "International Travel",
-    availability: "Available on request — contact us for dates",
-    bestTimeToVisit:
-      "Dry seasons (June–October) are ideal for wildlife viewing. We advise on seasonal highlights when you inquire.",
-    whatToBring: defaultWhatToBring,
-    faqs: defaultFaqs,
-    heroImage: "/images/IMG-20260811-WA0090.jpg",
-    galleryImages: [
-      "/images/IMG-20260811-WA0090.jpg",
-      "/images/IMG-20260811-WA0016.jpg",
-      "/images/IMG-20260811-WA0089.jpg",
-    ],
-    mapCoordinates: { lat: 9.03, lng: 38.74 },
-    mapZoom: 6,
-    included: ["[INCLUDED — TO BE ADDED]"],
-    excluded: ["[EXCLUDED — TO BE ADDED]"],
-    itinerary: [
-      {
-        day: 1,
-        title: "[DAY 1 — TO BE ADDED]",
-        description: "[DESCRIPTION — TO BE ADDED]",
-      },
-    ],
-    accommodation: "[ACCOMMODATION — TO BE ADDED]",
-    transport: "[TRANSPORT — TO BE ADDED]",
-    importantInfo: ["[INFO — TO BE ADDED]"],
-    bookingRequirements: ["[REQUIREMENTS — TO BE ADDED]"],
-    cancellationPolicy:
-      "Deposit refundable up to 45 days before departure minus admin fees. Cancellations within 45 days may forfeit deposit; full terms provided at booking.",
-    partialPaymentPercent: 30,
-    categories: ["luxury", "international"],
   },
   {
     id: "zanzibar-5-day-trip",
@@ -1359,41 +1323,55 @@ const packagesSource: Package[] = [
 ];
 
 const MEAL_EXCLUSION =
-  "Lunch and dinner (we include breakfast only)";
+  "Lunch and dinner (available at extra cost — breakfast is included)";
 const mealFaq: PackageFaq = {
   question: "Are lunch and dinner included?",
   answer:
-    "No. We include breakfast only. Lunch and dinner are at your own cost.",
+    "Breakfast is included. Lunch and dinner are available throughout the journey at extra cost — lodges and restaurants along the route serve them, and we can help you arrange them.",
 };
 
-export const packages: Package[] = packagesSource.map((pkg) => {
+const MEAL_PRICE_NOTE = "Breakfast included; lunch and dinner extra.";
+
+export const packages: Package[] = packagesSource
+  .filter(
+    (pkg) => !/\[/.test(pkg.name) && !/TO BE ADDED/i.test(pkg.fullDescription)
+  )
+  .map((pkg) => {
   const hasBreakfastIncluded = pkg.included.some((item) =>
     /breakfast/i.test(item)
   );
   const included = hasBreakfastIncluded
     ? pkg.included
-    : [
-        "Daily breakfast",
-        ...pkg.included.filter((item) => item !== "[INCLUDED — TO BE ADDED]"),
-      ];
-  const excludedBase = pkg.excluded.filter(
-    (item) => item !== "[EXCLUDED — TO BE ADDED]"
-  );
-  const excluded = excludedBase.some((item) => /lunch/i.test(item))
-    ? excludedBase
-    : [MEAL_EXCLUSION, ...excludedBase];
+    : ["Daily breakfast", ...pkg.included];
+  const excluded = pkg.excluded.some((item) => /lunch/i.test(item))
+    ? pkg.excluded
+    : [MEAL_EXCLUSION, ...pkg.excluded];
   const faqs = pkg.faqs.some((faq) => /lunch and dinner/i.test(faq.question))
     ? pkg.faqs
     : [mealFaq, ...pkg.faqs];
+  const priceNote = pkg.priceNote
+    ? pkg.priceNote.includes("Breakfast included")
+      ? pkg.priceNote
+      : `${pkg.priceNote} ${MEAL_PRICE_NOTE}`
+    : pkg.price > 0
+      ? `Per person sharing. ${MEAL_PRICE_NOTE}`
+      : pkg.priceNote;
 
   return {
     ...pkg,
     included,
     excluded,
     faqs,
+    priceNote,
     itinerary: pkg.itinerary.map((day) => ({ ...day, meals: "Breakfast" })),
   };
 });
+
+export function whatsappTripUrl(pkg: { name: string; duration?: string }) {
+  const detail = pkg.duration ? ` (${pkg.duration})` : "";
+  const text = `Hello Kitum Cave Safaris — I'm interested in ${pkg.name}${detail}. Please share availability and next steps.`;
+  return `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(text)}`;
+}
 
 export function getPackageBySlug(slug: string): Package | undefined {
   return packages.find((p) => p.slug === slug);

@@ -40,7 +40,7 @@ export default function ItineraryAccordion({
                   </p>
                 )}
                 <p className="text-xs text-brand-terracotta/80 mt-0.5">
-                  Meals: Breakfast only
+                  Meals: Breakfast included · lunch &amp; dinner extra
                 </p>
               </div>
             </div>

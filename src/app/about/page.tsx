@@ -32,8 +32,9 @@ export default function AboutPage() {
         <div className="max-w-2xl mx-auto">
           <h2 className="heading-section text-white mb-4">Has anyone else trusted us?</h2>
           <p className="body-text !text-white/70 mb-8">
-            Read traveler reviews — or leave your own after your journey. Real
-            feedback matters more than invented testimonials.
+            Read stories from guests who have traveled with us — or leave yours
+            after your journey. We would rather a short honest list than logos
+            we have not earned on a review site yet.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="/reviews" className="btn-terracotta">

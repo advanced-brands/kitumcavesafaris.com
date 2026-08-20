@@ -20,7 +20,7 @@ const AUTO_MS = 4500;
 export default function ReviewsCarousel({
   reviews,
   title = "Customer Experiences",
-  subtitle = "Discover the success stories and transformative experiences shared by travelers who have explored East Africa with Kitum Cave Safaris.",
+  subtitle = "Words from guests who traveled with our team. If you have been on a journey with us, we would like yours here too.",
   showCta = true,
   className,
 }: Props) {
