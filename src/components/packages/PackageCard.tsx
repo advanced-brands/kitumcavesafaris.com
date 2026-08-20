@@ -68,9 +68,6 @@ export default function PackageCard({ pkg, variant = "default" }: PackageCardPro
         <p className="body-text text-sm line-clamp-2 mb-4">
           {pkg.shortDescription}
         </p>
-        <p className="text-xs font-medium uppercase tracking-wider text-brand-terracotta mb-3">
-          Breakfast included · lunch &amp; dinner extra
-        </p>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4 text-sm text-brand-charcoal/50">
             <span className="flex items-center gap-1">
