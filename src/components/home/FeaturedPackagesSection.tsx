@@ -65,8 +65,8 @@ export default function FeaturedPackagesSection({ packages }: Props) {
   const railCount = packages.length;
 
   return (
-    <section id="packages" className="bg-brand-sand pb-8 md:pb-10">
-      <div className="section-padding mx-auto max-w-[1200px] pb-3 md:pb-4">
+    <section id="packages" className="bg-brand-sand pt-10 pb-8 md:pt-16 md:pb-10 lg:pt-20">
+      <div className="section-padding mx-auto max-w-[1200px] pb-4 md:pb-6">
         <div className="mb-3 flex flex-col gap-2 md:mb-4 md:flex-row md:items-end md:justify-between">
           <div>
             <h2 className="heading-section text-brand-forest">Curated Packages</h2>

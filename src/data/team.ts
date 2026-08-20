@@ -45,7 +45,7 @@ export const teamMembers: TeamMember[] = [
   },
   {
     id: "team-2",
-    name: "Kiwanika Edward",
+    name: "Kiwanuka Edward",
     role: "Brand Ambassador",
     bio: "Edward represents Kitum Cave Safaris with pride — sharing our story, connecting with travelers, and helping guests feel the warmth and spirit of East African hospitality.",
     image: "/images/kiwanika-edward.png",
