@@ -92,6 +92,11 @@ const defaultFaqs: PackageFaq[] = [
     answer:
       "We strongly recommend comprehensive travel insurance covering medical evacuation and trip cancellation.",
   },
+  {
+    question: "Are lunch and dinner included?",
+    answer:
+      "No. We include breakfast only. Lunch and dinner are at your own cost.",
+  },
 ];
 
 const defaultWhatToBring = [
@@ -103,7 +108,7 @@ const defaultWhatToBring = [
   "Camera and binoculars (recommended)",
 ];
 
-export const packages: Package[] = [
+const packagesSource: Package[] = [
   {
     id: "gorilla-safari-3d",
     slug: "3-days-gorilla-safari",
@@ -172,7 +177,7 @@ export const packages: Package[] = [
       "Gorilla permit",
       "Park fees",
       "4x4 Land Cruiser, fuel + driver-guide",
-      "Full board accommodation",
+      "Accommodation with daily breakfast",
       "Mineral water",
       "All activities mentioned in itinerary",
     ],
@@ -260,7 +265,7 @@ export const packages: Package[] = [
       "Park entrance fees",
       "Game drives and Kazinga Channel boat safari",
       "4x4 safari vehicle, fuel, and driver-guide",
-      "Accommodation as per itinerary",
+      "Accommodation with daily breakfast",
       "Bottled water in the vehicle",
     ],
     excluded: [
@@ -352,7 +357,7 @@ export const packages: Package[] = [
       "Park and boat cruise fees",
       "Game drives on the northern bank",
       "4x4 vehicle, fuel, and driver-guide",
-      "Full-board accommodation",
+      "Accommodation with daily breakfast",
       "Bottled water in the vehicle",
     ],
     excluded: [
@@ -436,7 +441,7 @@ export const packages: Package[] = [
       "Masai Mara reserve fees",
       "Daily game drives",
       "Safari vehicle, fuel, and guide",
-      "Lodge accommodation on full board",
+      "Lodge accommodation with daily breakfast",
       "Park and conservancy fees as listed",
     ],
     excluded: [
@@ -527,7 +532,7 @@ export const packages: Package[] = [
       "Serengeti park fees and concession fees",
       "Daily game drives",
       "Safari vehicle, fuel, and guide",
-      "Lodge or tented camp accommodation",
+      "Lodge or tented camp accommodation with daily breakfast",
       "Bottled water in the vehicle",
     ],
     excluded: [
@@ -700,13 +705,13 @@ export const packages: Package[] = [
     mapZoom: 10,
     included: [
       "4 nights accommodation (sharing) — Maru Maru Hotel & Amaan Beach Bungalows",
-      "Meals as per itinerary",
+      "Daily breakfast",
       "Round-trip flights Entebbe–Zanzibar",
       "Airport and inter-hotel transfers",
       "Stone Town guided walking tour",
-      "Prison Island, Nakupenda sandbank & BBQ lunch",
+      "Prison Island and Nakupenda sandbank excursion",
       "Swimming with sea turtles (Mbarakumu caves, Kiwengwa)",
-      "Full-day Safari Blue boat trip (snorkeling, seafood lunch, drinks)",
+      "Full-day Safari Blue boat trip (snorkeling, Kwale Island, mangrove lagoon)",
       "Kwale Island and mangrove lagoon visit",
       "Park and conservation fees",
       "All activities listed in the itinerary",
@@ -725,7 +730,7 @@ export const packages: Package[] = [
         description:
           "Morning or afternoon arrival at Abeid Amani Karume International Airport (ZNZ). Private transfer to Stone Town and check-in at the hotel. In the afternoon, enjoy a guided walking tour through Stone Town — Old Fort, Sultan's Palace, and Freddie Mercury House. Dinner at the hotel and overnight in Stone Town.",
         accommodation: "Maru Maru Hotel",
-        meals: "Dinner",
+        meals: "Breakfast",
       },
       {
         day: 2,
@@ -733,7 +738,7 @@ export const packages: Package[] = [
         description:
           "After breakfast at the hotel, take a boat excursion to Prison Island to see giant tortoises and snorkel the surrounding reef. Continue by boat to Nakupenda sandbank for a BBQ lunch. In the afternoon, visit Mbarakumu caves at Kiwengwa to swim with wild sea turtles in natural limestone pools. Return to Stone Town for dinner and overnight.",
         accommodation: "Maru Maru Hotel",
-        meals: "Breakfast, lunch, dinner",
+        meals: "Breakfast",
       },
       {
         day: 3,
@@ -741,7 +746,7 @@ export const packages: Package[] = [
         description:
           "Breakfast and check-out, then a scenic transfer to Nungwi Beach (approximately 1.5 hours). Check in to your beach resort and enjoy free time for swimming and relaxation. Optional activities available: dhow sunset cruise ($30 pp), horse riding ($40 pp), or spa treatments. Dinner and overnight at Nungwi.",
         accommodation: "Amaan Beach Bungalows",
-        meals: "Breakfast, dinner",
+        meals: "Breakfast",
       },
       {
         day: 4,
@@ -749,7 +754,7 @@ export const packages: Package[] = [
         description:
           "Early morning breakfast, then transfer to Fumba/Menai Bay (approximately 45 minutes). Embark on the full-day Safari Blue experience — snorkeling at coral reefs, sandbank BBQ seafood lunch with tropical fruits and drinks, and a visit to Kwale Island and the mangrove lagoon. Return to the hotel for a free evening and dinner at the resort.",
         accommodation: "Amaan Beach Bungalows",
-        meals: "Breakfast, lunch, dinner",
+        meals: "Breakfast",
       },
       {
         day: 5,
@@ -851,7 +856,7 @@ export const packages: Package[] = [
       "Chimpanzee permit (Kibale National Park)",
       "Golden monkey permit (Mgahinga Gorilla National Park)",
       "Park entrance fees (Mgahinga, Queen Elizabeth, Kibale, Bwindi)",
-      "7 nights mid-range full-board accommodation",
+      "7 nights mid-range accommodation with daily breakfast",
       "4x4 Land Cruiser, fuel, and professional driver-guide",
       "Cross-border COMESA insurance",
       "Lake Kivu and Kazinga Channel boat safaris",
@@ -876,7 +881,7 @@ export const packages: Package[] = [
         description:
           "After breakfast, embark on a Kigali city tour — visit the Kigali Genocide Memorial, a solemn tribute to the victims of the 1994 genocide, and the Belgian peacekeepers memorial honouring soldiers who lost their lives during the crisis. Enjoy a packed lunch while driving to Volcanoes National Park in northern Rwanda (approximately 2–3 hours). Check in at the lodge for overnight.",
         accommodation: "Da Vinci Gorilla Lodge",
-        meals: "Breakfast, lunch, dinner",
+        meals: "Breakfast",
       },
       {
         day: 2,
@@ -884,7 +889,7 @@ export const packages: Package[] = [
         description:
           "After an early breakfast, transfer to park headquarters for a comprehensive briefing and allocation of your gorilla family. Hike through the forest with rangers to find a habituated group — the trek takes 2–6 hours depending on gorilla movements. Spend one hour observing them, then drive approximately 3 hours to Lake Kivu. Check in, refresh, and relax at the lodge.",
         accommodation: "Cormoran Lodge",
-        meals: "Breakfast, lunch, dinner",
+        meals: "Breakfast",
       },
       {
         day: 3,
@@ -892,7 +897,7 @@ export const packages: Package[] = [
         description:
           "After breakfast, enjoy a scenic boat tour on Lake Kivu — visit Napoleon Island, named for its distinctive shape and home to fruit bats, and a traditional fishing village to observe local methods. Check out after the boat safari and have lunch, then transfer to Mgahinga Gorilla National Park — where silver meets gold — for overnight at the lodge ahead of golden monkey tracking.",
         accommodation: "Travelers Rest Hotel",
-        meals: "Breakfast, lunch, dinner",
+        meals: "Breakfast",
       },
       {
         day: 4,
@@ -900,7 +905,7 @@ export const packages: Package[] = [
         description:
           "After morning breakfast, trek into the forest in search of golden monkeys — trackers follow fresh bamboo shoots left from the previous day. Once found, spend one hour watching them leap through the trees. After lunch, transfer to Bwindi Impenetrable National Park. Check in at the lodge, refresh, and prepare for your second gorilla trek tomorrow.",
         accommodation: "Bakiga Lodge",
-        meals: "Breakfast, lunch, dinner",
+        meals: "Breakfast",
       },
       {
         day: 5,
@@ -908,7 +913,7 @@ export const packages: Package[] = [
         description:
           "Early breakfast, then head to Bwindi park headquarters for briefing before setting off with experienced guides in search of mountain gorillas. Spend an hour with these giants in their natural habitat. After the trek, enjoy packed lunch while driving to Queen Elizabeth National Park — Uganda's most popular and biodiverse safari destination (approximately 4–6 hours). Check in at the lodge on arrival.",
         accommodation: "Irungu Forest Safari Lodge",
-        meals: "Breakfast, lunch, dinner",
+        meals: "Breakfast",
       },
       {
         day: 6,
@@ -916,7 +921,7 @@ export const packages: Package[] = [
         description:
           "Very early breakfast, then a morning game drive on the savannah — lions, elephants, buffalo, leopards, and antelope are commonly sighted. In the afternoon, take a boat safari along the Kazinga Channel, consistently rich with hippos, crocodiles, elephants, buffalo, and birdlife along the shores. Return to the lodge for relaxation.",
         accommodation: "Irungu Forest Safari Lodge",
-        meals: "Breakfast, lunch, dinner",
+        meals: "Breakfast",
       },
       {
         day: 7,
@@ -924,7 +929,7 @@ export const packages: Package[] = [
         description:
           "After breakfast, transfer to Kibale National Park — the primate capital of the world with over 1,500 chimpanzees (approximately 1.5 hours). Check in at the lodge, relax, and prepare for afternoon chimpanzee trekking. Briefing at park headquarters, then trek from Kanyanchu Visitor Centre (from 3:30 pm) for 2–5 hours with expert guides to a habituated chimp group.",
         accommodation: "Isunga Lodge",
-        meals: "Breakfast, lunch, dinner",
+        meals: "Breakfast",
       },
       {
         day: 8,
@@ -1026,7 +1031,7 @@ export const packages: Package[] = [
       "Gorilla permit (Bwindi Impenetrable National Park)",
       "Chimpanzee permit (Kibale National Park)",
       "Park entrance fees (Kidepo, Murchison, Queen Elizabeth, Mount Elgon, Bwindi, Kibale)",
-      "11 nights mid-range full-board accommodation",
+      "11 nights mid-range accommodation with daily breakfast",
       "4x4 Land Cruiser, fuel, and professional driver-guide",
       "Boat safaris (Nile, Kazinga Channel, Lake Bunyonyi)",
       "Sipi Falls hike and Mount Elgon experience",
@@ -1050,7 +1055,7 @@ export const packages: Package[] = [
         description:
           "Pick-up from Entebbe or your hotel. Transfer to Jinja (approximately 2 hours) for a boat ride to the Source of the Nile, visit a local craft shop, and lunch. Continue to Mount Elgon National Park near Mbale and check in for overnight.",
         accommodation: "Sipi River Lodge",
-        meals: "Lunch, dinner",
+        meals: "Breakfast",
       },
       {
         day: 2,
@@ -1058,7 +1063,7 @@ export const packages: Package[] = [
         description:
           "After breakfast, briefing at park headquarters, then explore caves, hot springs, scenic viewpoints, and local walks. Drive to Sipi Falls (approximately 1–1.5 hours) for a series of three waterfalls set in lush greenery. Return to the lodge for overnight.",
         accommodation: "Sipi River Lodge",
-        meals: "Breakfast, lunch, dinner",
+        meals: "Breakfast",
       },
       {
         day: 3,
@@ -1066,7 +1071,7 @@ export const packages: Package[] = [
         description:
           "Early breakfast, then transfer to Kidepo Valley National Park — Uganda's remote wilderness of arid savannah, rugged mountains, and exceptional wildlife including cheetahs, lions, leopards, bat-eared foxes, buffalo, giraffes, and zebras (approximately 7–8 hours via Mbale–Moroto). Lunch en route. Check in and prepare for an evening game drive along the Narus River valley.",
         accommodation: "Kidepo Savannah Lodge",
-        meals: "Breakfast, lunch, dinner",
+        meals: "Breakfast",
       },
       {
         day: 4,
@@ -1074,7 +1079,7 @@ export const packages: Package[] = [
         description:
           "Morning game drive — buffalo herds, elephants, giraffes, lions, cheetahs, and more. Return to the lodge for lunch and relaxation. Afternoon cultural walk to visit the IK people in their homesteads — interact, learn about their pastoralist culture, food, and traditional dance. Overnight at the lodge.",
         accommodation: "Kidepo Savannah Lodge",
-        meals: "Breakfast, lunch, dinner",
+        meals: "Breakfast",
       },
       {
         day: 5,
@@ -1082,7 +1087,7 @@ export const packages: Package[] = [
         description:
           "After breakfast, transfer to Murchison Falls National Park, home to the world's most powerful waterfall (approximately 7–9 hours on a scenic route). Lunch en route. Check in at the lodge, refresh, and relax.",
         accommodation: "Pakuba Safari Lodge",
-        meals: "Breakfast, lunch, dinner",
+        meals: "Breakfast",
       },
       {
         day: 6,
@@ -1090,7 +1095,7 @@ export const packages: Package[] = [
         description:
           "Early morning game drive — chance of big cats hunting, plus elephants, giraffes, buffalo, and 76 mammal species on the checklist. Lunch and relaxation at the lodge. Afternoon 3-hour boat safari on the Nile — schools of hippos, Nile crocodiles, elephants, buffalo, and abundant birdlife along the banks.",
         accommodation: "Pakuba Safari Lodge",
-        meals: "Breakfast, lunch, dinner",
+        meals: "Breakfast",
       },
       {
         day: 7,
@@ -1098,7 +1103,7 @@ export const packages: Package[] = [
         description:
           "After breakfast, transfer to Kibale Forest National Park — home to over 1,500 chimpanzees and thirteen primate species including red colobus, Uganda mangabey, olive baboons, and black-and-white colobus (approximately 8 hours). Lunch break in Fort Portal. Check in at the lodge and prepare for tomorrow's chimp trek.",
         accommodation: "Isunga Lodge",
-        meals: "Breakfast, lunch, dinner",
+        meals: "Breakfast",
       },
       {
         day: 8,
@@ -1106,7 +1111,7 @@ export const packages: Package[] = [
         description:
           "Breakfast, then briefing at park headquarters before trekking into the forest with rangers to find a habituated chimp group (up to 3 hours). Receive your certificate, lunch, then transfer to Queen Elizabeth National Park (approximately 2–3 hours) with a stop at the Kikorongo equator. Late evening game drive on the Kasenyi plains or Mweya peninsula — elephants, kobs, and buffalo.",
         accommodation: "Bush Lodge",
-        meals: "Breakfast, lunch, dinner",
+        meals: "Breakfast",
       },
       {
         day: 9,
@@ -1114,7 +1119,7 @@ export const packages: Package[] = [
         description:
           "Morning game drive — lions, leopards, elephants, buffalo, and antelope. Return to the lodge before an afternoon 3-hour boat cruise on the Kazinga Channel — hippos, crocodiles, elephants, waterbucks, Uganda kobs, warthogs, and birdlife including fish eagles and kingfishers.",
         accommodation: "Bush Lodge",
-        meals: "Breakfast, lunch, dinner",
+        meals: "Breakfast",
       },
       {
         day: 10,
@@ -1122,7 +1127,7 @@ export const packages: Package[] = [
         description:
           "After breakfast, transfer to Bwindi Impenetrable National Park via the Ishasha sector (approximately 3–4 hours) with packed lunch and a stop in Kabale. Check in at the lodge, then a cultural experience with the Batwa pygmies — indigenous forest people whose heritage is woven into Bwindi's story.",
         accommodation: "Bakiga Lodge",
-        meals: "Breakfast, lunch, dinner",
+        meals: "Breakfast",
       },
       {
         day: 11,
@@ -1130,14 +1135,14 @@ export const packages: Package[] = [
         description:
           "Early breakfast, briefing at Bwindi park headquarters, then trek through dense forest with guides to find a habituated gorilla family. Spend one hour with the gentle giants. After the trek, transfer to Lake Bunyonyi — Uganda's deepest lake, formed 10,000 years ago and renowned for its islands and birdlife. Check in and relax.",
         accommodation: "Birdnest Resort",
-        meals: "Breakfast, lunch, dinner",
+        meals: "Breakfast",
       },
       {
         day: 12,
         title: "Lake Bunyonyi & Return to Entebbe",
         description:
           "Morning canoe or boat safari exploring the islands — Punishment Island, Bwama Island, Njuyeera Island (home of missionary Dr Leonard Sharp), Bushara Island, and Kahugye Island with zebra and antelope. Drive back to Entebbe with a lunch stop at the equator, arriving in time for your evening flight — end of trip.",
-        meals: "Breakfast, lunch",
+        meals: "Breakfast",
       },
     ],
     accommodation:
@@ -1230,7 +1235,7 @@ export const packages: Package[] = [
       "Gorilla permit (Bwindi Impenetrable National Park)",
       "Chimpanzee permit (Kibale National Park)",
       "Park entrance fees (Murchison, Kibale, Queen Elizabeth, Bwindi)",
-      "9 nights mid-range full-board accommodation",
+      "9 nights mid-range accommodation with daily breakfast",
       "4x4 Land Cruiser, fuel, and professional driver-guide",
       "Cross-border COMESA insurance",
       "Boat safaris (Nile, Kazinga Channel, Lake Kivu)",
@@ -1256,7 +1261,7 @@ export const packages: Package[] = [
         description:
           "After breakfast, pick-up from Entebbe or your hotel and transfer to Murchison Falls National Park via Kampala–Masindi (approximately 4 hours). Stop at Ziwa Rhino Sanctuary — a conservation area for endangered black rhinos (rhino tracking optional). Continue to the park and visit the top of the falls, where the Nile narrows through a rift valley chasm. Check in at the lodge for overnight.",
         accommodation: "Pakuba Safari Lodge",
-        meals: "Lunch, dinner",
+        meals: "Breakfast",
       },
       {
         day: 2,
@@ -1264,7 +1269,7 @@ export const packages: Package[] = [
         description:
           "Early breakfast, then a morning game drive across the park's expansive plains — lions, leopards, elephants, buffalo, giraffes, zebras, and antelope. After lunch, a boat safari along the Victoria Nile to the base of the falls, passing schools of hippos, crocodiles, and waterbirds (approximately 3 hours). Optional evening game drive. Overnight at the lodge.",
         accommodation: "Pakuba Safari Lodge",
-        meals: "Breakfast, lunch, dinner",
+        meals: "Breakfast",
       },
       {
         day: 3,
@@ -1272,7 +1277,7 @@ export const packages: Package[] = [
         description:
           "After breakfast, transfer to Kibale National Park — one of Africa's best primate destinations (approximately 5–6 hours through scenic countryside and tea plantations). Lunch break in Fort Portal, then continue to the park. Check in, relax, and prepare for chimpanzee tracking tomorrow.",
         accommodation: "Isunga Lodge",
-        meals: "Breakfast, lunch, dinner",
+        meals: "Breakfast",
       },
       {
         day: 4,
@@ -1280,7 +1285,7 @@ export const packages: Package[] = [
         description:
           "After breakfast, briefing at the park office, then trek into the forest with experienced guides to find a habituated chimpanzee troop. Spend quality time observing their social interactions. After lunch, a community walk to nearby Bigodi village — interact with local people, learn traditional customs, and enjoy dance and music performances showcasing the region's cultural heritage.",
         accommodation: "Isunga Lodge",
-        meals: "Breakfast, lunch, dinner",
+        meals: "Breakfast",
       },
       {
         day: 5,
@@ -1288,7 +1293,7 @@ export const packages: Package[] = [
         description:
           "After breakfast, transfer to Queen Elizabeth National Park with a photo stop at the Kikorongo equator monument. Check in at the lodge and relax. Evening game drive on the Kasenyi plains — search for lions, elephants, buffalo, and other wildlife until sunset.",
         accommodation: "Bush Lodge",
-        meals: "Breakfast, lunch, dinner",
+        meals: "Breakfast",
       },
       {
         day: 6,
@@ -1296,7 +1301,7 @@ export const packages: Package[] = [
         description:
           "Morning game drive — lions, leopards, elephants, buffalo, and antelope on the savannah. After lunch, a 3-hour boat safari on the Kazinga Channel — hippos, crocodiles, elephants and buffalo along the shores, plus waterbucks, Uganda kobs, warthogs, fish eagles, kingfishers, and abundant birdlife.",
         accommodation: "Bush Lodge",
-        meals: "Breakfast, lunch, dinner",
+        meals: "Breakfast",
       },
       {
         day: 7,
@@ -1304,7 +1309,7 @@ export const packages: Package[] = [
         description:
           "Morning game drive in the Ishasha sector, renowned for rare tree-climbing lions. Continue the scenic drive to Bwindi Impenetrable National Park (approximately 4–5 hours) with lunch en route. Check in at the lodge and prepare for gorilla trekking tomorrow.",
         accommodation: "Bakiga Lodge",
-        meals: "Breakfast, lunch, dinner",
+        meals: "Breakfast",
       },
       {
         day: 8,
@@ -1312,7 +1317,7 @@ export const packages: Package[] = [
         description:
           "Early breakfast, then gorilla trekking in Bwindi with experienced rangers through dense forest until you find a habituated family — spend one hour with the gentle giants. Receive your certificate, then cross into Rwanda via the Kyanika border to Gisenyi on Lake Kivu. Check in at the lakeside resort and unwind.",
         accommodation: "Paradise Malahide",
-        meals: "Breakfast, lunch, dinner",
+        meals: "Breakfast",
       },
       {
         day: 9,
@@ -1320,7 +1325,7 @@ export const packages: Package[] = [
         description:
           "After breakfast, a scenic boat safari on Lake Kivu — visit Napoleon Island, home to fruit bats, and a traditional fishing village to observe local methods. Transfer to Kigali (approximately 3–4 hours). Check in at the lodge and relax.",
         accommodation: "Cormoran Lodge",
-        meals: "Breakfast, lunch, dinner",
+        meals: "Breakfast",
       },
       {
         day: 10,
@@ -1352,6 +1357,43 @@ export const packages: Package[] = [
     categories: ["wildlife", "adventure", "culture", "nature"],
   },
 ];
+
+const MEAL_EXCLUSION =
+  "Lunch and dinner (we include breakfast only)";
+const mealFaq: PackageFaq = {
+  question: "Are lunch and dinner included?",
+  answer:
+    "No. We include breakfast only. Lunch and dinner are at your own cost.",
+};
+
+export const packages: Package[] = packagesSource.map((pkg) => {
+  const hasBreakfastIncluded = pkg.included.some((item) =>
+    /breakfast/i.test(item)
+  );
+  const included = hasBreakfastIncluded
+    ? pkg.included
+    : [
+        "Daily breakfast",
+        ...pkg.included.filter((item) => item !== "[INCLUDED — TO BE ADDED]"),
+      ];
+  const excludedBase = pkg.excluded.filter(
+    (item) => item !== "[EXCLUDED — TO BE ADDED]"
+  );
+  const excluded = excludedBase.some((item) => /lunch/i.test(item))
+    ? excludedBase
+    : [MEAL_EXCLUSION, ...excludedBase];
+  const faqs = pkg.faqs.some((faq) => /lunch and dinner/i.test(faq.question))
+    ? pkg.faqs
+    : [mealFaq, ...pkg.faqs];
+
+  return {
+    ...pkg,
+    included,
+    excluded,
+    faqs,
+    itinerary: pkg.itinerary.map((day) => ({ ...day, meals: "Breakfast" })),
+  };
+});
 
 export function getPackageBySlug(slug: string): Package | undefined {
   return packages.find((p) => p.slug === slug);

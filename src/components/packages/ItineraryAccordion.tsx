@@ -39,11 +39,9 @@ export default function ItineraryAccordion({
                     {day.accommodation}
                   </p>
                 )}
-                {day.meals && (
-                  <p className="text-xs text-brand-terracotta/80 mt-0.5">
-                    Meals: {day.meals}
-                  </p>
-                )}
+                <p className="text-xs text-brand-terracotta/80 mt-0.5">
+                  Meals: Breakfast only — lunch and dinner not included
+                </p>
               </div>
             </div>
             <ChevronDown

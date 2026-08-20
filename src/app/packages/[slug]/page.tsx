@@ -104,6 +104,10 @@ export default async function PackageDetailPage({
               <strong className="text-brand-forest">Availability:</strong>{" "}
               {pkg.availability}
             </span>
+            <span>
+              <strong className="text-brand-forest">Meals:</strong> Breakfast
+              only
+            </span>
           </div>
           <Link
             href={`/book/${pkg.slug}`}
@@ -126,6 +130,10 @@ export default async function PackageDetailPage({
                 <p key={i}>{para}</p>
               ))}
             </div>
+            <p className="mt-6 rounded-sm border border-brand-terracotta/30 bg-brand-sand px-4 py-3 text-sm text-brand-charcoal">
+              <strong className="text-brand-forest">Meals:</strong> breakfast
+              is included. Lunch and dinner are not provided.
+            </p>
           </ScrollReveal>
           <ScrollReveal direction="right" delay={200}>
             <div className="bg-brand-sand p-8 border border-brand-sand-dark">
@@ -144,6 +152,14 @@ export default async function PackageDetailPage({
                     Accommodation
                   </dt>
                   <dd className="text-brand-charcoal">{pkg.accommodation}</dd>
+                </div>
+                <div>
+                  <dt className="text-brand-charcoal/50 uppercase tracking-wider text-xs mb-1">
+                    Meals
+                  </dt>
+                  <dd className="text-brand-charcoal">
+                    Breakfast only — lunch and dinner not included
+                  </dd>
                 </div>
                 <div>
                   <dt className="text-brand-charcoal/50 uppercase tracking-wider text-xs mb-1">
