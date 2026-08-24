@@ -77,8 +77,9 @@ function TeamMemberCard({ member }: { member: TeamMember }) {
           src={member.image}
           alt={member.name}
           fill
-          className="object-cover object-top"
           sizes="112px"
+          loading="eager"
+          className={`object-cover ${member.imageClassName ?? "object-top"}`}
         />
       </div>
 

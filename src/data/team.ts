@@ -13,6 +13,7 @@ export type TeamMember = {
   role: string;
   bio: string | string[];
   image: string;
+  imageClassName?: string;
   isFounder?: boolean;
   social?: TeamMemberSocial;
 };
@@ -60,7 +61,8 @@ export const teamMembers: TeamMember[] = [
     name: "Salum Jumanne John",
     role: "Zanzibar Agent",
     bio: "Salum is our man on the island — greeting guests in Zanzibar, coordinating transfers and day trips, and making sure Stone Town, the beaches, and the Indian Ocean days run as planned.",
-    image: "/images/salum-jumanne-john.png",
+    image: "/images/salum-jumanne-john.jpg",
+    imageClassName: "object-center",
   },
 ];
 
