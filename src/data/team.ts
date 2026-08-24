@@ -57,10 +57,10 @@ export const teamMembers: TeamMember[] = [
   },
   {
     id: "team-3",
-    name: "[TEAM MEMBER NAME]",
-    role: "[ROLE — e.g., Travel Consultant]",
-    bio: "[BIO — Brief description of this team member's role, expertise, and contribution to the company.]",
-    image: "/images/IMG-20260811-WA0088.jpg",
+    name: "Salum Jumanne John",
+    role: "Zanzibar Agent",
+    bio: "Salum is our man on the island — greeting guests in Zanzibar, coordinating transfers and day trips, and making sure Stone Town, the beaches, and the Indian Ocean days run as planned.",
+    image: "/images/salum-jumanne-john.png",
   },
 ];
 

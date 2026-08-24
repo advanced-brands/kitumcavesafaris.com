@@ -59,7 +59,12 @@ function getMemberSocialLinks(member: TeamMember) {
     );
   }
 
-  return defaultSocialLinks.filter((link) => Boolean(link.href));
+  // Company accounts belong on the founder card only — not on every teammate without a profile.
+  if (member.isFounder) {
+    return defaultSocialLinks.filter((link) => Boolean(link.href));
+  }
+
+  return [];
 }
 
 function TeamMemberCard({ member }: { member: TeamMember }) {

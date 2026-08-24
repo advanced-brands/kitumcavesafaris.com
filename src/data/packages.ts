@@ -614,7 +614,7 @@ const packagesSource: Package[] = [
     region: "east-africa",
     duration: "5 Days / 4 Nights",
     durationDays: 5,
-    price: 1157,
+    price: 1097,
     currency: "USD",
     priceNote:
       "Per person sharing, high season. Includes round-trip flights Entebbe–Zanzibar. Optional activities priced separately.",
@@ -670,7 +670,7 @@ const packagesSource: Package[] = [
     mapCoordinates: { lat: -6.16, lng: 39.2 },
     mapZoom: 10,
     included: [
-      "4 nights accommodation (sharing) — Maru Maru Hotel & Amaan Beach Bungalows",
+      "4 nights accommodation — Maru Maru Hotel & Amaan Beach Bungalows",
       "Daily breakfast",
       "Round-trip flights Entebbe–Zanzibar",
       "Airport and inter-hotel transfers",
