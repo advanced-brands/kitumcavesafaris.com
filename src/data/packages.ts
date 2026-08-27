@@ -1322,6 +1322,440 @@ const packagesSource: Package[] = [
     partialPaymentPercent: 30,
     categories: ["wildlife", "adventure", "culture", "nature"],
   },
+  {
+    id: "uganda-5-day-mburo-bunyonyi-bwindi",
+    slug: "5-days-uganda-gorilla-safari",
+    name: "5 Days Uganda Gorilla Safari",
+    destination: "Lake Mburo, Lake Bunyonyi & Bwindi Impenetrable National Park",
+    country: "Uganda",
+    region: "east-africa",
+    duration: "5 Days / 4 Nights",
+    durationDays: 5,
+    price: 2780,
+    currency: "USD",
+    priceNote:
+      "Per person sharing, foreign non-resident rates. Full board accommodation. Includes gorilla permit.",
+    shortDescription:
+      "Lake Mburo game drives, a Lake Bunyonyi island boat safari, a Batwa community visit, and mountain gorilla trekking in Bwindi.",
+    fullDescription:
+      "This five-day Uganda safari starts with an Equator stop and an evening game drive in Lake Mburo National Park — zebras, impalas, giraffe, and wetland birdlife — then climbs into the Kigezi Highlands for a canoe safari on Lake Bunyonyi. From there you continue to Bwindi Impenetrable National Park for a Batwa cultural experience and a full gorilla trek the following day, before returning to Entebbe or Kampala. Kitum Cave Safaris includes the gorilla permit, park fees, full-board lodges, and a 4x4 driver-guide throughout.",
+    travelType: "Wildlife & Primate Safari",
+    availability:
+      "Available year-round — gorilla permits must be booked well in advance",
+    bestTimeToVisit:
+      "Gorilla trekking runs year-round. Dry seasons (June–September and December–February) offer easier forest trails and clearer savannah tracks in Lake Mburo.",
+    whatToBring: [
+      "Sturdy waterproof hiking boots",
+      "Long trousers and long-sleeved shirt (neutral colours)",
+      "Light rain jacket, daypack, and packed-lunch bag for the trek",
+      "Insect repellent and sun protection",
+      "Reusable water bottle",
+      "Camera (no flash during gorilla viewing)",
+      "Yellow fever certificate (recommended)",
+    ],
+    faqs: [
+      {
+        question: "Is the gorilla permit included?",
+        answer:
+          "Yes — the Bwindi gorilla trekking permit for a foreign non-resident is included in the package price.",
+      },
+      {
+        question: "Are lunch and dinner included?",
+        answer:
+          "Yes. This itinerary is quoted on full board — breakfast, lunch, and dinner at the lodges as listed. Day 5 includes breakfast at the lodge and a lunch stop at the Equator on the drive back.",
+      },
+      {
+        question: "How fit do I need to be for gorilla trekking?",
+        answer:
+          "A moderate level of fitness is recommended. Treks can last 2–6 hours on steep, muddy terrain. Porters are available to hire locally for extra support.",
+      },
+      {
+        question: "What is the minimum age?",
+        answer:
+          "Uganda Wildlife Authority requires gorilla trekkers to be at least 15 years old.",
+      },
+      ...defaultFaqs.slice(0, 1),
+    ],
+    heroImage: "/images/4A9A8590.jpg",
+    galleryImages: [
+      "/images/4A9A8590.jpg",
+      "/images/4A9A8591.jpg",
+      "/images/4A9A8592.jpg",
+      "/images/IMG-20260811-WA0026.jpg",
+      "/images/4A9A8221.jpg",
+      "/images/4A9A7964.jpg",
+    ],
+    mapCoordinates: { lat: -0.6, lng: 30.95 },
+    mapZoom: 8,
+    included: [
+      "4x4 safari vehicle, fuel, and professional driver-guide",
+      "Airport or hotel pickup and drop-off",
+      "Full board accommodation",
+      "Gorilla trekking permit",
+      "Park entrance fees",
+      "Bottled drinking water during the safari",
+      "Batwa community experience (Ruhija)",
+      "Lake Bunyonyi boat safari",
+      "Lake Mburo game drives",
+      "All activities listed in the itinerary",
+    ],
+    excluded: [
+      "International flights",
+      "Travel documents and visas",
+      "Personal expenses",
+      "Alcoholic drinks",
+      "Laundry",
+      "Tips and gratuities",
+      "Activities not specifically mentioned",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Lake Mburo National Park",
+        description:
+          "Early pickup from your hotel in Kampala or Entebbe, then southwest toward Lake Mburo National Park through countryside, banana plantations, farms, villages, and long-horned Ankole cattle. Stop at the Equator crossing in Kayabwe for photographs, souvenirs, and refreshments, then continue to the park. Check in, lunch, and an evening game drive through savannah, woodland, and wetland — zebras, impalas, Uganda kobs, buffaloes, giraffes, elands, topis, warthogs, waterbucks, and birdlife. Return to the lodge for dinner.",
+        accommodation: "Rwakobo Rock",
+        meals: "Full board",
+      },
+      {
+        day: 2,
+        title: "Lake Bunyonyi boat safari",
+        description:
+          "After early breakfast, a brief morning game drive, then transfer to Lake Bunyonyi — Uganda's deepest lake, known for more than 29 islands — through Mbarara and the Kigezi Highlands as savannah gives way to terraced farms and mountains. Check in, relax, then a canoe or boat safari among the islands, including Punishment Island, Bwama Island, Nyuyeera Island, and Bushara Island. Return to the lodge.",
+        accommodation: "Arcadia Cottages",
+        meals: "Full board",
+      },
+      {
+        day: 3,
+        title: "Bwindi & Batwa experience",
+        description:
+          "After breakfast, transfer to Bwindi Impenetrable National Park, home to nearly half of the world's remaining mountain gorillas (approximately 1 hour). Check in, refresh, then an afternoon Batwa community experience — traditions, stories, music, dance, and forest knowledge. Return to the lodge and prepare for gorilla trekking.",
+        accommodation: "Bakiga Lodge",
+        meals: "Full board",
+      },
+      {
+        day: 4,
+        title: "Gorilla trekking",
+        description:
+          "Early breakfast, then transfer to park headquarters for registration and briefing. Trek through Bwindi's rainforest — duration varies with the gorilla family's location. Once located, you have one hour with the family. Return to the lodge for lunch and rest. Carry drinking water, packed lunch if advised, a rain jacket, sturdy hiking shoes, and long clothing.",
+        accommodation: "Bakiga Lodge",
+        meals: "Full board",
+      },
+      {
+        day: 5,
+        title: "Return to Entebbe",
+        description:
+          "Relaxed breakfast, then the drive back toward Kampala or Entebbe with a lunch stop at the Equator. Arrive in the afternoon or evening depending on traffic. Drop-off at your hotel or the airport — end of safari.",
+        meals: "Breakfast; lunch en route",
+      },
+    ],
+    accommodation:
+      "Rwakobo Rock (1 night) · Arcadia Cottages (1 night) · Bakiga Lodge (2 nights)",
+    transport: "4x4 safari vehicle with professional driver-guide",
+    importantInfo: [
+      "Gorilla trekking requires a reasonable level of fitness",
+      "Minimum age for gorilla trekking is 15 years",
+      "Gorilla permits are limited — book as early as you can",
+      "Pack sturdy hiking boots, long trousers, and rain gear",
+    ],
+    bookingRequirements: [
+      "Valid passport",
+      "Gorilla trekking permit (arranged by Kitum Cave Safaris)",
+      "Yellow fever vaccination certificate recommended",
+    ],
+    cancellationPolicy:
+      "Deposit refundable up to 45 days before departure minus admin fees. Gorilla permits are subject to Uganda Wildlife Authority policies once issued.",
+    partialPaymentPercent: 30,
+    featured: true,
+    categories: ["wildlife", "adventure", "culture", "nature"],
+  },
+  {
+    id: "rwanda-3-day-gorilla-safari",
+    slug: "3-days-rwanda-gorilla-safari",
+    name: "3 Days Rwanda Gorilla Safari",
+    destination: "Kigali & Volcanoes National Park",
+    country: "Rwanda",
+    region: "east-africa",
+    duration: "3 Days / 2 Nights",
+    durationDays: 3,
+    price: 2543,
+    currency: "USD",
+    priceNote:
+      "Per person sharing, foreign non-resident rates. Includes Rwanda gorilla permit. Day 1 bed & breakfast in Kigali; full board at Volcanoes.",
+    shortDescription:
+      "Kigali city highlights, the twin lakes of Burera and Ruhondo, and mountain gorilla trekking in Volcanoes National Park.",
+    fullDescription:
+      "A focused three-day Rwanda gorilla safari: arrive Kigali with a guided city tour when timing allows, then travel north through the volcanic highlands with a stop at Lakes Burera and Ruhondo before overnight at Volcanoes National Park. The next morning you trek from Kinigi headquarters with Rwanda Development Board rangers to spend one hour with a habituated mountain gorilla family, then return to Kigali for an evening flight. The quoted rate includes the gorilla permit, private 4x4, and listed meals.",
+    travelType: "Wildlife & Primate Safari",
+    availability:
+      "Available year-round — Rwanda gorilla permits must be booked well in advance",
+    bestTimeToVisit:
+      "Trekking is possible year-round. June–September and December–February are generally drier on the forest trails.",
+    whatToBring: [
+      "Sturdy waterproof hiking boots",
+      "Long trousers and long-sleeved shirt (neutral colours)",
+      "Light rain jacket, daypack, and packed lunch for the trek",
+      "Insect repellent and sun protection",
+      "Reusable water bottle",
+      "Camera (no flash during gorilla viewing)",
+      "Yellow fever certificate (recommended)",
+    ],
+    faqs: [
+      {
+        question: "Is the Rwanda gorilla permit included?",
+        answer:
+          "Yes — the Volcanoes National Park gorilla permit is included in the package price quoted for a foreign non-resident.",
+      },
+      {
+        question: "Are lunch and dinner included?",
+        answer:
+          "Day 1 in Kigali is bed and breakfast. Day 2 at Volcanoes is breakfast, lunch, and dinner. Day 3 includes breakfast and a packed lunch for the trek.",
+      },
+      {
+        question: "Do I need a Rwanda visa?",
+        answer:
+          "Most travellers need a Rwanda visa. Visa fees are not included — we advise on the latest requirements when you book.",
+      },
+      {
+        question: "What is the minimum age?",
+        answer:
+          "Rwanda gorilla trekking is for visitors aged 15 years and above.",
+      },
+      ...defaultFaqs.slice(0, 1),
+    ],
+    heroImage: "/images/4A9A8592.jpg",
+    galleryImages: [
+      "/images/4A9A8592.jpg",
+      "/images/4A9A8590.jpg",
+      "/images/4A9A8602.jpg",
+      "/images/4A9A7964.jpg",
+      "/images/4A9A8545.jpg",
+      "/images/4A9A8403.jpg",
+    ],
+    mapCoordinates: { lat: -1.48, lng: 29.5 },
+    mapZoom: 9,
+    included: [
+      "Kigali airport transfers",
+      "Private 4x4 safari vehicle",
+      "Full board accommodation",
+      "Gorilla permit",
+      "Twin lakes tour (Burera and Ruhondo)",
+      "Kigali city tour (timed with your arrival)",
+      "English-speaking driver-guide",
+      "Bottled drinking water",
+    ],
+    excluded: [
+      "International flights",
+      "Rwanda visa",
+      "Tips",
+      "Personal expenses",
+      "Travel insurance",
+      "Activities not mentioned",
+      "Drinks not mentioned",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Kigali",
+        description:
+          "Pickup at Kigali International Airport and transfer to your hotel. Depending on arrival time, a 4–5 hour guided Kigali city tour covering the city's culture, history, and modern centre — highlights may include the Kigali Genocide Memorial, Kimironko Market, and Kigali Convention Centre. Return to the hotel to rest ahead of the gorilla trek.",
+        accommodation: "Hotel Villa Portofino, Kigali",
+        meals: "Bed & breakfast",
+      },
+      {
+        day: 2,
+        title: "Twin lakes & Volcanoes National Park",
+        description:
+          "Breakfast, then transfer toward Ruhengeri with a short tour of Lakes Burera and Ruhondo — rolling hills, clear water, and the volcanic skyline (approximately 3 hours' driving in this region). Continue to Volcanoes National Park, check in, lunch, and overnight.",
+        accommodation: "Le Bambou Gorilla Lodge",
+        meals: "Breakfast, lunch and dinner",
+      },
+      {
+        day: 3,
+        title: "Gorilla tracking & departure",
+        description:
+          "Early breakfast, then transfer to Kinigi park headquarters for 7:00am registration and briefing by Rwanda Development Board rangers. Trek 2–6 hours through rainforest to a habituated gorilla family; once located, spend one hour observing them. Carry packed lunch and drinking water. Collect your certificate at headquarters, then transfer to Kigali for an evening international flight — end of tour.",
+        meals: "Breakfast; packed lunch",
+      },
+    ],
+    accommodation:
+      "Hotel Villa Portofino, Kigali (1 night) · Le Bambou Gorilla Lodge (1 night)",
+    transport: "Private 4x4 safari vehicle with English-speaking driver-guide",
+    importantInfo: [
+      "Gorilla briefing at Kinigi is at 7:00am — overnight near the park is required",
+      "Minimum age for gorilla trekking is 15 years",
+      "Kigali city tour length depends on your inbound flight time",
+      "Pack rain gear and sturdy boots for Volcanoes National Park",
+    ],
+    bookingRequirements: [
+      "Valid passport (6+ months validity)",
+      "Rwanda visa as applicable",
+      "Gorilla permit (arranged by Kitum Cave Safaris)",
+      "Travel insurance strongly recommended",
+    ],
+    cancellationPolicy:
+      "Deposit refundable up to 45 days before departure minus admin fees. Gorilla permits are subject to Rwanda Development Board policies once issued.",
+    partialPaymentPercent: 30,
+    featured: true,
+    categories: ["wildlife", "adventure", "culture"],
+  },
+  {
+    id: "uganda-7-day-wildlife-gorilla-chimp",
+    slug: "7-days-uganda-wildlife-gorilla-chimpanzee-safari",
+    name: "7 Days Uganda Wildlife, Gorilla & Chimpanzee Safari",
+    destination:
+      "Lake Mburo, Bwindi, Queen Elizabeth & Kibale Forest National Park",
+    country: "Uganda",
+    region: "east-africa",
+    duration: "7 Days / 6 Nights",
+    durationDays: 7,
+    price: 3806,
+    currency: "USD",
+    priceNote:
+      "Per person sharing, foreign non-resident rates. Full board accommodation. Includes gorilla and chimpanzee permits.",
+    shortDescription:
+      "Lake Mburo plains, Bwindi gorillas and Batwa culture, Queen Elizabeth game drives and the Kazinga Channel, then chimpanzees and Bigodi wetland in Kibale.",
+    fullDescription:
+      "A seven-day Uganda circuit combining savannah and primates: game drives in Lake Mburo, gorilla trekking and a Batwa experience in Bwindi, evening and morning game drives plus a Kazinga Channel boat safari in Queen Elizabeth National Park, then chimpanzee trekking and a Bigodi wetland walk in Kibale Forest. The quoted rate includes gorilla and chimpanzee permits, park fees, full-board lodges, boat safari, and a 4x4 driver-guide. Pickup and drop-off are Entebbe or Kampala.",
+    travelType: "Wildlife & Primate Safari",
+    availability:
+      "Available year-round — gorilla and chimpanzee permits must be booked well in advance",
+    bestTimeToVisit:
+      "Dry seasons (June–September and December–February) offer easier roads and forest trails. Primate trekking runs year-round.",
+    whatToBring: [
+      "Sturdy waterproof hiking boots",
+      "Long trousers and long-sleeved shirts in neutral colours",
+      "Light rain jacket, daypack, and sun protection",
+      "Insect repellent and reusable water bottle",
+      "Binoculars and camera (no flash during primate viewing)",
+      "Yellow fever certificate (recommended)",
+    ],
+    faqs: [
+      {
+        question: "Are gorilla and chimpanzee permits included?",
+        answer:
+          "Yes — the Bwindi gorilla permit and Kibale chimpanzee permit for foreign non-residents are included in the quoted price.",
+      },
+      {
+        question: "Are lunch and dinner included?",
+        answer:
+          "Yes. This itinerary is quoted on full board — breakfast, lunch, and dinner as listed at the lodges, plus the Kazinga boat safari day and the return drive with a lunch stop.",
+      },
+      {
+        question: "What is the minimum age for gorilla trekking?",
+        answer:
+          "Uganda Wildlife Authority requires gorilla trekkers to be at least 15 years old.",
+      },
+      ...defaultFaqs.slice(0, 1),
+    ],
+    heroImage: "/images/4A9A0474.jpg",
+    galleryImages: [
+      "/images/4A9A0474.jpg",
+      "/images/4A9A8590.jpg",
+      "/images/4A9A0486.jpg",
+      "/images/4A9A8591.jpg",
+      "/images/IMG-20260811-WA0026.jpg",
+      "/images/4A9A8221.jpg",
+      "/images/4A9A0460.jpg",
+    ],
+    mapCoordinates: { lat: -0.2, lng: 30.0 },
+    mapZoom: 7,
+    included: [
+      "4x4 Land Cruiser, driver-guide, and fuel",
+      "Gorilla permit",
+      "Chimpanzee permit",
+      "Park fees",
+      "Full board accommodation",
+      "Mineral water",
+      "Kazinga Channel boat safari",
+      "Batwa cultural experience (Ruhija)",
+      "Bigodi wetland walk",
+      "All activities listed in the itinerary",
+    ],
+    excluded: [
+      "International flights",
+      "Tips",
+      "Soft drinks or alcohol",
+      "Personal expenses",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Lake Mburo National Park",
+        description:
+          "Pickup from Entebbe or Kampala and transfer to Lake Mburo National Park — zebras, impalas, elands, buffaloes, warthogs, giraffes, hippos around the lakes, and many birds. Stop at the Equator for photographs and souvenirs, then continue via Mbarara. Check in, lunch, and an afternoon game drive.",
+        accommodation: "Rwakobo Rock",
+        meals: "Full board",
+      },
+      {
+        day: 2,
+        title: "Transfer to Bwindi",
+        description:
+          "Early breakfast and a morning game drive, then check out and drive to Bwindi Impenetrable Forest through the hills of southwestern Uganda. Lunch stop in Kabale, then continue to the lodge to refresh and rest.",
+        accommodation: "Bakiga Lodge",
+        meals: "Full board",
+      },
+      {
+        day: 3,
+        title: "Gorilla trekking & Batwa experience",
+        description:
+          "Breakfast, then briefing at Bwindi headquarters and allocation to a gorilla family. Trek until you find the group and spend one hour with them. Receive your certificate, return to the lodge for lunch, then a Batwa cultural experience — history, song, dance, and storytelling. Dinner at the lodge.",
+        accommodation: "Bakiga Lodge",
+        meals: "Full board",
+      },
+      {
+        day: 4,
+        title: "Queen Elizabeth National Park",
+        description:
+          "After breakfast, transfer to Queen Elizabeth National Park through highland farms and changing landscapes. Lunch en route. On arrival, an evening game drive when timing allows, then check in at the lodge for dinner. Expect lions, elephants, buffaloes, Uganda kob, warthogs, hippos, and birdlife.",
+        accommodation: "Kazinga Wilderness Lodge",
+        meals: "Full board",
+      },
+      {
+        day: 5,
+        title: "Kazinga Channel & transfer to Kibale",
+        description:
+          "Early breakfast and a morning game drive, then photography at the Kikorongo Equator. Continue to the Kazinga Channel boat cruise — hippos, crocodiles, elephants, buffaloes, and waterbirds along the banks. Lunch, check out, and transfer to Kibale Forest National Park for dinner at the lodge.",
+        accommodation: "Kibale Forest Lodge",
+        meals: "Full board",
+      },
+      {
+        day: 6,
+        title: "Chimpanzee trekking & Bigodi wetland",
+        description:
+          "Breakfast, then park-office registration and briefing. Trek with guides to a chimpanzee troop and observe them from the permitted distance. Return for lunch. Afternoon guided walk at Bigodi Wetland Sanctuary — birds, primates, butterflies, and community conservation. Final night at the lodge.",
+        accommodation: "Kibale Forest Lodge",
+        meals: "Full board",
+      },
+      {
+        day: 7,
+        title: "Return to Kampala or Entebbe",
+        description:
+          "After breakfast, drive toward Kampala or Entebbe with a short stop around Fort Portal — tea country and crater landscapes — and lunch en route. Afternoon or evening drop-off at your hotel or the airport depending on traffic — end of safari.",
+        meals: "Breakfast; lunch en route",
+      },
+    ],
+    accommodation:
+      "Rwakobo Rock (1 night) · Bakiga Lodge (2 nights) · Kazinga Wilderness Lodge (1 night) · Kibale Forest Lodge (2 nights)",
+    transport: "4x4 Land Cruiser with professional driver-guide",
+    importantInfo: [
+      "Gorilla and chimpanzee permits included — reserve months in advance",
+      "Minimum age for gorilla trekking is 15 years",
+      "Moderate fitness for forest treks on days 3 and 6",
+      "Full board as quoted; drinks not listed are extra",
+    ],
+    bookingRequirements: [
+      "Valid passport",
+      "Gorilla and chimpanzee permits (arranged by Kitum Cave Safaris)",
+      "Yellow fever vaccination certificate recommended",
+      "Travel insurance strongly recommended",
+    ],
+    cancellationPolicy:
+      "Deposit refundable up to 45 days before departure minus admin fees. Gorilla and chimpanzee permits are subject to Uganda Wildlife Authority policies once issued.",
+    partialPaymentPercent: 30,
+    featured: true,
+    categories: ["wildlife", "adventure", "culture", "nature"],
+  },
 ];
 
 const MEAL_EXCLUSION =
@@ -1339,6 +1773,22 @@ export const packages: Package[] = packagesSource
     (pkg) => !/\[/.test(pkg.name) && !/TO BE ADDED/i.test(pkg.fullDescription)
   )
   .map((pkg) => {
+  const isFullBoard = pkg.included.some((item) => /full board/i.test(item));
+  if (isFullBoard) {
+    const priceNote = pkg.priceNote
+      ? /full board/i.test(pkg.priceNote)
+        ? pkg.priceNote
+        : `${pkg.priceNote} Full board accommodation.`
+      : pkg.price > 0
+        ? "Per person sharing. Full board accommodation."
+        : pkg.priceNote;
+
+    return {
+      ...pkg,
+      priceNote,
+    };
+  }
+
   const hasBreakfastIncluded = pkg.included.some((item) =>
     /breakfast/i.test(item)
   );

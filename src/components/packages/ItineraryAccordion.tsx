@@ -9,6 +9,13 @@ type ItineraryAccordionProps = {
   itinerary: ItineraryDay[];
 };
 
+function mealLabel(day: ItineraryDay) {
+  if (!day.meals || /^breakfast$/i.test(day.meals.trim())) {
+    return "Meals: Breakfast included · lunch & dinner extra";
+  }
+  return `Meals: ${day.meals}`;
+}
+
 export default function ItineraryAccordion({
   itinerary,
 }: ItineraryAccordionProps) {
@@ -40,7 +47,7 @@ export default function ItineraryAccordion({
                   </p>
                 )}
                 <p className="text-xs text-brand-terracotta/80 mt-0.5">
-                  Meals: Breakfast included · lunch &amp; dinner extra
+                  {mealLabel(day)}
                 </p>
               </div>
             </div>
@@ -55,7 +62,7 @@ export default function ItineraryAccordion({
           <div
             className={cn(
               "overflow-hidden transition-all duration-300",
-              openDay === day.day ? "max-h-[600px]" : "max-h-0"
+              openDay === day.day ? "max-h-[900px]" : "max-h-0"
             )}
           >
             <div className="px-6 md:px-8 pb-6 md:pb-8 pt-0">
