@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const HERO_IMAGE = "/images/4A9A8457.jpg";
+const HERO_IMAGE = "/images/4A9A8545.jpg";
 
 export default function BlogHeroSection() {
   return (

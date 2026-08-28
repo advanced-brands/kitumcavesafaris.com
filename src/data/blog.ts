@@ -130,7 +130,7 @@ Most international visitors arrive through Entebbe International Airport, approx
     date: "2026-02-01",
     category: "Travel Tips",
     readingTime: 4,
-    featuredImage: "/images/4A9A8457.jpg",
+    featuredImage: "/images/4A9A8403.jpg",
     relatedSlugs: ["mountain-gorillas-uganda", "responsible-tourism-east-africa"],
   },
   {
