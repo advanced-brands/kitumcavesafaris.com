@@ -41,6 +41,7 @@ const defaultSocialLinks = [
   { href: siteConfig.social.x, label: "X", icon: XIcon },
   { href: siteConfig.social.instagram, label: "Instagram", icon: Instagram },
   { href: siteConfig.social.linkedin, label: "LinkedIn", icon: Linkedin },
+  { href: siteConfig.social.tiktok, label: "TikTok", icon: TikTokIcon },
 ];
 
 function getMemberSocialLinks(member: TeamMember) {

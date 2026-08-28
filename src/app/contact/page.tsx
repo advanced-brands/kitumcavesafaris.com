@@ -153,6 +153,11 @@ export default function ContactPage() {
                   LinkedIn
                 </a>
               )}
+              {siteConfig.social.tiktok && (
+                <a href={siteConfig.social.tiktok} target="_blank" rel="noopener noreferrer" className="text-sm text-brand-charcoal/60 hover:text-brand-terracotta">
+                  TikTok
+                </a>
+              )}
             </div>
           </ScrollReveal>
 

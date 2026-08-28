@@ -26,7 +26,7 @@ export const siteConfig = {
     linkedin:
       "https://www.linkedin.com/company/kitum-cave-safaris/about/?viewAsMember=true",
     facebook: "",
-    tiktok: "",
+    tiktok: "https://www.tiktok.com/@infokitumcavesafar",
   },
   businessHours:
     "Office: Monday–Saturday, 8:00am–5:00pm (East Africa Time). WhatsApp, email, socials, and bookings: 24/7.",
