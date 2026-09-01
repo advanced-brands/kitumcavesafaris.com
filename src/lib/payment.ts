@@ -1,5 +1,7 @@
 const FLUTTERWAVE_BASE = "https://api.flutterwave.com/v3";
 
+/** Set FLUTTERWAVE_SECRET_KEY when the owner hands over merchant details. Booking stays mailto until then. */
+
 export type PaymentInitData = {
   amount: number;
   currency: string;

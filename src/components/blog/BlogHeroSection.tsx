@@ -1,10 +1,11 @@
 import Image from "next/image";
+import { blogPosts } from "@/data/blog";
 
 const HERO_IMAGE = "/images/4A9A8545.jpg";
 
 export default function BlogHeroSection() {
   return (
-    <section className="blog-hero" aria-label="Stories and guides">
+    <section className="blog-hero" aria-label="The Kitum Journal">
       <Image
         src={HERO_IMAGE}
         alt="Guided forest trek through Uganda's highlands"
@@ -17,10 +18,15 @@ export default function BlogHeroSection() {
       <div className="blog-hero-scrim" aria-hidden />
 
       <div className="blog-hero-content section-padding max-w-[1600px] mx-auto">
-        <p className="label-text !text-brand-terracotta mb-4">Journal</p>
+        <p className="blog-issue-kicker">
+          <span>The Kitum Journal</span>
+          <span>East Africa</span>
+          <span>{blogPosts.length} dispatches</span>
+        </p>
         <h1 className="heading-display text-white mb-4">Stories &amp; Guides</h1>
         <p className="body-large !text-white/70 max-w-2xl">
-          Interesting facts about animals, places, and traveling thoughtfully through East Africa.
+          Wildlife, roads, permits, and the nights after the trek — written by the
+          team that runs the vehicle, not by a content mill.
         </p>
       </div>
     </section>

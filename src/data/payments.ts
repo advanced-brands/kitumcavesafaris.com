@@ -12,7 +12,7 @@ export const paymentMethods: PaymentMethod[] = [
     id: "card",
     name: "Visa / Mastercard",
     description:
-      "Pay securely online with debit or credit card via our payment partner.",
+      "Card checkout via Flutterwave will go live when merchant keys are on the server. Until then, tell us this preference and we send a payment link or instructions.",
     icon: "card",
     forLocal: true,
     forInternational: true,
@@ -39,7 +39,7 @@ export const paymentMethods: PaymentMethod[] = [
     id: "international",
     name: "International Payments",
     description:
-      "Flutterwave and other international gateways for overseas travelers (USD, EUR).",
+      "Flutterwave (USD/EUR) once the owner’s gateway is connected. Until then, international transfers as confirmed in writing.",
     icon: "international",
     forLocal: false,
     forInternational: true,

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import BlogPageContent from "@/components/blog/BlogPageContent";
 
 export const metadata: Metadata = {
-  title: "Blog",
+    title: "Stories & Guides",
   description:
-    "Travel stories, wildlife guides, and destination insights from Kitum Cave Safaris — Uganda and East Africa.",
+    "The Kitum Journal — wildlife, permits, seasons, and field notes from Uganda and East Africa.",
 };
 
 export default function BlogPage() {

@@ -1,3 +1,5 @@
+import { journalPosts } from "./journal-posts";
+
 export type BlogPost = {
   id: string;
   slug: string;
@@ -38,6 +40,14 @@ When you finally encounter them — a silverback resting, juveniles playing, a m
 - Sturdy boots, long trousers, and rain gear are essential
 - Permits are limited and must be booked well in advance
 
+## Bwindi or Mgahinga
+
+Most first treks go to Bwindi because of the number of habituated families and the range of sectors (Buhoma, Ruhija, Rushaga, Nkuringo). Mgahinga, in the Virunga volcanoes on the Rwanda–DRC corner, is smaller and can pair with a golden monkey walk. We choose the sector by permit availability and your onward road — not by which name sounds rarer.
+
+## After the Hour
+
+Lake Bunyonyi is the usual quiet night. Queen Elizabeth is the usual wildlife continuation. Do not stack a chimpanzee trek the same afternoon as gorillas; your legs and the parks both deserve a pause.
+
 ## Responsible Tourism
 
 Gorilla trekking directly supports conservation. A portion of every permit fee funds anti-poaching efforts, community development, and habitat protection. When you trek in Bwindi, you are participating in one of Africa's most successful conservation stories.
@@ -49,9 +59,9 @@ Gorilla trekking directly supports conservation. A portion of every permit fee f
     author: "Kitum Cave Safaris Editorial",
     date: "2026-03-01",
     category: "Wildlife",
-    readingTime: 5,
+    readingTime: 8,
     featuredImage: "/images/4A9A8590.jpg",
-    relatedSlugs: ["queen-elizabeth-wildlife", "responsible-tourism-east-africa"],
+    relatedSlugs: ["gorilla-permits-east-africa", "lake-bunyonyi-after-bwindi", "rwanda-volcanoes-gorilla"],
   },
   {
     id: "queen-elizabeth-wildlife",
@@ -74,7 +84,15 @@ This 32-kilometre natural channel connects Lake George and Lake Edward. A boat s
 
 ## Planning Your Visit
 
-Queen Elizabeth combines well with gorilla trekking in Bwindi (approximately 3-4 hours drive) and chimpanzee tracking in Kyambura Gorge. Game drives are best in the early morning and late afternoon.
+Queen Elizabeth combines well with gorilla trekking in Bwindi (approximately 3–4 hours’ drive) and chimpanzee tracking in Kyambura Gorge. Game drives are best in the early morning and late afternoon.
+
+## Crater Lakes and the Kazinga Evening
+
+The explosion craters west of Mweya hold water and quiet birds when the channel feels busy. A late boat on Kazinga is often better than a third game drive on a tired road. Hippo density here is the point; it is not a whale-watching timetable.
+
+## Ishasha Logistics
+
+Ishasha is a sector, not a guarantee of tree lions. You go because the fig trees and the southern approach toward Bwindi make sense on the map. If the lions are on the ground that day, you still had a proper game drive.
 
 ---
 
@@ -83,9 +101,9 @@ Queen Elizabeth combines well with gorilla trekking in Bwindi (approximately 3-4
     author: "Kitum Cave Safaris Editorial",
     date: "2026-02-15",
     category: "Destination Guides",
-    readingTime: 4,
+    readingTime: 7,
     featuredImage: "/images/4A9A0474.jpg",
-    relatedSlugs: ["mountain-gorillas-uganda", "best-time-visit-uganda"],
+    relatedSlugs: ["chimpanzee-kibale-kyambura", "murchison-falls-nile", "mountain-gorillas-uganda"],
   },
   {
     id: "best-time-visit-uganda",
@@ -120,7 +138,11 @@ Regardless of season:
 
 ## Getting There
 
-Most international visitors arrive through Entebbe International Airport, approximately 40 kilometres from Kampala. From Entebbe, most safari destinations are accessible by road within a day.
+Most international visitors arrive through Entebbe International Airport, approximately 40 kilometres from Kampala. From Entebbe, most safari destinations are a day’s road — not an hour. Build the night.
+
+## Gorilla Months Versus Savanna Months
+
+You can trek gorillas in the rain. You will be wet. Dry-season treks are easier underfoot, and lodges book out first. For Murchison and Queen Elizabeth, dry months pull animals to water. If you are a birder, the wet months are not a write-off.
 
 ---
 
@@ -129,9 +151,9 @@ Most international visitors arrive through Entebbe International Airport, approx
     author: "Kitum Cave Safaris Editorial",
     date: "2026-02-01",
     category: "Travel Tips",
-    readingTime: 4,
+    readingTime: 6,
     featuredImage: "/images/4A9A8403.jpg",
-    relatedSlugs: ["mountain-gorillas-uganda", "responsible-tourism-east-africa"],
+    relatedSlugs: ["entebbe-kampala-first-night", "packing-safari-field-kit", "mountain-gorillas-uganda"],
   },
   {
     id: "responsible-tourism-east-africa",
@@ -168,6 +190,10 @@ Working with locally based operators like Kitum Cave Safaris means your spending
 
 Pack out what you pack in. Avoid single-use plastics. Respect park rules and ranger instructions. The wilderness you enjoy today should be intact for the next generation.
 
+## Money That Stays
+
+Park fees, gorilla levies, porters, and lodge staff are the conservation economy you can see. Bargaining a dancer down to nothing is not “travel savvy.” Our responsible-tourism stance is operational: we book people we can name.
+
 ---
 
 *[Kitum Cave Safaris is committed to responsible tourism. Learn more about our approach when you plan your journey.]*
@@ -175,11 +201,12 @@ Pack out what you pack in. Avoid single-use plastics. Respect park rules and ran
     author: "Kitum Cave Safaris Editorial",
     date: "2026-01-20",
     category: "Responsible Tourism",
-    readingTime: 5,
+    readingTime: 7,
     featuredImage: "/images/4A9A8590.jpg",
-    relatedSlugs: ["mountain-gorillas-uganda", "best-time-visit-uganda"],
+    relatedSlugs: ["uganda-dance-and-drums", "gorilla-permits-east-africa", "best-time-visit-uganda"],
   },
-];
+  ...journalPosts,
+].sort((a, b) => (a.date < b.date ? 1 : -1));
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
   return blogPosts.find((p) => p.slug === slug);
@@ -189,12 +216,16 @@ export function getRelatedPosts(slugs: string[]): BlogPost[] {
   return blogPosts.filter((p) => slugs.includes(p.slug));
 }
 
-export const blogCategories = [
-  "All",
+const categoryOrder = [
   "Wildlife",
   "Destination Guides",
   "Travel Tips",
   "Culture",
   "Adventure",
   "Responsible Tourism",
+];
+
+export const blogCategories = [
+  "All",
+  ...categoryOrder.filter((cat) => blogPosts.some((post) => post.category === cat)),
 ];

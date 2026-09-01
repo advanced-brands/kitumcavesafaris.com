@@ -17,17 +17,11 @@ export const galleryItems: GalleryItem[] = [
   { id: "g5", src: "/images/4A9A8592.jpg", caption: "Mountain Gorilla — Bwindi Rainforest", title: "Mountain Gorilla", location: "Bwindi Rainforest", summary: "A gorilla encounter in the heart of Bwindi.", category: "wildlife", size: "medium" },
   { id: "g6", src: "/images/4A9A8545.jpg", caption: "Moss-Covered Forest — Bwindi Region", title: "Moss-Covered Forest", location: "Bwindi Region", summary: "Landscapes that quiet the mind.", category: "nature", size: "tall" },
   { id: "g7", src: "/images/4A9A8563.jpg", caption: "Sunlit Moss and Ferns — Rainforest", title: "Sunlit Moss and Ferns", location: "Rainforest", summary: "Landscapes that quiet the mind.", category: "nature", size: "medium" },
-  { id: "g8", src: "/images/4A9A7901.jpg", caption: "Rainforest Fern — Bwindi Impenetrable Forest", title: "Rainforest Fern", location: "Bwindi Impenetrable Forest", summary: "Landscapes that quiet the mind.", category: "nature", size: "medium" },
   { id: "g9", src: "/images/4A9A8221.jpg", caption: "Traditional Dance Performance — Uganda", title: "Traditional Dance Performance", location: "Uganda", summary: "Rhythm, colour, and community in motion.", category: "culture", size: "wide" },
   { id: "g10", src: "/images/4A9A8222.jpg", caption: "Drumming and Dance — Uganda", title: "Drumming and Dance", location: "Uganda", summary: "Drums and dance that carry generations.", category: "culture", size: "wide" },
   { id: "g11", src: "/images/4A9A8403.jpg", caption: "Safari Vehicle Crossing — Mountain Route", title: "Safari Vehicle Crossing", location: "Mountain Route", summary: "Go further than the postcard.", category: "adventure", size: "tall" },
   { id: "g12", src: "/images/4A9A0474.jpg", caption: "Elephant Herd — Savanna", title: "Elephant Herd", location: "Savanna", summary: "Family bonds written across the savanna.", category: "wildlife", size: "wide" },
-  { id: "g13", src: "/images/4A9A8545.jpg", caption: "Moss-Covered Forest — Bwindi Region", title: "Moss-Covered Forest", location: "Bwindi Region", summary: "Landscapes that quiet the mind.", category: "nature", size: "tall" },
-  { id: "g14", src: "/images/4A9A8560.jpg", caption: "Primeval Forest Canopy — Uganda Highlands", title: "Primeval Forest Canopy", location: "Uganda Highlands", summary: "Primeval green in the Uganda highlands.", category: "nature", size: "tall" },
-  { id: "g15", src: "/images/4A9A8563.jpg", caption: "Sunlit Moss and Ferns — Rainforest", title: "Sunlit Moss and Ferns", location: "Rainforest", summary: "Landscapes that quiet the mind.", category: "nature", size: "medium" },
   { id: "g16", src: "/images/4A9A8590.jpg", caption: "Mountain Gorilla — Bwindi Impenetrable Forest", title: "Mountain Gorilla", location: "Bwindi Impenetrable Forest", summary: "Eye contact with our closest wild kin.", category: "wildlife", size: "large" },
-  { id: "g17", src: "/images/4A9A8591.jpg", caption: "Mountain Gorilla Foraging — Bwindi", title: "Mountain Gorilla Foraging", location: "Bwindi", summary: "Hands busy in the leaf litter of Bwindi.", category: "wildlife", size: "medium" },
-  { id: "g18", src: "/images/4A9A8592.jpg", caption: "Mountain Gorilla — Bwindi Rainforest", title: "Mountain Gorilla", location: "Bwindi Rainforest", summary: "A gorilla encounter in the heart of Bwindi.", category: "wildlife", size: "medium" },
   { id: "g19", src: "/images/4A9A8600.jpg", caption: "Young Mountain Gorilla — Bwindi", title: "Young Mountain Gorilla", location: "Bwindi", summary: "A young gorilla learning the ways of the troop.", category: "wildlife", size: "tall" },
   { id: "g20", src: "/images/4A9A8602.jpg", caption: "Silverback Gorilla — Bwindi Impenetrable Forest", title: "Silverback Gorilla", location: "Bwindi Impenetrable Forest", summary: "The silverback holds the forest with a single glance.", category: "wildlife", size: "tall" },
   { id: "g21", src: "/images/4A9A8603.jpg", caption: "Mountain Gorilla Resting — Bwindi", title: "Mountain Gorilla Resting", location: "Bwindi", summary: "Resting among the vines — time slows in the forest.", category: "wildlife", size: "medium" },
@@ -46,7 +40,6 @@ export const galleryItems: GalleryItem[] = [
   { id: "g34", src: "/images/4A9A0460.jpg", caption: "Hippo in the Nile — Murchison Falls", title: "Hippo in the Nile", location: "Murchison Falls", summary: "River royalty with a surprising grin.", category: "wildlife", size: "wide" },
   { id: "g35", src: "/images/4A9A0462.jpg", caption: "Elephants Drinking — Riverbank", title: "Elephants Drinking", location: "Riverbank", summary: "A quiet drink at the river's edge.", category: "wildlife", size: "wide" },
   { id: "g36", src: "/images/4A9A0463.jpg", caption: "Elephant at River — Uganda", title: "Elephant at River", location: "Uganda", summary: "Gentle giants at the water's edge.", category: "wildlife", size: "medium" },
-  { id: "g37", src: "/images/4A9A0474.jpg", caption: "Elephant Herd — Savanna", title: "Elephant Herd", location: "Savanna", summary: "Family bonds written across the savanna.", category: "wildlife", size: "wide" },
   { id: "g38", src: "/images/4A9A0483.jpg", caption: "Elephant Herd — Queen Elizabeth Region", title: "Elephant Herd", location: "Queen Elizabeth Region", summary: "A herd moving through the golden grass.", category: "wildlife", size: "wide" },
   { id: "g39", src: "/images/4A9A0486.jpg", caption: "Elephant Family With Calves — Savanna", title: "Elephant Family With Calves", location: "Savanna", summary: "Calves tucked close in the family march.", category: "wildlife", size: "wide" },
   { id: "g40", src: "/images/4A9A9703.jpg", caption: "African Wattled Lapwing — Queen Elizabeth", title: "African Wattled Lapwing", location: "Queen Elizabeth", summary: "Yellow wattles bright against the dry grass.", category: "wildlife", size: "medium" },
@@ -310,3 +303,91 @@ export const galleryCategories = [
   { id: "culture", label: "Culture" },
   { id: "luxury", label: "Luxury" },
 ];
+
+export function uniqueGalleryItems(items: GalleryItem[] = galleryItems) {
+  const seen = new Set<string>();
+  return items.filter((item) => {
+    if (seen.has(item.src)) return false;
+    seen.add(item.src);
+    return true;
+  });
+}
+
+export function isFieldNotebook(item: GalleryItem) {
+  return item.title === "East Africa Journey" || item.title === "Safari Moment";
+}
+
+export function editorialGalleryItems() {
+  return uniqueGalleryItems().filter((item) => !isFieldNotebook(item));
+}
+
+export function fieldNotebookItems() {
+  return uniqueGalleryItems().filter((item) => isFieldNotebook(item));
+}
+
+export type PhotoEssay = {
+  id: string;
+  title: string;
+  dek: string;
+  location: string;
+  coverSrc: string;
+  itemIds: string[];
+};
+
+export const photoEssays: PhotoEssay[] = [
+  {
+    id: "bwindi",
+    title: "Bwindi: The Hour in the Forest",
+    dek: "Silverbacks, rain, and the ferns that make the park feel older than the road in.",
+    location: "Bwindi Impenetrable Forest",
+    coverSrc: "/images/4A9A8590.jpg",
+    itemIds: ["g16", "g4", "g5", "g19", "g20", "g23", "g1", "g3"],
+  },
+  {
+    id: "nile",
+    title: "Elephants on the Nile",
+    dek: "Family lines at the water in Murchison country — slow, close, and unhurried.",
+    location: "Murchison Falls",
+    coverSrc: "/images/4A9A0445.jpg",
+    itemIds: ["g28", "g29", "g30", "g34", "g12", "g38"],
+  },
+  {
+    id: "mara",
+    title: "Cats and Grass: Mara Light",
+    dek: "Lion, giraffe, and the open ground Kenya is famous for.",
+    location: "Masai Mara",
+    coverSrc: "/images/IMG-20260811-WA0021.jpg",
+    itemIds: ["g56", "g64", "g73", "g95", "g108", "g55"],
+  },
+  {
+    id: "zanzibar",
+    title: "Salt After Dust",
+    dek: "Stone Town waterfront, dhows, spice, and the sandbank that appears with the tide.",
+    location: "Zanzibar",
+    coverSrc: "/images/IMG-20260811-WA0094.jpg",
+    itemIds: ["g127", "g47", "g57", "g81", "g51", "g59"],
+  },
+  {
+    id: "birds",
+    title: "Wings over the Savanna",
+    dek: "Wattled lapwings and white-backed vultures holding the thorn trees.",
+    location: "Queen Elizabeth",
+    coverSrc: "/images/4A9A9703.jpg",
+    itemIds: ["g40", "g41", "g42", "g45", "g46"],
+  },
+  {
+    id: "culture",
+    title: "Drums and Making",
+    dek: "Dance, palm weaving, and the work of hands — photographed with permission.",
+    location: "Uganda & Zanzibar",
+    coverSrc: "/images/4A9A8221.jpg",
+    itemIds: ["g9", "g10", "g112", "g117", "g121"],
+  },
+];
+
+export function itemsForEssay(essay: PhotoEssay) {
+  const byId = new Map(galleryItems.map((item) => [item.id, item]));
+  return essay.itemIds
+    .map((id) => byId.get(id))
+    .filter((item): item is GalleryItem => Boolean(item));
+}

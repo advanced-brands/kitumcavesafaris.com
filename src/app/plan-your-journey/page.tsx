@@ -126,7 +126,7 @@ export default function PlanYourJourneyPage() {
                   </div>
                   <div>
                     <label htmlFor="preferredDest" className="block text-sm font-medium text-brand-forest mb-2">Preferred Destination</label>
-                    <input id="preferredDest" name="preferredDest" value={form.preferredDest} onChange={update} className="input-field" placeholder="Uganda, Kenya, Ethiopia..." />
+                    <input id="preferredDest" name="preferredDest" value={form.preferredDest} onChange={update} className="input-field" placeholder="Uganda, Kenya, Rwanda, Tanzania, Zanzibar..." />
                   </div>
                 </div>
 

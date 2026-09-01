@@ -31,8 +31,8 @@ export default function StoriesAndGuidesSection({ posts }: Props) {
         <div className="stories-guides-header">
           <h2 className="stories-guides-title">Stories &amp; Guides</h2>
           <p className="stories-guides-lead">
-            Practical insights, destination guides, and travel stories from our team —
-            written to help you plan a meaningful journey across East Africa.
+            Practical insights, destination guides, and field notes from the Kitum
+            desk — enough to read like a journal, written for people about to travel.
           </p>
           <Link href="/blog" className="stories-guides-all">
             View all stories &rarr;
