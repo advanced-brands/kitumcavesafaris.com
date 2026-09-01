@@ -27,31 +27,30 @@ export default function PrivacyPage() {
       <section className="section-padding section-spacing">
         <div className="max-w-3xl mx-auto space-y-12">
           <section>
+            <h2 className="heading-sub text-brand-forest mb-4">Cookies</h2>
+            <p className="body-text text-sm">
+              A cookie is a string of information that a website stores on a
+              visitor&apos;s computer, and that the visitor&apos;s browser
+              provides to the website each time the visitor returns. Kitum Cave
+              Safaris may use cookies to help identify and track visitors, their
+              usage of our website, and their website access preferences. Visitors
+              who do not wish to have cookies placed on their computers should set
+              their browsers to refuse cookies before using our websites, with the
+              drawback that certain features of our websites may not function
+              properly without the aid of cookies.
+            </p>
+          </section>
+
+          <section>
             <h2 className="heading-sub text-brand-forest mb-4">
-              Website Visitors
+              Payment Processing
             </h2>
-            <div className="space-y-4 body-text text-sm">
-              <p>
-                Like most website operators, Kitum Cave Safaris collects
-                non-personally-identifying information of the sort that web
-                browsers and servers typically make available, such as the
-                browser type, language preference, referring site, and the date
-                and time of each visitor request. Our purpose in collecting
-                non-personally-identifying information is to better understand how
-                visitors use our website. From time to time, we may release
-                non-personally-identifying information in the aggregate, e.g., by
-                publishing a report on trends in the usage of our website.
-              </p>
-              <p>
-                Kitum Cave Safaris may also collect potentially
-                personally-identifying information like Internet Protocol (IP)
-                addresses for users who submit forms, leave reviews, or otherwise
-                interact with the site in a logged or identifiable way. We only
-                disclose such information under the same circumstances that we use
-                and disclose personally-identifying information as described
-                below.
-              </p>
-            </div>
+            <p className="body-text text-sm">
+              Online payments are processed by third-party payment providers (such
+              as Flutterwave). Those providers may collect and process payment
+              information under their own privacy policies. Kitum Cave Safaris does
+              not store full card numbers on this website.
+            </p>
           </section>
 
           <section>
@@ -84,18 +83,6 @@ export default function PrivacyPage() {
                 submitting an inquiry).
               </p>
             </div>
-          </section>
-
-          <section>
-            <h2 className="heading-sub text-brand-forest mb-4">
-              Aggregated Statistics
-            </h2>
-            <p className="body-text text-sm">
-              Kitum Cave Safaris may collect statistics about the behaviour of
-              visitors to its websites. We may display this information publicly
-              or provide it to others. However, we do not disclose
-              personally-identifying information other than as described below.
-            </p>
           </section>
 
           <section>
@@ -140,29 +127,42 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="heading-sub text-brand-forest mb-4">Cookies</h2>
-            <p className="body-text text-sm">
-              A cookie is a string of information that a website stores on a
-              visitor&apos;s computer, and that the visitor&apos;s browser
-              provides to the website each time the visitor returns. Kitum Cave
-              Safaris may use cookies to help identify and track visitors, their
-              usage of our website, and their website access preferences. Visitors
-              who do not wish to have cookies placed on their computers should set
-              their browsers to refuse cookies before using our websites, with the
-              drawback that certain features of our websites may not function
-              properly without the aid of cookies.
-            </p>
+            <h2 className="heading-sub text-brand-forest mb-4">
+              Website Visitors
+            </h2>
+            <div className="space-y-4 body-text text-sm">
+              <p>
+                Like most website operators, Kitum Cave Safaris collects
+                non-personally-identifying information of the sort that web
+                browsers and servers typically make available, such as the
+                browser type, language preference, referring site, and the date
+                and time of each visitor request. Our purpose in collecting
+                non-personally-identifying information is to better understand how
+                visitors use our website. From time to time, we may release
+                non-personally-identifying information in the aggregate, e.g., by
+                publishing a report on trends in the usage of our website.
+              </p>
+              <p>
+                Kitum Cave Safaris may also collect potentially
+                personally-identifying information like Internet Protocol (IP)
+                addresses for users who submit forms, leave reviews, or otherwise
+                interact with the site in a logged or identifiable way. We only
+                disclose such information under the same circumstances that we use
+                and disclose personally-identifying information as described
+                below.
+              </p>
+            </div>
           </section>
 
           <section>
             <h2 className="heading-sub text-brand-forest mb-4">
-              Payment Processing
+              Aggregated Statistics
             </h2>
             <p className="body-text text-sm">
-              Online payments are processed by third-party payment providers (such
-              as Flutterwave). Those providers may collect and process payment
-              information under their own privacy policies. Kitum Cave Safaris does
-              not store full card numbers on this website.
+              Kitum Cave Safaris may collect statistics about the behaviour of
+              visitors to its websites. We may display this information publicly
+              or provide it to others. However, we do not disclose
+              personally-identifying information other than as described below.
             </p>
           </section>
 
@@ -178,19 +178,6 @@ export default function PrivacyPage() {
               acknowledge that such transfers may occur, and that any acquirer of
               Kitum Cave Safaris may continue to use your personal information as
               set forth in this policy.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="heading-sub text-brand-forest mb-4">
-              Privacy Policy Changes
-            </h2>
-            <p className="body-text text-sm">
-              Although most changes are likely to be minor, Kitum Cave Safaris may
-              change this Privacy Policy from time to time, in its sole
-              discretion. We encourage visitors to check this page for any
-              changes. Your continued use of this site after any change in this
-              Privacy Policy will constitute your acceptance of such change.
             </p>
           </section>
 
@@ -215,21 +202,34 @@ export default function PrivacyPage() {
             </p>
           </section>
 
+          <section>
+            <h2 className="heading-sub text-brand-forest mb-4">
+              Privacy Policy Changes
+            </h2>
+            <p className="body-text text-sm">
+              Although most changes are likely to be minor, Kitum Cave Safaris may
+              change this Privacy Policy from time to time, in its sole
+              discretion. We encourage visitors to check this page for any
+              changes. Your continued use of this site after any change in this
+              Privacy Policy will constitute your acceptance of such change.
+            </p>
+          </section>
+
           <div className="pt-8 border-t border-brand-sand-dark">
             <p className="body-text text-sm">
               Related:{" "}
-              <Link
-                href="/terms"
-                className="text-brand-forest underline underline-offset-2"
-              >
-                Terms &amp; Conditions
-              </Link>
-              {" · "}
               <Link
                 href="/contact"
                 className="text-brand-forest underline underline-offset-2"
               >
                 Contact Us
+              </Link>
+              {" · "}
+              <Link
+                href="/terms"
+                className="text-brand-forest underline underline-offset-2"
+              >
+                Terms &amp; Conditions
               </Link>
             </p>
           </div>

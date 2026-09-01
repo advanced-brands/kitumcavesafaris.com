@@ -45,8 +45,8 @@ const travelLinks = [
 const supportLinks = [
   { href: "/faq", label: "FAQs" },
   { href: "/reviews", label: "Reviews" },
-  { href: "/terms", label: "Terms" },
   { href: "/privacy", label: "Privacy" },
+  { href: "/terms", label: "Terms" },
 ];
 
 export default function Footer() {
@@ -211,11 +211,11 @@ export default function Footer() {
             </span>
           </p>
           <div className="grid grid-cols-2 sm:flex sm:flex-wrap sm:justify-end gap-x-4 gap-y-2 text-xs sm:text-sm text-brand-cream/50 text-center sm:text-right">
-            <Link href="/terms" className="hover:text-brand-cream transition-colors">
-              Terms
-            </Link>
             <Link href="/privacy" className="hover:text-brand-cream transition-colors">
               Privacy
+            </Link>
+            <Link href="/terms" className="hover:text-brand-cream transition-colors">
+              Terms
             </Link>
             <a
               href={`mailto:${siteConfig.email}`}
