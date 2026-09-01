@@ -1384,21 +1384,12 @@
   }
 
   @media (max-width: 639px) {
-    .who-we-are-header-cta {
-      display: none;
-    }
-
     .who-we-are-card {
       min-height: 0;
       padding: 0.7rem 0.65rem 0.75rem;
     }
 
     .who-we-are-card-body {
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
       flex: 0 1 auto;
       font-size: 0.72rem;
       line-height: 1.4;
@@ -1442,10 +1433,6 @@
     font-weight: 500;
     line-height: 1.35;
     color: #faf7f2;
-  }
-
-  .hero-topbar-promo-short {
-    display: none;
   }
 
   .hero-topbar-book {
@@ -1552,29 +1539,16 @@
 
   @media (max-width: 767px) {
     .hero-topbar-promo {
-      justify-content: flex-start;
+      justify-content: center;
       min-height: 2.15rem;
-      padding: 0.28rem 5.4rem 0.28rem 0.85rem;
+      padding: 0.32rem 6.5rem 0.32rem 0.7rem;
       flex-wrap: nowrap;
-      gap: 0.5rem;
     }
 
     .hero-topbar-promo-text {
-      max-width: none;
-      text-align: left;
-      font-size: 0.72rem;
-      line-height: 1.2;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .hero-topbar-promo-full {
-      display: none;
-    }
-
-    .hero-topbar-promo-short {
-      display: inline;
+      font-size: 0.68rem;
+      line-height: 1.3;
+      text-align: center;
     }
 
     .hero-topbar-book {
@@ -1590,7 +1564,31 @@
     }
 
     .hero-topbar-meta {
-      display: none;
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 0.5rem;
+      padding: 0.28rem 0.7rem 0.32rem;
+    }
+
+    .hero-topbar-contact {
+      flex-wrap: nowrap;
+      min-width: 0;
+      gap: 0.45rem 0.55rem;
+    }
+
+    .hero-topbar-rule {
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .hero-topbar-link {
+      font-size: 0.62rem;
+    }
+
+    .hero-topbar-socials {
+      flex-shrink: 0;
+      gap: 0.45rem;
+      padding-left: 0.55rem;
     }
   }
 
@@ -1600,7 +1598,7 @@
 
   @media (max-width: 767px) {
     html:has(.hero-topbar) {
-      --kitum-topbar: 2.25rem;
+      --kitum-topbar: 4.65rem;
     }
   }
   .hero-longing {
