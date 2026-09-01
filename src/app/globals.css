@@ -1436,16 +1436,13 @@
 
   /* ── Home top bar ── */
   .hero-topbar {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 80;
+    position: relative;
+    z-index: 2;
+    width: 100%;
     background: #c4785a;
     color: #faf7f2;
     font-family: var(--font-dm-sans), system-ui, sans-serif;
     pointer-events: auto;
-    transform: none;
   }
 
   .hero-topbar-promo {
