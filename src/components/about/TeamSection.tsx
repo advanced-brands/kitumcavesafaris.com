@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Instagram, Linkedin, Mail } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Mail } from "lucide-react";
 import { siteConfig } from "@/data/packages";
 import { teamMembers, type TeamMember } from "@/data/team";
 import ScrollReveal from "@/components/ui/ScrollReveal";
@@ -40,6 +40,7 @@ function isPlaceholder(member: TeamMember) {
 const defaultSocialLinks = [
   { href: siteConfig.social.x, label: "X", icon: XIcon },
   { href: siteConfig.social.instagram, label: "Instagram", icon: Instagram },
+  { href: siteConfig.social.facebook, label: "Facebook", icon: Facebook },
   { href: siteConfig.social.linkedin, label: "LinkedIn", icon: Linkedin },
   { href: siteConfig.social.tiktok, label: "TikTok", icon: TikTokIcon },
 ];

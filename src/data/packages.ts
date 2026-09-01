@@ -25,7 +25,7 @@ export const siteConfig = {
     x: "https://x.com/kitumcavesafari",
     linkedin:
       "https://www.linkedin.com/company/kitum-cave-safaris/about/?viewAsMember=true",
-    facebook: "",
+    facebook: "https://www.facebook.com/share/19J47sjJx2/",
     tiktok: "https://www.tiktok.com/@infokitumcavesafar",
   },
   businessHours:

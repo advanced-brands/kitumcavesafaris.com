@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/data/packages";
-import { Instagram, Linkedin, Mail } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Mail } from "lucide-react";
 
 function XIcon({ className }: { className?: string }) {
   return (
@@ -110,6 +110,17 @@ export default function Footer() {
               >
                 <Linkedin size={20} />
               </a>
+              {siteConfig.social.facebook && (
+                <a
+                  href={siteConfig.social.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-brand-cream/60 hover:text-brand-terracotta transition-colors"
+                  aria-label="Facebook"
+                >
+                  <Facebook size={20} />
+                </a>
+              )}
               {siteConfig.social.tiktok && (
                 <a
                   href={siteConfig.social.tiktok}

@@ -158,6 +158,11 @@ export default function ContactPage() {
                   TikTok
                 </a>
               )}
+              {siteConfig.social.facebook && (
+                <a href={siteConfig.social.facebook} target="_blank" rel="noopener noreferrer" className="text-sm text-brand-charcoal/60 hover:text-brand-terracotta">
+                  Facebook
+                </a>
+              )}
             </div>
           </ScrollReveal>
 
