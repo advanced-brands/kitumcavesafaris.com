@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Bebas_Neue, Cormorant_Garamond, DM_Sans } from "next/font/google";
 import "./globals.css";
+import HomeTopBar from "@/components/home/HomeTopBar";
 import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
@@ -70,6 +71,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${bebasNeue.variable} ${cormorant.variable} ${dmSans.variable}`}>
       <body className="font-sans">
+        <HomeTopBar />
         <Navigation />
         <main className="overflow-x-clip max-w-full">{children}</main>
         <Footer />

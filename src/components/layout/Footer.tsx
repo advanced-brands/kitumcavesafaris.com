@@ -209,38 +209,53 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-brand-cream/10 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 items-center">
-          <p className="text-xs sm:text-sm text-brand-cream/50 text-center sm:text-left">
-            &copy; {currentYear} {siteConfig.legalName}. All rights reserved.
-            {siteConfig.ursbNumber ? (
-              <span className="block sm:inline sm:before:content-['·'] sm:before:mx-2">
-                URSB {siteConfig.ursbNumber}
-              </span>
-            ) : null}
-            <span className="block sm:inline sm:before:content-['·'] sm:before:mx-2">
-              Office {siteConfig.officeHours.replace("Monday–Saturday, ", "Mon–Sat ")}
+        <div className="footer-legal">
+          <p className="footer-legal-line">
+            <span>
+              &copy; {currentYear} {siteConfig.legalName}
             </span>
+            {siteConfig.ursbNumber ? (
+              <>
+                <span className="footer-legal-dot" aria-hidden>
+                  ·
+                </span>
+                <span>URSB {siteConfig.ursbNumber}</span>
+              </>
+            ) : null}
+            <span className="footer-legal-dot" aria-hidden>
+              ·
+            </span>
+            <span>Mon–Sat 8:00am–5:00pm EAT</span>
           </p>
-          <div className="grid grid-cols-2 sm:flex sm:flex-wrap sm:justify-end gap-x-4 gap-y-2 text-xs sm:text-sm text-brand-cream/50 text-center sm:text-right">
+          <p className="footer-legal-line">
             <Link href="/privacy" className="hover:text-brand-cream transition-colors">
               Privacy
             </Link>
+            <span className="footer-legal-dot" aria-hidden>
+              ·
+            </span>
             <Link href="/terms" className="hover:text-brand-cream transition-colors">
               Terms
             </Link>
+            <span className="footer-legal-dot" aria-hidden>
+              ·
+            </span>
             <a
               href={`mailto:${siteConfig.email}`}
-              className="col-span-2 sm:col-span-1 hover:text-brand-cream transition-colors truncate"
+              className="hover:text-brand-cream transition-colors"
             >
               {siteConfig.email}
             </a>
+            <span className="footer-legal-dot" aria-hidden>
+              ·
+            </span>
             <a
               href={`tel:${siteConfig.phone}`}
-              className="col-span-2 sm:col-span-1 hover:text-brand-cream transition-colors"
+              className="hover:text-brand-cream transition-colors"
             >
               {siteConfig.phone}
             </a>
-          </div>
+          </p>
         </div>
       </div>
     </footer>

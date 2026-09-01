@@ -1839,6 +1839,23 @@ export function getPackagesByCountry(country: string) {
   );
 }
 
+export function getJourneySearchMeta() {
+  const east = packages.filter((p) => p.region === "east-africa");
+  const days = east.map((p) => p.durationDays);
+  const prices = east.map((p) => p.price);
+  const types = Array.from(new Set(east.map((p) => p.travelType))).sort();
+  const durations = Array.from(new Set(days)).sort((a, b) => a - b);
+
+  return {
+    minDays: Math.min(...days),
+    maxDays: Math.max(...days),
+    minPrice: Math.min(...prices),
+    maxPrice: Math.max(...prices),
+    types,
+    durations,
+  };
+}
+
 export function getDestinationSummary(region?: Package["region"]) {
   const scoped = region
     ? packages.filter((p) => p.region === region)

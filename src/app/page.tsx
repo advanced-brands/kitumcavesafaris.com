@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import {
-  packages,
   getDestinationSummary,
   siteConfig,
 } from "@/data/packages";
@@ -14,18 +13,18 @@ import OverviewMap from "@/components/maps/OverviewMap";
 import { reviews } from "@/data/reviews";
 import ReviewsCarousel from "@/components/reviews/ReviewsCarousel";
 import HeroSection from "@/components/home/HeroSection";
+import JourneySearchBar from "@/components/home/JourneySearchBar";
 import WhoWeAreSection from "@/components/home/WhoWeAreSection";
 import ExperiencesSection from "@/components/home/ExperiencesSection";
 
 export default function HomePage() {
-  const featuredPackages = packages.filter((p) => p.featured);
   const destinationSummary = getDestinationSummary();
   const founder = teamMembers.find((m) => m.isFounder);
 
   return (
     <>
       <HeroSection />
-
+      <JourneySearchBar />
       <WhoWeAreSection />
 
       {/* Destination Summary */}
@@ -55,13 +54,7 @@ export default function HomePage() {
 
       <ExperiencesSection />
 
-      <FeaturedPackagesSection
-        packages={
-          featuredPackages.length > 0
-            ? featuredPackages
-            : packages.slice(0, 6)
-        }
-      />
+      <FeaturedPackagesSection />
 
       {/* Map Section */}
       <section className="section-padding section-spacing">
@@ -133,7 +126,7 @@ export default function HomePage() {
       </div>
 
       {/* Blog Preview */}
-      <StoriesAndGuidesSection posts={blogPosts.slice(0, 3)} />
+      <StoriesAndGuidesSection posts={blogPosts} />
 
       {/* CTA */}
       <section id="contact-cta" className="relative py-14 md:py-20">

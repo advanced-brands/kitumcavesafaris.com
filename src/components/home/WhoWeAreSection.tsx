@@ -57,7 +57,7 @@ export default function WhoWeAreSection() {
   const [active, setActive] = useState(0);
 
   return (
-    <section id="intro" className="section-padding section-spacing-compact bg-brand-cream">
+    <section id="intro" className="who-we-are-follow section-padding section-spacing-compact bg-brand-cream">
       <div className="mx-auto max-w-[1600px]">
         <div className="who-we-are-panel">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between lg:gap-8">

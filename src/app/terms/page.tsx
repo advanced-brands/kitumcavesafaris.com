@@ -11,20 +11,16 @@ export const metadata: Metadata = {
 export default function TermsPage() {
   return (
     <>
-      <section className="pt-24 pb-14 md:pt-32 md:pb-16 bg-brand-forest">
-        <div className="section-padding max-w-[1600px] mx-auto">
-          <p className="label-text !text-brand-terracotta mb-4">Legal</p>
-          <h1 className="heading-display text-white mb-4">Terms &amp; Conditions</h1>
-          <p className="body-large !text-white/70 max-w-2xl">
-            Please read these terms carefully. Confirming a safari with Kitum Cave
-            Safaris assumes that you have read, fully understand, and accept the
-            terms below.
-          </p>
-        </div>
-      </section>
-
-      <section className="section-padding section-spacing">
+      <section className="section-padding section-spacing pt-28 md:pt-36">
         <div className="max-w-3xl mx-auto prose-legal space-y-12">
+          <div>
+            <h1 className="heading-display text-brand-forest mb-4">Terms &amp; Conditions</h1>
+            <p className="body-large">
+              Please read these terms carefully. Confirming a safari with Kitum Cave
+              Safaris assumes that you have read, fully understand, and accept the
+              terms below.
+            </p>
+          </div>
           <p className="body-text">
             If you have any questions, please contact us at{" "}
             <a href={`mailto:${siteConfig.email}`} className="text-brand-forest underline underline-offset-2">

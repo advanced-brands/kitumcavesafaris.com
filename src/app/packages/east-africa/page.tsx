@@ -14,13 +14,35 @@ import OverviewMap from "@/components/maps/OverviewMap";
 function EastAfricaContent() {
   const searchParams = useSearchParams();
   const countryFilter = searchParams.get("country");
+  const typeFilter = searchParams.get("type");
+  const daysFilter = searchParams.get("days");
+  const priceFilter = searchParams.get("price");
   const destinationSummary = getDestinationSummary("east-africa");
 
   let filteredPackages = getPackagesByRegion("east-africa");
-  if (countryFilter) {
-    filteredPackages = filteredPackages.filter(
-      (p) => p.country.toLowerCase().replace(/\s+/g, "-") === countryFilter
+  if (countryFilter === "zanzibar") {
+    filteredPackages = filteredPackages.filter((p) => p.slug.includes("zanzibar"));
+  } else if (countryFilter) {
+    const needle = countryFilter.replace(/-/g, " ");
+    filteredPackages = filteredPackages.filter((p) =>
+      p.country.toLowerCase().includes(needle)
     );
+  }
+  if (typeFilter) {
+    filteredPackages = filteredPackages.filter((p) => p.travelType === typeFilter);
+  }
+  if (daysFilter) {
+    const days = Number(daysFilter);
+    if (!Number.isNaN(days)) {
+      filteredPackages = filteredPackages.filter((p) => p.durationDays === days);
+    }
+  }
+  if (priceFilter === "under-1500") {
+    filteredPackages = filteredPackages.filter((p) => p.price < 1500);
+  } else if (priceFilter === "1500-3000") {
+    filteredPackages = filteredPackages.filter((p) => p.price >= 1500 && p.price <= 3000);
+  } else if (priceFilter === "3000-plus") {
+    filteredPackages = filteredPackages.filter((p) => p.price >= 3000);
   }
 
   return (
@@ -59,11 +81,21 @@ function EastAfricaContent() {
       <section className="section-padding section-spacing">
         <div className="max-w-[1600px] mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredPackages.map((pkg, i) => (
-              <ScrollReveal key={pkg.id} delay={i * 100}>
-                <PackageCard pkg={pkg} />
-              </ScrollReveal>
-            ))}
+            {filteredPackages.length === 0 ? (
+              <p className="col-span-full body-text">
+                No journeys match those filters. Try another destination or{" "}
+                <a href="/packages/east-africa" className="text-brand-terracotta underline">
+                  view all East Africa packages
+                </a>
+                .
+              </p>
+            ) : (
+              filteredPackages.map((pkg, i) => (
+                <ScrollReveal key={pkg.id} delay={i * 100}>
+                  <PackageCard pkg={pkg} />
+                </ScrollReveal>
+              ))
+            )}
           </div>
         </div>
       </section>
