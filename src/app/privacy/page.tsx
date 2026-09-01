@@ -11,21 +11,17 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <>
-      <section className="pt-24 pb-14 md:pt-32 md:pb-16 bg-brand-forest">
-        <div className="section-padding max-w-[1600px] mx-auto">
-          <p className="label-text !text-brand-terracotta mb-4">Legal</p>
-          <h1 className="heading-display text-white mb-4">Privacy Policy</h1>
-          <p className="body-large !text-white/70 max-w-2xl">
-            Kitum Cave Safaris Limited (&ldquo;Kitum Cave Safaris&rdquo;) operates{" "}
-            {siteConfig.url.replace(/^https?:\/\//, "")} and may operate other
-            websites. It is our policy to respect your privacy regarding any
-            information we may collect while operating our websites.
-          </p>
-        </div>
-      </section>
-
-      <section className="section-padding section-spacing">
+      <section className="section-padding section-spacing pt-28 md:pt-36">
         <div className="max-w-3xl mx-auto space-y-12">
+          <div>
+            <h1 className="heading-display text-brand-forest mb-4">Privacy Policy</h1>
+            <p className="body-large">
+              Kitum Cave Safaris Limited (&ldquo;Kitum Cave Safaris&rdquo;) operates{" "}
+              {siteConfig.url.replace(/^https?:\/\//, "")} and may operate other
+              websites. It is our policy to respect your privacy regarding any
+              information we may collect while operating our websites.
+            </p>
+          </div>
           <section>
             <h2 className="heading-sub text-brand-forest mb-4">Cookies</h2>
             <p className="body-text text-sm">
