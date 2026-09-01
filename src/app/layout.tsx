@@ -71,8 +71,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${bebasNeue.variable} ${cormorant.variable} ${dmSans.variable}`}>
       <body className="font-sans">
-        <HomeTopBar />
-        <Navigation />
+        <div className="site-chrome">
+          <HomeTopBar />
+          <Navigation />
+        </div>
         <main className="overflow-x-clip max-w-full">{children}</main>
         <Footer />
         <WhatsAppButton />

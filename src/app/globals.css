@@ -15,6 +15,20 @@
     max-width: 100%;
   }
 
+  .site-chrome {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 80;
+    pointer-events: none;
+  }
+
+  .site-chrome-nav {
+    position: relative;
+    z-index: 1;
+  }
+
   body {
     @apply bg-brand-cream text-brand-charcoal antialiased;
     overflow-x: hidden;
@@ -1623,7 +1637,7 @@
 
   @media (max-width: 767px) {
     html:has(.hero-topbar) {
-      --kitum-topbar: 4.65rem;
+      --kitum-topbar: 6.25rem;
     }
   }
   .hero-longing {

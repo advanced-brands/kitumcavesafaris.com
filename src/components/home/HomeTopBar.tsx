@@ -52,22 +52,26 @@ export default function HomeTopBar() {
   useEffect(() => {
     if (window.sessionStorage.getItem(STORAGE_KEY) === "1") {
       setOpen(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!onHome || !open) {
       setTopbarOffset(0);
       return;
     }
 
-    if (!onHome) {
-      setTopbarOffset(0);
-      return;
-    }
+    const el = barRef.current;
+    if (!el) return;
 
-    const publishHeight = () => setTopbarOffset(barRef.current?.offsetHeight ?? 0);
-    const frame = window.requestAnimationFrame(publishHeight);
+    const publishHeight = () => setTopbarOffset(el.offsetHeight);
+    publishHeight();
+    const observer = new ResizeObserver(publishHeight);
+    observer.observe(el);
     window.addEventListener("resize", publishHeight);
     return () => {
-      window.cancelAnimationFrame(frame);
+      observer.disconnect();
       window.removeEventListener("resize", publishHeight);
-      setTopbarOffset(0);
     };
   }, [open, onHome]);
 

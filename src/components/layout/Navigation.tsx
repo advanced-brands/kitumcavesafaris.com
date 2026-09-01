@@ -46,10 +46,7 @@ export default function Navigation() {
 
   return (
     <>
-      <header
-        className="fixed left-0 right-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4 md:px-6 pointer-events-none"
-        style={{ top: "var(--kitum-topbar, 0px)" }}
-      >
+      <header className="site-chrome-nav pointer-events-none px-3 pt-3 sm:px-5 sm:pt-4 md:px-6">
         <nav
           className={cn(
             "nav-floating",
@@ -105,7 +102,7 @@ export default function Navigation() {
 
       <div
         className={cn(
-          "fixed inset-0 z-40 flex items-center justify-center bg-brand-forest/20 backdrop-blur-sm transition-opacity duration-500 [transition-timing-function:cubic-bezier(0.33,1,0.68,1)] lg:hidden",
+          "fixed inset-0 z-[90] flex items-center justify-center bg-brand-forest/20 backdrop-blur-sm transition-opacity duration-500 [transition-timing-function:cubic-bezier(0.33,1,0.68,1)] lg:hidden pointer-events-auto",
           isOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
         )}
         onClick={() => setIsOpen(false)}
