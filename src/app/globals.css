@@ -1183,14 +1183,22 @@
     display: flex;
     align-items: center;
     gap: 0.35rem;
+    min-width: 0;
     color: #c4785a;
   }
 
+  .journey-search-control svg {
+    flex-shrink: 0;
+    pointer-events: none;
+  }
+
   .journey-search-control select {
-    flex: 1;
+    flex: 1 1 0%;
+    width: 0;
     min-width: 0;
     appearance: none;
     -webkit-appearance: none;
+    -moz-appearance: none;
     border: 0;
     background: transparent;
     padding: 0;
@@ -1200,13 +1208,20 @@
     line-height: 1.2;
     color: #1b2a38;
     cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .journey-search-control select::-ms-expand {
+    display: none;
   }
 
   .journey-search-control select:focus {
     outline: none;
   }
 
-  @media (max-width: 639px) {
+  @media (max-width: 767px) {
     .journey-search-control svg {
       display: none;
     }
@@ -1221,7 +1236,11 @@
     }
 
     .journey-search-field {
-      padding: 0.4rem 0.45rem;
+      padding: 0.4rem 0.4rem;
+    }
+
+    .journey-search-control select {
+      font-size: 0.68rem;
     }
 
     .journey-search-submit {
@@ -1566,14 +1585,17 @@
     .hero-topbar-meta {
       display: flex;
       flex-wrap: nowrap;
-      gap: 0.5rem;
+      align-items: center;
+      gap: 0.45rem;
       padding: 0.28rem 0.7rem 0.32rem;
     }
 
     .hero-topbar-contact {
+      flex: 1 1 auto;
       flex-wrap: nowrap;
       min-width: 0;
       gap: 0.45rem 0.55rem;
+      overflow: hidden;
     }
 
     .hero-topbar-rule {
@@ -1582,13 +1604,16 @@
     }
 
     .hero-topbar-link {
+      min-width: 0;
       font-size: 0.62rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .hero-topbar-socials {
       flex-shrink: 0;
-      gap: 0.45rem;
-      padding-left: 0.55rem;
+      gap: 0.4rem;
+      padding-left: 0.5rem;
     }
   }
 
