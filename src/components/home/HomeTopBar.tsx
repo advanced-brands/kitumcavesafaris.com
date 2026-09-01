@@ -77,7 +77,10 @@ export default function HomeTopBar() {
     <div ref={barRef} className="hero-topbar" role="region" aria-label="Contact and group bookings">
       <div className="hero-topbar-promo">
         <p className="hero-topbar-promo-text">
-          Planning a group safari, or booking as an agent? Ask us for a tailored quote.
+          <span className="hero-topbar-promo-full">
+            Planning a group safari, or booking as an agent? Ask us for a tailored quote.
+          </span>
+          <span className="hero-topbar-promo-short">Group &amp; agent quotes</span>
         </p>
         <Link href="/plan-your-journey" className="hero-topbar-book">
           Book now

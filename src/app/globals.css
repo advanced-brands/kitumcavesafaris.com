@@ -1210,6 +1210,26 @@
     .journey-search-control svg {
       display: none;
     }
+
+    .journey-search {
+      border-radius: 0.5rem;
+    }
+
+    .journey-search-field,
+    .journey-search-submit {
+      height: 3.85rem;
+    }
+
+    .journey-search-field {
+      padding: 0.4rem 0.45rem;
+    }
+
+    .journey-search-submit {
+      width: 4.15rem;
+      min-width: 4.15rem;
+      padding: 0 0.4rem;
+      font-size: 0.72rem;
+    }
   }
 
   .journey-search-submit {
@@ -1363,6 +1383,33 @@
     @apply bg-[#9AAD98] text-white hover:bg-[#8A9D88];
   }
 
+  @media (max-width: 639px) {
+    .who-we-are-header-cta {
+      display: none;
+    }
+
+    .who-we-are-card {
+      min-height: 0;
+      padding: 0.7rem 0.65rem 0.75rem;
+    }
+
+    .who-we-are-card-body {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      flex: 0 1 auto;
+      font-size: 0.72rem;
+      line-height: 1.4;
+    }
+
+    .who-we-are-card-cta {
+      padding: 0.35rem 0.7rem;
+      font-size: 0.65rem;
+    }
+  }
+
   /* ── Home top bar ── */
   .hero-topbar {
     position: fixed;
@@ -1395,6 +1442,10 @@
     font-weight: 500;
     line-height: 1.35;
     color: #faf7f2;
+  }
+
+  .hero-topbar-promo-short {
+    display: none;
   }
 
   .hero-topbar-book {
@@ -1500,19 +1551,46 @@
   }
 
   @media (max-width: 767px) {
-    .hero-topbar-book {
-      position: static;
-    }
-
     .hero-topbar-promo {
       justify-content: flex-start;
-      padding-right: 2.2rem;
-      flex-wrap: wrap;
+      min-height: 2.15rem;
+      padding: 0.28rem 5.4rem 0.28rem 0.85rem;
+      flex-wrap: nowrap;
+      gap: 0.5rem;
     }
 
-    .hero-topbar-socials {
-      padding-left: 0;
-      border-left: 0;
+    .hero-topbar-promo-text {
+      max-width: none;
+      text-align: left;
+      font-size: 0.72rem;
+      line-height: 1.2;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .hero-topbar-promo-full {
+      display: none;
+    }
+
+    .hero-topbar-promo-short {
+      display: inline;
+    }
+
+    .hero-topbar-book {
+      position: absolute;
+      right: 2.1rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .hero-topbar-dismiss {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .hero-topbar-meta {
+      display: none;
     }
   }
 
@@ -1522,7 +1600,7 @@
 
   @media (max-width: 767px) {
     html:has(.hero-topbar) {
-      --kitum-topbar: 7.25rem;
+      --kitum-topbar: 2.25rem;
     }
   }
   .hero-longing {
@@ -1696,16 +1774,34 @@
   @media (max-width: 639px) {
     .hero-longing-inner {
       padding-inline: 1.1rem;
-      padding-bottom: 5.25rem;
-      gap: 2rem;
+      padding-bottom: 4.35rem;
+      gap: 1.35rem;
     }
 
     .hero-longing-headline {
-      max-width: 12ch;
+      max-width: 14ch;
+      font-size: clamp(1.85rem, 8.2vw, 2.45rem);
+    }
+
+    .hero-longing-cta {
+      margin-top: 1.05rem;
     }
 
     .hero-longing-rail {
-      gap: 0.15rem 1.1rem;
+      flex-wrap: nowrap;
+      gap: 0.85rem;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .hero-longing-rail::-webkit-scrollbar {
+      display: none;
+    }
+
+    .hero-longing-rail-label {
+      font-size: 0.75rem;
+      white-space: nowrap;
     }
   }
 
