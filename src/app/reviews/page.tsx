@@ -5,6 +5,7 @@ import { Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { openMailto } from "@/lib/mailto";
 import { reviews, getAverageRating } from "@/data/reviews";
+import { siteConfig } from "@/data/packages";
 import ReviewsCarousel from "@/components/reviews/ReviewsCarousel";
 import ReviewCard from "@/components/reviews/ReviewCard";
 
@@ -53,18 +54,18 @@ export default function ReviewsPage() {
           <p className="label-text !text-brand-terracotta mb-3">Reviews</p>
           <h1 className="heading-display text-white mb-4">Traveler Voices</h1>
           <p className="body-large !text-white/70 max-w-2xl mb-6">
-            Guests who have traveled with our team. We collect these ourselves —
-            we do not pretend they are Google or TripAdvisor listings. After
-            your trip, leave yours here so the next traveler can hear from you.
+            Words from travelers who have been out with us. After your trip,
+            leave a review here (it emails our team) or on Google once our
+            Business Profile is live.
           </p>
           <div className="flex flex-wrap items-center gap-4 text-white/80">
             <div className="flex items-center gap-2">
               <Star size={20} className="fill-brand-terracotta text-brand-terracotta" />
               <span className="font-serif text-2xl text-white">{avgRating}</span>
-              <span className="text-sm">average from guest stories</span>
+              <span className="text-sm">average from published reviews</span>
             </div>
             <span className="text-sm text-white/50">
-              {reviews.length} guest stories
+              {reviews.length} reviews
             </span>
           </div>
         </div>
@@ -73,23 +74,43 @@ export default function ReviewsPage() {
       <ReviewsCarousel
         reviews={reviews}
         title="Traveler Experiences"
-        subtitle="Words from guests who traveled with our team — collected by us, not pulled from a review site."
+        subtitle="Words from guests who traveled with our team."
         showCta={false}
       />
 
       <section className="section-padding py-10 md:py-14 bg-brand-cream">
         <div className="max-w-[1600px] mx-auto grid lg:grid-cols-5 gap-8 lg:gap-12">
           <div className="lg:col-span-3">
-            <h2 className="heading-sub text-brand-forest mb-6">Guest stories</h2>
+            <h2 className="heading-sub text-brand-forest mb-6">Reviews</h2>
             <div className="grid sm:grid-cols-2 gap-4 md:gap-5">
               {reviews.map((review) => (
                 <ReviewCard key={review.id} review={review} />
               ))}
             </div>
             <p className="text-xs text-brand-charcoal/45 mt-6 max-w-xl">
-              These are guest stories shared with our team. When we have a
-              public Google listing, we will link it here. Until then we would
-              rather show honest words than borrowed logos.
+              {siteConfig.googleBusinessUrl ? (
+                <>
+                  You can also read and leave reviews on{" "}
+                  <a
+                    href={siteConfig.googleBusinessUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-brand-forest underline underline-offset-2"
+                  >
+                    Google
+                  </a>
+                  . We add selected Google reviews to this page when you send
+                  them, or after we wire an automatic feed.
+                </>
+              ) : (
+                <>
+                  Our Google Business Profile is being verified. When Google
+                  publishes the listing, send us the public URL and we will
+                  link it here. Reviews do not copy onto this website by
+                  themselves — we publish them from what guests write to us or
+                  from Google once you ask us to.
+                </>
+              )}
             </p>
           </div>
 

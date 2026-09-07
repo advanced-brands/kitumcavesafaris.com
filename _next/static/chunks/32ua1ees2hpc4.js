@@ -294,7 +294,7 @@ The Rock restaurant at Michamvi is a popular lunch — tide decides whether you 
 
 ## How It Fits a Kitum Journey
 
-The 5-day Zanzibar trip can stand alone from Dar or a short hop from the mainland safari. It also closes a Kenya or Tanzania circuit. Tell us your international airport (Entebbe, Nairobi, Kilimanjaro, Zanzibar) so we do not invent a connection that does not exist that day.
+The 5-day Zanzibar trip can stand alone from Dar or a short hop from the mainland safari. It also closes a Kenya or Tanzania circuit. Tell us your international airport (Entebbe, Nairobi, Kilimanjaro, Zanzibar) so we book a connection that exists that day.
 
 ---
 
@@ -320,7 +320,7 @@ Porters are not optional luxury in steep forest; they are local employment. Budg
 
 ## If Plans Change
 
-Park refund and date-change rules are strict. Our cancellation terms sit on the Terms page and in your confirmation. We will fight for a date shift when the park allows it. We will not invent a refund the authority will not pay.
+Park refund and date-change rules are strict. Our cancellation terms sit on the Terms page and in your confirmation. We will work for a date shift when the park allows it. Refunds follow the park authority and our Terms page.
 
 ---
 

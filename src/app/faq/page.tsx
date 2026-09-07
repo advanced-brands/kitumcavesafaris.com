@@ -20,11 +20,11 @@ const faqs = [
   },
   {
     q: "What payment methods do you accept?",
-    a: "Payments are processed securely through Flutterwave, supporting cards and local payment methods suitable for Uganda, East Africa, and international travelers. Secrets stay on the server — never in the browser.",
+    a: "We confirm payment by email or WhatsApp after you inquire. Most travelers use mobile money, bank transfer, or a card link we send. Online card checkout on the website is being set up. A 30% deposit is shown on each package.",
   },
   {
-    q: "Do you invent reviews or awards?",
-    a: "No. The guest stories on this site were shared with our team. We do not invent awards, star ratings from Google or TripAdvisor, or testimonials we did not receive. After your journey you can leave yours on the reviews page.",
+    q: "How do I leave a review?",
+    a: "Use the form on our Reviews page — it opens an email to the team — or WhatsApp us. When our Google Business Profile is live, you can also review us on Google. We then publish selected reviews on this site.",
   },
   {
     q: "When are you open?",

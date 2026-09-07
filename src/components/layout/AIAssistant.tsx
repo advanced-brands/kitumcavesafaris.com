@@ -22,7 +22,7 @@ const quickReplies = [
 const knowledgeBase: Record<string, { answer: string; links?: { label: string; href: string }[] }> = {
   packages: {
     answer:
-      "We offer curated travel packages across East Africa — Uganda, Kenya, Tanzania, Rwanda, and Zanzibar. Journeys outside that map are quoted on request; we do not list placeholder countries.",
+      "We offer East Africa packages across Uganda, Kenya, Tanzania, Rwanda, and Zanzibar — gorilla treks, wildlife safaris, Nairobi city, and Zanzibar. International journeys are quoted on request until those itineraries are published.",
     links: [
       { label: "East African Packages", href: "/packages/east-africa" },
       { label: "International Packages", href: "/packages/international" },
@@ -61,7 +61,7 @@ const knowledgeBase: Record<string, { answer: string; links?: { label: string; h
   },
   payment: {
     answer:
-      "A 30% deposit confirms most safaris; gorilla permits are paid in full up front. You can prefer card, mobile money, or bank transfer. Online card checkout waits on the owner's payment-gateway details — until then we confirm by email or WhatsApp and send payment instructions. You will get a receipt when money has actually been received.",
+      "A 30% deposit confirms most safaris; gorilla permits are paid in full up front. You can pay by card, mobile money, or bank transfer. Online card checkout is being set up — until then we confirm by email or WhatsApp and send payment instructions. You will get a receipt when money has actually been received.",
     links: [
       { label: "Plan Your Journey", href: "/plan-your-journey" },
       { label: "WhatsApp the team", href: `https://wa.me/${siteConfig.whatsapp}` },

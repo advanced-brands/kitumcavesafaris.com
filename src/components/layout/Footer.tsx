@@ -222,6 +222,14 @@ export default function Footer() {
                 <span>URSB {siteConfig.ursbNumber}</span>
               </>
             ) : null}
+            {siteConfig.utbLicense ? (
+              <>
+                <span className="footer-legal-dot" aria-hidden>
+                  ·
+                </span>
+                <span>UTB {siteConfig.utbLicense}</span>
+              </>
+            ) : null}
             <span className="footer-legal-dot" aria-hidden>
               ·
             </span>

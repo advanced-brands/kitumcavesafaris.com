@@ -17,6 +17,7 @@ export const siteConfig = {
   legalName: "Kitum Cave Safaris Limited",
   ursbNumber: "80040097847752",
   utbLicense: "",
+  googleBusinessUrl: "",
   officeHours: "Monday–Saturday, 8:00am–5:00pm (East Africa Time)",
   alwaysOn:
     "WhatsApp, email, socials, and online bookings are available 24/7.",
@@ -87,7 +88,7 @@ const defaultFaqs: PackageFaq[] = [
   {
     question: "What payment methods do you accept?",
     answer:
-      "Visa/Mastercard, mobile money (MTN & Airtel), bank transfer, and international payment links via Flutterwave.",
+      "Visa/Mastercard, mobile money (MTN & Airtel), and bank transfer. We send payment instructions after you inquire. Online card checkout is being set up.",
   },
   {
     question: "Can I pay in UGX, KES, USD, or EUR?",
@@ -506,6 +507,132 @@ const packagesSource: Package[] = [
     partialPaymentPercent: 30,
     featured: true,
     categories: ["wildlife", "adventure"],
+  },
+  {
+    id: "nairobi-city-4d",
+    slug: "4-days-nairobi-city",
+    name: "4 Days Nairobi City",
+    destination: "Nairobi — Marksy Apartments, Roysambu",
+    country: "Kenya",
+    region: "east-africa",
+    duration: "4 Days / 3 Nights",
+    durationDays: 4,
+    price: 734,
+    currency: "USD",
+    priceNote:
+      "Per person. Quoted at USD 734 (UGX 2,750,000). Includes economy flights Entebbe–Nairobi–Entebbe. Breakfast included; lunch and dinner extra.",
+    shortDescription:
+      "A Nairobi city break from Entebbe: CBD landmarks, Garden City and Two Rivers malls, the Museum of Illusions, Giraffe Centre, and Stedmark Gardens — with flights and Marksy Apartments included.",
+    fullDescription:
+      "Four days in Nairobi with economy return flights from Entebbe, private transport, and three nights at Marksy Apartments on Mirema Road, Roysambu. The itinerary covers a Nairobi city tour and Garden City Mall, a full day at the Museum of Illusions and Two Rivers Mall, then Giraffe Centre and Stedmark Gardens in Gigiri with an evening return to Two Rivers. Museum and park fees and the activities listed below are included. Breakfast is included; lunch and dinner are extra. Departure is back to Entebbe on day 4.",
+    travelType: "City & Culture",
+    availability:
+      "Available year-round — contact us for Entebbe–Nairobi flight dates",
+    bestTimeToVisit:
+      "This city itinerary runs year-round. We confirm flight times and attraction opening hours when you book.",
+    whatToBring: [
+      "Valid passport and Kenya travel documents (eTA or visa as applicable)",
+      "Comfortable walking shoes and smart-casual city clothes",
+      "Light jacket for evenings and air-conditioned malls",
+      "Sun protection and a reusable water bottle",
+      "Swimwear if you plan to use the Stedmark pool",
+      "Camera",
+    ],
+    faqs: [
+      {
+        question: "Are flights from Entebbe included?",
+        answer:
+          "Yes — economy return air tickets Entebbe–Nairobi–Entebbe are included in the quoted price.",
+      },
+      {
+        question: "Where do we stay?",
+        answer:
+          "Three nights at Marksy Apartments, Mirema Road, Roysambu — about one hour from Jomo Kenyatta International Airport and about 15 minutes from Garden City Mall.",
+      },
+      {
+        question: "Are Kenya travel documents included?",
+        answer:
+          "No. Passports, Kenya eTA or visa, and other travel documents are not included. We advise on current entry rules when you book.",
+      },
+      ...defaultFaqs.slice(0, 1),
+    ],
+    heroImage: "/images/IMG-20260811-WA0026.jpg",
+    galleryImages: [
+      "/images/IMG-20260811-WA0026.jpg",
+      "/images/IMG-20260811-WA0035.jpg",
+      "/images/IMG-20260811-WA0061.jpg",
+      "/images/IMG-20260811-WA0073.jpg",
+      "/images/IMG-20260811-WA0098.jpg",
+      "/images/IMG-20260811-WA0025.jpg",
+    ],
+    mapCoordinates: { lat: -1.286389, lng: 36.817223 },
+    mapZoom: 11,
+    included: [
+      "Return air ticket Entebbe–Nairobi–Entebbe (economy)",
+      "3 nights accommodation at Marksy Apartments, Mirema Road, Roysambu",
+      "Daily breakfast",
+      "Private transport with driver",
+      "All activities mentioned in the itinerary",
+      "Museum and park fees",
+      "Airport transfers both sides",
+    ],
+    excluded: [
+      "Travel documents (passport, Kenya eTA or visa, and similar)",
+      "Activities not mentioned or optional",
+      "Tips",
+      "Personal shopping",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival, Nairobi city tour & Garden City Mall",
+        description:
+          "Arrive at Jomo Kenyatta International Airport. Meet and greet by the driver-guide and transfer to Marksy Apartments, Mirema Road (about 1 hour from JKIA). Check in and freshen up, then a Nairobi city tour: KICC rooftop (27th floor city view, entry included), Parliament Buildings and Mausoleum (drive-through and photo stop, about 15 minutes), August 7th Memorial Park (about 15 minutes), Kenya National Archives and City Market / Maasai Market, and a CBD drive along Moi Avenue, Kenyatta Avenue, and Holy Family Basilica. Continue to Garden City Mall for shopping at Carrefour and Woolworths, window shopping, coffee at Java House or Artcaffe, the Garden City Water Park view, and a walk around Garden City Business Park and Residences. Transfer back to Marksy Apartments (about 15 minutes) for overnight. Lunch and dinner are extra.",
+        accommodation: "Marksy Apartments, Mirema Road, Roysambu",
+        meals: "Breakfast",
+      },
+      {
+        day: 2,
+        title: "Museum of Illusions & Two Rivers Mall",
+        description:
+          "After early breakfast, transfer to the Museum of Illusions: Vortex Tunnel, Infinity Room, Upside Down Room, Ames Room, Head on Platter, gravity-defying rooms, 60+ illusion exhibits, and professional photos by staff. Continue to Two Rivers for the Ferris Wheel (Nairobi and Kiambu views), flume ride / water splash boat ride, walking paths on Two Rivers Bridge and the riverfront, dancing fountain, and photos. Time at Two Rivers Mall for lunch at your own account. Return to the hotel to refresh and relax. Dinner is extra.",
+        accommodation: "Marksy Apartments, Mirema Road, Roysambu",
+        meals: "Breakfast",
+      },
+      {
+        day: 3,
+        title: "Giraffe Centre, Stedmark Gardens & Two Rivers evening",
+        description:
+          "After breakfast, transfer to the Giraffe Centre in Karen: feed Rothschild giraffes, conservation briefing, nature trail, gift shop, and photos. Continue to Stedmark Hotel / Garden & Recreation Centre, Gigiri. Activities include boat riding on the man-made lake, horse riding / camel riding, heated swimming pool, animal watching, play area and ride on the floating house, quad bikes, zip line, archery, bouncing castle, kids play park, and time in the gardens. Lunch and dinner are extra. Short drive to Two Rivers Mall for an evening visit, last-minute shopping, night lights and fountain show, then transfer back to the hotel.",
+        accommodation: "Marksy Apartments, Mirema Road, Roysambu",
+        meals: "Breakfast",
+      },
+      {
+        day: 4,
+        title: "Breakfast & departure",
+        description:
+          "After breakfast, pack, check out, and transfer to JKIA for the flight to Entebbe. End of tour.",
+        meals: "Breakfast",
+      },
+    ],
+    accommodation: "Marksy Apartments, Mirema Road, Roysambu (3 nights)",
+    transport: "Private transport with driver",
+    importantInfo: [
+      "Economy return flights Entebbe–Nairobi–Entebbe are included — dates are confirmed at booking",
+      "Marksy Apartments is about 1 hour from JKIA and about 15 minutes from Garden City Mall",
+      "Travel documents are not included; most visitors need a Kenya eTA or visa",
+      "Stedmark and mall timings follow each venue's opening hours",
+    ],
+    bookingRequirements: [
+      "Valid passport (6+ months validity)",
+      "Kenya eTA or visa as applicable (not included)",
+      "Travel insurance strongly recommended",
+    ],
+    cancellationPolicy:
+      "Deposit refundable up to 45 days before departure minus admin fees. Cancellations within 45 days may forfeit deposit; full terms provided at booking. Airfare is subject to airline rules once tickets are issued.",
+    partialPaymentPercent: 30,
+    featured: true,
+    categories: ["culture", "adventure", "nature"],
   },
   {
     id: "tanzania-serengeti",

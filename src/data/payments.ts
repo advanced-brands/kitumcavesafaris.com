@@ -12,7 +12,7 @@ export const paymentMethods: PaymentMethod[] = [
     id: "card",
     name: "Visa / Mastercard",
     description:
-      "Card checkout via Flutterwave will go live when merchant keys are on the server. Until then, tell us this preference and we send a payment link or instructions.",
+      "Card payments are arranged with our team. Online checkout is being set up; until then we send a payment link or instructions after you inquire.",
     icon: "card",
     forLocal: true,
     forInternational: true,
@@ -39,17 +39,9 @@ export const paymentMethods: PaymentMethod[] = [
     id: "international",
     name: "International Payments",
     description:
-      "Flutterwave (USD/EUR) once the owner’s gateway is connected. Until then, international transfers as confirmed in writing.",
+      "USD and other currencies as confirmed in writing. We send transfer or card-link instructions after you inquire.",
     icon: "international",
     forLocal: false,
     forInternational: true,
   },
 ];
-
-export const bankDetails = {
-  bankName: "[BANK NAME — TO BE ADDED]",
-  accountName: "Kitum Cave Safaris Limited",
-  accountNumber: "[ACCOUNT NUMBER — TO BE ADDED]",
-  swift: "[SWIFT — TO BE ADDED]",
-  currency: "USD / UGX",
-};

@@ -52,7 +52,7 @@ export default function EastAfricaHeroSection() {
               <Star size={14} aria-hidden className="shrink-0 text-brand-terracotta" />
               <span>
                 <strong>{averageRating}/5</strong> from {guestStoryCount}{" "}
-                guest stories
+                guest reviews
               </span>
             </li>
             <li>

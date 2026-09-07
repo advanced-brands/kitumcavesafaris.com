@@ -285,7 +285,7 @@ export default function BookingForm({ pkg }: BookingFormProps) {
 
           {totalAmount === 0 && (
             <p className="text-sm text-brand-charcoal/60 p-4 bg-brand-sand border border-brand-sand-dark">
-              [PACKAGE PRICE — TO BE ADDED] Pricing will be confirmed by our team upon booking.
+              Pricing for this journey is confirmed by our team when you book.
             </p>
           )}
 

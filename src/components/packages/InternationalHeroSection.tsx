@@ -31,9 +31,9 @@ export default function InternationalHeroSection() {
             Journeys beyond East Africa, built around you
           </h1>
           <p className="ea-overlay-hero-lead">
-            Tell us where you want to go — Ethiopia, the Indian Ocean, or
-            further. We design the itinerary, permits, and logistics from
-            Kampala. Published packages will appear here as they are ready.
+            Tell us the country, dates, and how you like to travel. We design
+            the itinerary, permits, and logistics from Kampala. Published
+            packages will appear here as they are ready.
           </p>
 
           <ul className="ea-overlay-hero-trust">

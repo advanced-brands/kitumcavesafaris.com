@@ -42,8 +42,8 @@ export default function PrivacyPage() {
               Payment Processing
             </h2>
             <p className="body-text text-sm">
-              Online payments are processed by third-party payment providers (such
-              as Flutterwave). Those providers may collect and process payment
+              Payments may be processed by third-party providers when online
+              checkout is connected. Those providers collect and process payment
               information under their own privacy policies. Kitum Cave Safaris does
               not store full card numbers on this website.
             </p>

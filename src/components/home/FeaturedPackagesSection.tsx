@@ -38,7 +38,8 @@ const destinations: DestinationCard[] = [
     id: "kenya",
     name: "Kenya",
     eyebrow: "Safaris in",
-    description: "Masai Mara game drives on the golden plains of the great migration country.",
+    description:
+      "Masai Mara game drives, and a Nairobi city break with flights from Entebbe.",
     href: "/packages/east-africa?country=kenya",
     image: "/images/IMG-20260811-WA0029.jpg",
     objectPosition: "70% 42%",

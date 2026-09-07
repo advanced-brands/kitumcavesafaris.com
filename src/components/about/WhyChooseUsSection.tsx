@@ -24,9 +24,9 @@ export default function WhyChooseUsSection() {
             knowledge, reliable logistics, and honest advice.
           </p>
           <p className="body-text">
-            We do not invent credentials. What we offer is careful planning, clear
-            communication, and journeys shaped around how you want to travel — wildlife,
-            culture, adventure, or international discovery.
+            What we offer is careful planning, clear communication, and journeys
+            shaped around how you want to travel — wildlife, culture, adventure,
+            or discovery beyond East Africa.
           </p>
         </ScrollReveal>
 

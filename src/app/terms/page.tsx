@@ -59,13 +59,12 @@ export default function TermsPage() {
                 the above, Kitum Cave Safaris has the right to cancel the booking.
               </p>
               <p>
-                <strong>1.5</strong> Payment can be made online through our
-                secure payment partner (Flutterwave), by bank transfer, or by
-                other methods confirmed in writing before the start of the safari.
-                Card and mobile money options available via Flutterwave may
-                attract processing fees charged by the payment provider; any such
-                fees will be disclosed at checkout where applicable. Traveller
-                cheques are not accepted.
+                <strong>1.5</strong> Payment is arranged with our team by the
+                method we confirm in writing — typically bank transfer, mobile
+                money, or a card link when that option is available. Online card
+                checkout on this website is being set up. Any processing fees
+                charged by a payment provider will be disclosed before you pay.
+                Traveller cheques are not accepted.
               </p>
               <p>
                 <strong>1.6</strong> The costs of international bank transfers and
