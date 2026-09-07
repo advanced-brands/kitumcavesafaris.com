@@ -6,6 +6,7 @@ import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
 import AIAssistant from "@/components/layout/AIAssistant";
+import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import { siteConfig } from "@/data/packages";
 import { canonicalUrl } from "@/lib/seo";
 
@@ -83,6 +84,7 @@ export default function RootLayout({
         <Footer />
         <WhatsAppButton />
         <AIAssistant />
+        <GoogleAnalytics />
       </body>
     </html>
   );

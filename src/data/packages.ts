@@ -4,6 +4,7 @@ export const siteConfig = {
   description:
     "Curated travel experiences across Uganda, East Africa, and beyond. Authentic journeys crafted with local knowledge and premium care.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://kitumcavesafaris.com",
+  gaMeasurementId: process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-8Y7QK4NGQK",
   email: "info@kitumcavesafaris.com",
   phone: "0705940988",
   whatsapp: "256705940988",

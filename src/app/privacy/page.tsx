@@ -40,6 +40,21 @@ export default function PrivacyPage() {
 
           <section>
             <h2 className="heading-sub text-brand-forest mb-4">
+              Website visitor statistics
+            </h2>
+            <p className="body-text text-sm">
+              We use Google Analytics to understand how visitors use this
+              website — for example which pages are opened, roughly where
+              visitors come from, and what device they use. Google processes
+              that data under its own privacy policy. You can refuse analytics
+              cookies in your browser settings. This is separate from the name,
+              email, and trip details you send us on purpose through WhatsApp,
+              email, or our inquiry forms.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="heading-sub text-brand-forest mb-4">
               Payment Processing
             </h2>
             <p className="body-text text-sm">
