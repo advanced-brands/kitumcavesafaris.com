@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Clock, MapPin, Check, X, Calendar, Luggage, Sun } from "lucide-react";
 import { getPackageBySlug, packages, whatsappTripUrl } from "@/data/packages";
+import { pageSeo } from "@/lib/seo";
 import { getReviewsForPackage } from "@/data/reviews";
 import { formatCurrency } from "@/lib/utils";
 import DestinationMap from "@/components/maps/DestinationMap";
@@ -25,15 +26,12 @@ export async function generateMetadata({
   const { slug } = await params;
   const pkg = getPackageBySlug(slug);
   if (!pkg) return { title: "Package Not Found" };
-  return {
+  return pageSeo({
     title: `${pkg.name} | ${pkg.country} · ${pkg.duration}`,
     description: pkg.shortDescription,
-    openGraph: {
-      title: `${pkg.name} | ${pkg.country}`,
-      description: pkg.shortDescription,
-      images: [{ url: pkg.heroImage }],
-    },
-  };
+    path: `/packages/${slug}/`,
+    image: pkg.heroImage,
+  });
 }
 
 export default async function PackageDetailPage({

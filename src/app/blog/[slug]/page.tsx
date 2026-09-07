@@ -11,6 +11,7 @@ import BlogCard from "@/components/blog/BlogCard";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { siteConfig } from "@/data/packages";
 import { formatBlogDate } from "@/lib/format-date";
+import { pageSeo } from "@/lib/seo";
 
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
@@ -24,16 +25,13 @@ export async function generateMetadata({
   const { slug } = await params;
   const post = getBlogPostBySlug(slug);
   if (!post) return { title: "Article Not Found" };
-  return {
+  return pageSeo({
     title: post.title,
     description: post.excerpt,
-    openGraph: {
-      title: post.title,
-      description: post.excerpt,
-      images: [{ url: post.featuredImage }],
-      type: "article",
-    },
-  };
+    path: `/blog/${slug}/`,
+    image: post.featuredImage,
+    ogType: "article",
+  });
 }
 
 function renderContent(content: string) {

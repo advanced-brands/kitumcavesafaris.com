@@ -1,13 +1,15 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { siteConfig } from "@/data/packages";
 import WhyChooseUsSection from "@/components/about/WhyChooseUsSection";
 import TeamSection from "@/components/about/TeamSection";
-export const metadata: Metadata = {
+import { pageSeo } from "@/lib/seo";
+
+export const metadata = pageSeo({
   title: "About Us",
   description:
     "Meet the team behind Kitum Cave Safaris — a Uganda-based travel company crafting journeys across East Africa and beyond.",
-};
+  path: "/about/",
+});
 
 export default function AboutPage() {
   return (

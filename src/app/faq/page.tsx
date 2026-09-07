@@ -1,13 +1,14 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { siteConfig } from "@/data/packages";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import { pageSeo } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageSeo({
   title: "FAQs",
   description:
     "Frequently asked questions about booking, payments, gorilla trekking, and traveling with Kitum Cave Safaris.",
-};
+  path: "/faq/",
+});
 
 const faqs = [
   {

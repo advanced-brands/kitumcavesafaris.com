@@ -1,12 +1,13 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { siteConfig } from "@/data/packages";
+import { pageSeo } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageSeo({
   title: "Privacy Policy",
   description:
     "How Kitum Cave Safaris Limited collects, uses, and protects your information.",
-};
+  path: "/privacy/",
+});
 
 export default function PrivacyPage() {
   return (

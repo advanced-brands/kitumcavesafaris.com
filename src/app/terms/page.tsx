@@ -1,12 +1,13 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { siteConfig } from "@/data/packages";
+import { pageSeo } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageSeo({
   title: "Terms & Conditions",
   description:
     "Terms and conditions for booking travel experiences with Kitum Cave Safaris Limited.",
-};
+  path: "/terms/",
+});
 
 export default function TermsPage() {
   return (

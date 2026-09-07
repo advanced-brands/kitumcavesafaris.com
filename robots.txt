@@ -1,4 +1,6 @@
 User-Agent: *
 Allow: /
+Disallow: /book/
+Disallow: /booking/
 
 Sitemap: https://kitumcavesafaris.com/sitemap.xml

@@ -7,6 +7,7 @@ import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
 import AIAssistant from "@/components/layout/AIAssistant";
 import { siteConfig } from "@/data/packages";
+import { canonicalUrl } from "@/lib/seo";
 
 const bebasNeue = Bebas_Neue({
   subsets: ["latin"],
@@ -29,13 +30,16 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
+const homeUrl = canonicalUrl("/");
+
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
+  metadataBase: new URL(homeUrl),
   title: {
     default: `${siteConfig.name} | Premium Travel Experiences in East Africa`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  alternates: { canonical: homeUrl },
   keywords: [
     "Uganda safaris",
     "East Africa travel",
@@ -48,7 +52,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: siteConfig.url,
+    url: homeUrl,
     siteName: siteConfig.name,
     title: siteConfig.name,
     description: siteConfig.description,
