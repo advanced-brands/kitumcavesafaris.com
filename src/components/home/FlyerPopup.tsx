@@ -115,7 +115,7 @@ export default function FlyerPopup() {
                 alt={`${pkg.name} — ${current.dates}`}
                 fill
                 className="object-contain"
-                sizes="(max-width: 520px) 92vw, 420px"
+                sizes="(max-width: 767px) 92vw, 480px"
                 priority
               />
             </motion.button>

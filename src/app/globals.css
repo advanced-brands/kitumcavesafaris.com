@@ -286,7 +286,11 @@
     z-index: 120;
     display: grid;
     place-items: center;
-    padding: 1rem;
+    padding:
+      max(0.5rem, env(safe-area-inset-top))
+      max(0.75rem, env(safe-area-inset-right))
+      max(0.75rem, env(safe-area-inset-bottom))
+      max(0.75rem, env(safe-area-inset-left));
   }
 
   .flyer-popup-backdrop {
@@ -302,24 +306,26 @@
     z-index: 1;
     display: flex;
     width: min(100%, 28rem);
+    max-height: calc(100dvh - 1.25rem);
     flex-direction: column;
     align-items: center;
-    gap: 0.75rem;
-    padding: 1.15rem 1rem 1.2rem;
+    gap: 0.65rem;
+    padding: 2.5rem 0.85rem 0.9rem;
+    overflow: hidden;
     background: #faf7f2;
     box-shadow: 0 28px 70px rgb(15 36 25 / 0.4);
   }
 
   .flyer-popup-close {
     position: absolute;
-    top: 0.55rem;
-    right: 0.55rem;
+    top: 0.45rem;
+    right: 0.45rem;
     z-index: 2;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 2.15rem;
-    height: 2.15rem;
+    width: 2.75rem;
+    height: 2.75rem;
     border: 0;
     background: #1b3d2f;
     color: #faf7f2;
@@ -331,7 +337,8 @@
   }
 
   .flyer-popup-kicker {
-    margin: 0.15rem 0 0;
+    margin: 0;
+    padding-right: 2.2rem;
     font-size: 0.68rem;
     font-weight: 600;
     letter-spacing: 0.18em;
@@ -341,6 +348,8 @@
 
   .flyer-popup-stage {
     width: 100%;
+    min-height: 0;
+    flex: 1 1 auto;
     perspective: 1400px;
   }
 
@@ -348,7 +357,9 @@
     position: relative;
     display: block;
     width: 100%;
-    height: min(68vh, 34rem);
+    height: min(58dvh, 34rem);
+    max-height: 100%;
+    min-height: 12rem;
     padding: 0;
     border: 0;
     background: #efe8dc;
@@ -359,17 +370,19 @@
 
   .flyer-popup-meta {
     margin: 0;
+    flex-shrink: 0;
     text-align: center;
     font-family: var(--font-cormorant), Georgia, serif;
-    font-size: 1.05rem;
+    font-size: clamp(0.95rem, 2.6vw, 1.1rem);
     color: #1b3d2f;
   }
 
   .flyer-popup-book {
     display: inline-flex;
+    flex-shrink: 0;
     align-items: center;
     justify-content: center;
-    min-height: 2.7rem;
+    min-height: 2.85rem;
     width: 100%;
     max-width: 16rem;
     padding: 0.6rem 1.2rem;
@@ -385,6 +398,40 @@
 
   .flyer-popup-book:hover {
     background: #a05e42;
+  }
+
+  @media (min-width: 768px) {
+    .flyer-popup-panel {
+      width: min(100%, 30rem);
+      padding: 2.6rem 1.15rem 1.15rem;
+      gap: 0.75rem;
+    }
+
+    .flyer-popup-card {
+      height: min(64dvh, 36rem);
+    }
+
+    .flyer-popup-close {
+      width: 2.35rem;
+      height: 2.35rem;
+    }
+  }
+
+  @media (max-height: 520px) {
+    .flyer-popup-panel {
+      max-height: calc(100dvh - 0.75rem);
+      padding-top: 2.35rem;
+      gap: 0.45rem;
+    }
+
+    .flyer-popup-card {
+      height: min(48dvh, 22rem);
+      min-height: 9rem;
+    }
+
+    .flyer-popup-book {
+      min-height: 2.5rem;
+    }
   }
 
   .packages-capsules-section {
