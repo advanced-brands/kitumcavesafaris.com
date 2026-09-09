@@ -15,6 +15,7 @@ import ReviewsCarousel from "@/components/reviews/ReviewsCarousel";
 import HeroSection from "@/components/home/HeroSection";
 import JourneySearchBar from "@/components/home/JourneySearchBar";
 import WhoWeAreSection from "@/components/home/WhoWeAreSection";
+import FlyerPopup from "@/components/home/FlyerPopup";
 import ExperiencesSection from "@/components/home/ExperiencesSection";
 
 export default function HomePage() {
@@ -23,6 +24,7 @@ export default function HomePage() {
 
   return (
     <>
+      <FlyerPopup />
       <HeroSection />
       <JourneySearchBar />
       <WhoWeAreSection />

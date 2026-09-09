@@ -280,6 +280,113 @@
     animation: heroKenBurns 12s ease-in-out forwards;
   }
 
+  .flyer-popup {
+    position: fixed;
+    inset: 0;
+    z-index: 120;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+  }
+
+  .flyer-popup-backdrop {
+    position: absolute;
+    inset: 0;
+    border: 0;
+    background: rgb(15 36 25 / 0.62);
+    cursor: pointer;
+  }
+
+  .flyer-popup-panel {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    width: min(100%, 28rem);
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.15rem 1rem 1.2rem;
+    background: #faf7f2;
+    box-shadow: 0 28px 70px rgb(15 36 25 / 0.4);
+  }
+
+  .flyer-popup-close {
+    position: absolute;
+    top: 0.55rem;
+    right: 0.55rem;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.15rem;
+    height: 2.15rem;
+    border: 0;
+    background: #1b3d2f;
+    color: #faf7f2;
+    cursor: pointer;
+  }
+
+  .flyer-popup-close:hover {
+    background: #c4785a;
+  }
+
+  .flyer-popup-kicker {
+    margin: 0.15rem 0 0;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #c4785a;
+  }
+
+  .flyer-popup-stage {
+    width: 100%;
+    perspective: 1400px;
+  }
+
+  .flyer-popup-card {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: min(68vh, 34rem);
+    padding: 0;
+    border: 0;
+    background: #efe8dc;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+  }
+
+  .flyer-popup-meta {
+    margin: 0;
+    text-align: center;
+    font-family: var(--font-cormorant), Georgia, serif;
+    font-size: 1.05rem;
+    color: #1b3d2f;
+  }
+
+  .flyer-popup-book {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.7rem;
+    width: 100%;
+    max-width: 16rem;
+    padding: 0.6rem 1.2rem;
+    background: #c4785a;
+    color: #faf7f2;
+    font-family: var(--font-dm-sans), system-ui, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .flyer-popup-book:hover {
+    background: #a05e42;
+  }
+
   .packages-capsules-section {
     background: #faf7f2;
     padding-top: clamp(2.5rem, 6vw, 4.5rem);
