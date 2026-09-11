@@ -48,39 +48,45 @@ export default async function PackageDetailPage({
       ? Math.round(pkg.price * (pkg.partialPaymentPercent / 100))
       : 0;
   const packageReviews = getReviewsForPackage(slug);
+  const galleryImages = [...(pkg.flyerImages ?? []), ...pkg.galleryImages];
+  const packageHeroImage = pkg.flyerImages?.[0] ?? pkg.heroImage;
 
   return (
     <>
       {/* Hero */}
       <section className="relative h-[60vh] min-h-[400px] max-h-[700px]">
         <Image
-          src={pkg.heroImage}
+          src={packageHeroImage}
           alt={pkg.name}
           fill
-          className="object-cover"
+          className={pkg.flyerImages?.length ? "object-contain bg-brand-forest" : "object-cover"}
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-t from-brand-forest/90 via-brand-forest/40 to-brand-forest/20" />
         <div className="absolute bottom-0 left-0 right-0 section-padding pb-12 md:pb-16">
           <div className="max-w-[1600px] mx-auto">
-            <p className="label-text !text-brand-terracotta-light mb-3">
-              {pkg.country} &middot; {pkg.travelType}
-            </p>
-            <h1 className="heading-display text-white mb-4">{pkg.name}</h1>
-            <div className="flex flex-wrap items-center gap-6 text-white/80 text-sm">
-              <span className="flex items-center gap-2">
-                <MapPin size={16} />
-                {pkg.destination}
-              </span>
-              <span className="flex items-center gap-2">
-                <Clock size={16} />
-                {pkg.duration}
-              </span>
-              {pkg.price > 0 && (
-                <span className="font-serif text-2xl text-brand-terracotta-light">
-                  {formatCurrency(pkg.price, pkg.currency)}
-                </span>
-              )}
+            <div className="flex items-end justify-between gap-8">
+              <div>
+                <p className="label-text !text-brand-terracotta-light mb-3">
+                  {pkg.country} &middot; {pkg.travelType}
+                </p>
+                <h1 className="heading-display text-white mb-4">{pkg.name}</h1>
+                <div className="flex flex-wrap items-center gap-6 text-white/80 text-sm">
+                  <span className="flex items-center gap-2">
+                    <MapPin size={16} />
+                    {pkg.destination}
+                  </span>
+                  <span className="flex items-center gap-2">
+                    <Clock size={16} />
+                    {pkg.duration}
+                  </span>
+                  {pkg.price > 0 && (
+                    <span className="font-serif text-2xl text-brand-terracotta-light">
+                      {formatCurrency(pkg.price, pkg.currency)}
+                    </span>
+                  )}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -255,22 +261,25 @@ export default async function PackageDetailPage({
             <h2 className="heading-section text-white">Destination Gallery</h2>
           </ScrollReveal>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-            {pkg.galleryImages.map((img, i) => (
-              <ScrollReveal key={img} delay={i * 80}>
+            {galleryImages.map((img, i) => {
+              const isFlyer = pkg.flyerImages?.includes(img) ?? false;
+              return (
+              <ScrollReveal key={`${img}-${i}`} delay={i * 80}>
                 <div
                   className={`relative overflow-hidden ${
                     i === 0 ? "col-span-2 row-span-2 aspect-square" : "aspect-square"
-                  }`}
+                  } ${isFlyer ? "bg-brand-sand/10" : ""}`}
                 >
                   <Image
                     src={img}
-                    alt={`${pkg.name} - image ${i + 1}`}
+                    alt={isFlyer ? `${pkg.name} departure flyer ${i + 1}` : `${pkg.name} - image ${i + 1}`}
                     fill
-                    className="object-cover hover:scale-105 transition-transform duration-700"
+                    className={`${isFlyer ? "object-contain" : "object-cover"} hover:scale-105 transition-transform duration-700`}
                   />
                 </div>
               </ScrollReveal>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

@@ -69,6 +69,7 @@ export type Package = {
   whatToBring: string[];
   faqs: PackageFaq[];
   heroImage: string;
+  flyerImages?: string[];
   galleryImages: string[];
   mapCoordinates: { lat: number; lng: number };
   mapZoom: number;
@@ -518,10 +519,10 @@ const packagesSource: Package[] = [
     region: "east-africa",
     duration: "4 Days / 3 Nights",
     durationDays: 4,
-    price: 734,
+    price: 700,
     currency: "USD",
     priceNote:
-      "Per person. Quoted at USD 734 (UGX 2,750,000). Includes economy flights Entebbe–Nairobi–Entebbe. Breakfast included; lunch and dinner extra.",
+      "Per person. Quoted at USD 700. Includes economy flights Entebbe–Nairobi–Entebbe. Breakfast included; lunch and dinner extra.",
     shortDescription:
       "A Nairobi city break from Entebbe: CBD landmarks, Garden City and Two Rivers malls, the Museum of Illusions, Giraffe Centre, and Stedmark Gardens — with flights and Marksy Apartments included.",
     fullDescription:
@@ -558,6 +559,10 @@ const packagesSource: Package[] = [
       ...defaultFaqs.slice(0, 1),
     ],
     heroImage: "/images/IMG-20260811-WA0026.jpg",
+    flyerImages: [
+      "/images/flyers/nairobi-17-20-dec-2026-a.png",
+      "/images/flyers/nairobi-17-20-dec-2026-b.png",
+    ],
     galleryImages: [
       "/images/IMG-20260811-WA0026.jpg",
       "/images/IMG-20260811-WA0035.jpg",
@@ -787,6 +792,10 @@ const packagesSource: Package[] = [
       ...defaultFaqs.slice(0, 1),
     ],
     heroImage: "/images/IMG-20260811-WA0012.jpg",
+    flyerImages: [
+      "/images/flyers/zanzibar-30-dec-3-jan-a.png",
+      "/images/flyers/zanzibar-30-dec-3-jan-b.png",
+    ],
     galleryImages: [
       "/images/IMG-20260811-WA0012.jpg",
       "/images/IMG-20260811-WA0015.jpg",

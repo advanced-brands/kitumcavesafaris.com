@@ -10,6 +10,8 @@ type PackageCardProps = {
 };
 
 export default function PackageCard({ pkg, variant = "default" }: PackageCardProps) {
+  const cardImage = pkg.flyerImages?.[0] ?? pkg.heroImage;
+
   if (variant === "compact") {
     return (
       <Link
@@ -18,7 +20,7 @@ export default function PackageCard({ pkg, variant = "default" }: PackageCardPro
       >
         <div className="relative w-24 h-24 shrink-0 overflow-hidden">
           <Image
-            src={pkg.heroImage}
+            src={cardImage}
             alt={pkg.name}
             fill
             className="object-cover transition-transform duration-500 [transition-timing-function:cubic-bezier(0.33,1,0.68,1)] group-hover:scale-[1.02]"
@@ -45,7 +47,7 @@ export default function PackageCard({ pkg, variant = "default" }: PackageCardPro
     >
       <div className="relative aspect-[4/3] overflow-hidden">
         <Image
-          src={pkg.heroImage}
+          src={cardImage}
           alt={pkg.name}
           fill
           className="object-cover transition-transform duration-500 [transition-timing-function:cubic-bezier(0.33,1,0.68,1)] group-hover:scale-[1.02]"
